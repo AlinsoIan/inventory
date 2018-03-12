@@ -12,7 +12,7 @@
                     <th>ACCT-SN</th>
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
-                    <th>UOM</th>
+                    <th>UNIT</th>
                     <th>BRAND</th>
                     <th style="width: 10px">STARTING QUANTITY</th>
                     <th>UNIT COST</th>
@@ -22,17 +22,17 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input name="acct"  class="form-control" type="text" required style="width:70px;">
+                                <input name="acct"  class="form-control" type="text" required style="width:120px;">
 
                             </td>
                             <td>
-                                <input type="text " name = "pgso" class="form-control" required style="width:70px;">
+                                <input type="text " name = "pgso" class="form-control" required style="width:120px;">
                             </td>
                             <td>
                                 <input type="text"  name = "description" class="form-control" style="width:350px;">
                             </td>
                             <td>
-                                <select class="form-control" name="unit">
+                                <select class="form-control" name="unit" style="width:100px">
                                     <?php
                                     require '../../db.php';
                                     $sql = "SELECT units FROM units";
@@ -47,16 +47,16 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text"  name = "brand" style="width:70px;" class="form-control">
+                                <input type="text"  name = "brand" style="width:120px;" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:70px;" id = "quantity"  name = "sQuantity" class="form-control">
+                                <input type="number"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:70px;" id = "quantity2"  name = "unitCost" class="form-control">
+                                <input type="number"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control">
                             </td>
                             <td>
-                                <select class="form-control" name="supplier">
+                                <select class="form-control" name="supplier" style="width: 150px">
                                     <?php
                                     require '../../db.php';
                                     $sql = "SELECT supplierName FROM suppliers";
@@ -100,9 +100,3 @@
     </div>
 </div>
 </div>
-
-
-
-
-
-
