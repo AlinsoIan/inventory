@@ -28,7 +28,7 @@
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-red">
+<body class="theme-blue">
 
 
 <!-- Top Bar -->
@@ -217,7 +217,7 @@
                         <h2 class="text-center">ISSUANCES</h2>
                     </div>
                     <div class="body">
-                        <div class="sparkline" data-type="bar" data-width="100%" data-height="150px" data-bar-Width="60" data-bar-Spacing="20" data-bar-Color="rgb(0, 188, 212)">
+                        <div class="sparkline" data-type="bar" data-width="100%" data-height="150px" data-bar-Width="60" data-bar-Spacing="20" data-bar-Color="rgb(100, 115, 130)">
                             1,2,3,4,5,6,7,8,9,10,11,12
                         </div>
 
@@ -233,7 +233,7 @@
         <!-- Widgets -->
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-red hover-expand-effect">
+                <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
                         <a href="items.php"><i class="material-icons">shopping_cart</i></a>
                     </div>
@@ -272,7 +272,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
+                <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">remove_shopping_cart</i>
                     </div>
@@ -291,7 +291,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
+                <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">people</i>
                     </div>
@@ -312,7 +312,7 @@
         </div>
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-black hover-expand-effect">
+                <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">autorenew</i>
                     </div>
@@ -331,7 +331,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-yellow hover-expand-effect">
+                <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">store_mall_directory</i>
                     </div>
@@ -350,7 +350,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-blue-grey hover-expand-effect">
+                <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">local_shipping</i>
                     </div>
@@ -369,7 +369,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-brown hover-expand-effect">
+                <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">location_city</i>
                     </div>
