@@ -7,6 +7,7 @@
  */
 
 require '../db.php';
+session_start();
 
 $ti = date('h:i:a');
 
@@ -18,9 +19,11 @@ $fpp = $_POST['fpp'];
 $sai = $_POST['sai'];
 $d = $_POST['d'];
 $t = $_POST['type'];
+$s = $_SESSION['user'];
 
-$sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,timeT,typeT,status) 
-        VALUES ('$division','$office','$responsibility','$fpp','$ris','$sai','$d','$ti','$t','pending')";
+
+$sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,timeT,typeT,status,issuer) 
+        VALUES ('$division','$office','$responsibility','$fpp','$ris','$sai','$d','$ti','$t','pending','$s')";
 
 if(!$conn->query($sql)){
     echo "Error!";

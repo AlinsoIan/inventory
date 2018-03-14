@@ -22,23 +22,23 @@ $Otype = $r[4];
 
 //Data From Edit Profile
 $type = $_POST['type'];
-if(empty($type)){
+if(empty($userType)){
     $type = $Otype;
 }
 $pass = $_POST['pass'];
-if($pass == ""){
+if(empty($pass)){
     $pass = $Opass;
 }
 $user = $_POST['username'];
-if($user == ""){
+if(empty($user)){
     $user = $Ouser;
 }
-$first = $_POST['first'];
-if($first == ""){
+$first = $_POST['firstName'];
+if(empty($first)){
     $first = $Ofirst;
 }
-$last = $_POST['last'];
-if($last == ""){
+$last = $_POST['lastName'];
+if(empty($last)){
     $last = $Olast;
 }
 
@@ -46,13 +46,13 @@ $sql = "UPDATE accounts SET firstName = '$first',lastName = '$last',username = '
       WHERE id = '$id'";
 
 if($conn->query($sql)){
+
             header('Location:../../admin/accounts.php');
+
 }else{
     $m = "Error! Contact Administrator!";
-    die($conn->error);
 
     echo "<script type='text/javascript'>
-        
             alert('$m');
             window.location.replace('../../admin/accounts.php');
         </script>";

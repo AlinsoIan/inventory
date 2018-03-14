@@ -14,7 +14,7 @@ session_start();
 $user = $_POST['username'];
 $pass = $_POST['password'];
 
-$sql = "SELECT firstName,lastName,userType FROM accounts WHERE username = ? && password = ?";
+$sql = "SELECT firstName,lastName,userType,id FROM accounts WHERE username = ? && password = ?";
 
 $st = $conn->prepare($sql);
 $st->bind_param('ss',$user,$pass);
@@ -34,6 +34,7 @@ if($res->num_rows > 0){
     $_SESSION['type'] = $r[2];
     $_SESSION['username'] = $user;
     $_SESSION['full'] = strtoupper($r[1] . " " . $r[0]);
+    $_SESSION['user'] = $r[3];
 
     if($r[2]=="admin") {
         header('Location:../admin/dashboard.php');

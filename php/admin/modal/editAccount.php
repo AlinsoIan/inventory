@@ -62,7 +62,7 @@
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
-                            echo "<input name='rc' class='form-control' value='" .$r[0] . "' type='text' required>";
+                            echo "<input name='pass' class='form-control' value='" .$r[0] . "' type='text' required>";
                             ?>
                         </td>
                         <td>
