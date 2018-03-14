@@ -18,13 +18,12 @@ if($_SESSION['type'] == "user"){
 }
 ?>
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Items: Category 4</title>
+    <title>Inventory: Category 3</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -70,7 +69,6 @@ if($_SESSION['type'] == "user"){
     </div>
 </div>
 <!-- #END# Page Loader -->
-
 <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -138,7 +136,7 @@ if($_SESSION['type'] == "user"){
                             <span>PPMP</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Items</span>
@@ -150,24 +148,48 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="two.php"><strong>Category 2</strong></a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="three.php"><strong>Category 3</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="four.php"><strong>Category 4</strong></a>
                             </li>
-                            <li>
+                            <li >
                                 <a href="five.php"><strong>Category 5</strong></a>
                             </li>
 
                         </ul>
                     </li>
+                    <li class="active">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li class="active">
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+
+                    </ul>
+                </li>
 						<li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>r
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
                     <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
@@ -210,22 +232,19 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="offices.php">Offices</a>
                             </li>
-                         <li>
+                        <li>
                                 <a href="contingency.php">Contingency</a>
 							</li>
                         </ul>
                     </li>
-
+				</ul>
 
             </div>
             <!-- #Menu -->
 
         </aside>
         <!-- #END# Left Sidebar -->
-
     </section>
-        <!-- #END# Left Sidebar -->
-
         <!-- Modal for Add Item -->
         <div class="modal col-lg-12" id="addItem" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
@@ -258,59 +277,55 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 4: Office Supplies w/ ICS</h2>
+                            <h2 class="text-center">Category 3: Janitorial Supplies</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                    <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Supplier</th>
-                                        <th>Settings</th>
-                                    </tr>
-                                    </thead>
+                         <div class="body">
+                             <div class="table-responsive">
+                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                     <thead>
+                                     <tr>
+                                         <th>Item</th>
+                                         <th>Logical Count</th>
+                                         <th>Physical Count</th>
+                                         <th>Difference</th>
+                                         <th>Brand</th>
+                                         <th>Settings</th>
+                                     </tr>
+                                     </thead>
 
-                                    <tbody>
-                                    <?php
-                                    require '../php/db.php';
+                                     <tbody>
+                                     <?php
+                                     require '../php/db.php';
 
-                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                     $_SESSION['cat']= "01";
 
-                                    $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '4'";
-                                    $res = $conn->query($sql);
+                                     $sql = "SELECT * FROM items WHERE category = '3'";
+                                     $res = $conn->query($sql);
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
-                                                . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
+                                     if($res){
+                                         while($row = $res->fetch_assoc()){
+                                             echo "<tr>"
+                                                 . "<td>" . $row['description'] ."</td>"
+                                                 . "<td>" . $row['startingQuantity'] ."</td>"
+                                                 . "<td>" . $row['physicalCount'] ."</td>";
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
-                                            echo "</tr>";
-                                        }
+                                             $dif = $row['startingQuantity'] - $row['physicalCount'];
 
-                                    }
+                                             echo  "<td>" . $dif ."</td>"
+                                                 . "<td>" . $row['brand'] .  "</td>"
 
-                                    ?>
-                                    </tbody>
-                                </table>
-                                <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
-                            </div>
+                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                             echo "</tr>";
+                                         }
+
+                                     }
+
+                                     ?>
+                                     </tbody>
+                                 </table>
+                                 <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -327,9 +342,6 @@ if($_SESSION['type'] == "user"){
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

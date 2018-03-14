@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Items: Category 4</title>
+    <title>Issuance</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -102,6 +102,7 @@ if($_SESSION['type'] == "user"){
                         ?>
                     </h3>
                 </li>
+
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -138,7 +139,7 @@ if($_SESSION['type'] == "user"){
                             <span>PPMP</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Items</span>
@@ -153,21 +154,21 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="three.php"><strong>Category 3</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="four.php"><strong>Category 4</strong></a>
                             </li>
-                            <li>
+                            <li >
                                 <a href="five.php"><strong>Category 5</strong></a>
                             </li>
 
                         </ul>
                     </li>
 						<li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>r
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
                     <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
@@ -201,49 +202,48 @@ if($_SESSION['type'] == "user"){
                         </ul>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">pie_chart</i>
                             <span>Settings</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="active">
                                 <a href="offices.php">Offices</a>
                             </li>
-                         <li>
+                    <li>
                                 <a href="contingency.php">Contingency</a>
 							</li>
                         </ul>
                     </li>
-
+				</ul>
 
             </div>
             <!-- #Menu -->
 
         </aside>
         <!-- #END# Left Sidebar -->
-
     </section>
         <!-- #END# Left Sidebar -->
 
-        <!-- Modal for Add Item -->
-        <div class="modal col-lg-12" id="addItem" data-backdrop="static">
+        <!-- Modal for Add Office -->
+        <div class="modal col-lg-12" id="addOffice" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
                 <div class="modal-content">
                 </div>
             </div>
         </div>
 
-        <!-- Modal for Edit Items -->
-    <div class="modal col-lg-12" id="editItems" data-backdrop="static">
+        <!-- Modal for Edit Office -->
+    <div class="modal col-lg-12" id="editOffice" data-backdrop="static">
         <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
             </div>
         </div>
     </div>
 
-    <!-- Modal for Delete Items -->
-    <div class="modal col-lg-12" id="deleteItem" data-backdrop="static">
+    <!-- Modal for Delete Office -->
+    <div class="modal col-lg-12" id="deleteOffice" data-backdrop="static">
         <div class="modal-dialog" style="width:20%;">
             <div class="modal-content">
             </div>
@@ -258,58 +258,43 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 4: Office Supplies w/ ICS</h2>
+                            <h2 class="text-center">Offices</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example ">
                                     <thead>
-                                    <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Supplier</th>
-                                        <th>Settings</th>
-                                    </tr>
+                                        <tr>
+                                            <th>Office</th>
+                                            <th>Abbr</th>
+                                            <th>Fpp</th>
+                                            <th>RC</th>
+                                            <th>Settings</th>
+                                        </tr>
                                     </thead>
-
                                     <tbody>
                                     <?php
-                                    require '../php/db.php';
+                                        require '../php/db.php';
 
-                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $sql = "SELECT * FROM offices";
+                                        $res = $conn->query($sql);
 
-                                    $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '4'";
-                                    $res = $conn->query($sql);
-
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
-                                                . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
-
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
-                                            echo "</tr>";
+                                        if($res){
+                                            while ($row = $res->fetch_assoc()){
+                                                echo  "<tr>";
+                                                echo "<td width='40%'>" . $row['office'] . "</td>";
+                                                echo "<td>" . $row['abbr'] . "</td>";
+                                                echo "<td>" . $row['fpp'] . "</td>";
+                                                echo "<td>" . $row['responsibility'] . "</td>";
+                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
+                                                echo "</tr>";
+                                            }
                                         }
-
-                                    }
 
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                                <a href="../php/admin/modal/addOffice.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addOffice">Add Office</a>
                             </div>
                         </div>
                     </div>
@@ -327,9 +312,6 @@ if($_SESSION['type'] == "user"){
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
@@ -351,7 +333,7 @@ if($_SESSION['type'] == "user"){
 
     <script src="../js/custom.js"></script>
 
-
+	</section>
 
 </body>
 

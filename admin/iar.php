@@ -18,20 +18,19 @@ if($_SESSION['type'] == "user"){
 }
 ?>
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Items: Category 4</title>
+    <title>IAR</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
-    <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -114,7 +113,6 @@ if($_SESSION['type'] == "user"){
                             <span>Accounts</span>
                         </a>
                     </li>
-                    <li>
                         <a href="issuance.php">
                             <i class="material-icons">store_mall_directory</i>
                             <span>Issuance</span>
@@ -138,7 +136,7 @@ if($_SESSION['type'] == "user"){
                             <span>PPMP</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Items</span>
@@ -153,7 +151,7 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="three.php"><strong>Category 3</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="four.php"><strong>Category 4</strong></a>
                             </li>
                             <li>
@@ -162,13 +160,38 @@ if($_SESSION['type'] == "user"){
 
                         </ul>
                     </li>
-						<li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>r
                     <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+
+                    </ul>
+                </li>
+					<li>
+                    <li class="active">
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
+					  <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
                             <span>To-Expire</span>
@@ -226,24 +249,24 @@ if($_SESSION['type'] == "user"){
     </section>
         <!-- #END# Left Sidebar -->
 
-        <!-- Modal for Add Item -->
-        <div class="modal col-lg-12" id="addItem" data-backdrop="static">
+        <!-- Modal for Add Issuance -->
+        <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
                 <div class="modal-content">
                 </div>
             </div>
         </div>
 
-        <!-- Modal for Edit Items -->
-    <div class="modal col-lg-12" id="editItems" data-backdrop="static">
+        <!-- Modal for Edit Issuance -->
+    <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
         <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
             </div>
         </div>
     </div>
 
-    <!-- Modal for Delete Items -->
-    <div class="modal col-lg-12" id="deleteItem" data-backdrop="static">
+    <!-- Modal for Delete Issuance -->
+    <div class="modal col-lg-12" id="deleteIssuance" data-backdrop="static">
         <div class="modal-dialog" style="width:20%;">
             <div class="modal-content">
             </div>
@@ -258,58 +281,78 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 4: Office Supplies w/ ICS</h2>
+                            <h2 class="text-center">Pending Issuances</h2>
+                            <div class="dropdown show">
+                                <a href="issuance.php" class="btn btn-secondary" >
+                                    PENDING
+                                </a>
+                                <a href="issuanceApproved.php" class="btn btn-secondary" >
+                                    APPROVED
+                                </a>
+
+
+                            </div>
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
+                            <div class="body table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Supplier</th>
-                                        <th>Settings</th>
-                                    </tr>
+                                        <tr>
+                                            <th>Division</th>
+                                            <th>Office</th>
+                                            <th>Responsibility Center</th>
+                                            <th>Date/Time</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th>Settings</th>
+                                        </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                    require '../php/db.php';
-
-                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-
-                                    $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '4'";
-                                    $res = $conn->query($sql);
-
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
-                                                . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
-
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
-                                            echo "</tr>";
+                                        $conn = new mysqli("localhost","root","","inventory");
+                                        if(!$conn){
+                                            echo "Error Connecting to database !" . $conn->error;
                                         }
 
-                                    }
+                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+
+                                        $sql = "SELECT * FROM issuance WHERE status = 'pending'";
+                                        $res = $conn->query($sql);
+
+                                        if($res){
+                                            while($row = $res->fetch_assoc()){
+                                                echo "<tr>"
+                                                    . "<td>" . $row['division'] ."</td>"
+                                                    . "<td>" . $row['office'] ."</td>"
+                                                    . "<td>" . $row['responsibility'] ."</td>"
+                                                    . "<td>" . $row['dateT'] ."</td>"
+                                                    . "<td>" . $row['typeT'] ."</td>"
+                                                    . "<td>" . $row['status'] .  "</td>" 
+
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                echo "</tr>";
+                                            }
+
+                                        }
 
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                                <h2 class="title pull-left">
+                                    <?php
+
+                                    require '../php/db.php';
+                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "Total Issuance : " . $r[0];
+                                    ?>
+                                </h2>
+                               
+
+                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,22 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "user"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,8 +29,8 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -32,56 +51,73 @@
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 <body class="theme-blue">
-    <!-- Page Loader -->
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader -->
     <!-- Top Bar -->
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader -->
+
+<!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-
-                <a class="navbar-brand" href="PPMP.php">
-                <?php
-                session_start();
-                echo strtoupper($_SESSION['username']);
-
-                ?>
-                </a>
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right pull-right">
-
-
-
-                    <!-- Notifications -->
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">format_align_justify</i>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../php/logout.php">
+                        <h4>Logout</h4>
                         </a>
-                        <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="../php/logout.php">
-                                                <h4>Logout</h4>
-                                        </a>
-                                    </li>
-
-
-                        </ul>
                     </li>
-                    <!-- #END# Notifications -->
-
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- #Top Bar -->
+<!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-
+                    <li class="header"><h3>
+                        <?php
+                        echo strtoupper($_SESSION['username']);
+                        ?>
+                    </h3>
+                </li>
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -142,6 +178,42 @@
 
                         </ul>
                     </li>
+					<li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+
+                    </ul>
+                </li>
+						<li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
@@ -178,21 +250,12 @@
                             <li>
                                 <a href="offices.php">Offices</a>
                             </li>
-                            <li>
-                                <a href="charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
+                          <li>
+                                <a href="contingency.php">Contingency</a>
+							</li>
                         </ul>
                     </li>
-
+				</ul>
 
             </div>
             <!-- #Menu -->
@@ -210,14 +273,13 @@
         </div>
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>PPMP</h2>
-            </div>
-			
             <!-- Basic Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
+                        <div class="header">
+                            <h2 class="text-center">PPMP</h2>
+                        </div>
                         <div class="body">
                             <div class="table-responsive">
 				
@@ -266,13 +328,13 @@
 
                                     ?>
                                     </tbody>
+
                                 </table>
-								
-                <div class="modal-content">
-                </div>
+                              <a href="../php/admin/addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_ppmp">Add PPMP</a>  
             </div>
+            
         </div>
-                                <a href="../php/admin/addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_ppmp">Add PPMP</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -289,9 +351,6 @@
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

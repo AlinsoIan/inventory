@@ -1,6 +1,24 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "user"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -10,8 +28,8 @@
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -41,7 +59,6 @@
 
                 <a class="navbar-brand" href="issuance.php">
                 <?php
-                session_start();
                 echo strtoupper($_SESSION['username']);
 
                 ?>
@@ -120,6 +137,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="inventory.php">
+                            <i class="material-icons">local_shipping</i>
+                            <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Items</span>
@@ -142,6 +165,18 @@
                             </li>
 
                         </ul>
+                    </li>
+						<li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
                     </li>
                     <li>
                         <a href="returns.php">
@@ -180,21 +215,12 @@
                                 <a href="offices.php">Offices</a>
                             </li>
                             <li>
-                                <a href="charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
+                                <a href="contingency.php">Contingency</a>
+							</li>
                         </ul>
                     </li>
 
-
+				</ul>
             </div>
             <!-- #Menu -->
 
@@ -249,7 +275,7 @@
                                             <th>Date/Time</th>
                                             <th>Category</th>
                                             <th>Status</th>
-                                            <th>Process</th>
+                                            <th>Settings</th>
                                         </tr>
                                     </thead>
 

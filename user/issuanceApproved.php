@@ -1,3 +1,22 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "admin"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -41,7 +60,6 @@
 
                 <a class="navbar-brand" href="issuance.php">
                 <?php
-                session_start();
                 echo strtoupper($_SESSION['username']);
 
                 ?>
@@ -96,7 +114,12 @@
                             <span>Issuance</span>
                         </a>
                     </li>
-                   
+                   <li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
@@ -207,7 +230,7 @@
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>
@@ -225,9 +248,6 @@
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

@@ -38,7 +38,7 @@ if($res->num_rows > 0){
     if($r[2]=="admin") {
         header('Location:../admin/dashboard.php');
     }elseif($r[2]=="user"){
-        header('Location:../user/addItem.php');
+        header('Location:../user/dashboard.php');
 
     }else{
         $m="Error login, Unknown user type! Contact Administrator";

@@ -1,3 +1,22 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "admin"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -33,71 +52,56 @@
 </head>
 
 <body class="theme-blue">
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
                 </div>
             </div>
-            <p>Please wait...</p>
         </div>
+        <p>Please wait...</p>
     </div>
-    <!-- #END# Page Loader -->
-    <!-- Top Bar -->
+</div>
+<!-- #END# Page Loader -->
+
+<!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-
-                <a class="navbar-brand" href="issuance.php">
-                <?php
-                session_start();
-                echo strtoupper($_SESSION['username']);
-
-                ?>
-                </a>
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right pull-right">
-
-
-
-                    <!-- Notifications -->
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">format_align_justify</i>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../php/logout.php">
+                        <h4>Logout</h4>
                         </a>
-                        <ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="../php/logout.php">
-                                                <h4>Logout</h4>
-                                        </a>
-                                    </li>
-
-
-                        </ul>
                     </li>
-                    <!-- #END# Notifications -->
-
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- #Top Bar -->
+<!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                    <li class="header"><h3>
+                                        <?php
+                echo strtoupper($_SESSION['username']);
+
+                ?>
+                    </h3>
+                </li>
 
                     <li>
                         <a href="dashboard.php">
@@ -111,7 +115,14 @@
                             <span>Issuance</span>
                         </a>
                     </li>
-                    
+
+                    <li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                    </li>
+
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
@@ -178,7 +189,7 @@
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Pending Issuances</h2>
+                            <h2 class="text-center">PENDING ISSUANCE</h2>
                             <div class="dropdown show">
                                 <a href="issuance.php" class="btn btn-secondary" >
                                     PENDING
@@ -227,7 +238,7 @@
                                                     . "<td>" . $row['typeT'] ."</td>"
                                                     . "<td>" . $row['status'] .  "</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -248,7 +259,7 @@
                                     ?>
                                 </h2>
 
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>
@@ -266,9 +277,6 @@
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

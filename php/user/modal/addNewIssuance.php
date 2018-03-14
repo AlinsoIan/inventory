@@ -62,23 +62,7 @@
                 <div class="col-md-4">
                     <div class="">
                         <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                        <select name = 'name' style="width:40%">
-                         <?php
-
-                                require '../../db.php';
-                                $sql = "SELECT office FROM offices";
-                                $res = $conn -> query($sql);
-                                if($res){
-                                    while($row = $res -> fetch_assoc()){
-                                        echo "<option>".$row['office'] ."</option>";
-                                    }
-
-                                }
-
-                                
-                                ?>
-
-                                </select>
+                        <input type="text" id = "office" name = "office" onkeyup="autoFill()" required>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -126,7 +110,7 @@
             <div class="row clearfix">
                 <table class="table" id="tabb">
                    <thead class="text-primary">
-                        <th width="8%">Category</th>
+                        <th width="8%">Code</th>
                         <th width="30%">Item Description</th>
                         <th width="10%">Unit</th>
                         <th width="10%">Requested</th>
@@ -177,7 +161,7 @@
                         <div class="text-center">
                             <a href="#" class="btn btn-primary pull-left" onclick="addRowIssuance()">Add Row</a>
                             <input type="submit" class="btn btn-primary btn-lg waves-effect" value="ADD">
-                            <a href="../admin/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
+                            <a href="../user/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
                         </div>
 
                     </div>

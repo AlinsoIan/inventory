@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Items: Category 4</title>
+    <title>Items: Category 5</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -138,7 +138,7 @@ if($_SESSION['type'] == "user"){
                             <span>PPMP</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Items</span>
@@ -153,7 +153,7 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="three.php"><strong>Category 3</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="four.php"><strong>Category 4</strong></a>
                             </li>
                             <li>
@@ -162,12 +162,37 @@ if($_SESSION['type'] == "user"){
 
                         </ul>
                     </li>
+                    <li class="active">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li class="active">
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+
+                    </ul>
+                </li>
+                    
 						<li>
                         <a href="iar.php">
                             <i class="material-icons">event_note</i>
                             <span>IAR</span>
                         </a>
-                    </li>r
+                    </li>
                     <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
@@ -216,24 +241,13 @@ if($_SESSION['type'] == "user"){
                         </ul>
                     </li>
 
-
+				</ul>
             </div>
             <!-- #Menu -->
 
         </aside>
         <!-- #END# Left Sidebar -->
-
     </section>
-        <!-- #END# Left Sidebar -->
-
-        <!-- Modal for Add Item -->
-        <div class="modal col-lg-12" id="addItem" data-backdrop="static">
-            <div class="modal-dialog" style="width:90%;">
-                <div class="modal-content">
-                </div>
-            </div>
-        </div>
-
         <!-- Modal for Edit Items -->
     <div class="modal col-lg-12" id="editItems" data-backdrop="static">
         <div class="modal-dialog" style="width:100%;">
@@ -258,22 +272,18 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 4: Office Supplies w/ ICS</h2>
+                            <h2 class="text-center">Category 5: Office Supplies</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                     <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
+                                        <th>Item</th>
+                                        <th>Logical Count</th>
+                                        <th>Physical Count</th>
+                                        <th>Difference</th>
                                         <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Supplier</th>
                                         <th>Settings</th>
                                     </tr>
                                     </thead>
@@ -283,22 +293,22 @@ if($_SESSION['type'] == "user"){
                                     require '../php/db.php';
 
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
 
-                                    $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '4'";
+                                    $sql = "SELECT * FROM items WHERE category = '5'";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
                                                 . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
                                                 . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
+                                                . "<td>" . $row['physicalCount'] ."</td>";
+
+                                            $dif = $row['startingQuantity'] - $row['physicalCount'];
+
+                                            echo  "<td>" . $dif ."</td>"
                                                 . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
 
                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
                                             echo "</tr>";
@@ -327,9 +337,6 @@ if($_SESSION['type'] == "user"){
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

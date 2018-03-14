@@ -18,12 +18,13 @@ if($_SESSION['type'] == "user"){
 }
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Suppliers</title>
+    <title>Inventory</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -68,37 +69,6 @@ if($_SESSION['type'] == "user"){
     </div>
 </div>
 <!-- #END# Page Loader -->
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
-<!-- #END# Overlay For Sidebars -->
-<!-- Top Bar -->
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-            <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.php">GENERAL SERVICES OFFICE</a>
-        </div>
-    </div>
-</nav>
-<!-- Top Bar -->
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="preloader">
-            <div class="spinner-layer pl-red">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <p>Please wait...</p>
-    </div>
-</div>
-<!-- #END# Page Loader -->
 
 <!-- Top Bar -->
     <nav class="navbar">
@@ -126,11 +96,12 @@ if($_SESSION['type'] == "user"){
             <div class="menu">
                 <ul class="list">
                     <li class="header"><h3>
-                        <?php
+                        <?php 
                         echo strtoupper($_SESSION['username']);
                         ?>
                     </h3>
                 </li>
+
                 <li>
                     <a href="dashboard.php">
                         <i class="material-icons">dashboard</i>
@@ -155,7 +126,7 @@ if($_SESSION['type'] == "user"){
                         <span>Re-order</span>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="supplier.php">
                         <i class="material-icons">local_shipping</i>
                         <span>Suppliers</span>
@@ -170,7 +141,7 @@ if($_SESSION['type'] == "user"){
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
-                        <span>Items</span>
+                        <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
@@ -191,31 +162,31 @@ if($_SESSION['type'] == "user"){
 
                     </ul>
                 </li>
-					<li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">assignment</i>
-                        <span>Inventory</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="items2.php"><strong>Category 1</strong></a>
-                        </li>
-                        <li>
-                            <a href="two2.php"><strong>Category 2</strong></a>
-                        </li>
-                        <li>
-                            <a href="three2.php"><strong>Category 3</strong></a>
-                        </li>
-                        <li>
-                            <a href="four2.php"><strong>Category 4</strong></a>
-                        </li>
-                        <li>
-                            <a href="five2.php"><strong>Category 5</strong></a>
-                        </li>
+                    <li class="active">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Inventory</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="items2.php"><strong>Category 1</strong></a>
+                            </li>
+                            <li>
+                                <a href="two2.php"><strong>Category 2</strong></a>
+                            </li>
+                            <li>
+                                <a href="three2.php"><strong>Category 3</strong></a>
+                            </li>
+                            <li>
+                                <a href="four2.php"><strong>Category 4</strong></a>
+                            </li>
+                            <li>
+                                <a href="five2.php"><strong>Category 5</strong></a>
+                            </li>
 
-                    </ul>
-                </li>
-					<li>
+                        </ul>
+                    </li>
+                <li>
                     <a href="iar.php">
                         <i class="material-icons">event_note</i>
                         <span>IAR</span>
@@ -223,7 +194,7 @@ if($_SESSION['type'] == "user"){
                 </li>
                 <li>
                     <a href="toexpire.php">
-                        <i class="material-icons">assignment</i>
+                        <i class="material-icons">people</i>
                         <span>To-Expire</span>
                     </a>
                 </li>
@@ -311,17 +282,17 @@ if($_SESSION['type'] == "user"){
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">SUPPLIERS</h2>
+                        <h2 class="text-center">INVENTORY</h2>
                     </div>
                     <div class="body table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Supplier</th>
-                                <th>Tin Number</th>
-                                <th>PO Number</th>
-                                <th>PO Date</th>
-                                <th>Person</th>
+                                <th>Item</th>
+                                <th>Logical Count</th>
+                                <th>Physical Count</th>
+                                <th>Difference</th>
+                                <th>Remarks</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -345,7 +316,7 @@ if($_SESSION['type'] == "user"){
                             ?>
                             </tbody>
                         </table>
-                        <a href="../php/admin/modal/addSupplier.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_supplier">Add Supplier</a>
+                        <a href="../php/admin/modal/addInventory.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_supplier">Add Inventory</a>
                     </div>
                 </div>
             </div>

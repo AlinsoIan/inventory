@@ -1,10 +1,30 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "admin"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sparkline | Bootstrap Based Admin Template - Material Design</title>
+    <title>Dashboard</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -28,61 +48,60 @@
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-red">
+<body class="theme-blue">
 
 
 <!-- Top Bar -->
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="dashboard.php">
-                <?php
-                session_start();
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader -->
+
+<!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../php/logout.php">
+                        <h4>Logout</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header"><h3>
+                                        <?php
                 echo strtoupper($_SESSION['username']);
 
                 ?>
-            </a>
-
-        </div>
-        <div class="navbar-header text-center">
-            <a class="navbar-brand" href="dashboard.php">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;General Services Office
-            </a>
-
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right pull-right">
-                <!-- Notifications -->
-                <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
-                    </a>
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a href="../php/logout.php">
-                                <h4>Logout</h4>
-                            </a>
-                        </li>
-
-
-                    </ul>
+                    </h3>
                 </li>
-                <!-- #END# Notifications -->
-
-            </ul>
-        </div>
-
-    </div>
-</nav>
-<!-- #Top Bar -->
-<section>
-    <!-- Left Sidebar -->
-    <aside id="leftsidebar" class="sidebar">
-
-        <!-- Menu -->
-        <div class="menu">
-            <ul class="list">
 
                 <li class="active">
                     <a href="dashboard.php">
@@ -94,6 +113,13 @@
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
                     </a>
                 </li>
                 
@@ -142,7 +168,7 @@
                         <h2 class="text-center">ISSUANCES</h2>
                     </div>
                     <div class="body">
-                        <div class="sparkline" data-type="bar" data-width="100%" data-height="150px" data-bar-Width="60" data-bar-Spacing="20" data-bar-Color="rgb(0, 188, 212)">
+                        <div class="sparkline" data-type="bar" data-width="100%" data-height="150px" data-bar-Width="60" data-bar-Spacing="20" data-bar-Color="rgb(100, 115, 130)">
                             1,2,3,4,5,6,7,8,9,10,11,12
                         </div>
 
@@ -156,109 +182,12 @@
             <!-- #END# Pie Chart -->
         </div>
         <!-- Widgets -->
-        <div class="row clearfix">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-red hover-expand-effect">
-                    <div class="icon">
-                        <a href="items.php"><i class="material-icons">shopping_cart</i></a>
-                    </div>
-                    <div class="content">
-                        <div class="text">ITEMS</div>
-                        <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                        echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                        ?>
-
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">access_alarm</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TO EXPIRE</div>
-                        <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                        echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">remove_shopping_cart</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">REORDER</div>
-                        <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                        echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">people</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">USERS</div>
-                        <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM accounts";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                        echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row clearfix">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-black hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">autorenew</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">RETURNS</div>
-                         <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM returns";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                         echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                         ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-yellow hover-expand-effect">
-                    <div class="icon">
+                        <a href="../user/issuance.php">
                         <i class="material-icons">store_mall_directory</i>
+                        </a>
                     </div>
                     <div class="content">
                         <div class="text">ISSUANCE</div>
@@ -275,12 +204,14 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-blue-grey hover-expand-effect">
+                <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">local_shipping</i>
+                        <a href="../user/iar.php">
+                        <i class="material-icons">event_note</i>
+                        </a>
                     </div>
                     <div class="content">
-                        <div class="text">SUPPLIERS</div>
+                        <div class="text">IAR</div>
                         <?php
 
                         require '../php/db.php';
@@ -289,25 +220,6 @@
                         $r = $res->fetch_row();
 
                         echo "<div class='number count-to' data-from='0' data-to='$r[0]'' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-brown hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">location_city</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">OFFICES</div>
-                        <?php
-
-                        require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM offices";
-                        $res = $conn->query($sql);
-                        $r = $res->fetch_row();
-
-                        echo "<div class='number count-to' data-from='0' data-to='$r[0]' data-speed='15' data-fresh-interval='20'>" . $r[0] . "</div>";
                         ?>
                     </div>
                 </div>
@@ -354,9 +266,6 @@
 
 <!-- Select Plugin Js -->
 <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-<!-- Slimscroll Plugin Js -->
-<script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
 <!-- Waves Effect Plugin Js -->
 <script src="../plugins/node-waves/waves.js"></script>

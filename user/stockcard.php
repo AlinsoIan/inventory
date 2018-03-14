@@ -1,10 +1,29 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    $m="Please Login First";
+
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+if($_SESSION['type'] == "admin"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.html');
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
+    <title>Reports: STOCK CARD</title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -31,68 +50,57 @@
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-red">
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
-<!-- #END# Overlay For Sidebars -->
-<!-- Top Bar -->
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-            <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.php">GENERAL SERVICES OFFICE</a>
+<body class="theme-blue">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
         </div>
+        <p>Please wait...</p>
     </div>
-</nav>
-<!-- Top Bar -->
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
+</div>
+<!-- #END# Page Loader -->
 
-            <a class="navbar-brand" href="accounts.php">
-                <?php
-                session_start();
+<!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../php/logout.php">
+                        <h4>Logout</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header"><h3>
+                                        <?php
                 echo strtoupper($_SESSION['username']);
 
                 ?>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right pull-right">
-
-
-
-                <!-- Notifications -->
-                <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
-                    </a>
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a href="../php/logout.php">
-                                <h4>Logout</h4>
-                            </a>
-                        </li>
-
-
-                    </ul>
+                    </h3>
                 </li>
-                <!-- #END# Notifications -->
-
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- #Top Bar -->
-<section>
-    <!-- Left Sidebar -->
-    <aside id="leftsidebar" class="sidebar">
-
-        <!-- Menu -->
-        <div class="menu">
-            <ul class="list">
 
                 <li>
                     <a href="dashboard.php">
@@ -108,6 +116,13 @@
                     </a>
                 </li>
                
+               <li>
+                    <a href="iar.php">
+                        <i class="material-icons">event_note</i>
+                        <span>IAR</span>
+                    </a>
+                </li>
+
                 <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
@@ -233,9 +248,6 @@
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

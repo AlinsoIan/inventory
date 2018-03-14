@@ -49,7 +49,7 @@ if($res){
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../../admin/$temp');
+            window.location.replace('../../../admin/$temp');
             </script>
             ";
 }
