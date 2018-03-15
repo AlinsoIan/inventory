@@ -51,7 +51,6 @@ if($_SESSION['type'] == "user"){
 </head>
 
 <body class="theme-blue">
-    <!-- #END# Page Loader -->
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
