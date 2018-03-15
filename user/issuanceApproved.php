@@ -52,7 +52,6 @@ if($_SESSION['type'] == "admin"){
 </head>
 
 <body class="theme-blue">
-    <!-- #END# Page Loader -->
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
