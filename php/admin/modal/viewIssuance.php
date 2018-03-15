@@ -136,6 +136,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="">
+                        <label>Date :</label>
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];

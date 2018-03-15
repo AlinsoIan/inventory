@@ -265,10 +265,10 @@ if($_SESSION['type'] == "user"){
                         <div class="header">
                             <h2 class="text-center">ISSUANCE</h2>
                             <div class="dropdown show">
-                                <a href="issuance.php" class="btn btn-secondary" >
+                                <a href="issuance.php" class="btn btn-primary " >
                                     PENDING
                                 </a>
-                                <a href="issuanceApproved.php" class="btn btn-secondary" >
+                                <a href="issuanceApproved.php" class="btn btn-primary " >
                                     APPROVED
                                 </a>
 
