@@ -198,6 +198,8 @@
 
                                         . "</tr>";
                                 }
+                            }else{
+                                echo "Faile" . $conn->error;
                             }
                             
                                 
