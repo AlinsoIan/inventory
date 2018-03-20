@@ -10,7 +10,7 @@ require '../db.php';
 $i = $_GET['n'];
 session_start();
 
-$temp = $_SESSION['temp'];
+$temp = $_SESSION['t'];
 
 $sql = "DELETE FROM issuance WHERE id = '$i'";
 
@@ -25,7 +25,7 @@ if($conn->query($sql)){
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../../admin/issuance.php');
+            window.location.replace('../../admin/$temp.php');
             </script>
             ";
 }
