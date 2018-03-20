@@ -1,5 +1,9 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 session_start();
+$_SESSION['t'] =  basename($_SERVER['PHP_SELF']);
 if(!isset($_SESSION['username'])){
     $m="Please Login First";
 
@@ -251,16 +255,14 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Approved Issuances</h2>
+                            <h2 class="text-center">APPROVED ISSUANCE</h2>
                             <div class="dropdown show">
-                                <a href="issuance.php" class="btn btn-secondary" >
+                                <a href="issuance.php" class="btn btn-primary" >
                                     PENDING
                                 </a>
-                                <a href="issuanceApproved.php" class="btn btn-secondary" >
+                                <a href="issuanceApproved.php" class="btn btn-primary" >
                                     APPROVED
                                 </a>
-
-
                             </div>
                         </div>
                         <div class="body">
@@ -280,10 +282,9 @@ if($_SESSION['type'] == "user"){
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
+
+
 
                                         $sql = "SELECT * FROM issuance WHERE status = 'approved'";
                                         $res = $conn->query($sql);
@@ -298,7 +299,7 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['typeT'] ."</td>"
                                                     . "<td>" . $row['status'] .  "</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/editIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteIssuance.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -307,6 +308,17 @@ if($_SESSION['type'] == "user"){
                                     ?>
                                     </tbody>
                                 </table>
+                                <h3 class="title pull-left">
+                                    <?php
+
+                                    require '../php/db.php';
+                                    $sql = "SELECT COUNT(id) FROM issuance WHERE status = 'approved'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "Total Accepted Issuance : " . $r[0];
+                                    ?>
+                                </h3>
                                 <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>

@@ -1,4 +1,7 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 session_start();
 if(!isset($_SESSION['username'])){
     $m="Please Login First";
@@ -27,7 +30,7 @@ if($_SESSION['type'] == "user"){
     <title>Issuance</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -232,12 +235,20 @@ if($_SESSION['type'] == "user"){
         <!-- #END# Left Sidebar -->
 
         <!-- Modal for Add Issuance -->
-        <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+    <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
                 <div class="modal-content">
                 </div>
             </div>
+    </div>
+
+        <!-- Modal for Accept Issuance -->
+    <div class="modal col-lg-12" id="acceptIssuance" data-backdrop="static">
+        <div class="modal-dialog" style="width:30%;">
+            <div class="modal-content">
+            </div>
         </div>
+    </div>
 
         <!-- Modal for Edit Issuance -->
     <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
@@ -263,7 +274,7 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">ISSUANCE</h2>
+                            <h2 class="text-center">PENDING ISSUANCE</h2>
                             <div class="dropdown show">
                                 <a href="issuance.php" class="btn btn-primary " >
                                     PENDING
@@ -285,22 +296,20 @@ if($_SESSION['type'] == "user"){
                                             <th>Responsibility Center</th>
                                             <th>Date/Time</th>
                                             <th>Category</th>
-                                            <th>Status</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
 
-                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $_SESSION['t'] =  basename($_SERVER['PHP_SELF']);
 
                                         $sql = "SELECT * FROM issuance WHERE status = 'pending'";
                                         $res = $conn->query($sql);
+
+
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
@@ -310,9 +319,8 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['responsibility'] ."</td>"
                                                     . "<td>" . $row['dateT'] ."</td>"
                                                     . "<td>" . $row['typeT'] ."</td>"
-                                                    . "<td>" . $row['status'] .  "</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/acceptIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#acceptIssuance'>done</a>"  . "  |  " . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  |  " . "<a href=" .'../php/admin/modal/deleteIssuance.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -325,11 +333,11 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $sql = "SELECT COUNT(id) FROM issuance WHERE status = 'pending'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
-                                    echo "Total Issuance : " . $r[0];
+                                    echo "Total Pending Issuance : " . $r[0];
                                     ?>
                                 </h3>
 
@@ -372,7 +380,16 @@ if($_SESSION['type'] == "user"){
 
     <script src="../js/custom.js"></script>
 
+    <script type="text/javascript">
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
 
+            return true;
+        }
+    </script>
 
 </body>
 

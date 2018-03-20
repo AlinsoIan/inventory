@@ -308,7 +308,7 @@ if($_SESSION['type'] == "user"){
                                                 . "<td>" . $row['expirationDate'] .  "</td>"
                                                 . "<td>" . $row['supplierName'] .  "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteItem.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
                                             echo "</tr>";
                                         }
 

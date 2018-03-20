@@ -285,7 +285,6 @@ if($_SESSION['type'] == "user"){
                                     require '../php/db.php';
 
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                    $_SESSION['cat']= "03";
 
                                     $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '3'";
                                     $res = $conn->query($sql);
@@ -303,7 +302,7 @@ if($_SESSION['type'] == "user"){
                                                 . "<td>" . $row['orderPoint'] .  "</td>"
                                                 . "<td>" . $row['supplierName'] .  "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteItem.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
                                             echo "</tr>";
                                         }
 

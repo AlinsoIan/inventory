@@ -18,15 +18,16 @@ if($_SESSION['type'] == "user"){
 }
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Returns</title>
+    <title>Issuance</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -35,13 +36,14 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-
-
     <!-- Waves Effect Css -->
     <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
     <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
@@ -70,13 +72,13 @@ if($_SESSION['type'] == "user"){
         </div>
     </nav>
 <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    <li class="header"><h3>
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header"><h3>
                         <?php
                         echo strtoupper($_SESSION['username']);
                         ?>
@@ -92,6 +94,12 @@ if($_SESSION['type'] == "user"){
                     <a href="accounts.php">
                         <i class="material-icons">people</i>
                         <span>Accounts</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="ris.php">
+                        <i class="material-icons">tab</i>
+                        <span>RIS</span>
                     </a>
                 </li>
                 <li>
@@ -118,7 +126,6 @@ if($_SESSION['type'] == "user"){
                         <span>PPMP</span>
                     </a>
                 </li>
-                
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
@@ -167,7 +174,7 @@ if($_SESSION['type'] == "user"){
 
                     </ul>
                 </li>
-					<li>
+                <li>
                     <a href="iar.php">
                         <i class="material-icons">event_note</i>
                         <span>IAR</span>
@@ -175,11 +182,12 @@ if($_SESSION['type'] == "user"){
                 </li>
                 <li>
                     <a href="toexpire.php">
-                        <i class="material-icons">assignment</i>
+                        <i class="material-icons">people</i>
                         <span>To-Expire</span>
                     </a>
                 </li>
-                <li class="active">
+
+                <li>
                     <a href="returns.php">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
@@ -215,12 +223,12 @@ if($_SESSION['type'] == "user"){
                         <li>
                             <a href="offices.php">Offices</a>
                         </li>
-                     <li>
-                                <a href="contingency.php">Contingency</a>
-							</li>
+                        <li>
+                            <a href="contingency.php">Contingency</a>
+                        </li>
                     </ul>
                 </li>
-			</ul>
+
 
         </div>
         <!-- #Menu -->
@@ -229,102 +237,156 @@ if($_SESSION['type'] == "user"){
     <!-- #END# Left Sidebar -->
 
 </section>
+        <!-- #END# Left Sidebar -->
 
-<!-- Modal for Add Returns -->
-<div class="modal col-lg-12" id="add_return" data-backdrop="static">
-    <div class="modal-dialog" style="width:99%;">
-        <div class="modal-content">
+        <!-- Modal for Add Issuance -->
+    <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+            <div class="modal-dialog" style="width:90%;">
+                <div class="modal-content">
+                </div>
+            </div>
+    </div>
+
+        <!-- Modal for Accept Issuance -->
+    <div class="modal col-lg-12" id="acceptIssuance" data-backdrop="static">
+        <div class="modal-dialog" style="width:30%;">
+            <div class="modal-content">
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal for Edit Account -->
-<div class="modal col-lg-12" id="edit_account" data-backdrop="static">
-    <div class="modal-dialog" style="width:80%;">
-        <div class="modal-content">
+        <!-- Modal for Edit Issuance -->
+    <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
+        <div class="modal-dialog" style="width:100%;">
+            <div class="modal-content">
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal for Delete Account -->
-<div class="modal col-lg-12" id="del_account" data-backdrop="static">
-    <div class="modal-dialog" style="width:20%;">
-        <div class="modal-content">
+    <!-- Modal for Delete Issuance -->
+    <div class="modal col-lg-12" id="deleteIssuance" data-backdrop="static">
+        <div class="modal-dialog" style="width:20%;">
+            <div class="modal-content">
+            </div>
         </div>
     </div>
-</div>
 
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>ACCOUNTS</h2>
-        </div>
-        <!-- Basic Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2 class="text-center">Returns</h2>
-                    </div>
-                    <div class="body table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Reason</th>
-                                <th>Quantity</th>
-                                <th>Status</th>
-                                <th>Settings</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            require '../php/db.php';
-                            $sql = "SELECT * FROM returns JOIN items ON returns.item_id = items.id JOIN offices ON returns.office_id = offices.id";
-                            $res = $conn->query($sql);
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 ">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="text-center">RIS</h2>
+                        </div>
+                        <div class="body">
+                            <div class="body table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>OFFICE</th>
+                                            <th>CATEGORY</th>
+                                            <th>RIS #</th>
+                                            <th>SAI #</th>
+                                            <th>DATE</th>
+                                            <th>SETTINGS</th>
+                                        </tr>
+                                    </thead>
 
-                            if($res){
-                                while ($row = $res->fetch_assoc()){
-                                    echo  "<tr>";
-                                    echo "<td>" . $row['description'] . "</td>";
-                                    echo "<td>" . $row['reason'] . "</td>";
-                                    echo "<td>" . $row['returns.quantity'] . "</td>";
-                                    echo "<td>" . $row['status'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
-                                    echo "</tr>";
-                                }
-                            }
+                                    <tbody>
+                                    <?php
+                                        $conn = new mysqli("localhost","root","","inventory");
+                                        if(!$conn){
+                                            echo "Error Connecting to database !" . $conn->error;
+                                        }
 
-                            ?>
-                            </tbody>
-                        </table>
-                        <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_return">Add Return</a>
+                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+
+                                        $sql = "SELECT * FROM issuance WHERE status = 'approved'";
+                                        $res = $conn->query($sql);
+
+                                        if($res){
+                                            while($row = $res->fetch_assoc()){
+                                                echo "<tr>"
+                                                    . "<td>" . $row['office'] ."</td>"
+                                                    . "<td>" . $row['category'] ."</td>"
+                                                    . "<td>" . $row['ris'] ."</td>"
+                                                    . "<td>" . $row['sai'] ."</td>"
+                                                    . "<td>" . $row['dateT'] ."</td>"
+
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/acceptIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#acceptIssuance'>done</a>"  . "  |  " . "<a href=" .'../php/admin/modal/editIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  |  " . "<a href=" .'../php/admin/modal/deleteIssuance.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                echo "</tr>";
+                                            }
+
+                                        }
+
+                                    ?>
+                                    </tbody>
+                                </table>
+                                <h3 class="title pull-left">
+                                    <?php
+
+                                    require '../php/db.php';
+                                    $sql = "SELECT COUNT(id) FROM issuance WHERE status = 'approved'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "Total RIS : " . $r[0];
+                                    ?>
+                                </h3>
+
+                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Basic Examples -->
         </div>
-        <!-- #END# Basic Table -->
-</section>
+    </section>
 
-<!-- Jquery Core Js -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
 
-<!-- Bootstrap Core Js -->
-<script src="../plugins/bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-<!-- Select Plugin Js -->
-<script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- Select Plugin Js -->
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> 
 
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
 
-<!-- Waves Effect Plugin Js -->
-<script src="../plugins/node-waves/waves.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
-<!-- Custom Js -->
-<script src="../js/admin.js"></script>
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/pages/tables/jquery-datatable.js"></script>
 
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script type="text/javascript">
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

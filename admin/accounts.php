@@ -57,7 +57,7 @@ if($_SESSION['type'] == "user"){
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
+                <a href="javascript:void(0);" class="bars"></a
                 <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -77,12 +77,6 @@ if($_SESSION['type'] == "user"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                        <?php
-                        echo strtoupper($_SESSION['username']);
-                        ?>
-                    </h3>
-                </li>
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -314,8 +308,7 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
 
 
     <!-- Waves Effect Plugin Js -->
@@ -324,8 +317,6 @@ if($_SESSION['type'] == "user"){
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
 </body>
 
 </html>
