@@ -8,16 +8,9 @@ if(!isset($_SESSION['username'])){
     window.location.replace('../index.html');
     </script>";
 }
-if($_SESSION['type'] == "admin"){
-    session_destroy();
-    $m="Unauthorized Access";
-    echo "<script type='text/javascript'>
-    alert('$m');
-    window.location.replace('../index.html');
-    </script>";
-}
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -29,8 +22,8 @@ if($_SESSION['type'] == "admin"){
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -62,9 +55,32 @@ if($_SESSION['type'] == "admin"){
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
                         </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
                     </li>
                 </ul>
             </div>
@@ -77,14 +93,7 @@ if($_SESSION['type'] == "admin"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                                        <?php
-                echo strtoupper($_SESSION['username']);
-
-                ?>
-                    </h3>
-                </li>
-
+                    
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -97,14 +106,18 @@ if($_SESSION['type'] == "admin"){
                             <span>Issuance</span>
                         </a>
                     </li>
-
                     <li>
-                    <a href="iar.php">
-                        <i class="material-icons">event_note</i>
-                        <span>IAR</span>
-                    </a>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>IAR</span>
+                        </a>
                     </li>
-
+                    <li>
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
@@ -125,14 +138,8 @@ if($_SESSION['type'] == "admin"){
                             </li>
                         </ul>
                     </li>
-
-                    
-				</ul>
-
-
+                    <li>
             </div>
-            <!-- #Menu -->
-
         </aside>
         <!-- #END# Left Sidebar -->
 
@@ -171,17 +178,7 @@ if($_SESSION['type'] == "admin"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">PENDING ISSUANCE</h2>
-                            <div class="dropdown show">
-                                <a href="issuance.php" class="btn btn-secondary" >
-                                    PENDING
-                                </a>
-                                <a href="issuanceApproved.php" class="btn btn-secondary" >
-                                    APPROVED
-                                </a>
-
-
-                            </div>
+                            <h2 class="text-center">ISSUANCES</h2>
                         </div>
                         <div class="body">
                             <div class="body table-responsive">
@@ -193,21 +190,17 @@ if($_SESSION['type'] == "admin"){
                                             <th>Responsibility Center</th>
                                             <th>Date/Time</th>
                                             <th>Category</th>
-                                            <th>Status</th>
-                                            <th>Process</th>
+                                            <th>Settings</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM issuance WHERE status = 'pending'";
+                                        $sql = "SELECT * FROM issuance";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -217,10 +210,9 @@ if($_SESSION['type'] == "admin"){
                                                     . "<td>" . $row['office'] ."</td>"
                                                     . "<td>" . $row['responsibility'] ."</td>"
                                                     . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>"
-                                                    . "<td>" . $row['status'] .  "</td>" 
+                                                    . "<td>" . $row['typeT'] ."</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -229,7 +221,7 @@ if($_SESSION['type'] == "admin"){
                                     ?>
                                     </tbody>
                                 </table>
-                                <h2 class="title pull-left">
+                                <h3 class="title pull-left">
                                     <?php
 
                                     require '../php/db.php';
@@ -239,9 +231,9 @@ if($_SESSION['type'] == "admin"){
 
                                     echo "Total Issuance : " . $r[0];
                                     ?>
-                                </h2>
+                                </h3>
 
-                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>
@@ -258,7 +250,7 @@ if($_SESSION['type'] == "admin"){
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> 
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

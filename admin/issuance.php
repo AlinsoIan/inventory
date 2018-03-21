@@ -1,7 +1,4 @@
 <?php
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
 session_start();
 if(!isset($_SESSION['username'])){
     $m="Please Login First";
@@ -30,7 +27,7 @@ if($_SESSION['type'] == "user"){
     <title>Issuance</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -66,9 +63,32 @@ if($_SESSION['type'] == "user"){
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
                         </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
                     </li>
                 </ul>
             </div>
@@ -81,12 +101,7 @@ if($_SESSION['type'] == "user"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                        <?php
-                        echo strtoupper($_SESSION['username']);
-                        ?>
-                    </h3>
-                </li>
+                    
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -115,12 +130,6 @@ if($_SESSION['type'] == "user"){
                         <a href="supplier.php">
                             <i class="material-icons">local_shipping</i>
                             <span>Suppliers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -170,18 +179,19 @@ if($_SESSION['type'] == "user"){
                         </li>
                     </ul>
                 </li>
-						<li>
-                    <a href="iar.php">
-                        <i class="material-icons">event_note</i>
-                        <span>IAR</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>IAR</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
                             <span>To-Expire</span>
                         </a>
                     </li>
+                 
                     <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
@@ -208,6 +218,26 @@ if($_SESSION['type'] == "user"){
                             </li>
                         </ul>
                     </li>
+                    <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>Logs</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
+                        </li>
+                        <li>
+                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsItem.php"><strong>Items</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
+                        </li>
+                    </ul>
+                </li>
 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -218,12 +248,12 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="offices.php">Offices</a>
                             </li>
-                          <li>
+                            <li>
                                 <a href="contingency.php">Contingency</a>
-							</li>
+                            </li>
                         </ul>
                     </li>
-				</ul>
+
 
             </div>
             <!-- #Menu -->
@@ -235,20 +265,12 @@ if($_SESSION['type'] == "user"){
         <!-- #END# Left Sidebar -->
 
         <!-- Modal for Add Issuance -->
-    <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+        <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
                 <div class="modal-content">
                 </div>
             </div>
-    </div>
-
-        <!-- Modal for Accept Issuance -->
-    <div class="modal col-lg-12" id="acceptIssuance" data-backdrop="static">
-        <div class="modal-dialog" style="width:30%;">
-            <div class="modal-content">
-            </div>
         </div>
-    </div>
 
         <!-- Modal for Edit Issuance -->
     <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
@@ -274,17 +296,7 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">PENDING ISSUANCE</h2>
-                            <div class="dropdown show">
-                                <a href="issuance.php" class="btn btn-primary " >
-                                    PENDING
-                                </a>
-                                <a href="issuanceApproved.php" class="btn btn-primary " >
-                                    APPROVED
-                                </a>
-
-
-                            </div>
+                            <h2 class="text-center">ISSUANCES</h2>
                         </div>
                         <div class="body">
                             <div class="body table-responsive">
@@ -304,12 +316,10 @@ if($_SESSION['type'] == "user"){
                                     <?php
                                         require '../php/db.php';
 
-                                        $_SESSION['t'] =  basename($_SERVER['PHP_SELF']);
+                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM issuance WHERE status = 'pending'";
+                                        $sql = "SELECT * FROM issuance";
                                         $res = $conn->query($sql);
-
-
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
@@ -318,9 +328,9 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['office'] ."</td>"
                                                     . "<td>" . $row['responsibility'] ."</td>"
                                                     . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>"
+                                                    . "<td>" . $row['typeT'] ."</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/acceptIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#acceptIssuance'>done</a>"  . "  |  " . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  |  " . "<a href=" .'../php/admin/modal/deleteIssuance.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -333,11 +343,11 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance WHERE status = 'pending'";
+                                    $sql = "SELECT COUNT(id) FROM issuance";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
-                                    echo "Total Pending Issuance : " . $r[0];
+                                    echo "Total Issuance : " . $r[0];
                                     ?>
                                 </h3>
 
@@ -380,16 +390,7 @@ if($_SESSION['type'] == "user"){
 
     <script src="../js/custom.js"></script>
 
-    <script type="text/javascript">
-        function isNumberKey(evt)
-        {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
 
-            return true;
-        }
-    </script>
 
 </body>
 

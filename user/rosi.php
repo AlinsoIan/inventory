@@ -8,14 +8,6 @@ if(!isset($_SESSION['username'])){
     window.location.replace('../index.html');
     </script>";
 }
-if($_SESSION['type'] == "admin"){
-    session_destroy();
-    $m="Unauthorized Access";
-    echo "<script type='text/javascript'>
-    alert('$m');
-    window.location.replace('../index.html');
-    </script>";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,8 +20,8 @@ if($_SESSION['type'] == "admin"){
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -61,9 +53,32 @@ if($_SESSION['type'] == "admin"){
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
                         </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
                     </li>
                 </ul>
             </div>
@@ -76,66 +91,57 @@ if($_SESSION['type'] == "admin"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                                        <?php
-                echo strtoupper($_SESSION['username']);
+                    
+                    <li>
+                        <a href="dashboard.php">
+                            <i class="material-icons">dashboard</i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="issuance.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Issuance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>IAR</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="raos.php"><strong>RAOS</strong></a>
+                            </li>
+                            <li class="active">
+                                <a href="rosi.php"><strong>ROSI</strong></a>
+                            </li>
+                            <li>
+                                <a href="ssmi.php"><strong>SSMI</strong></a>
+                            </li>
+                            <li>
+                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+            </div>
+        </aside>
+        <!-- #END# Left Sidebar -->
 
-                ?>
-                    </h3>
-                </li>
-
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="issuance.php">
-                        <i class="material-icons">store_mall_directory</i>
-                        <span>Issuance</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="iar.php">
-                        <i class="material-icons">event_note</i>
-                        <span>IAR</span>
-                    </a>
-                </li>
-
-                <li class="active">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">view_list</i>
-                        <span>Reports</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
-                        </li>
-                        <li class="active">
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
-                        <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                        </li>
-                    </ul>
-                </li>
-
-			</ul>
-
-
-        </div>
-        <!-- #Menu -->
-
-    </aside>
-    <!-- #END# Left Sidebar -->
-
-</section>
+    </section>
 
     <section class="content">
         <div class="container-fluid">
@@ -145,8 +151,8 @@ if($_SESSION['type'] == "admin"){
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                EXPORTABLE TABLE
+                            <h2 class="text-center">
+                                ROSI
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -162,52 +168,58 @@ if($_SESSION['type'] == "admin"){
                             </ul>
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-
+                            <div class="body table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Order Point</th>
-                                    </tr>
+                                        <tr>
+                                            <th>SUPPLIER</th>
+                                            <th>IAR NO</th>
+                                            <th>IAR DATE</th>
+                                            <th>IAR AMOUNT</th>
+                                            <th>QUANTITY</th>
+                                            <th>ITEMS</th>
+                                            <th>Settings</th>
+                                        </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                    $conn = new mysqli("localhost","root","","inventory");
-                                    if(!$conn){
-                                        echo "Error Connecting to database !" . $conn->error;
-                                    }
+                                        require '../php/db.php';
 
-                                    $sql = "SELECT * FROM items";
-                                    $res = $conn->query($sql);
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['category'] ."</td>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] ."</td>"
-                                                . "<td>" . $row['brand'] ."</td>"
-                                                . "<td>" . $row['orderPoint'] ."</td>"
-                                                . "</tr>";
+                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
+                                        $res = $conn->query($sql);
+
+                                        if($res){
+                                            while($row = $res->fetch_assoc()){
+                                                echo "<tr>"
+                                                    . "<td>" . $row['supplierName'] ."</td>"
+                                                    . "<td>" . $row['iarno'] ."</td>"
+                                                    . "<td>" . $row['iarDate'] ."</td>"
+                                                    . "<td>" . $row['amount'] ."</td>"
+                                                    . "<td>" . $row['totalQuantity'] ."</td>"
+                                                    . "<td>" . $row['totalItems'] .  "</td>" 
+
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
+                                                echo "</tr>";
+                                            }
+
                                         }
 
-                                    }
-
                                     ?>
+                                    </tbody>
                                 </table>
+                                <h3 class="title pull-left">
+                                    <?php
+
+                                    require '../php/db.php';
+                                    $sql = "SELECT COUNT(id) FROM iar";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "Total IAR : " . $r[0];
+                                    ?>
+                                </h3>
                             </div>
                         </div>
                     </div>

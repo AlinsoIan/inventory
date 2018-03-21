@@ -41,11 +41,15 @@ $last = $_POST['lastName'];
 if(empty($last)){
     $last = $Olast;
 }
+$d = date('Y:n:j');
 
 $sql = "UPDATE accounts SET firstName = '$first',lastName = '$last',username = '$user',userType = '$type',password = '$pass' 
       WHERE id = '$id'";
 
 if($conn->query($sql)){
+
+        $sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has Updateddd account of $user','$d')";
+        $conn->query($sql);
 
             header('Location:../../admin/accounts.php');
 

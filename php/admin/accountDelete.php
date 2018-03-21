@@ -9,18 +9,22 @@
 require '../db.php';
 $i = $_GET['n'];
 
-$sql2 = "SELECT userType FROM accounts WHERE id = '$i'";
+$sql2 = "SELECT userType,username FROM accounts WHERE id = '$i'";
 
 $res = $conn->query($sql2);
 $r = $res->fetch_row();
 
-
+$d = date('Y:n:j');
 
 if($r[0] == "user"){
 
-    $sql = "DELETE FROM accounts WHERE id = '$i'";
+    $sql = "UPDATE accounts SET status = 'inactive' WHERE id = '$i'";
+
 
     if($conn->query($sql)) {
+
+        $sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has deleted account $r[1]','$d')";
+        $conn->query($sql);
         header('Location:../../admin/accounts.php');
     }
 }else{

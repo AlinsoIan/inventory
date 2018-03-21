@@ -18,6 +18,7 @@ if($_SESSION['type'] == "user"){
 }
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -29,8 +30,8 @@ if($_SESSION['type'] == "user"){
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -71,18 +72,54 @@ if($_SESSION['type'] == "user"){
         </div>
     </nav>
 <!-- #Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
+                        </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                        <?php
-                        echo strtoupper($_SESSION['username']);
-                        ?>
-                    </h3>
-                </li>
+                    
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -95,6 +132,7 @@ if($_SESSION['type'] == "user"){
                             <span>Accounts</span>
                         </a>
                     </li>
+                    <li>
                         <a href="issuance.php">
                             <i class="material-icons">store_mall_directory</i>
                             <span>Issuance</span>
@@ -110,12 +148,6 @@ if($_SESSION['type'] == "user"){
                         <a href="supplier.php">
                             <i class="material-icons">local_shipping</i>
                             <span>Suppliers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -163,22 +195,21 @@ if($_SESSION['type'] == "user"){
                         <li>
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
-
                     </ul>
                 </li>
-					<li>
                     <li class="active">
-                    <a href="iar.php">
-                        <i class="material-icons">event_note</i>
-                        <span>IAR</span>
-                    </a>
-                </li>
-					  <li>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>IAR</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
                             <span>To-Expire</span>
                         </a>
                     </li>
+                 
                     <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
@@ -205,6 +236,26 @@ if($_SESSION['type'] == "user"){
                             </li>
                         </ul>
                     </li>
+                    <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>Logs</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
+                        </li>
+                        <li>
+                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsItem.php"><strong>Items</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
+                        </li>
+                    </ul>
+                </li>
 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -215,9 +266,9 @@ if($_SESSION['type'] == "user"){
                             <li>
                                 <a href="offices.php">Offices</a>
                             </li>
-                         <li>
+                            <li>
                                 <a href="contingency.php">Contingency</a>
-							</li>
+                            </li>
                         </ul>
                     </li>
 
@@ -232,7 +283,7 @@ if($_SESSION['type'] == "user"){
         <!-- #END# Left Sidebar -->
 
         <!-- Modal for Add Issuance -->
-        <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+        <div class="modal col-lg-12" id="addIAR" data-backdrop="static">
             <div class="modal-dialog" style="width:90%;">
                 <div class="modal-content">
                 </div>
@@ -240,20 +291,13 @@ if($_SESSION['type'] == "user"){
         </div>
 
         <!-- Modal for Edit Issuance -->
-    <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
+    <div class="modal col-lg-12" id="viewIAR" data-backdrop="static">
         <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
             </div>
         </div>
     </div>
 
-    <!-- Modal for Delete Issuance -->
-    <div class="modal col-lg-12" id="deleteIssuance" data-backdrop="static">
-        <div class="modal-dialog" style="width:20%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
 
 
     <section class="content">
@@ -263,56 +307,42 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Pending Issuances</h2>
-                            <div class="dropdown show">
-                                <a href="issuance.php" class="btn btn-secondary" >
-                                    PENDING
-                                </a>
-                                <a href="issuanceApproved.php" class="btn btn-secondary" >
-                                    APPROVED
-                                </a>
-
-
-                            </div>
+                            <h2 class="text-center">INSPECTION AND ACCEPTANCE REPORT</h2>
                         </div>
                         <div class="body">
                             <div class="body table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Division</th>
-                                            <th>Office</th>
-                                            <th>Responsibility Center</th>
-                                            <th>Date/Time</th>
-                                            <th>Category</th>
-                                            <th>Status</th>
+                                            <th>SUPPLIER</th>
+                                            <th>IAR NO</th>
+                                            <th>IAR DATE</th>
+                                            <th>IAR AMOUNT</th>
+                                            <th>QUANTITY</th>
+                                            <th>ITEMS</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
 
-                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM issuance WHERE status = 'pending'";
+                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
-                                                    . "<td>" . $row['division'] ."</td>"
-                                                    . "<td>" . $row['office'] ."</td>"
-                                                    . "<td>" . $row['responsibility'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>"
-                                                    . "<td>" . $row['status'] .  "</td>" 
+                                                    . "<td>" . $row['supplierName'] ."</td>"
+                                                    . "<td>" . $row['iarno'] ."</td>"
+                                                    . "<td>" . $row['iarDate'] ."</td>"
+                                                    . "<td>" . $row['amount'] ."</td>"
+                                                    . "<td>" . $row['totalQuantity'] ."</td>"
+                                                    . "<td>" . $row['totalItems'] .  "</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/editIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteIssuance.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -321,20 +351,19 @@ if($_SESSION['type'] == "user"){
                                     ?>
                                     </tbody>
                                 </table>
-                                <h2 class="title pull-left">
+                                <h3 class="title pull-left">
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $sql = "SELECT COUNT(id) FROM iar";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
-                                    echo "Total Issuance : " . $r[0];
+                                    echo "Total IAR : " . $r[0];
                                     ?>
-                                </h2>
-                               
+                                </h3>
 
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/admin/modal/addIAR.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>
@@ -351,10 +380,7 @@ if($_SESSION['type'] == "user"){
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> 
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

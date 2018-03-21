@@ -198,8 +198,6 @@
 
                                         . "</tr>";
                                 }
-                            }else{
-                                echo "Faile" . $conn->error;
                             }
                             
                                 
@@ -218,7 +216,6 @@
 
 
                         <div class="text-center">
-                            <input type="submit" class="btn btn-primary btn-lg waves-effect" value="APPROVE">
                             <a href="../admin/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
                         </div>
                     </div>

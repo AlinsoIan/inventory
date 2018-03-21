@@ -61,9 +61,32 @@ if($_SESSION['type'] == "user"){
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
                         </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
                     </li>
                 </ul>
             </div>
@@ -76,74 +99,62 @@ if($_SESSION['type'] == "user"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><h3>
-                        <?php
-                        echo strtoupper($_SESSION['username']);
-                        ?>
-                    </h3>
-                </li>
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="accounts.php">
-                        <i class="material-icons">people</i>
-                        <span>Accounts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="issuance.php">
-                        <i class="material-icons">store_mall_directory</i>
-                        <span>Issuance</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="reorder.php">
-                        <i class="material-icons">error</i>
-                        <span>Re-order</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="supplier.php">
-                        <i class="material-icons">local_shipping</i>
-                        <span>Suppliers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ppmp.php">
-                        <i class="material-icons">event_note</i>
-                        <span>PPMP</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">assignment</i>
-                        <span>Items</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="items.php"><strong>Category 1</strong></a>
-                        </li>
-                        <li>
-                            <a href="two.php"><strong>Category 2</strong></a>
-                        </li>
-                        <li>
-                            <a href="three.php"><strong>Category 3</strong></a>
-                        </li>
-                        <li>
-                            <a href="four.php"><strong>Category 4</strong></a>
-                        </li>
-                        <li>
-                            <a href="five.php"><strong>Category 5</strong></a>
-                        </li>
+                    
+                    <li>
+                        <a href="dashboard.php">
+                            <i class="material-icons">dashboard</i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="accounts.php">
+                            <i class="material-icons">people</i>
+                            <span>Accounts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="issuance.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Issuance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="supplier.php">
+                            <i class="material-icons">local_shipping</i>
+                            <span>Suppliers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Items</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="items.php"><strong>Category 1</strong></a>
+                            </li>
+                            <li>
+                                <a href="two.php"><strong>Category 2</strong></a>
+                            </li>
+                            <li>
+                                <a href="three.php"><strong>Category 3</strong></a>
+                            </li>
+                            <li>
+                                <a href="four.php"><strong>Category 4</strong></a>
+                            </li>
+                            <li>
+                                <a href="five.php"><strong>Category 5</strong></a>
+                            </li>
 
-                    </ul>
-                </li>
-                <li>
+                        </ul>
+                    </li>
+                    <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -164,71 +175,91 @@ if($_SESSION['type'] == "user"){
                         <li>
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
-
                     </ul>
                 </li>
-					<li>
-                    <a href="iar.php">
-                        <i class="material-icons">event_note</i>
-                        <span>IAR</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="toexpire.php">
-                        <i class="material-icons">assignment</i>
-                        <span>To-Expire</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="returns.php">
-                        <i class="material-icons">event_note</i>
-                        <span>Returns</span>
-                    </a>
-                </li>
-                <li>
+                    <li>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>IAR</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                 
+                    <li class="active">
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="raos.php"><strong>RAOS</strong></a>
+                            </li>
+                            <li>
+                                <a href="rosi.php"><strong>ROSI</strong></a>
+                            </li>
+                            <li>
+                                <a href="ssmi.php"><strong>SSMI</strong></a>
+                            </li>
+                            <li>
+                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
-                        <span>Reports</span>
+                        <span>Logs</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
+                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
                         </li>
                         <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
+                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
                         </li>
                         <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                            <a href="logsItem.php"><strong>Items</strong></a>
                         </li>
                         <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
                         </li>
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">pie_chart</i>
-                        <span>Settings</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="offices.php">Offices</a>
-                        </li>
-                     <li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">pie_chart</i>
+                            <span>Settings</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="offices.php">Offices</a>
+                            </li>
+                            <li>
                                 <a href="contingency.php">Contingency</a>
-							</li>
-                    </ul>
-                </li>
-			</ul>
+                            </li>
+                        </ul>
+                    </li>
 
-        </div>
-        <!-- #Menu -->
 
-    </aside>
-    <!-- #END# Left Sidebar -->
+            </div>
+            <!-- #Menu -->
 
-</section>
+        </aside>
+        <!-- #END# Left Sidebar -->
+
+    </section>
 
 <!-- Modal for Add Returns -->
 <div class="modal col-lg-12" id="add_return" data-backdrop="static">

@@ -35,14 +35,13 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+
+
     <!-- Waves Effect Css -->
     <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
     <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- JQuery DataTable Css -->
-    <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
@@ -89,7 +88,7 @@ if($_SESSION['type'] == "user"){
                             <span>Dashboard</span>
                         </a>
                     </li>
-                        <a href="accounts.php">
+                        <a>
                             <i class="material-icons">people</i>
                             <span>Accounts</span>
                         </a>
@@ -172,8 +171,8 @@ if($_SESSION['type'] == "user"){
                             <span>IAR</span>
                         </a>
                     </li>
-                    <li>
-                        <li class="active">
+                    <li class="active">
+                        
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
                             <span>To-Expire</span>
@@ -239,7 +238,7 @@ if($_SESSION['type'] == "user"){
     </div>
 
     <!-- Modal for Edit Account -->
-    <div class="modal col-lg-12" id="editToExpire" data-backdrop="static">
+    <div class="modal col-lg-12" id="edit_account" data-backdrop="static">
         <div class="modal-dialog" style="width:80%;">
             <div class="modal-content">
             </div>
@@ -257,42 +256,41 @@ if($_SESSION['type'] == "user"){
 
     <section class="content">
         <div class="container-fluid">
-            <!-- Basic Examples -->
+            <!-- Basic Table -->
             <div class="row clearfix">
-                <div class="col-lg-12 ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2 class="text-center">TO EXPIRE</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-
+                        <div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
                                         <th>Item Description</th>
                                         <th>Brand</th>
                                         <th>Quantity</th>
-                                        <th>Expiration Date</th>
-                                        <th>Edit</th>
+                                        <th>Expired Date</th>
 										
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT * FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= items.expirationDate";
+                                $sql = "SELECT * FROM items WHERE category = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
                                 $res = $conn->query($sql);
 
                                 if($res){
                                     while ($row = $res->fetch_assoc()){
                                         echo  "<tr>";
                                         
+                                        echo "<td>" . $row['category'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
                                         echo "<td>" . $row['brand'] . "</td>";
                                         echo "<td>" . $row['startingQuantity'] . "</td>";
                                         echo "<td>" . $row['expirationDate'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editToExpire.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editToExpire'>mode_edit</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -316,28 +314,15 @@ if($_SESSION['type'] == "user"){
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
-    <script src="../js/pages/tables/jquery-datatable.js"></script>
 
-    <script src="../js/custom.js"></script>
+    <!-- Demo Js -->
+    <script src="../js/demo.js"></script>
 </body>
 
 </html>

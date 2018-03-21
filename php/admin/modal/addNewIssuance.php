@@ -1,31 +1,36 @@
 <!-- Multi Column -->
 <div class="row clearfix">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="card">
+    <div class="col-lg-12">
+        <div class="modal-body">
             <div class="header">
                 <h2 align="center">
-                    NEW ISSUANCE
+                    REQUISITION AND ISSUE SLIP
                 </h2>
             </div>
             <form action="../php/admin/addNewIssue.php" method="post">
                 <div class="body">
-                    <div class="row clearfix">
-                <div class="col-md-12">
-                    <h4>
-                        <p>Type of Issuance</p>
-                        <select name = "type" style="width: 15%" class="form-control pull-left">
-                            <option>Office Supplies</option>
-                            <option>Disposal</option>
-                            <option>Expired</option>
-                        </select>
-                    </h4>
+                    <div class="row">
+                        <div class="col-md-3 ">
+                                <p class="text-center">Type of Issuance</p>
+                                <select name="type" class="form-control pull-left">
+                                    <option>Office Supplies</option>
+                                    <option>Disposal</option>
+                                    <option>Expired</option>
+                                </select>
+                        </div>
+                        <div class="col-md-3 pull-right">
+                                <p class="text-center">Name of Issuer</p>
+                            <?php
+                                session_start();
+                                $a = $_SESSION['user'];
+                                $b = $_SESSION['username'];
 
-                    <div class="text-center">
-                        <label >REQUISITION AND ISSUE SLIP</label>
+                                echo "<input class='form-control' type='text' value=' " . strtoupper($b). "' disabled>";
+                            ?>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-
             <hr style="height:2px;border:none;color:#333;background-color:#333;" />
 
             <div class="row">
@@ -129,10 +134,10 @@
                         <th width="8%">Category</th>
                         <th width="30%">Item Description</th>
                         <th width="10%">Unit</th>
-                        <th width="10%">Requested</th>
-                        <th width="10%">Issued</th>
-                        <th width="10%">Remarks</th>
-                        <th width="10%"></th>
+                        <th width="8%">Requested</th>
+                        <th width="8%">Issued</th>
+                        <th >Remarks</th>
+                        <th width="5%"></th>
                    </thead>
                     <tbody>
                         <tr>
@@ -181,8 +186,8 @@
                                 </select>
                             </td>
 
-                            <td><input type="number" name="qRequested[]" style="width: 70px;" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                            <td><input type="number"  class="form-control" name="qIssued[]" min="0" style="width: 70px;" onkeypress="return isNumberKey(event)" required class="form-control"></td>
+                            <td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
+                            <td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
                             <td><input type="text" name="remarks[]" size="30px" class="form-control"></td>
                         </tr>
 
@@ -194,10 +199,10 @@
             </div>
 
 
-                        <div class="text-center">
-                            <button type="button" name="add" id="add" class="btn btn-primary btn-lg waves-effect pull-left">Add Row</button>
-                            <input type="submit" id ="add" class="btn btn-primary btn-lg waves-effect" value="ADD">
-                            <a href="../admin/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
+                        <div class="modal-footer text-center">
+                            <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
+                            <button type="submit" id ="add" class="btn btn-success text-center" value="submit">ADD</button>
+                            <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
                         </div>
 
                     </div>
@@ -208,7 +213,6 @@
 
 
         </div>
-    </div>
 </div>
 <!-- #END# Multi Column -->
 
@@ -229,8 +233,8 @@
                         '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['units'] . "</option>";}}?></select>' +
                     '</td>' +
 
-                    '<td><input type="number" name="qRequested[]" style="width: 70px;" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                    '<td><input type="number"  class="form-control" name="qIssued[]" min="0" style="width: 70px;" onkeypress="return isNumberKey(event)" required class="form-control"></td>'+
+                    '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
+                    '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>'+
                     '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
 
                     '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +
@@ -240,17 +244,6 @@
             var button_id = $(this).attr("id");
             $('#row'+button_id+'').remove();
         });
-        $('#submit').click(function(){
-            $.ajax({
-                url:"name.php",
-                method:"POST",
-                data:$('#add_name').serialize(),
-                success:function(data)
-                {
-                    alert(data);
-                    $('#add_name')[0].reset();
-                }
-            });
-        });
+
     });
 </script>

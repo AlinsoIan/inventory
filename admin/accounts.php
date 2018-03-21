@@ -57,14 +57,37 @@ if($_SESSION['type'] == "user"){
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a
+                <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
+                </li>
+                    <li>
+                        <a class="navbar-brand" href="dashboard.php">
+                            <h4>
+                                <?php
+                                    echo strtoupper($_SESSION['username']);
+                                ?>
+                            </h4>
                         </a>
+                        <!-- Example single danger button -->
+                        <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="material-icons">format_align_justify</i>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="../php/logout.php">
+                                <h4>Logout</h4>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                        
+
                     </li>
                 </ul>
             </div>
@@ -77,6 +100,7 @@ if($_SESSION['type'] == "user"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                    
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
@@ -105,12 +129,6 @@ if($_SESSION['type'] == "user"){
                         <a href="supplier.php">
                             <i class="material-icons">local_shipping</i>
                             <span>Suppliers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -199,6 +217,26 @@ if($_SESSION['type'] == "user"){
                             </li>
                         </ul>
                     </li>
+                    <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>Logs</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
+                        </li>
+                        <li>
+                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsItem.php"><strong>Items</strong></a>
+                        </li>
+                        <li>
+                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
+                        </li>
+                    </ul>
+                </li>
 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -274,7 +312,7 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT * FROM accounts";
+                                $sql = "SELECT * FROM accounts WHERE status = 'active'";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -308,7 +346,8 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-
+    <!-- Select Plugin Js -->
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
 
     <!-- Waves Effect Plugin Js -->
@@ -317,6 +356,8 @@ if($_SESSION['type'] == "user"){
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
 
+    <!-- Demo Js -->
+    <script src="../js/demo.js"></script>
 </body>
 
 </html>

@@ -22,8 +22,8 @@ $t = $_POST['type'];
 $s = $_SESSION['user'];
 
 
-$sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,timeT,typeT,status,issuer) 
-        VALUES ('$division','$office','$responsibility','$fpp','$ris','$sai','$d','$ti','$t','pending','$s')";
+$sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,timeT,typeT,issuer) 
+        VALUES ('$division','$office','$responsibility','$fpp','$ris','$sai','$d','$ti','$t','$s')";
 
 $category = $_POST['category'];
 $des = $_POST['des'];
@@ -33,11 +33,6 @@ $qIssued = $_POST['qIssued'];
 $remarks = $_POST['remarks'];
 
 if($conn->query($sql)){
-
-
-
-
-
     $cat = [];
     foreach ($category as $a){
         if(!empty($a)) {
@@ -47,33 +42,28 @@ if($conn->query($sql)){
 
     $dess = [];
     foreach ($des as $a){
-        if(!empty($a)) {
             array_push($dess,$a);
-        }
+
     }
     $u = [];
     foreach ($unit as $a){
-        if(!empty($a)) {
             array_push($u,$a);
-        }
+
     }
     $req = [];
     foreach ($qRequested as $a){
-        if(!empty($a)) {
             array_push($req,$a);
-        }
+
     }
     $iss = [];
     foreach ($qIssued as $a){
-        if(!empty($a)) {
             array_push($iss,$a);
-        }
+
     }
     $rem = [];
     foreach ($remarks as $a){
-        if(!empty($a)) {
             array_push($rem,$a);
-        }
+
     }
 
     $id = mysqli_insert_id($conn);
@@ -89,7 +79,7 @@ if($conn->query($sql)){
 
                     if($r[0] < $iss[$m]){
 
-                        $sql = "DELETE FROM issuance WHERE issuance.id = '$id'";
+                        $sql = "DELETE FROM issuance WHERE id = '$id'";
 
                         if($conn->query($sql)){
 
@@ -104,14 +94,39 @@ if($conn->query($sql)){
                                 </script>
                                 ";
                             }
+                        }else{
+                            $m="Error! !";
+                            echo "
+                                <script type = 'text/javascript'>
+                                    alert('$m');
+                                    window.location.replace('../../admin/issuance.php');
+                                </script>
+                                ";
                         }
 
                     }else{
                         $n = $r[0] - $iss[$m];
                         $sql = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[1]'";
 
-                        if($conn->query($sql)){
-                            header('Location:../../admin/issuance.php');
+
+                        if($conn->query($sql)){ 
+                            $u = $_SESSION['username'];
+                            $mm = "Has Issued to " . $office ;
+                            $query = "INSERT INTO issuanceslogs(issuances,issuancesDate,issue_id,issuer)
+
+                                VALUES('$mm','$d','$id','$u')";
+                            if($conn->query($query)){
+                                header('Location:../../admin/issuance.php');
+                            }else{
+                                $m="Error! Inserting into issuancesLogs!";
+                                echo "
+                                <script type = 'text/javascript'>
+                                    alert('$m');
+                                    window.location.replace('../../admin/issuance.php');
+                                </script>
+                                ";
+                            }
+
                         }else{
                             $m="Error! Updating Item Quantity!";
                             echo "
@@ -122,7 +137,15 @@ if($conn->query($sql)){
                                 ";
                         }
                     }
-            }
+                }
+            }else{
+                $m="Error! a!";
+                echo "
+                                <script type = 'text/javascript'>
+                                    alert('$m');
+                                    window.location.replace('../../admin/issuance.php');
+                                </script>
+                                ";
         }
     }
 
