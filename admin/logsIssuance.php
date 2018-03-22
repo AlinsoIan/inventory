@@ -300,31 +300,23 @@ if($_SESSION['type'] == "user"){
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Time-in</th>
-										<th>Time-out</th>
-										<th>Type</th>
-										<th>Settings</th>
+                                        <th>Issuer</th>
+                                        <th>Issuance</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT * FROM accounts";
+                                $sql = "SELECT * FROM issuanceslogs";
                                 $res = $conn->query($sql);
 
                                 if($res){
                                     while ($row = $res->fetch_assoc()){
                                         echo  "<tr>";
-                                        echo "<td>" . strtoupper($row['lastName'] . " " . $row['firstName']) . "</td>";
-                                        echo "<td>" . $row['username'] . "</td>";
-                                        echo "<td>" . $row['password'] . "</td>";
-                                        echo "<td>" . $row['loginTime'] . "</td>";
-                                        echo "<td>" . $row['logoutTime'] . "</td>";
-                                        echo "<td>" . $row['userType'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . $row['issuer'] . "</td>";
+                                        echo "<td>" . $row['issuances'] . "</td>";
+                                        echo "<td>" . $row['issuancesDate'] . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -332,7 +324,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                                 </tbody>
                             </table>
-                            <a href="../php/admin/modal/addAccount.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_account">Add Account</a>
+
                         </div>
                     </div>
                 </div>

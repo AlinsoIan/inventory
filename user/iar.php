@@ -224,7 +224,7 @@ if(!isset($_SESSION['username'])){
                                                     . "<td>" . $row['totalQuantity'] ."</td>"
                                                     . "<td>" . $row['totalItems'] .  "</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -245,7 +245,7 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addIAR.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
+                                <a href="../php/user/modal/addIAR.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>

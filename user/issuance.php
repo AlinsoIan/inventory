@@ -199,8 +199,8 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-
-                                        $sql = "SELECT * FROM issuance";
+                                        $aa = $_SESSION['user'];
+                                        $sql = "SELECT * FROM issuance WHERE issuer = '$aa'";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -212,7 +212,7 @@ if(!isset($_SESSION['username'])){
                                                     . "<td>" . $row['dateT'] ."</td>"
                                                     . "<td>" . $row['typeT'] ."</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -225,7 +225,7 @@ if(!isset($_SESSION['username'])){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $sql = "SELECT COUNT(id) FROM issuance WHERE issuer = '$aa'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
@@ -233,7 +233,7 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>

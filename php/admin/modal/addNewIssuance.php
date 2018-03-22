@@ -27,7 +27,6 @@
 
                                 echo "<input class='form-control' type='text' value=' " . strtoupper($b). "' disabled>";
                             ?>
-
                         </div>
                     </div>
                 </div>
