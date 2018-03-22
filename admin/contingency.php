@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.html');
+    window.location.replace(index.php);
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -231,10 +231,10 @@ if($_SESSION['type'] == "user"){
                             <a href="accountsLogs.php"><strong>Accounts</strong></a>
                         </li>
                         <li>
-                            <a href="logsItem.php"><strong>Items</strong></a>
+                            <a href="itemsLogs.php"><strong>Items</strong></a>
                         </li>
                         <li>
-                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
+                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
                         </li>
                     </ul>
                 </li>

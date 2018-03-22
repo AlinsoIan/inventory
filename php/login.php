@@ -46,7 +46,7 @@ if($res->num_rows > 0){
         echo "
             <script type = 'text/javascript'>
                 alert('$m');
-                window.location.replace('../index.html');
+                window.location.replace('../index.php');
             </script>
          ";
     }
@@ -57,7 +57,7 @@ if($res->num_rows > 0){
     echo "
             <script type = 'text/javascript'>
                 alert('$m');
-                window.location.replace('../index.html');
+                window.location.replace('../index.php');
             </script>
          ";
 }

@@ -1,3 +1,16 @@
+<?php
+    
+session_start();
+
+if(isset($_SESSION['user'])){
+    if($_SESSION['type'] == 'admin'){
+        header('Location:admin/dashboard.php');
+    }else{
+        header('Location:user/dashboard.php');
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" >
 

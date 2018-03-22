@@ -7,7 +7,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.html');
+    window.location.replace(index.php);
 
 
     </script>";

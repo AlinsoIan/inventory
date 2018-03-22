@@ -59,7 +59,7 @@
 
                         <a href="../admin/ppmp.php" class='btn btn-primary pull-right' id='submitB'>Cancel</a>
 
-                        <a href="addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_ppmp">Add PPMP</a>
+                        <a href="modal/addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_ppmp">Add PPMP</a>
                     </div>
 
 

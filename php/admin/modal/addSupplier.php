@@ -2,7 +2,7 @@
 <div class="col-md-12">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="title text-center">Add Item</h4>
+            <h4 class="title text-center"> Add Supplier </h4>
         </div>
         <hr>
         <div class="card-content table-responsive">
@@ -11,8 +11,7 @@
                     <thead class="text-primary">
                     <th>Supplier</th>
                     <th>Tin Number</th>
-                    <th>PO Number</th>
-                    <th>PO Date</th>
+                    
                     </thead>
                     <tbody>
                         <tr>
@@ -23,12 +22,7 @@
                             <td>
                                 <input type="text"  name = "tinNumber" class="form-control">
                             </td>
-                            <td>
-                                <input type="text"  name = "poNumber" class="form-control">
-                            </td>
-                            <td>
-                                <input type="date"  name = "poDate" class="form-control">
-                            </td>
+                            
 
                         </tr>
                     </tbody>

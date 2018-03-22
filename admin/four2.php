@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.html');
+    window.location.replace(index.php);
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -109,9 +109,9 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="accounts.php">
-                            <i class="material-icons">people</i>
-                            <span>Accounts</span>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -121,40 +121,16 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="reorder.php">
-                            <i class="material-icons">error</i>
-                            <span>Re-order</span>
+                        <a href="iar.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivered Items</span>
                         </a>
                     </li>
                     <li>
-                        <a href="supplier.php">
-                            <i class="material-icons">local_shipping</i>
-                            <span>Suppliers</span>
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Items</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="items.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five.php"><strong>Category 5</strong></a>
-                            </li>
-
-                        </ul>
                     </li>
                     <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -178,25 +154,6 @@ if($_SESSION['type'] == "user"){
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
                     </ul>
-                </li>
-                    <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="toexpire.php">
-                            <i class="material-icons">assignment</i>
-                            <span>To-Expire</span>
-                        </a>
-                    </li>
-                 
-                    <li>
-                        <a href="returns.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -219,6 +176,74 @@ if($_SESSION['type'] == "user"){
                         </ul>
                     </li>
                     <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Items</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="items.php"><strong>Category 1</strong></a>
+                            </li>
+                            <li>
+                                <a href="two.php"><strong>Category 2</strong></a>
+                            </li>
+                            <li>
+                                <a href="three.php"><strong>Category 3</strong></a>
+                            </li>
+                            <li>
+                                <a href="four.php"><strong>Category 4</strong></a>
+                            </li>
+                            <li>
+                                <a href="five.php"><strong>Category 5</strong></a>
+                            </li>
+
+                        </ul>
+                        </li>
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Other Transaction</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
                         <span>Logs</span>
@@ -231,28 +256,15 @@ if($_SESSION['type'] == "user"){
                             <a href="accountsLogs.php"><strong>Accounts</strong></a>
                         </li>
                         <li>
-                            <a href="logsItem.php"><strong>Items</strong></a>
+                            <a href="itemsLogs.php"><strong>Items</strong></a>
                         </li>
                         <li>
-                            <a href="logsSupplier.php"><strong>Suppliers</strong></a>
+                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
                         </li>
                     </ul>
                 </li>
-
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Settings</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="offices.php">Offices</a>
-                            </li>
-                            <li>
-                                <a href="contingency.php">Contingency</a>
-                            </li>
-                        </ul>
-                    </li>
+            </ul>
+        </li>
 
 
             </div>
