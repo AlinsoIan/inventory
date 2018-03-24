@@ -27,7 +27,6 @@ $sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,ti
 
 $category = $_POST['category'];
 $des = $_POST['des'];
-$unit = $_POST['units'];
 $qRequested = $_POST['qRequested'];
 $qIssued = $_POST['qIssued'];
 $remarks = $_POST['remarks'];
@@ -43,11 +42,6 @@ if($conn->query($sql)){
     $dess = [];
     foreach ($des as $a){
             array_push($dess,$a);
-
-    }
-    $u = [];
-    foreach ($unit as $a){
-            array_push($u,$a);
 
     }
     $req = [];
@@ -68,8 +62,27 @@ if($conn->query($sql)){
 
     $id = mysqli_insert_id($conn);
     for ($m = 0;count($cat) > $m;$m++) {
-        $sql = "INSERT INTO itemissuance(category,description,unit,quantityRequested,quantityIssued,remarks,issue_id)
-                      VALUES('$cat[$m]','$dess[$m]','$u[$m]','$req[$m]','$iss[$m]','$rem[$m]','$id')";
+
+        $sql = "SELECT id FROM items WHERE description LIKE '%$dess[$m]%'";
+        $tt = $conn->query($sql);
+        $ttt = $tt->fetch_row();
+
+        $sql = "INSERT INTO itemissuance(itemNo,quantityRequested,quantityIssued,remarks,issue_id)
+                      VALUES('$ttt[0]','$req[$m]','$iss[$m]','$rem[$m]','$id')";
+        $conn->query($sql);
+
+        $sql = "SELECT startingQuantity FROM items WHERE description LIKE '%$des[$m]%'";
+        $res = $conn->query($sql);
+        $r = $res->fetch_row();
+
+        $n = $r[0] - $iss[$m];
+
+        $sql = "UPDATE items SET startingQuantity ='$n' WHERE description LIKE '%$des[$m]%'";
+
+        $conn->query($sql);
+
+
+
         
     }
 

@@ -135,10 +135,9 @@
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
                             <th width="8%">Category</th>
-                            <th width="30%">Item Description</th>
-                            <th width="10%">Unit</th>
-                            <th width="8%">Requested</th>
-                            <th width="8%">Issued</th>
+                            <th width="40%">Item Description</th>
+                            <th width="12%">Requested</th>
+                            <th width="12%">Issued</th>
                             <th>Remarks</th>
                             <th width="5%"></th>
                             </thead>
@@ -172,21 +171,6 @@
 
                                     </select>
 
-                                </td>
-                                <td>
-                                    <select name="units[]" class="form-control">
-                                        <?php
-                                        require '../../db.php';
-
-                                        $r = $conn->query('SELECT units FROM units');
-
-                                        if ($r) {
-                                            while ($row = $r->fetch_assoc()) {
-                                                echo "<option>" . $row['units'] . "</option>";
-                                            }
-                                        }
-                                        ?>
-                                    </select>
                                 </td>
 
                                 <td><input type="number" name="qRequested[]" min="0"
@@ -235,13 +219,6 @@
                 '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if ($res) {
                     while ($row = $res->fetch_assoc()) {
                         echo "<option>" . $row['description'] . "</option>";
-                    }
-                }?></select>' +
-                '</td>' +
-                '<td>' +
-                '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if ($r) {
-                    while ($row = $r->fetch_assoc()) {
-                        echo "<option>" . $row['units'] . "</option>";
                     }
                 }?></select>' +
                 '</td>' +

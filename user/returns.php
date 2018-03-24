@@ -204,7 +204,7 @@ if(!isset($_SESSION['username'])){
                                     echo "<td>" . $row['reason'] . "</td>";
                                     echo "<td>" . $row['returns.quantity'] . "</td>";
                                     echo "<td>" . $row['status'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                    echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/disableAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }

@@ -331,7 +331,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['brand'] . "</td>";
                                         echo "<td>" . $row['startingQuantity'] . "</td>";
                                         echo "<td>" . $row['expirationDate'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/disableAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }

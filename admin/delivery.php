@@ -115,13 +115,13 @@ if($_SESSION['type'] == "user"){
                     </a>
                 </li>
                 <li>
-                <li class="active">
+                <li>
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="delivery.php">
                         <i class="material-icons">event_note</i>
                         <span>Delivered Items</span>

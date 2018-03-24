@@ -50,8 +50,7 @@
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
                         <th width="8%">Category</th>
-                        <th width="30%">Item Description</th>
-                        <th width="10%">Unit</th>
+                        <th width="20%">Item Description</th>
                         <th width="8%">Quantity</th>
                         <th width="8%">Unit Cost</th>
                         <th width="8%">Amount</th>
@@ -87,21 +86,6 @@
 
                                 </select>
 
-                            </td>
-                            <td>
-                                <select name="" class="form-control">
-                                    <?php
-                                    require '../../db.php';
-
-                                    $r = $conn->query('SELECT units FROM units');
-
-                                    if($r){
-                                        while ($row = $r->fetch_assoc()){
-                                            echo "<option>" . $row['units'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>
                             </td>
 
                             <td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
