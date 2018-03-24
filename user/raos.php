@@ -221,7 +221,7 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addIAR.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
+                                <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>

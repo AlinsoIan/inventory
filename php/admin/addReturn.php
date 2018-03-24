@@ -9,11 +9,21 @@
 require '../db.php';
 
 $office = $_POST['office'];
+
+$s = "SELECT id FROM offices WHERE office LIKE '%$office%'";
+$o  = $conn->query($s);
+$oo = $o->fetch_row();
+
 $item = $_POST['item'];
-$unit = $_POST['unit'];
+$s = "SELECT id FROM items WHERE description LIKE '%$item%'";
+$c  = $conn->query($s);
+$cc = $c->fetch_row();
+
+
 $res = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
+
 
 $sql2 = "SELECT id FROM offices WHERE office LIKE '%$office%'";
 $res = $conn->query($sql2);

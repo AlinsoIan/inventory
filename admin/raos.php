@@ -117,7 +117,7 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
+                        <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>Delivered Items</span>
                         </a>
@@ -349,7 +349,7 @@ if($_SESSION['type'] == "user"){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addIAR.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
+                                <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>

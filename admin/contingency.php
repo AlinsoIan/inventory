@@ -180,7 +180,7 @@ if($_SESSION['type'] == "user"){
                     </ul>
                 </li>
                     <li>
-                        <a href="iar.php">
+                        <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>IAR</span>
                         </a>

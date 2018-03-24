@@ -122,7 +122,7 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
+                        <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>Delivered Items</span>
                         </a>
@@ -380,8 +380,6 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> 
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

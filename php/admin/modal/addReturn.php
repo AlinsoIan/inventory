@@ -10,12 +10,12 @@
             <form action="../php/admin/addReturn.php" method="post">
                 <table class="table">
                     <thead class="text-primary">
-                    <th>Office</th>
+                    <th style="width: 25%;">Office</th>
                     <th>Item</th>
-                    <th>Unit</th>
-                    <th>Reason</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
+                    <th style="width: 8%;">Unit</th>
+                    <th style="20%">Reason</th>
+                    <th style="width: 8%;">Quantity</th>
+                    <th style="width: 20%;">Status</th>
                     </thead>
                     <tbody>
                     <tr>
@@ -35,10 +35,22 @@
                         </select>
                         </td>
                         <td>
-                            <input name="item" class="form-control" type="text" required>
+                            <select name="item" class="form-control">
+                            <?php
+                            require '../../db.php';
+                            $sql = "SELECT description FROM items";
+                            $res = $conn->query($sql);
+
+                            if($res){
+                                while ($row = $res->fetch_assoc()){
+                                    echo "<option value=' " .$row['description']  . "'>" . $row['description'] . "</option>";
+                                }
+                            }
+                            ?>
+                            </select>
                         </td>
                         <td>
-                            <select class="form-control" name="unit" style="width: 120%">
+                            <select class="form-control">
                                 <?php
                                 require '../../db.php';
                                 $sql = "SELECT units FROM units";
@@ -56,7 +68,7 @@
                             <input name="res" class="form-control" type="text" required>
                         </td>
                         <td>
-                            <input name="quantity" class="form-control" type="number" required>
+                            <input name="quantity" class="form-control" onkeypress="return isNumberKey(event)" type="number" required>
                         </td>
                         <td>
                             <select name="status" class="form-control" >

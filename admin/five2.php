@@ -119,7 +119,7 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
+                        <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>Delivered Items</span>
                         </a>

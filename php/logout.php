@@ -17,9 +17,9 @@ $user = $_SESSION['username'];
 $sql = "UPDATE accounts SET logoutTime = '$t' WHERE username = '$user'";
 if($conn->query($sql)){
     session_destroy();
-    header('Location:../index.html');
+    header('Location:../index.php');
 }
 else{
     session_destroy();
-    header('Location:../index.html');
+    header('Location:../index.php');
 }

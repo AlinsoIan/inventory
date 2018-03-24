@@ -7,7 +7,7 @@
                     PPMP
                 </h2>
             </div>
-            <form action="../php/admin/addNewIssue.php" method="post">
+            <form action="../php/admin/addPPMP.php" method="post">
 
 
                 <div class="row clearfix">
@@ -39,7 +39,7 @@
                             <?php
                             $d = date('Y/n/j');
 
-                            echo "<input type='text' class = 'form-control' name = ''  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";
+                            echo "<input type='text' class = 'form-control' name = 'd'  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";
                             ?>
 
                         </div>
@@ -89,7 +89,7 @@
 
                             </td>
                             <td>
-                                <select name="units[]" class="form-control">
+                                <select name="" class="form-control">
                                     <?php
                                     require '../../db.php';
 
@@ -118,9 +118,9 @@
 
 
                 <div class="modal-footer text-center">
-                    <button type="button" name="add" onkeypress="" id="add" class="btn btn-primary pull-left">ADD ROW</button>
+                    <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                     <button type="submit" id ="add" class="btn btn-success text-center" value="submit">ADD</button>
-                    <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                    <a href="../admin/ppmp.php" class="btn btn-danger pull-right">CLOSE</a>
                 </div>
 
         </div>
@@ -135,49 +135,33 @@
 <!-- #END# Multi Column -->
 
 <script>
-    function addRow(a) {
-        $(document).ready(function () {
-            var i = 1;
+    $(document).ready(function(){
+        var i=1;
+        $('#add').click(function(){
+            i++;
+            $('#dynamic_field').append( '' +
+                '<tr id="row'+i+'">' +
+                '<td>' +
+                '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select></td>' +
+                '</td>' +
+                '<td>' +
+                '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if($res){while($row = $res -> fetch_assoc()){echo "<option>". $row['description'] . "</option>";}}?></select>' +
+                '</td>' +
+                '<td>' +
+                '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['units'] . "</option>";}}?></select>' +
+                '</td>' +
 
-            for(var o = 0;o >= a;o++) {
+                '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
+                '<td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>'+
+                '<td><input type="text" name="amount[]" size="30px" class="form-control"></td>' +
 
-
-
-                    i++;
-                    $('#dynamic_field').append('' +
-                        '<tr id="row' + i + '">' +
-                        '<td>' +
-                        '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select></td>' +
-                        '</td>' +
-                        '<td>' +
-                        '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if ($res) {
-                            while ($row = $res->fetch_assoc()) {
-                                echo "<option>" . $row['description'] . "</option>";
-                            }
-                        }?></select>' +
-                        '</td>' +
-                        '<td>' +
-                        '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if ($r) {
-                            while ($row = $r->fetch_assoc()) {
-                                echo "<option>" . $row['units'] . "</option>";
-                            }
-                        }?></select>' +
-                        '</td>' +
-
-                        '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                        '<td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                        '<td><input type="text" name="amount[]" size="30px" class="form-control"></td>' +
-
-                        '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
-                        '</tr>');
-                );
-                $(document).on('click', '.btn_remove', function () {
-                    var button_id = $(this).attr("id");
-                    $('#row' + button_id + '').remove();
-                });
-            }
-
+                '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +
+                '</tr>');
+        });
+        $(document).on('click', '.btn_remove', function(){
+            var button_id = $(this).attr("id");
+            $('#row'+button_id+'').remove();
         });
 
-    }
+    });
 </script>

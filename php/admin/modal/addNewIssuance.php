@@ -223,7 +223,7 @@
             $('#dynamic_field').append( '' +
                 '<tr id="row'+i+'">' +
                     '<td>' +
-                        '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select></td>' +
+                        '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select>' +
                     '</td>' +
                     '<td>' +
                         '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if($res){while($row = $res -> fetch_assoc()){echo "<option>". $row['description'] . "</option>";}}?></select>' +

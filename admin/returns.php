@@ -119,7 +119,7 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
+                        <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>Delivered Items</span>
                         </a>
@@ -371,8 +371,8 @@ if($_SESSION['type'] == "user"){
 <!-- Custom Js -->
 <script src="../js/admin.js"></script>
 
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
+
+<script src="../js/custom.js"></script>
 </body>
 
 </html>
