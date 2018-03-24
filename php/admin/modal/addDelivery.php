@@ -7,7 +7,7 @@
                     DELIVERY
                 </h2>
             </div>
-            <form action="../php/admin/addNewIssue.php" method="post">
+            <form action="../php/admin/addDelivery.php" method="post">
                 <div class="row clearfix">
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
@@ -26,19 +26,11 @@
                             </td>
                             <td>
                                 <select name="cat[]" class="form-control">
-                                    <?php
-                                    require '../../db.php';
-
-                                    $sql = "SELECT category,id FROM items";
-                                    $res = $conn->query($sql);
-                                    if($res){
-                                        while($row = $res -> fetch_assoc()){
-                                            echo "<option>". $row['category'] . "</option>";
-                                        }
-
-                                    }
-
-                                    ?>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
                                 </select>
                             </td>
                             <td>
@@ -133,18 +125,22 @@
             $('#dynamic_field').append( '' +
                 '<tr id="row'+i+'">' +
                 '<td>' +
-                '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select>' +
+                '<input type="text" name="iarno[]" class="form-control" required>' +
                 '</td>' +
                 '<td>' +
-                '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if($res){while($row = $res -> fetch_assoc()){echo "<option>". $row['description'] . "</option>";}}?></select>' +
+                '<select name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
+                '</td>' +
+                '<td>' +
+                '<select name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT description FROM items');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td>' +
                 '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['units'] . "</option>";}}?></select>' +
                 '</td>' +
-
-                '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>'+
-                '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
+                '<td>' +
+                '<select name="supp[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
+                '</td>' +
+                '<td><input type="quantity" name="quantity[]" class="form-control" required></td>'+
+                '<td><input type="date" name="d[]" class="form-control" required></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

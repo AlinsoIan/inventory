@@ -63,24 +63,6 @@ if($_SESSION['type'] == "user"){
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../php/logout.php">
-                        <h4>Logout</h4>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- #Top Bar -->
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-            <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
                 </li>
                 <li>
                     <a class="navbar-brand" href="dashboard.php">
@@ -133,13 +115,13 @@ if($_SESSION['type'] == "user"){
                     </a>
                 </li>
                 <li>
+                <li class="active">
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
                     </a>
                 </li>
                 <li>
-                <li class="active">
                     <a href="delivery.php">
                         <i class="material-icons">event_note</i>
                         <span>Delivered Items</span>
@@ -284,6 +266,8 @@ if($_SESSION['type'] == "user"){
                         </li>
                     </ul>
                 </li>
+
+
         </div>
         <!-- #Menu -->
 
@@ -332,11 +316,13 @@ if($_SESSION['type'] == "user"){
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Division</th>
-                                    <th>Office</th>
-                                    <th>Responsibility Center</th>
-                                    <th>Date/Time</th>
+                                    <th>IAR No.</th>
                                     <th>Category</th>
+                                    <th>Item</th>
+                                    <th>Unit</th>
+                                    <th>Supplier</th>
+                                    <th>Qty</th>
+                                    <th>Delivery Date</th>
                                     <th>Settings</th>
                                 </tr>
                                 </thead>
@@ -345,21 +331,22 @@ if($_SESSION['type'] == "user"){
                                 <?php
                                 require '../php/db.php';
 
-                                $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-
-                                $sql = "SELECT * FROM issuance";
+                                $sql = "SELECT iarno,items.category AS a,items.description AS b,items.unit AS c,suppliers.supplierName AS d,
+                                                delivery.quantity AS e,delivery.dateT AS f,delivery.id AS idd FROM delivery JOIN items ON delivery.itemNo = items.id
+                                                  JOIN suppliers ON delivery.supplier_id = suppliers.id";
                                 $res = $conn->query($sql);
 
                                 if($res){
                                     while($row = $res->fetch_assoc()){
                                         echo "<tr>"
-                                            . "<td>" . $row['division'] ."</td>"
-                                            . "<td>" . $row['office'] ."</td>"
-                                            . "<td>" . $row['responsibility'] ."</td>"
-                                            . "<td>" . $row['dateT'] ."</td>"
-                                            . "<td>" . $row['typeT'] ."</td>"
-
-                                            . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>" . $row['iarno'] ."</td>"
+                                            . "<td>" . $row['a'] ."</td>"
+                                            . "<td>" . $row['b'] ."</td>"
+                                            . "<td>" . $row['c'] ."</td>"
+                                            . "<td>" . $row['d'] ."</td>"
+                                            . "<td>" . $row['e'] ."</td>"
+                                            . "<td>" . $row['f'] ."</td>"
+                                            . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd']  . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteDelivery.php?num=' .$row['idd']  . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 
@@ -380,7 +367,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                            <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
                         </div>
                     </div>
                 </div>

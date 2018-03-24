@@ -329,8 +329,7 @@ if($_SESSION['type'] == "user"){
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                         $_SESSION['cat']= "01";
 
-                                        $sql = "SELECT 
-                                            items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName
+                                        $sql = "SELECT items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName
                                          FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '1'";
                                         $res = $conn->query($sql);
 

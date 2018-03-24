@@ -9,13 +9,12 @@ require '../db.php';
 
 $n = $_POST['name'];
 $tin = $_POST['tinNumber'];
-$pN = $_POST['poNumber'];
-$pD = $_POST['poDate'];
+$cN = $_POST['contactNumber'];
 
 
 
-$sql = "INSERT INTO suppliers(supplierName,tinNumber,poNumber,poDate) 
-VALUES('$n','$tin','$pN','$pD')";
+$sql = "INSERT INTO suppliers(supplierName,tinNumber,number) 
+VALUES('$n','$tin','$cN')";
 
 if($conn->query($sql)){
     header("Location:../../admin/supplier.php");

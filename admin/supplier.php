@@ -325,6 +325,7 @@ if($_SESSION['type'] == "user"){
                             <tr>
                                 <th>Supplier Name</th>
                                 <th>Tin Number</th>
+                                <th>Contact Number</th>
                                 <th>SETTINGS</th>
                             </tr>
                             </thead>
@@ -339,6 +340,7 @@ if($_SESSION['type'] == "user"){
                                     echo  "<tr>";
                                     echo "<td>" . $row['supplierName'] . "</td>";
                                     echo "<td>" . $row['tinNumber'] . "</td>";
+                                    echo "<td>" . $row['number'] . "</td>";
                                     echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
                                     echo "</tr>";
                                 }
@@ -372,7 +374,7 @@ if($_SESSION['type'] == "user"){
 <script src="../js/admin.js"></script>
 
 <!-- Demo Js -->
-<script src="../js/demo.js"></script>
+<script src="../js/custom.js"></script>
 </body>
 
 </html>

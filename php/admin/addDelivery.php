@@ -33,20 +33,27 @@ if (COUNT($cat)) {
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT id FROM items WHERE description LIKE '%$item[$m]%'";
+        $s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$item[$m]%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
             $r = $res->fetch_row();
 
-            $sq = "SELECT id FROM suppliers WHERE supplierName LIKE '%$supp%'";
+            $sq = "SELECT id FROM suppliers WHERE supplierName LIKE '%$supp[$m]%'";
             $ress = $conn->query($sq);
             if ($ress->num_rows > 0) {
                 $rr = $ress->fetch_row();
+
+
                 $sql = "INSERT INTO delivery(iarno,itemNo,supplier_id,quantity,dateT)
                       VALUES('$iar[$m]','$r[0]','$rr[0]','$quan[$m]','$d[$m]')";
 
                 $conn->query($sql);
+
+                $n = $r[1] + $quan[$m];
+
+                $ss = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[0]'";
+                $conn->query($ss);
             } else {
                 $m = "Error Adding Inserting!";
 
