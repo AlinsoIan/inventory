@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/modal/viewPPMP.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/addPPMP.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/ppmpDelete.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/four2.php" afterPath="$PROJECT_DIR$/admin/four2.php" />
-      <change beforePath="$PROJECT_DIR$/admin/items2.php" afterPath="$PROJECT_DIR$/admin/items2.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" afterPath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" afterPath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" afterPath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" />
-      <change beforePath="$PROJECT_DIR$/php/login.php" afterPath="$PROJECT_DIR$/php/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -619,11 +612,25 @@
       <option name="project" value="LOCAL" />
       <updated>1521952916893</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Oh yeah!">
+      <created>1521973276243</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1521973276243</updated>
+    </task>
+    <task id="LOCAL-00019" summary="ppmp">
+      <created>1521976457978</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1521976457978</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351319000" />
+    <option name="totallyTimeSpent" value="352577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -684,7 +691,8 @@
     <MESSAGE value="Saturday Night Latest" />
     <MESSAGE value="Yeah!" />
     <MESSAGE value="Oh yeah!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oh yeah!" />
+    <MESSAGE value="ppmp" />
+    <option name="LAST_COMMIT_MESSAGE" value="ppmp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
