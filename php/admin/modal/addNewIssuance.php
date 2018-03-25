@@ -154,7 +154,17 @@
                                 </td>
                                 <td>
                                     <select id="description" class="form-control" name="des[]">
+                                        <?php
+                                        require '../../db.php';
+                                        $sql = "SELECT * FROM items WHERE category = 1";
+                                        $res = $conn->query($sql);
+                                        if ($res) {
+                                            while ($row = $res->fetch_assoc()) {
+                                                echo "<option>" . $row['description'] . "</option>";
+                                            }
 
+                                        }
+                                        ?>
                                     </select>
 
                                 </td>
