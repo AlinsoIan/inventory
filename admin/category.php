@@ -7,7 +7,7 @@ $res = $conn->query($sql);
 $data = [];
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        $data[] =  "<option>" . $row['description'] . "</option>";
+        $data[] =  "<option value=" .$row['description'] .">" . $row['description'] . "</option>";
     }
 }
 
