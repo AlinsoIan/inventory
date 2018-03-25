@@ -22,11 +22,23 @@
                                 $sql = "SELECT description FROM items WHERE id = '$i'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
-                                echo "<input type='text' placeholder='$r[0]' name='first' class='form-control' >";
+                                echo "<input type='text' value='$r[0]' name='first' class='form-control' disabled>";
+                                ?>
+                            </div>
+                            <div class="col-md-3 ">
+                                <p class="text-center">Item Description</p>
+                                <?php
+                                $i = $_GET['num'];
+                                require '../../db.php';
+                                $sql = "SELECT Unit FROM items WHERE id = '$i'";
+                                $res = $conn->query($sql);
+                                $r = $res->fetch_row();
+                                echo "<input type='text' value='$r[0]' name='first' class='form-control' disabled>";
                                 ?>
                             </div>
                         </div>
                     </div>
+
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
 
 

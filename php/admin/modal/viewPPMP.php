@@ -8,40 +8,33 @@
                 </h2>
             </div>
             <form action="../php/admin/addPPMP.php" method="post">
-
-
                 <div class="row clearfix">
                     <div class="col-md-3">
                         <div class="">
                             <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                            <select name = 'office'  class="form-control">
                                 <?php
-
+                                $i = $_GET['num'];
                                 require '../../db.php';
-                                $sql = "SELECT office FROM offices";
+                                $sql = "SELECT offices.office AS a FROM ppmp JOIN offices ON ppmp.office_id = offices.id WHERE ppmp.id = '$i'";
                                 $res = $conn -> query($sql);
-                                if($res){
-                                    while($row = $res -> fetch_assoc()){
-                                        echo "<option>".$row['office'] ."</option>";
-                                    }
-
-                                }
-
+                                $r = $res->fetch_row();
+                                echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
 
                                 ?>
-
-                            </select>
                         </div>
                     </div>
                     <div class="col-md-2 pull-right">
                         <div class="">
                             <label>Date :</label>
                             <?php
-                            $d = date('Y/n/j');
+                            $i = $_GET['num'];
+                            require '../../db.php';
+                            $sql = "SELECT dateT FROM ppmp WHERE id = '$i'";
+                            $res = $conn -> query($sql);
+                            $r = $res->fetch_row();
+                            echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
 
-                            echo "<input type='text' class = 'form-control' name = 'd'  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";
                             ?>
-
                         </div>
                     </div>
                 </div>
@@ -58,39 +51,29 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
-                                <select name="category[]" id="cat1" onchange="getDesc('1')" style="width: 70px;" class="form-control">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                    <option>04</option>
-                                    <option>05</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="desc1" class="form-control" name = "des[]">
+                            <?php
+                            require '../../db.php';
+                            $id = $_GET['num'];
 
-                                    <?php
-                                    require '../../db.php';
 
-                                    $sql = "SELECT description FROM items WHERE category = 1";
-                                    $res = $conn->query($sql);
-                                    if($res){
-                                        while($row = $res -> fetch_assoc()){
-                                            echo "<option>". $row['description'] . "</option>";
-                                        }
+                            $sql = "SELECT items.category AS c,items.description AS a,quantity,ppmp_items.unitCost AS b,amount FROM ppmp_items JOIN items
+                                      ON ppmp_items.itemNo = items.id WHERE ppmp_items.ppmp_id = '$id'";
 
-                                    }
+                            $res = $conn->query($sql);
 
-                                    ?>
+                            if($res){
+                                while($row = $res->fetch_assoc()){
+                                    echo "<tr>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['c'] . "'class='form-control'  name = 'category[]'>" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['a'] . "'class='form-control'  name = 'category[]'>" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['quantity'] . "' class='form-control'  name = 'description[]'>". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['b'] . "' class='form-control'  name = 'unit[]'>". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['amount'] . "' class='form-control'  name = 'quantityRequested[]'>". "</td>"
+                                        . "</tr>";
+                                }
+                            }
 
-                                </select>
-
-                            </td>
-
-                            <td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                            <td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                            <td><input type="text" name="amount[]" size="30px" class="form-control"></td>
+                            ?>
                         </tr>
 
                         </tbody>
@@ -102,8 +85,6 @@
 
 
                 <div class="modal-footer text-center">
-                    <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
-                    <button type="submit" id ="add" class="btn btn-success text-center" value="submit">ADD</button>
                     <a href="../admin/ppmp.php" class="btn btn-danger pull-right">CLOSE</a>
                 </div>
 

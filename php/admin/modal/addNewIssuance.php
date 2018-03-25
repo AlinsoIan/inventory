@@ -74,16 +74,14 @@
                                     <?php
 
                                     require '../../db.php';
-                                    $sql = "SELECT office FROM offices";
+                                    $sql = "SELECT offices.office AS a FROM ppmp JOIN offices ON ppmp.office_id = offices.id";
                                     $res = $conn->query($sql);
                                     if ($res) {
                                         while ($row = $res->fetch_assoc()) {
-                                            echo "<option>" . $row['office'] . "</option>";
+                                            echo "<option>" . $row['a'] . "</option>";
                                         }
 
                                     }
-
-
                                     ?>
 
                                 </select>

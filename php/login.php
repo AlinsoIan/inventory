@@ -14,7 +14,7 @@ session_start();
 $user = $_POST['username'];
 $pass = $_POST['password'];
 
-$sql = "SELECT firstName,lastName,userType,id FROM accounts WHERE username = ? && password = ?";
+$sql = "SELECT firstName,lastName,userType,id,status FROM accounts WHERE username = ? && password = ?";
 
 $st = $conn->prepare($sql);
 $st->bind_param('ss',$user,$pass);
@@ -23,7 +23,7 @@ $st->execute();
 $res = $st->get_result();
 $r = $res->fetch_row();
 
-if($res->num_rows > 0){
+if($res->num_rows > 0 && $r[4] == 'active'){
 
     $t = date('h:i:a');
     $d = date('Y:n:j');
@@ -52,7 +52,7 @@ if($res->num_rows > 0){
     }
 
 }else{
-    $m = "Wrong Credentials!";
+    $m = "Wrong Credentials! or account is Disabled";
 
     echo "
             <script type = 'text/javascript'>

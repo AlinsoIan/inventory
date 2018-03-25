@@ -54,6 +54,9 @@ if (COUNT($cat)) {
 
                 $ss = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[0]'";
                 $conn->query($ss);
+
+                $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quan[$m]','increased','$d')";
+                $conn->query($z);
             } else {
                 $m = "Error Adding Inserting!";
 

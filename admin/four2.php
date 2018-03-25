@@ -309,7 +309,7 @@ if($_SESSION['type'] == "user"){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $_SESSION['cat']= "01";
+                                        $_SESSION['cat']= "04";
 
                                         $sql = "SELECT 
                                             items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName
