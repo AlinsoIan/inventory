@@ -230,7 +230,7 @@
             $id = $(this).val();
             $.ajax({
                 url: 'category.php',
-                date: [category: $id],
+                data: {category: $id},
                 dataType: 'JSON',
                 success: function (data) {
                     $('#description').html(data);
