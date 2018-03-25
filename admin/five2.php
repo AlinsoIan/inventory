@@ -180,30 +180,6 @@ if($_SESSION['type'] == "user"){
                         </a>
                         <ul class="ml-menu">
                             <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Items</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="items.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five.php"><strong>Category 5</strong></a>
-                            </li>
-
-                        </ul>
-                        </li>
-                            <li>
                                 <a href="accounts.php">
                                     <i class="material-icons">people</i>
                                     <span>Accounts</span>
@@ -271,8 +247,15 @@ if($_SESSION['type'] == "user"){
         </aside>
         <!-- #END# Left Sidebar -->
 
-    </section>
-        <!-- Modal for Edit Items -->
+    <!-- Modal for Add Item -->
+        <div class="modal col-lg-12" id="addItem" data-backdrop="static">
+            <div class="modal-dialog" style="width:99%;">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+
+    <!-- Modal for Edit Items -->
     <div class="modal col-lg-12" id="editItems" data-backdrop="static">
         <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
@@ -303,11 +286,15 @@ if($_SESSION['type'] == "user"){
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                     <tr>
-                                        <th>Item</th>
-                                        <th>Logical Count</th>
-                                        <th>Physical Count</th>
-                                        <th>Difference</th>
+                                        <th>Acct-Sn</th>
+                                        <th>Pgso-Sn</th>
+                                        <th>Description</th>
+                                        <th>Unit</th>
+                                        <th>Starting Quantity</th>
+                                        <th>Unit Cost</th>
                                         <th>Brand</th>
+                                        <th>Re-order Point</th>
+                                        <th>Supplier</th>
                                         <th>Settings</th>
                                     </tr>
                                     </thead>
@@ -317,22 +304,23 @@ if($_SESSION['type'] == "user"){
                                     require '../php/db.php';
 
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                    $_SESSION['cat']= "01";
+                                    $_SESSION['cat']= "05";
 
-                                    $sql = "SELECT items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items WHERE category = '5'";
+                                    $sql = "SELECT items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '5'";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
+                                                . "<td>" . $row['acctSn'] ."</td>"
+                                                . "<td>" . $row['pgsoSn'] ."</td>"
                                                 . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['unit'] ."</td>"
                                                 . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['physicalCount'] ."</td>";
-
-                                            $dif = $row['startingQuantity'] - $row['physicalCount'];
-
-                                            echo  "<td>" . $dif ."</td>"
+                                                . "<td>" . $row['unitCost'] .  "</td>"
                                                 . "<td>" . $row['brand'] .  "</td>"
+                                                . "<td>" . $row['orderPoint'] .  "</td>"
+                                                . "<td>" . $row['supplierName'] .  "</td>"
 
                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
                                             echo "</tr>";

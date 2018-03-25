@@ -182,30 +182,6 @@ if($_SESSION['type'] == "user"){
                         </a>
                         <ul class="ml-menu">
                             <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Items</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="items.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five.php"><strong>Category 5</strong></a>
-                            </li>
-
-                        </ul>
-                        </li>
-                            <li>
                                 <a href="accounts.php">
                                     <i class="material-icons">people</i>
                                     <span>Accounts</span>
@@ -315,47 +291,54 @@ if($_SESSION['type'] == "user"){
                                  <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                      <thead>
                                      <tr>
-                                         <th>Item</th>
-                                         <th>Logical Count</th>
-                                         <th>Physical Count</th>
-                                         <th>Difference</th>
-                                         <th>Brand</th>
-                                         <th>Settings</th>
-                                     </tr>
-                                     </thead>
+                                        <th>Acct-Sn</th>
+                                        <th>Pgso-Sn</th>
+                                        <th>Description</th>
+                                        <th>Unit</th>
+                                        <th>Starting Quantity</th>
+                                        <th>Unit Cost</th>
+                                        <th>Brand</th>
+                                        <th>Re-order Point</th>
+                                        <th>Supplier</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                    </thead>
 
-                                     <tbody>
-                                     <?php
-                                     require '../php/db.php';
+                                    <tbody>
+                                    <?php
+                                        require '../php/db.php';
 
-                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                     $_SESSION['cat']= "01";
+                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $_SESSION['cat']= "01";
 
-                                     $sql = "SELECT items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items WHERE category = '4'";
-                                     $res = $conn->query($sql);
+                                        $sql = "SELECT 
+                                            items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName
+                                         FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '4'";
+                                        $res = $conn->query($sql);
 
-                                     if($res){
-                                         while($row = $res->fetch_assoc()){
-                                             echo "<tr>"
-                                                 . "<td>" . $row['description'] ."</td>"
-                                                 . "<td>" . $row['startingQuantity'] ."</td>"
-                                                 . "<td>" . $row['physicalCount'] ."</td>";
+                                        if($res){
+                                            while($row = $res->fetch_assoc()){
+                                                echo "<tr>"
+                                                    . "<td>" . $row['acctSn'] ."</td>"
+                                                    . "<td>" . $row['pgsoSn'] ."</td>"
+                                                    . "<td>" . $row['description'] ."</td>"
+                                                    . "<td>" . $row['unit'] ."</td>"
+                                                    . "<td>" . $row['startingQuantity'] ."</td>"
+                                                    . "<td>" . $row['unitCost'] .  "</td>"
+                                                    . "<td>" . $row['brand'] .  "</td>"
+                                                    . "<td>" . $row['orderPoint'] .  "</td>"
+                                                    . "<td>" . $row['supplierName'] .  "</td>"
 
-                                             $dif = $row['startingQuantity'] - $row['physicalCount'];
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                                echo "</tr>";
+                                            }
 
-                                             echo  "<td>" . $dif ."</td>"
-                                                 . "<td>" . $row['brand'] .  "</td>"
+                                        }
 
-                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
-                                             echo "</tr>";
-                                         }
-
-                                     }
-
-                                     ?>
-                                     </tbody>
-                                 </table>
-                                 <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                                    ?>
+                                    </tbody>
+                                </table>
+                                <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
                              </div>
                         </div>
                     </div>
