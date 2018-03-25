@@ -144,7 +144,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <select name="category[]" id="itemCategory" style="width: 70px;" class="form-control">
+                                    <select name="category[] " style="width: 70px;" class="form-control itemCategory">
                                         <option value="1">01</option>
                                         <option value="2">02</option>
                                         <option value="3">03</option>
@@ -153,7 +153,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select id="description" class="form-control" name="des[]">
+                                    <select  class="form-control description" name="des[]">
                                         <?php
                                         require '../../db.php';
                                         $sql = "SELECT * FROM items WHERE category = 1";
@@ -209,10 +209,10 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<select name="category[]" style="width: 70px;" class="form-control"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select>' +
+                '<select name="category[]" style="width: 70px;" class="form-control itemCategory"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option></select>' +
                 '</td>' +
                 '<td>' +
-                '<select class="form-control" name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items";$res = $conn->query($sql);if ($res) {
+                '<select class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE category = 1";$res = $conn->query($sql);if ($res) {
                     while ($row = $res->fetch_assoc()) {
                         echo "<option>" . $row['description'] . "</option>";
                     }
@@ -236,11 +236,26 @@
 
 <script>
     $(document).ready(function () {
-        $('#itemCategory').change(function () {
+        $('.itemCategory').change(function () {
             $id = $(this).val();
             $.ajax({
                 url: 'category.php',
                 data: {category: $id},
+                dataType: 'JSON',
+                success: function (data) {
+                    $('.description').html(data);
+                }
+            });
+
+        });
+    });
+
+    $(document).ready(function () {
+        $('#des').change(function () {
+            $id = $(this).val();
+            $.ajax({
+                url: 'quantity.php',
+                data: {des: $id},
                 dataType: 'JSON',
                 success: function (data) {
                     $('#description').html(data);
