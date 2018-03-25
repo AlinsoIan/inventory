@@ -346,7 +346,7 @@ if($_SESSION['type'] == "user"){
                                             . "<td>" . $row['d'] ."</td>"
                                             . "<td>" . $row['e'] ."</td>"
                                             . "<td>" . $row['f'] ."</td>"
-                                            . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd']  . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteDelivery.php?num=' .$row['idd']  . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td><a href=" .'../php/admin/modal/deleteDelivery.php?num=' .$row['idd']  . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 

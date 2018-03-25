@@ -144,30 +144,16 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <select name="category[]" style="width: 70px;" class="form-control">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
+                                    <select name="category[]" id="itemCategory" style="width: 70px;" class="form-control">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
                                     </select>
                                 </td>
                                 <td>
-                                    <select class="form-control" name="des[]">
-
-                                        <?php
-                                        require '../../db.php';
-
-                                        $sql = "SELECT description FROM items";
-                                        $res = $conn->query($sql);
-                                        if ($res) {
-                                            while ($row = $res->fetch_assoc()) {
-                                                echo "<option>" . $row['description'] . "</option>";
-                                            }
-
-                                        }
-
-                                        ?>
+                                    <select id="description" class="form-control" name="des[]">
 
                                     </select>
 
@@ -236,4 +222,22 @@
         });
 
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#itemCategory').change(function () {
+            $id = $(this).val();
+            $.ajax({
+                url: 'category.php',
+                date: [category: $id],
+                dataType: 'JSON',
+                success: function (data) {
+                    $('#description').html(data);
+                }
+            });
+
+        });
+    });
+
 </script>

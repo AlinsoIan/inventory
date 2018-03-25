@@ -11,7 +11,7 @@
                         ITEM INFORMATION
                     </h2>
                 </div>
-                <form action="../php/admin/addNewIssue.php" method="post">
+
                     <div class="body">
                         <div class="row">
                             <div class="col-md-3 ">
@@ -25,97 +25,12 @@
                                 echo "<input type='text' placeholder='$r[0]' name='first' class='form-control' >";
                                 ?>
                             </div>
-                            <div class="col-md-3 pull-right">
-                                <p class="text-center">Name of Issuer</p>
-                                <?php
-                                session_start();
-                                $a = $_SESSION['user'];
-                                $b = $_SESSION['username'];
-
-                                echo "<input class='form-control' type='text' value=' " . strtoupper($b) . "' disabled>";
-                                ?>
-                            </div>
                         </div>
                     </div>
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="">
-                                <label>Division &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
-                                <input type="text" name="division" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="">
-                                <label class="label-floating text-center">Responsibility :</label>
-                                <input type="text" name="responsibilityCenter" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="">
-                                <label>RIS # :</label>
-                                <input type="text" name="ris" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="">
-                                <label>Date :</label>
-                                <?php
-                                $d = date('Y/n/j');
-
-                                echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row clearfix">
-                        <div class="col-md-4">
-                            <div class="">
-                                <label>Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                                <select name='office' class="form-control">
-                                    <?php
-
-                                    require '../../db.php';
-                                    $sql = "SELECT office FROM offices";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            echo "<option>" . $row['office'] . "</option>";
-                                        }
-
-                                    }
 
 
-                                    ?>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="">
-                                <label>FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp :</label>
-                                <input type="text" name="fpp" required class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="">
-                                <label>SAi # :</label>
-                                <input type="text" name="sai" required class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="">
-                                <label>Date :</label>
-                                <?php
-                                $d = date('Y/n/j');
-
-                                echo "<input type='text' class = 'form-control' name = ''  placeholder=' " . $d . "' value = '" . $d . "'size='15' required>";
-                                ?>
-
-                            </div>
-                        </div>
-                    </div>
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
                     <div class="row clearfix">
                         <div class="col-md-2">

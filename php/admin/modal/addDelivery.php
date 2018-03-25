@@ -104,7 +104,7 @@
                 <div class="modal-footer text-center">
                     <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                     <button type="submit" id ="add" class="btn btn-success text-center" value="submit">ADD</button>
-                    <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                    <a href="../admin/delivery.php" class="btn btn-danger pull-right">CLOSE</a>
                 </div>
 
         </div>
