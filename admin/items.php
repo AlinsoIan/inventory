@@ -294,6 +294,14 @@ if($_SESSION['type'] == "user"){
         </div>
     </div>
 
+    <!-- Modal for Item Info -->
+    <div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
+        <div class="modal-dialog" style="width:80%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
 
     <section class="content">
         <div class="container-fluid">
@@ -309,8 +317,6 @@ if($_SESSION['type'] == "user"){
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Acct-Sn</th>
-                                            <th>Pgso-Sn</th>
                                             <th>Description</th>
                                             <th>Unit</th>
                                             <th>Starting Quantity</th>
@@ -336,8 +342,6 @@ if($_SESSION['type'] == "user"){
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
-                                                    . "<td>" . $row['acctSn'] ."</td>"
-                                                    . "<td>" . $row['pgsoSn'] ."</td>"
                                                     . "<td>" . $row['description'] ."</td>"
                                                     . "<td>" . $row['unit'] ."</td>"
                                                     . "<td>" . $row['startingQuantity'] ."</td>"
@@ -346,7 +350,7 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['orderPoint'] .  "</td>"
                                                     . "<td>" . $row['supplierName'] .  "</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "  ||  " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 

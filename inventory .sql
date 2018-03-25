@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 14, 2018 at 10:46 AM
+-- Generation Time: Mar 25, 2018 at 01:42 AM
 -- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- PHP Version: 7.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,19 +41,72 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `loginTime` varchar(45) DEFAULT NULL,
   `logoutTime` varchar(45) DEFAULT NULL,
   `loginDate` date DEFAULT NULL,
+  `status` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `firstName`, `lastName`, `username`, `password`, `userType`, `loginTime`, `logoutTime`, `loginDate`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin', 'admin', '06:41:pm', '06:41:pm', '2018-03-14'),
-(9, 'Swira', 'Cogasi', 'swi', 'swi', 'user', '12:09:pm', '12:09:pm', '2018-03-14'),
-(12, 'Nichole', 'Gueco', 'Nics', '12345', 'user', '11:55:am', NULL, '2018-03-14'),
-(13, 'ZSARLENE', 'GARCIA', 'zia', 'ziazia', 'user', '11:51:am', NULL, '2018-03-14'),
-(15, 'FATIMA MAE', 'PASCUA', 'famae', 'famae', 'user', NULL, NULL, NULL);
+INSERT INTO `accounts` (`id`, `firstName`, `lastName`, `username`, `password`, `userType`, `loginTime`, `logoutTime`, `loginDate`, `status`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin', 'admin', '11:23:pm', '11:23:pm', '2018-03-24', 'active'),
+(24, 'Swira', 'Cogasi', 'swi', 'swii', 'user', '11:23:pm', '11:23:pm', '2018-03-24', 'active'),
+(25, 'Swira', 'Cogasi', 'swi', 'swi', 'user', '11:23:pm', '11:23:pm', '2018-03-24', 'inactive'),
+(26, 'Zia', 'Garcia', 'zia', 'zia', 'user', NULL, NULL, NULL, 'inactive');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accountslogs`
+--
+
+DROP TABLE IF EXISTS `accountslogs`;
+CREATE TABLE IF NOT EXISTS `accountslogs` (
+  `id` int(45) NOT NULL AUTO_INCREMENT,
+  `logs` varchar(255) NOT NULL,
+  `dateT` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accountslogs`
+--
+
+INSERT INTO `accountslogs` (`id`, `logs`, `dateT`) VALUES
+(10, 'Admin has added account zia', '2018-03-21'),
+(11, 'Admin has deleted account zia', '2018-03-22'),
+(12, 'Admin has deleted account swi', '2018-03-24'),
+(13, 'Admin has deleted account swi', '2018-03-24'),
+(14, 'Admin has deleted account swi', '2018-03-24'),
+(15, 'Admin has deleted account swi', '2018-03-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery`
+--
+
+DROP TABLE IF EXISTS `delivery`;
+CREATE TABLE IF NOT EXISTS `delivery` (
+  `id` int(45) NOT NULL AUTO_INCREMENT,
+  `iarno` int(45) NOT NULL,
+  `itemNo` int(45) NOT NULL,
+  `supplier_id` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  `dateT` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`id`, `iarno`, `itemNo`, `supplier_id`, `quantity`, `dateT`) VALUES
+(4, 1, 74, 12, 12, '2018-03-08'),
+(5, 2, 75, 12, 13, '2018-03-16'),
+(6, 1, 74, 12, 1, '2018-03-06'),
+(7, 2, 75, 12, 2, '2018-03-20');
 
 -- --------------------------------------------------------
 
@@ -74,6 +127,24 @@ CREATE TABLE IF NOT EXISTS `history` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `iar`
+--
+
+DROP TABLE IF EXISTS `iar`;
+CREATE TABLE IF NOT EXISTS `iar` (
+  `id` int(45) NOT NULL AUTO_INCREMENT,
+  `supplier_id` int(45) NOT NULL,
+  `iarno` int(45) NOT NULL,
+  `iarDate` date NOT NULL,
+  `amount` varchar(20) NOT NULL,
+  `totalQuantity` int(45) NOT NULL,
+  `totalItems` int(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `issuance`
 --
 
@@ -89,9 +160,42 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `dateT` date NOT NULL,
   `timeT` varchar(45) NOT NULL,
   `typeT` varchar(20) NOT NULL,
-  `status` varchar(45) NOT NULL,
+  `issuer` int(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `issuance`
+--
+
+INSERT INTO `issuance` (`id`, `division`, `office`, `responsibility`, `fpp`, `ris`, `sai`, `dateT`, `timeT`, `typeT`, `issuer`) VALUES
+(21, 'asd', 'Aids to Boy Scout & Girl Scout, Red Cross', 'asd', 'asd', 'asd', 'asd', '2018-03-24', '12:23:am', 'Office Supplies', 1),
+(22, 'asdasd', 'Dennis Molintas District Hospital', 'asd', 'asd', 'asd', 'asd', '2018-03-24', '12:25:am', 'Office Supplies', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issuanceslogs`
+--
+
+DROP TABLE IF EXISTS `issuanceslogs`;
+CREATE TABLE IF NOT EXISTS `issuanceslogs` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `issuances` varchar(255) NOT NULL,
+  `issuancesDate` date NOT NULL,
+  `issue_id` int(10) NOT NULL,
+  `issuer` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `issuanceslogs`
+--
+
+INSERT INTO `issuanceslogs` (`id`, `issuances`, `issuancesDate`, `issue_id`, `issuer`) VALUES
+(89, 'Has Issued to Aids to Boy Scout & Girl Scout, Red Cross', '2018-03-21', 11, 'admin'),
+(90, 'Has Issued to Assistance to Individual in Crisis Situation', '2018-03-22', 12, 'swi'),
+(91, 'Has Issued to Dennis Molintas District Hospital', '2018-03-22', 14, 'admin');
 
 -- --------------------------------------------------------
 
@@ -102,17 +206,22 @@ CREATE TABLE IF NOT EXISTS `issuance` (
 DROP TABLE IF EXISTS `itemissuance`;
 CREATE TABLE IF NOT EXISTS `itemissuance` (
   `id` int(45) NOT NULL AUTO_INCREMENT,
-  `category` int(4) NOT NULL,
-  `acctSN` varchar(45) DEFAULT NULL,
-  `pgsoSn` varchar(45) DEFAULT NULL,
-  `description` varchar(150) NOT NULL,
-  `unit` varchar(20) NOT NULL,
+  `itemNo` int(4) NOT NULL,
   `quantityRequested` int(5) NOT NULL,
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   `issue_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `itemissuance`
+--
+
+INSERT INTO `itemissuance` (`id`, `itemNo`, `quantityRequested`, `quantityIssued`, `remarks`, `issue_id`) VALUES
+(108, 80, 123, 12, 'asd', 21),
+(109, 79, 324, 23, 'asd', 21),
+(110, 79, 900, 900, 'asdasd', 22);
 
 -- --------------------------------------------------------
 
@@ -123,21 +232,29 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `category` int(4) NOT NULL,
-  `acctSn` varchar(20) NOT NULL,
-  `pgsoSn` int(4) NOT NULL,
-  `description` varchar(50) NOT NULL,
-  `unit` varchar(15) NOT NULL,
-  `startingQuantity` int(5) NOT NULL,
-  `unitCost` int(5) NOT NULL,
-  `brand` varchar(15) NOT NULL,
-  `orderPoint` int(5) NOT NULL,
+  `category` int(4) DEFAULT NULL,
+  `acctSn` varchar(20) DEFAULT NULL,
+  `pgsoSn` varchar(20) DEFAULT NULL,
+  `description` varchar(150) DEFAULT NULL,
+  `unit` varchar(15) DEFAULT NULL,
+  `startingQuantity` int(5) DEFAULT NULL,
+  `unitCost` double DEFAULT NULL,
+  `brand` varchar(15) DEFAULT NULL,
+  `orderPoint` int(5) DEFAULT NULL,
   `expirationDate` date DEFAULT NULL,
-  `supplier_id` int(11) NOT NULL,
+  `supplier_id` int(11) DEFAULT NULL,
   `physicalCount` int(10) DEFAULT NULL,
   `remarks` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `category`, `acctSn`, `pgsoSn`, `description`, `unit`, `startingQuantity`, `unitCost`, `brand`, `orderPoint`, `expirationDate`, `supplier_id`, `physicalCount`, `remarks`) VALUES
+(80, 1, '200', '300', 'Eggs', 'ream', 68, 6, 'Y', 20, NULL, 19, NULL, NULL),
+(79, 1, '100', '200', 'Milk', 'pack', 47, 20, 'X', 200, NULL, 15, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -251,6 +368,24 @@ CREATE TABLE IF NOT EXISTS `physical_count` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ppmp`
+--
+
+DROP TABLE IF EXISTS `ppmp`;
+CREATE TABLE IF NOT EXISTS `ppmp` (
+  `id` int(45) NOT NULL AUTO_INCREMENT,
+  `office_id` int(10) NOT NULL,
+  `itemNo` int(10) NOT NULL,
+  `quantity` int(40) NOT NULL,
+  `unitCost` int(45) NOT NULL,
+  `amount` int(45) NOT NULL,
+  `dateT` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `returns`
 --
 
@@ -269,6 +404,29 @@ CREATE TABLE IF NOT EXISTS `returns` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ris`
+--
+
+DROP TABLE IF EXISTS `ris`;
+CREATE TABLE IF NOT EXISTS `ris` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `office` varchar(150) NOT NULL,
+  `responsibility` int(45) NOT NULL,
+  `risNumber` int(5) NOT NULL,
+  `dateT` date NOT NULL,
+  `stockNumber` int(5) NOT NULL,
+  `category` int(5) NOT NULL,
+  `unit` varchar(20) NOT NULL,
+  `item_id` int(45) NOT NULL,
+  `quantityRequested` int(10) NOT NULL,
+  `quantityIssued` int(10) NOT NULL,
+  `remarks` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `suppliers`
 --
 
@@ -277,18 +435,20 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `id` int(45) NOT NULL AUTO_INCREMENT,
   `supplierName` varchar(100) NOT NULL,
   `tinNumber` varchar(45) NOT NULL,
-  `poNumber` varchar(45) NOT NULL,
-  `poDate` date NOT NULL,
+  `number` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `suppliers`
 --
 
-INSERT INTO `suppliers` (`id`, `supplierName`, `tinNumber`, `poNumber`, `poDate`) VALUES
-(7, 'SM', '34256728', '3297482364', '2018-03-05'),
-(8, 'TSB', '9876543', '987654', '2018-03-14');
+INSERT INTO `suppliers` (`id`, `supplierName`, `tinNumber`, `number`) VALUES
+(15, 'Tiongsan', '100', 11111),
+(16, 'Pure Gold', '200', 22222),
+(17, 'Save More', '3', 3333),
+(18, '456', '400', 4444),
+(19, 'Centermall', '500', 55555);
 
 -- --------------------------------------------------------
 

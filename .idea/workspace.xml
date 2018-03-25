@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/enableAccount.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/modal/enableAccount.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" afterPath="$PROJECT_DIR$/admin/accounts.php" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" afterPath="$PROJECT_DIR$/admin/dashboard.php" />
-      <change beforePath="$PROJECT_DIR$/admin/delivery.php" afterPath="$PROJECT_DIR$/admin/delivery.php" />
-      <change beforePath="$PROJECT_DIR$/admin/toexpire.php" afterPath="$PROJECT_DIR$/admin/toexpire.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/accountDelete.php" afterPath="$PROJECT_DIR$/php/admin/disableAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" afterPath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteAccount.php" afterPath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" afterPath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" />
+      <change beforePath="$PROJECT_DIR$/admin/items.php" afterPath="$PROJECT_DIR$/admin/items.php" />
+      <change beforePath="$PROJECT_DIR$/inventory .sql" afterPath="$PROJECT_DIR$/inventory .sql" />
       <change beforePath="$PROJECT_DIR$/php/user/addNewIssue.php" afterPath="$PROJECT_DIR$/php/user/addNewIssue.php" />
       <change beforePath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" afterPath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" />
       <change beforePath="$PROJECT_DIR$/php/user/modal/addReturn.php" afterPath="$PROJECT_DIR$/php/user/modal/addReturn.php" />
       <change beforePath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" afterPath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" />
-      <change beforePath="$PROJECT_DIR$/user/returns.php" afterPath="$PROJECT_DIR$/user/returns.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -105,15 +95,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toexpire.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/toexpire.php">
+      <file leaf-file-name="items.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/items.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="324" column="41" lean-forward="true" selection-start-line="324" selection-start-column="41" selection-end-line="324" selection-end-column="41" />
+            <state relative-caret-position="310">
+              <caret line="298" column="49" lean-forward="false" selection-start-line="298" selection-start-column="49" selection-end-line="298" selection-end-column="49" />
               <folding>
-                <marker date="1521905529403" expanded="true" signature="128:198" ph="..." />
-                <marker date="1521905529403" expanded="true" signature="330:406" ph="..." />
-                <marker date="1521905529403" expanded="true" signature="12676:12780" ph="SELECT * FRO... items" />
+                <marker date="1521941593407" expanded="true" signature="128:198" ph="..." />
+                <marker date="1521941593407" expanded="true" signature="330:406" ph="..." />
+                <marker date="1521941593407" expanded="true" signature="13547:13781" ph="SELECT items... items" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewItemInfo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+              <folding>
+                <marker date="1521941865210" expanded="true" signature="750:795" ph="SELECT descr... items" />
+                <marker date="1521941865210" expanded="true" signature="3805:3831" ph="SELECT offic... offices" />
+                <marker date="1521941865210" expanded="true" signature="7901:7930" ph="SELECT descr... items" />
+                <marker date="1521941865210" expanded="true" signature="10223:10252" ph="SELECT descr... items" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editAccount.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/editAccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="28" selection-end-column="38" />
+              <folding>
+                <marker date="1521718804000" expanded="true" signature="942:988" ph="SELECT first... accounts" />
+                <marker date="1521718804000" expanded="true" signature="1793:1838" ph="SELECT lastN... accounts" />
+                <marker date="1521718804000" expanded="true" signature="2714:2759" ph="SELECT usern... accounts" />
+                <marker date="1521718804000" expanded="true" signature="4211:4256" ph="SELECT passw... accounts" />
+                <marker date="1521718804000" expanded="true" signature="5067:5112" ph="SELECT passw... accounts" />
               </folding>
             </state>
           </provider>
@@ -193,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/two.php" />
         <option value="$PROJECT_DIR$/php/admin/addItem.php" />
         <option value="$PROJECT_DIR$/admin/inventory.php" />
         <option value="$PROJECT_DIR$/admin/five2.php" />
@@ -230,7 +250,6 @@
         <option value="$PROJECT_DIR$/php/admin/addSupplier.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/addSupplier.php" />
         <option value="$PROJECT_DIR$/admin/supplier.php" />
-        <option value="$PROJECT_DIR$/admin/items.php" />
         <option value="$PROJECT_DIR$/php/admin/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteDelivery.php" />
         <option value="$PROJECT_DIR$/admin/delivery.php" />
@@ -244,6 +263,8 @@
         <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
         <option value="$PROJECT_DIR$/php/admin/addNewIssue.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" />
+        <option value="$PROJECT_DIR$/admin/items.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" />
       </list>
     </option>
   </component>
@@ -283,29 +304,6 @@
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modal" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -334,8 +332,8 @@
       <recent name="C:\wamp64\www\mat" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\inventory\php\admin" />
       <recent name="C:\wamp64\www\inventory\php\admin\modal" />
+      <recent name="C:\wamp64\www\inventory\php\admin" />
       <recent name="C:\wamp64\www\inventory\js" />
       <recent name="C:\wamp64\www\inventory\php\user\modal" />
       <recent name="C:\wamp64\www\inventory\php\user" />
@@ -554,11 +552,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521903710977</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Saturday Night Latest">
+      <created>1521908768680</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1521908768680</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328976000" />
+    <option name="totallyTimeSpent" value="330275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -603,7 +608,8 @@
     <MESSAGE value="Addition of other Features such as Accounts,PPMP,ITEMS" />
     <MESSAGE value="Fixed Login,issuance" />
     <MESSAGE value="Latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Latest" />
+    <MESSAGE value="Saturday Night Latest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saturday Night Latest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -612,14 +618,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/user/iar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="226" column="52" lean-forward="false" selection-start-line="226" selection-start-column="52" selection-end-line="226" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssue.php" />
     <entry file="file://$PROJECT_DIR$/php/user/modal/viewIAR.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -913,18 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/items.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="340" column="91" lean-forward="true" selection-start-line="340" selection-start-column="91" selection-end-line="340" selection-end-column="91" />
-          <folding>
-            <marker date="1521901822659" expanded="true" signature="128:198" ph="..." />
-            <marker date="1521901822659" expanded="true" signature="330:406" ph="..." />
-            <marker date="1521901822659" expanded="true" signature="13425:13659" ph="SELECT items... items" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/deleteDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1134,6 +1120,45 @@
             <marker date="1521905529403" expanded="true" signature="128:198" ph="..." />
             <marker date="1521905529403" expanded="true" signature="330:406" ph="..." />
             <marker date="1521905529403" expanded="true" signature="12676:12780" ph="SELECT * FRO... items" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/items.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="298" column="49" lean-forward="false" selection-start-line="298" selection-start-column="49" selection-end-line="298" selection-end-column="49" />
+          <folding>
+            <marker date="1521941593407" expanded="true" signature="128:198" ph="..." />
+            <marker date="1521941593407" expanded="true" signature="330:406" ph="..." />
+            <marker date="1521941593407" expanded="true" signature="13547:13781" ph="SELECT items... items" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/editAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <marker date="1521718804000" expanded="true" signature="942:988" ph="SELECT first... accounts" />
+            <marker date="1521718804000" expanded="true" signature="1793:1838" ph="SELECT lastN... accounts" />
+            <marker date="1521718804000" expanded="true" signature="2714:2759" ph="SELECT usern... accounts" />
+            <marker date="1521718804000" expanded="true" signature="4211:4256" ph="SELECT passw... accounts" />
+            <marker date="1521718804000" expanded="true" signature="5067:5112" ph="SELECT passw... accounts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+          <folding>
+            <marker date="1521941865210" expanded="true" signature="750:795" ph="SELECT descr... items" />
+            <marker date="1521941865210" expanded="true" signature="3805:3831" ph="SELECT offic... offices" />
+            <marker date="1521941865210" expanded="true" signature="7901:7930" ph="SELECT descr... items" />
+            <marker date="1521941865210" expanded="true" signature="10223:10252" ph="SELECT descr... items" />
           </folding>
         </state>
       </provider>
