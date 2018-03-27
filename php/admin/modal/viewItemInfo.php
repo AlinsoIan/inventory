@@ -44,72 +44,35 @@
 
 
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
-                    <div class="row clearfix">
-                        <div class="col-md-2">
-                            <div class="form-group label-floating">
-                                <h4 class="control-label text-center">CODE/STOCK</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <h4 class="control-label text-center">REQUISITION</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <h4 class="control-label text-center">ISSUANCE</h4>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
-                            <th width="8%">Category</th>
-                            <th width="40%">Item Description</th>
-                            <th width="12%">Requested</th>
-                            <th width="12%">Issued</th>
-                            <th>Remarks</th>
-                            <th width="5%"></th>
+                            <th width="8%">Item</th>
+                            <th width="40%">Quantity</th>
+                            <th width="12%">Status</th>
+                            <th width="12%">Date</th>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <select name="category[]" style="width: 70px;" class="form-control">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="form-control" name="des[]">
+                            <?php
+                                require '../../db.php';
 
-                                        <?php
-                                        require '../../db.php';
+                                $a = $_GET['num'];
 
-                                        $sql = "SELECT description FROM items";
-                                        $res = $conn->query($sql);
-                                        if ($res) {
-                                            while ($row = $res->fetch_assoc()) {
-                                                echo "<option>" . $row['description'] . "</option>";
-                                            }
+                                $sql = "SELECT items.description AS a,ledger.quantity AS b,ledger.status AS c,ledger.dateT as d FROM ledger JOIN items ON ledger.itemNo = items.id WHERE ledger.itemNo = '$a'";
+                                $res = $conn->query($sql);
+                                if($res){
+                                    while($row = $res->fetch_assoc()){
+                                        echo "<tr>".
+                                            "<td>" . $row['a'] ."</td>" .
+                                            "<td>" . $row['b'] ."</td>".
+                                            "<td>" . $row['c'] ."</td>".
+                                            "<td>" . $row['d'] ."</td>".
+                                            "</tr>";
+                                    }
+                                }
 
-                                        }
-
-                                        ?>
-
-                                    </select>
-
-                                </td>
-
-                                <td><input type="number" name="qRequested[]" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="number" class="form-control" name="qIssued[]" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="text" name="remarks[]" size="30px" class="form-control"></td>
-                            </tr>
-
+                            ?>
                             </tbody>
 
                         </table>
@@ -121,7 +84,7 @@
                     <div class="modal-footer text-center">
                         <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                         <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../admin/items2.php" class="btn btn-danger pull-right">CLOSE</a>
                     </div>
 
             </div>

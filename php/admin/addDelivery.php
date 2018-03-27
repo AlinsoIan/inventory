@@ -14,7 +14,6 @@ $ti = date('h:i:a');
 $iar = $_POST['iarno'];
 $category = $_POST['cat'];
 $item = $_POST['item'];
-$unit = $_POST['units'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
 $d = $_POST['d'];
@@ -27,13 +26,30 @@ foreach ($category as $a) {
     }
 }
 
+$quanz = [];
+foreach ($quan as $a) {
+        array_push($quanz, $a);
+
+}
+$itemz = [];
+foreach ($item as $a) {
+    array_push($itemz, $a);
+
+}
+
+$suppz = [];
+foreach ($supp as $a) {
+    array_push($suppz, $a);
+
+}
+
 
 if (COUNT($cat)) {
 
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$item[$m]%'";
+        $s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$itemz[$m]%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
@@ -55,8 +71,18 @@ if (COUNT($cat)) {
                 $ss = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[0]'";
                 $conn->query($ss);
 
-                $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quan[$m]','increased','$d')";
-                $conn->query($z);
+                $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quanz[$m]','increased','$d')";
+                if(!$conn->query($z)){
+                    $m = $conn->error;
+
+                    echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/delivery.php');
+            </script>
+            ";
+                }
+
             } else {
                 $m = "Error Adding Inserting!";
 

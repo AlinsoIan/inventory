@@ -44,24 +44,19 @@ foreach ($amount as $a) {
 
 }
 
-$sq = "SELECT id FROM offices WHERE office LIKE '%$office%'";
+$sq = "SELECT officeID FROM offices WHERE office LIKE '%$office%'";
 $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
-$mm = "INSERT INTO ppmp(office_id,dateT) VALUES ('$rr[0]','$d')";
-$conn->query($mm);
-$ii = mysqli_insert_id($conn);
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT id FROM items WHERE description LIKE '%$item[$m]%'";
+        $s = "SELECT itemID FROM items WHERE description LIKE '%$item[$m]%'";
         $res = $conn->query($s);
         $r = $res->fetch_row();
 
 
-
-
-        $sql = "INSERT INTO ppmp_items(ppmp_id,itemNo,quantity,unitCost,amount)
-                      VALUES('$ii','$r[0]','$quanz[$m]','$unitz[$m]','$amountz[$m]')";
+        $sql = "INSERT INTO ppmp(officeID,itemID,itemQuantity,unitCost,totalAmount,date)
+                      VALUES('$rr[0]','$r[0]','$quanz[$m]','$unitz[$m]','$amountz[$m]','$d')";
         $conn->query($sql);
 
 

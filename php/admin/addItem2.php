@@ -31,8 +31,6 @@ if($res) {
 VALUES('02','$acct','$pgso','$des','$unit','$quan','$cost','$brand','$level','$expiration','$r[0]')";
 
     if ($conn->query($sql)) {
-
-
         header("Location:../../admin/$temp");
     } else {
         $m = "Error Adding Item! Please contact administrator!";

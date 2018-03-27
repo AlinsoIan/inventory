@@ -290,32 +290,31 @@ if($_SESSION['type'] == "user"){
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Office</th>
-                                <th>Category</th>
+                                <th style="width: 30%">Office</th>
                                 <th>Item</th>
-                                <th>Unit</th>
                                 <th>Quantity</th>
                                 <th>Reason</th>
                                 <th>Status</th>
+                                <th>Settings</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
                             require '../php/db.php';
-                            $sql = "SELECT * FROM returns JOIN items ON returns.item_id = items.id JOIN offices ON returns.office_id = offices.id";
+                            $sql = "SELECT offices.office AS a,items.description AS b,returns.quantity AS c,
+                                    returns.reason AS d,returns.status AS e,returns.id AS idd
+                                    FROM returns JOIN items ON returns.item_id = items.id JOIN offices ON returns.office_id = offices.id";
                             $res = $conn->query($sql);
 
                             if($res){
                                 while ($row = $res->fetch_assoc()){
                                     echo  "<tr>";
-                                    echo "<td>" . $row['Office'] . "</td>";
-                                    echo "<td>" . $row['category'] . "</td>";
-                                    echo "<td>" . $row['description'] . "</td>";
-                                    echo "<td>" . $row['unit'] . "</td>";
-                                    echo "<td>" . $row['returns.quantity'] . "</td>";
-                                    echo "<td>" . $row['reason'] . "</td>";
-                                    echo "<td>" . $row['status'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/cancelReturns.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                    echo "<td>" . $row['a'] . "</td>";
+                                    echo "<td>" . $row['b'] . "</td>";
+                                    echo "<td>" . $row['c'] . "</td>";
+                                    echo "<td>" . $row['d'] . "</td>";
+                                    echo "<td>" . $row['e'] . "</td>";
+                                    echo "<td>" . "<a href=" .'../php/admin/modal/editReturns.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }

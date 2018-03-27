@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
+    window.location.replace('../index.php');
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -296,7 +296,7 @@ if($_SESSION['type'] == "user"){
                                             <th>Office</th>
                                             <th>Responsibility Center</th>
                                             <th>Date/Time</th>
-                                            <th>Category</th>
+                                            <th>Issuance Type</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>

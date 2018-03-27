@@ -8,11 +8,30 @@
                 </h2>
             </div>
             <form action="../php/admin/addReturn.php" method="post">
+                <div class="body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>OFFICE</label>
+                        <select class="form-control" name="office">
+                            <?php
+                            require '../../db.php';
+                            $sql = "SELECT office FROM offices";
+                            $res = $conn->query($sql);
+
+                            if($res){
+                                while ($row = $res->fetch_assoc()){
+                                    echo "<option>" . $row['office'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                </div>
                 <table class="table">
                     <thead class="text-primary">
-                    <th style="width: 25%;">Office</th>
-                    <th>Item</th>
-                    <th style="width: 8%;">Unit</th>
+                    <th style="width: 8%">Category</th>
+                    <th style="width: 30%">Item</th>
                     <th style="20%">Reason</th>
                     <th style="width: 8%;">Quantity</th>
                     <th style="width: 20%;">Status</th>
@@ -20,46 +39,25 @@
                     <tbody>
                     <tr>
                         <td>
-                        <select class="form-control" name="office">
-                            <?php
-                            require '../../db.php';
-                            $sql = "SELECT id,office FROM offices";
-                            $res = $conn->query($sql);
-
-                            if($res){
-                                while ($row = $res->fetch_assoc()){
-                                    echo "<option value=' " .$row['id']  . "'>" . $row['office'] . "</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                        </td>
-                        <td>
-                            <select name="item" class="form-control">
-                            <?php
-                            require '../../db.php';
-                            $sql = "SELECT description FROM items";
-                            $res = $conn->query($sql);
-
-                            if($res){
-                                while ($row = $res->fetch_assoc()){
-                                    echo "<option value=' " .$row['description']  . "'>" . $row['description'] . "</option>";
-                                }
-                            }
-                            ?>
+                            <select name="category" id="cat1" onchange="getDesc('1')" class="form-control">
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
                             </select>
                         </td>
                         <td>
-                            <select class="form-control">
+                            <select id="desc1" class="form-control description" name="item">
                                 <?php
                                 require '../../db.php';
-                                $sql = "SELECT units FROM units";
+                                $sql = "SELECT * FROM items WHERE category = 1";
                                 $res = $conn->query($sql);
-
-                                if($res){
-                                    while ($row = $res->fetch_assoc()){
-                                        echo "<option>" . $row['units'] . "</option>";
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo "<option>" . $row['description'] . "</option>";
                                     }
+
                                 }
                                 ?>
                             </select>
@@ -72,8 +70,8 @@
                         </td>
                         <td>
                             <select name="status" class="form-control" >
-                                <option>Usable</option>
-                                <option>Unusable</option>
+                                <option value="usable">Usable</option>
+                                <option value="disposable">Disposable</option>
                             </select>
                         </td>
 
@@ -97,3 +95,30 @@
     </div>
 </div>
 <!-- #END# Multi Column -->
+
+<script>
+    function getDesc($i) {
+        $id = $('#cat' + $i).val();
+        $.ajax({
+            url: 'category.php',
+            data: {category: $id},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#desc' + $i).html(data);
+            }
+        });
+    }
+
+    $('#des').change(function () {
+        $id = $(this).val();
+        $.ajax({
+            url: 'quantity.php',
+            data: {des: $id},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#desc1').html(data);
+            }
+        });
+
+    });
+</script>

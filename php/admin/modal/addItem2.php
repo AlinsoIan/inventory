@@ -72,7 +72,7 @@
 
                             </td>
                             <td>
-                                <input type='date' placeholder="D/M/Y"  name = "dateT" class="form-control">
+                                <input type='date' placeholder="D/M/Y" required name = "dateT" class="form-control">
                             </td>
                         </tr>
                     </tbody>

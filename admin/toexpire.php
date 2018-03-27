@@ -255,8 +255,8 @@ if($_SESSION['type'] == "user"){
     </div>
 
     <!-- Modal for Edit Account -->
-    <div class="modal col-lg-12" id="edit_account" data-backdrop="static">
-        <div class="modal-dialog" style="width:80%;">
+    <div class="modal col-lg-12" id="edit_toexpire" data-backdrop="static">
+        <div class="modal-dialog" style="width:99%;">
             <div class="modal-content">
             </div>
         </div>
@@ -288,7 +288,7 @@ if($_SESSION['type'] == "user"){
                                         <th>Item Description</th>
                                         <th>Brand</th>
                                         <th>Quantity</th>
-                                        <th>Expired Date</th>
+                                        <th>Expiry Date</th>
 										
                                     </tr>
                                 </thead>
@@ -307,7 +307,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['brand'] . "</td>";
                                         echo "<td>" . $row['startingQuantity'] . "</td>";
                                         echo "<td>" . $row['expirationDate'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editAccount.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/disableAccount.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/editToExpire.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_toexpire'>mode_edit</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }

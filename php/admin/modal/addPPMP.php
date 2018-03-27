@@ -18,11 +18,11 @@
                                 <?php
 
                                 require '../../db.php';
-                                $sql = "SELECT office FROM offices";
+                                $sql = "SELECT officeName FROM offices";
                                 $res = $conn -> query($sql);
                                 if($res){
                                     while($row = $res -> fetch_assoc()){
-                                        echo "<option>".$row['office'] ."</option>";
+                                        echo "<option>".$row['officeName'] ."</option>";
                                     }
 
                                 }
@@ -88,7 +88,7 @@
 
                             </td>
 
-                            <td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
+                            <td><input type="number" name="quantity[]" min="1" onkeypress="return isNumberKey(event)" required class="form-control"></td>
                             <td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
                             <td><input type="text" name="amount[]" size="30px" class="form-control"></td>
                         </tr>

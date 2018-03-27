@@ -11,6 +11,7 @@
                     <thead class="text-primary">
                     <th>Supplier</th>
                     <th>Tin Number</th>
+                    <th>Address</th>
                     <th>Contact Number</th>
 
                     </thead>
@@ -22,6 +23,9 @@
                             </td>
                             <td>
                                 <input type="text"  name = "tinNumber" class="form-control">
+                            </td>
+                            <td>
+                                <input type="text"  name = "address" class="form-control">
                             </td>
                             <td>
                                 <input type="number" onkeypress="return isNumberKey(event);"  name = "contactNumber" class="form-control">

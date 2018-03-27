@@ -15,12 +15,12 @@ $o  = $conn->query($s);
 $oo = $o->fetch_row();
 
 $item = $_POST['item'];
-$s = "SELECT id FROM items WHERE description LIKE '%$item%'";
+$s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$item%'";
 $c  = $conn->query($s);
 $cc = $c->fetch_row();
 
 
-$res = $_POST['res'];
+$ress = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
@@ -29,11 +29,15 @@ $sql2 = "SELECT id FROM offices WHERE office LIKE '%$office%'";
 $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();
-    $sql = "INSERT INTO returns(item_id,reason,quantity,status,office_id,unit,)
-        VALUES('1','$res','$quantity','$status','$r[0]','$unit')";
+    $sql = "INSERT INTO returns(item_id,quantity,status,reason,office_id)
+        VALUES('$cc[0]','$quantity','$status','$ress','$oo[0]')";
 
     if($conn->query($sql)){
-
+        if($status === "usable"){
+            $b = $quantity + $cc[1];
+            $sql = "UPDATE items SET startingQuantity = '$b' WHERE id = '$cc[0]'";
+            $conn->query($sql);
+        }
         header('Location:../../admin/returns.php');
 
     }else {
