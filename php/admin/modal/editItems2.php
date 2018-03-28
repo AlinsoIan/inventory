@@ -8,7 +8,7 @@
         <div class="card-content table-responsive">
             <?php
             $id = $_GET['num'];
-            echo "<form action=" . '../php/admin/itemUpdate.php?ii='.$id . " " . "method='post' >";
+            echo "<form action=" . '../php/admin/itemUpdate2.php?ii='.$id . " " . "method='post' >";
 
             ?>
                 <table class="table">
@@ -22,6 +22,7 @@
                     <th>CURRENT QUANTITY</th>
                     <th>UNIT COST</th>
                     <th>SUPPLIER</th>
+                    <th>EXPIRATION DATE</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -147,6 +148,18 @@
                                 $rr = $ress->fetch_row();
 
                                 echo "<input type='text' value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                require '../../db.php';
+                                $a = $_GET['num'];
+
+                                $sql = "SELECT expirationDate FROM items WHERE itemID = '$a'";
+                                $ress = $conn->query($sql);
+                                $rr = $ress->fetch_row();
+
+                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'expiration' class='form-control'>";
                                 ?>
 
 

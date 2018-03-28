@@ -290,17 +290,14 @@ if($_SESSION['type'] == "user"){
                                  <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                      <thead>
                                      <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Expiration</th>
-                                        <th>Supplier</th>
-                                        <th>Process</th>
+                                         <th>Description</th>
+                                         <th>Unit</th>
+                                         <th>Quantity</th>
+                                         <th>Brand</th>
+                                         <th>Re-order Point</th>
+                                         <th>Supplier</th>
+                                         <th>Expiration Date</th>
+                                         <th>Settings</th>
                                      </tr>
                                      </thead>
 
@@ -311,28 +308,27 @@ if($_SESSION['type'] == "user"){
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                     $_SESSION['cat']= "02";
 
-                                    $sql = "SELECT items.itemID AS idd,acctSn,pgsoSn,description,unitID,startingQuantity,unitCost,brand,orderPoint,supplierName,expirationDate FROM items JOIN suppliers ON items.supplierID = suppliers.id  WHERE category = '2'";
+                                    $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                                  ,suppliers.supplierName AS d,expirationDate
+                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '2'";
                                     $res = $conn->query($sql);
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unitID'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
-                                                . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['expirationDate'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
+                                     if($res){
+                                         while($row = $res->fetch_assoc()){
+                                             echo "<tr>"
+                                                 . "<td>" . $row['description'] ."</td>"
+                                                 . "<td>" . $row['a'] ."</td>"
+                                                 . "<td>" . $row['currentQuantity'] .  "</td>"
+                                                 . "<td>" . $row['brand'] .  "</td>"
+                                                 . "<td>" . $row['c'] .  "</td>"
+                                                 . "<td>" . $row['d'] .  "</td>"
+                                                 . "<td>" . $row['expirationDate'] .  "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
-                                            echo "</tr>";
-                                        }
+                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems2.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "  ||  " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
+                                             echo "</tr>";
+                                         }
 
-                                    }
+                                     }
 
                                     ?>
                                      </tbody>

@@ -18,23 +18,36 @@ $unit = $_POST['unit'];
 $cost = $_POST['unitCost'];
 $brand = $_POST['brand'];
 $expiration = $_POST['expiration'];
-$remarks = $_POST['remarks']
+$quan = $_POST['sQuantity'];
 
-
+$level = floor($quan * .2);
 
 $sql2 = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supplier%'";
 $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();
-    $sql = "INSERT INTO items(supplierID,acctSn,categoryNo,pgsoSn,description,unitID,unitCost,brand,expirationDate,remarks) 
-    VALUES('$r[0]','$acct','$cat','$pgso','$des','$unit','$cost','$brand','$expiration','$remarks',)";
+
+    $z = "SELECT unitID FROM units  WHERE unitName LIKE '%$unit%'";
+    $zz = $conn->query($z);
+    $zzz = $zz->fetch_row();
+
+    $sql = "INSERT INTO items(categoryNo,acctSn,pgsoSn,description,unitID,unitCost,brand,supplierID,expirationDate) 
+    VALUES('$cat','$acct','$pgso','$des','$zzz[0]','$cost','$brand','$r[0]','$expiration')";
 
     if($conn->query($sql)){
+        $f = mysqli_insert_id($conn);
+        $sql = "INSERT INTO inventory(itemID,currentQuantity,startingQuantity,reorderPoint)
+                VALUES ('$f','$quan','$quan','$level')";
 
+        $conn->query($sql);
+        if($conn){
+            header("Location:../../admin/$temp");
+        }else{
+            echo $conn->error;
+        }
 
-        header("Location:../../admin/$temp");
     }else{
-        $m = "Error Adding Item! Please contact administrator!" ;
+        $m = "Error Adding Item! Please contact administrator!!" ;
 
         echo "
             <script type = 'text/javascript'>

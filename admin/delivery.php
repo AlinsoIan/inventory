@@ -307,9 +307,9 @@ if($_SESSION['type'] == "user"){
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,items.unit AS c,suppliers.supplierName AS d,
+                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,items.unitID AS c,suppliers.supplierName AS d,
                                                 delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
-                                                  JOIN suppliers ON delivery.supplier_id = suppliers.id";
+                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID";
                                 $res = $conn->query($sql);
 
                                 if($res){

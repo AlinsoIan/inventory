@@ -294,7 +294,6 @@ if($_SESSION['type'] == "user"){
                                         <tr>
                                             <th>Division</th>
                                             <th>Office</th>
-                                            <th>Responsibility Center</th>
                                             <th>Date/Time</th>
                                             <th>Issuance Type</th>
                                             <th>Settings</th>
@@ -307,7 +306,7 @@ if($_SESSION['type'] == "user"){
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM issuance";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -315,11 +314,10 @@ if($_SESSION['type'] == "user"){
                                                 echo "<tr>"
                                                     . "<td>" . $row['division'] ."</td>"
                                                     . "<td>" . $row['officeName'] ."</td>"
-                                                    . "<td>" . $row['rcCode'] ."</td>"
                                                     . "<td>" . $row['issuanceDate'] ."</td>"
-                                                    . "<td>" . $row['issuanceType'] ."</td>" 
+                                                    . "<td>" . $row['issuanceTime'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['issuanceID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['issuanceID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 

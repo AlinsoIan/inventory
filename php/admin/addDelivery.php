@@ -16,7 +16,7 @@ $category = $_POST['cat'];
 $item = $_POST['item'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
-$d = $_POST['d'];
+$da = $_POST['d'];
 
 
 $cat = [];
@@ -43,36 +43,43 @@ foreach ($supp as $a) {
 
 }
 
+$iarnoz = [];
+foreach ($iar as $a) {
+    array_push($iarnoz, $a);
+
+}
+
 
 if (COUNT($cat)) {
 
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT items.itemID,inventory.startingQuantity FROM items INNER JOIN inventory WHERE items.description LIKE '%$itemz[$m]%'";
+        $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%$itemz[$m]%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
             $r = $res->fetch_row();
 
-            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supp[$m]%'";
+            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$suppz[$m]%'";
             $ress = $conn->query($sq);
             if ($ress->num_rows > 0) {
                 $rr = $ress->fetch_row();
 
 
-                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,totalItem,deliveryDate)
-                      VALUES('$iar[$m]','$r[0]','$rr[0]','$quan[$m]','$d[$m]')";
+                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate)
+                      VALUES('$rr[0]',
+                      '$r[0]',
+                      '$iarnoz[$m]',
+                      '$quanz[$m]',
+                      '$da')";
 
-                $conn->query($sql);
+                if($conn->query($sql)){
+                    $n = $r[1] + $quan[$m];
 
-                $n = $r[1] + $quan[$m];
-
-                $ss = "UPDATE inventory SET startingQuantity = '$n' WHERE itemID = '$r[0]'";
-                $conn->query($ss);
-
-                $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quanz[$m]','increased','$d')";
-                if(!$conn->query($z)){
+                    $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
+                    $conn->query($ss);
+                }else {
                     $m = $conn->error;
 
                     echo "
@@ -82,6 +89,9 @@ if (COUNT($cat)) {
             </script>
             ";
                 }
+
+
+
 
             } else {
                 $m = "Error Adding Inserting!";

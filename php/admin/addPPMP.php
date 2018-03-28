@@ -44,7 +44,7 @@ foreach ($amount as $a) {
 
 }
 
-$sq = "SELECT officeID FROM offices WHERE office LIKE '%$office%'";
+$sq = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
 $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
 

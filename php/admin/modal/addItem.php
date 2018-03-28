@@ -34,12 +34,12 @@
                                 <select class="form-control" name="unit" style="width: 100px">
                                     <?php
                                     require '../../db.php';
-                                    $sql = "SELECT units FROM units";
+                                    $sql = "SELECT unitName FROM units";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while ($row = $res->fetch_assoc()){
-                                            echo "<option>" . $row['units'] . "</option>";
+                                            echo "<option>" . $row['unitName'] . "</option>";
                                         }
                                     }
                                     ?>

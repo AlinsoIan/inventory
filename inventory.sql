@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 10:55 AM
+-- Generation Time: Mar 28, 2018 at 10:30 PM
 -- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- PHP Version: 7.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory`
 --
+CREATE DATABASE IF NOT EXISTS `inventory` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `inventory`;
 
 -- --------------------------------------------------------
 
@@ -60,10 +62,17 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `itemID` int(10) NOT NULL,
   `iarNo` int(10) NOT NULL,
   `totalQuantity` int(45) NOT NULL,
-  `totalItem` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQuantity`, `deliveryDate`) VALUES
+(4, 1, 20, 123, 11, '2018-03-02'),
+(5, 1, 20, 123, 1231, '2018-03-15');
 
 -- --------------------------------------------------------
 
@@ -91,12 +100,23 @@ DROP TABLE IF EXISTS `inventory`;
 CREATE TABLE IF NOT EXISTS `inventory` (
   `inventoryID` int(10) NOT NULL AUTO_INCREMENT,
   `itemID` int(10) NOT NULL,
-  `physicalCount` int(45) NOT NULL,
+  `physicalCount` int(45) DEFAULT NULL,
   `currentQuantity` int(45) NOT NULL,
   `startingQuantity` int(10) NOT NULL,
   `reorderPoint` int(11) NOT NULL,
   PRIMARY KEY (`inventoryID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuantity`, `startingQuantity`, `reorderPoint`) VALUES
+(11, 16, NULL, 48, 50, 10),
+(12, 17, NULL, 4998, 5000, 1000),
+(13, 18, NULL, 500, 500, 100),
+(14, 19, NULL, 20, 20, 4),
+(15, 20, NULL, 1742, 500, 100);
 
 -- --------------------------------------------------------
 
@@ -107,15 +127,16 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 DROP TABLE IF EXISTS `issuance`;
 CREATE TABLE IF NOT EXISTS `issuance` (
   `issuanceID` int(10) NOT NULL AUTO_INCREMENT,
+  `division` varchar(150) NOT NULL,
   `officeID` int(10) NOT NULL,
-  `risNo` int(45) NOT NULL,
-  `saiNo` int(45) NOT NULL,
+  `risNo` varchar(45) NOT NULL,
+  `saiNo` varchar(45) NOT NULL,
   `issuanceDate` date NOT NULL,
   `issuanceTime` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
   `issuer` varchar(50) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -127,14 +148,12 @@ DROP TABLE IF EXISTS `itemissuance`;
 CREATE TABLE IF NOT EXISTS `itemissuance` (
   `itemIssuanceID` int(10) NOT NULL AUTO_INCREMENT,
   `issuanceID` int(10) NOT NULL,
-  `category` int(5) NOT NULL,
-  `description` varchar(150) NOT NULL,
-  `unit` varchar(20) NOT NULL,
+  `itemID` int(10) NOT NULL,
   `quantityRequested` int(5) NOT NULL,
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -151,12 +170,22 @@ CREATE TABLE IF NOT EXISTS `items` (
   `pgsoSn` int(10) NOT NULL,
   `description` varchar(150) NOT NULL,
   `unitID` int(10) NOT NULL,
-  `unitCost` double NOT NULL,
+  `unitCost` int(11) NOT NULL,
   `brand` varchar(20) NOT NULL,
   `expirationDate` date DEFAULT NULL,
-  `remarks` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `description`, `unitID`, `unitCost`, `brand`, `expirationDate`) VALUES
+(16, 1, 22, 2, 22, 'Eggs', 1, 23, 'A', '2018-03-03'),
+(17, 2, 33, 3, 33, 'Choco', 5, 30, 'YU', NULL),
+(18, 1, 4, 4, 4, 'Roll', 1, 30, 'B', NULL),
+(19, 1, 5, 5, 5, 'Lomi', 1, 12, 'H', NULL),
+(20, 2, 10, 1, 10, 'Itlog', 1, 6, 'X', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,7 +302,16 @@ CREATE TABLE IF NOT EXISTS `ppmp` (
   `totalAmount` int(45) NOT NULL,
   `ppmpDate` date NOT NULL,
   PRIMARY KEY (`ppmpID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ppmp`
+--
+
+INSERT INTO `ppmp` (`ppmpID`, `officeID`, `itemID`, `itemQuantity`, `unitCost`, `totalAmount`, `ppmpDate`) VALUES
+(2, 48, 15, 12, 11, 123, '2018-03-28'),
+(3, 48, 16, 12, 11, 123, '2018-03-28'),
+(4, 48, 16, 12, 11, 123, '2018-03-28');
 
 -- --------------------------------------------------------
 
@@ -307,14 +345,15 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `contactNo` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`supplierID`),
   UNIQUE KEY `tinNo` (`tinNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `suppliers`
 --
 
 INSERT INTO `suppliers` (`supplierID`, `tinNo`, `supplierName`, `address`, `contactNo`) VALUES
-(1, 1000, 'Tiongsan', '', '09090');
+(1, 1000, 'Tiongsan', '', '09090'),
+(2, 4, '456', '4', '91823');
 
 -- --------------------------------------------------------
 
@@ -327,7 +366,31 @@ CREATE TABLE IF NOT EXISTS `units` (
   `unitID` int(10) NOT NULL AUTO_INCREMENT,
   `unitName` varchar(45) NOT NULL,
   PRIMARY KEY (`unitID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `units`
+--
+
+INSERT INTO `units` (`unitID`, `unitName`) VALUES
+(1, 'pack'),
+(2, 'pc'),
+(3, 'box'),
+(4, 'tube'),
+(5, 'set'),
+(6, 'book'),
+(7, 'ream'),
+(8, 'pad'),
+(9, 'roll'),
+(10, 'cart'),
+(11, 'bot'),
+(12, 'bundle'),
+(13, 'can'),
+(14, 'gal'),
+(15, 'pouch'),
+(16, 'pair'),
+(17, 'kilo'),
+(18, 'unit');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,6 +15,9 @@ $i = $_GET['n'];
 $sql = "DELETE FROM items WHERE itemID = '$i'";
 
 if($conn->query($sql)){
+    $sql = "DELETE FROM inventory WHERE itemID = '$i'";
+    $conn->query($sql);
+
 
     header("Location:../../admin/$temp");
 

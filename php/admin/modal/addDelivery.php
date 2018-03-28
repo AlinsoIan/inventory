@@ -37,7 +37,7 @@
                                     <?php
                                     require '../../db.php';
 
-                                    $sql = "SELECT description FROM items WHERE category = 1";
+                                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
                                     $res = $conn->query($sql);
                                     if($res){
                                         while($row = $res -> fetch_assoc()){
@@ -50,7 +50,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="form-control" name="supplier">
+                                <select class="form-control" name="supplier[]">
                                     <?php
                                     require '../../db.php';
                                     $sql = "SELECT * FROM suppliers";
@@ -126,10 +126,10 @@
                 '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
                 '</td>' +
                 '<td>' +
-                '<select id=desc' + i + ' name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT description FROM items WHERE category = 1');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
+                '<select id=desc' + i + ' name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query("SELECT description FROM items WHERE category = 1");if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td>' +
-                '<select name="supp[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
+                '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required></td>'+
                 '<td><input type="date" name="d[]" class="form-control" required></td>' +

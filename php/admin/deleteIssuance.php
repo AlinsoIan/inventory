@@ -12,9 +12,30 @@ session_start();
 
 $temp = $_SESSION['temp'];
 
-$sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
+$sql = "SELECT itemID,quantityIssued FROM itemissuance WHERE issuanceID = '$i'";
+$res = $conn->query($sql);
 
-if($conn->query($sql)){
+
+if($res){
+    while ($row = $res->fetch_assoc()){
+        $ii = $row['itemID'];
+
+        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ii'";
+        $ress = $conn->query($sql);
+        $r = $ress->fetch_row();
+
+
+        $nn = $r[0] + $row['quantityIssued'];
+
+
+        $sql = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID = '$ii'";
+        $conn->query($sql);
+
+    }
+
+
+    $sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
+    $conn->query($sql);
     $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
     header("Location:../../admin/$temp");

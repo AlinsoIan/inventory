@@ -333,14 +333,14 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.officeName AS a,dateT,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID";
+                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID JOIN items ON ppmp.itemID = items.itemID GROUP BY ppmpID";
                                 $res = $conn->query($sql);
 
                                 if($res){
                                     while ($row = $res->fetch_assoc()){
                                         echo  "<tr>";
                                         echo "<td>" . $row['a'] . "</td>";
-                                        echo "<td>" . $row['dateT'] . "</td>";
+                                        echo "<td>" . $row['ppmpDate'] . "</td>";
 
                                         echo "<td>" . "<a href=" .'../php/admin/modal/viewPPMP.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewPPMP'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deletePPMP.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_ppmp'>delete</a>" . "</td>";
                                         echo "</tr>";

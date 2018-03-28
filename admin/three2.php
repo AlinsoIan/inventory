@@ -288,16 +288,13 @@ if($_SESSION['type'] == "user"){
                                  <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                      <thead>
                                      <tr>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Re-order Point</th>
-                                        <th>Supplier</th>
-                                        <th>Settings</th>
+                                         <th>Description</th>
+                                         <th>Unit</th>
+                                         <th>Quantity</th>
+                                         <th>Brand</th>
+                                         <th>Re-order Point</th>
+                                         <th>Supplier</th>
+                                         <th>Settings</th>
                                     </tr>
                                     </thead>
 
@@ -308,23 +305,22 @@ if($_SESSION['type'] == "user"){
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                     $_SESSION['cat']= "03";
 
-                                    $sql = "SELECT items.itemID AS idd,acctSn,pgsoSn,description,unitID,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items JOIN suppliers ON items.supplierID = suppliers.id  WHERE category = '3'";
+                                    $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                                  ,suppliers.supplierName AS d
+                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '3'";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
                                                 . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unitID'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] .  "</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['currentQuantity'] .  "</td>"
                                                 . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['orderPoint'] .  "</td>"
-                                                . "<td>" . $row['supplierName'] .  "</td>"
+                                                . "<td>" . $row['c'] .  "</td>"
+                                                . "<td>" . $row['d'] .  "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "</td>";
+                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "  ||  " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                             echo "</tr>";
                                         }
 

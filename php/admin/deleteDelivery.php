@@ -12,13 +12,13 @@ $s = "SELECT itemID,totalQuantity FROM delivery WHERE deliveryID = '$i'";
 $res = $conn->query($s);
 $r = $res->fetch_row();
 
-$ss = "SELECT startingQuantity FROM inventory WHERE inventoryID ='$r[0]'";
+$ss = "SELECT currentQuantity FROM inventory WHERE itemID ='$r[0]'";
 $ress = $conn->query($ss);
 $rr = $ress->fetch_row();
 
 $n = $rr[0] - $r[1];
 
-$sq = "UPDATE inventory SET startingQuantity = '$n' WHERE inventoryID = '$r[0]'";
+$sq = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
 $conn->query($sq);
 
 $sql = "DELETE FROM delivery WHERE deliveryID = '$i'";
