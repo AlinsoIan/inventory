@@ -22,7 +22,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT name FROM office where id = '$i'";
+                                    $sql = "SELECT officeName FROM office where officeID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='offname' class='form-control' >";
@@ -40,7 +40,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT abbr FROM office where id = '$i'";
+                                    $sql = "SELECT abbrv FROM office where officeID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='abbrev' class='form-control' >";
@@ -59,7 +59,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT fpp FROM office where id = '$i'";
+                                    $sql = "SELECT fppCode FROM office where officeID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='fpp' class='form-control' >";
@@ -77,7 +77,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT responsibility FROM office where id = '$i'";
+                                    $sql = "SELECT rcCode FROM office where officeID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='rccode' class='form-control' >";

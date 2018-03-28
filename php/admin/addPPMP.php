@@ -55,7 +55,7 @@ $rr = $ress->fetch_row();
         $r = $res->fetch_row();
 
 
-        $sql = "INSERT INTO ppmp(officeID,itemID,itemQuantity,unitCost,totalAmount,date)
+        $sql = "INSERT INTO ppmp(officeID,itemID,itemQuantity,unitCost,totalAmount,ppmpDate)
                       VALUES('$rr[0]','$r[0]','$quanz[$m]','$unitz[$m]','$amountz[$m]','$d')";
         $conn->query($sql);
 

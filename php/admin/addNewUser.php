@@ -16,7 +16,7 @@ $pass = $_POST['pass'];
 
 
 
-$sql = "INSERT into ACCOUNTS(firstName,lastName,username,password,userType)
+$sql = "INSERT into accounts(firstName,lastName,userName,password,userType)
         VALUES('$first','$last','$username','$pass','$type')";
 
 if($conn->query($sql)){

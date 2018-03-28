@@ -12,36 +12,33 @@ $id = $_GET['ii'];
 
 
 
-$sql = "SELECT contactPerson,contactNumber,supplierName,taxNumber,tinNumber FROM suppliers WHERE id = '$id'";
+$sql = "SELECT tinNo,supplierName,address,contactNo FROM suppliers WHERE supplierID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
 
-
-$person = $_POST['contactPerson'];
-if(empty($person)){
-    $person = $r[0];
-}
-$num = $_POST['contactNumber'];
-if(empty($num)){
-    $num = $r[1];
+$tin = $_POST['tin'];
+if(empty($tin)){
+    $tin = $r[0];
 }
 $name = $_POST['supplierName'];
 if(empty($name)){
-    $name = $r[2];
+    $name = $r[1];
 }
-$tax = $_POST['tax'];
-if(empty($tax)){
-    $tax = $r[3];
+$name = $_POST['address'];
+if(empty($address)){
+    $address = $r[2];
 }
-$tin = $_POST['tin'];
-if(empty($tin)){
-    $tin = $r[4];
+$num = $_POST['contactNo'];
+if(empty($num)){
+    $num = $r[3];
 }
 
 
-$sql = "UPDATE suppliers SET contactPerson = '$person',contactNumber = '$num',supplierName = '$name',
-        taxNumber = '$tax',tinNumber = '$tin' WHERE id = '$id'";
+
+
+
+$sql = "UPDATE suppliers SET tinNo = '$tin',supplierName = '$name',address = '$address',contactNumber = '$num' WHERE supplierID = '$id'";
 
 if($conn->query($sql)){
     header("Location:../../admin/supplier.php");

@@ -12,7 +12,7 @@ session_start();
 $temp = $_SESSION['temp'];
 $i = $_GET['n'];
 
-$sql = "DELETE FROM items WHERE id = '$i'";
+$sql = "DELETE FROM items WHERE itemID = '$i'";
 
 if($conn->query($sql)){
 

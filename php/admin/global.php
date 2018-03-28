@@ -10,14 +10,14 @@ function showUnits()
 {
 
     include "db.php";
-    $sql = "SELECT units FROM units";
+    $sql = "SELECT unitName FROM units";
 
     $res = $conn->query($sql);
     $ar = [];
 
     if ($res->num_rows > 0) {
         while ($row = $res->fetch_assoc()) {
-            $ar[] = $row['units'];
+            $ar[] = $row['unitName'];
         }
     }
     foreach ($ar as $item) {

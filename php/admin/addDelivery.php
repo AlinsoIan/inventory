@@ -49,26 +49,26 @@ if (COUNT($cat)) {
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$itemz[$m]%'";
+        $s = "SELECT items.itemID,inventory.startingQuantity FROM items INNER JOIN inventory WHERE items.description LIKE '%$itemz[$m]%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
             $r = $res->fetch_row();
 
-            $sq = "SELECT id FROM suppliers WHERE supplierName LIKE '%$supp[$m]%'";
+            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supp[$m]%'";
             $ress = $conn->query($sq);
             if ($ress->num_rows > 0) {
                 $rr = $ress->fetch_row();
 
 
-                $sql = "INSERT INTO delivery(iarno,itemNo,supplier_id,quantity,dateT)
+                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,totalItem,deliveryDate)
                       VALUES('$iar[$m]','$r[0]','$rr[0]','$quan[$m]','$d[$m]')";
 
                 $conn->query($sql);
 
                 $n = $r[1] + $quan[$m];
 
-                $ss = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[0]'";
+                $ss = "UPDATE inventory SET startingQuantity = '$n' WHERE itemID = '$r[0]'";
                 $conn->query($ss);
 
                 $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quanz[$m]','increased','$d')";

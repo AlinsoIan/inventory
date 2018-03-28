@@ -10,7 +10,7 @@ session_start();
 $temp = $_SESSION['temp'];
 $id = $_GET['ii'];
 
-$sql = "SELECT category,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand FROM items WHERE id = '$id'";
+$sql = "SELECT categoryNo,acctSn,pgsoSn,description,units.unitName AS 'unit' ,unitCost,brand FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
@@ -50,8 +50,7 @@ if(empty($brand)){
 
 
 
-$sql = "UPDATE items SET category = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unit = '$unit',
-        startingQuantity = '$quan',unitCost = '$cost',brand = '$brand' WHERE id = '$id'";
+$sql = "UPDATE items SET categoryNo = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand' WHERE itemID = '$id'";
 
 if($conn->query($sql)){
     header("Location:../../admin/$temp");

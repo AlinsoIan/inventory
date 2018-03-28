@@ -10,12 +10,12 @@ require '../db.php';
 
 $office = $_POST['office'];
 
-$s = "SELECT id FROM offices WHERE office LIKE '%$office%'";
+$s = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
 $o  = $conn->query($s);
 $oo = $o->fetch_row();
 
 $item = $_POST['item'];
-$s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$item%'";
+$s = "SELECT items.itemID,inventory.startingQuantity FROM items INNER JOIN inventory WHERE items.description LIKE '%$item%'";
 $c  = $conn->query($s);
 $cc = $c->fetch_row();
 
@@ -25,17 +25,17 @@ $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
 
-$sql2 = "SELECT id FROM offices WHERE office LIKE '%$office%'";
+$sql2 = "SELECT officeID FROM offices WHERE office LIKE '%$office%'";
 $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();
-    $sql = "INSERT INTO returns(item_id,quantity,status,reason,office_id)
-        VALUES('$cc[0]','$quantity','$status','$ress','$oo[0]')";
+    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status)
+        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status')";
 
     if($conn->query($sql)){
         if($status === "usable"){
             $b = $quantity + $cc[1];
-            $sql = "UPDATE items SET startingQuantity = '$b' WHERE id = '$cc[0]'";
+            $sql = "UPDATE inventory SET startingQuantity = '$b' WHERE itemID = '$cc[0]'";
             $conn->query($sql);
         }
         header('Location:../../admin/returns.php');

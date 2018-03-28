@@ -12,10 +12,10 @@ session_start();
 
 $temp = $_SESSION['temp'];
 
-$sql = "DELETE FROM issuance WHERE id = '$i'";
+$sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
 
 if($conn->query($sql)){
-    $sql = "DELETE FROM itemissuance WHERE issue_id = '$i'";
+    $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
     header("Location:../../admin/$temp");
 

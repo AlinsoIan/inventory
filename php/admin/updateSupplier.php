@@ -8,30 +8,30 @@
 require '../db.php';
 $id = $_GET['ii'];
 
-$sql = "SELECT supplierName,tinNumber,poNumber,poDate FROM suppliers WHERE id = '$id'";
+$sql = "SELECT tinNo,supplierName,address,contactNo FROM suppliers WHERE supplierID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
 
-$n = $_POST['supplierName'];
-if(empty($n)){
-    $n = $r[0];
-}
 $t = $_POST['tin'];
 if(empty($t)){
-    $t = $r[1];
+    $t = $r[0];
 }
-$pN = $_POST['poNumber'];
-if(empty($pN)){
-    $pN = $r[2];
+$n = $_POST['supplierName'];
+if(empty($n)){
+    $n = $r[1];
 }
-$pD = $_POST['poDate'];
-if(empty($pD)){
-    $pD = $r[3];
+$add = $_POST['address'];
+if(empty($add)){
+    $add = $r[2];
+}
+$cn = $_POST['contactNo'];
+if(empty($cn)){
+    $cn = $r[3];
 }
 
 
-$sql = "UPDATE suppliers SET supplierName = '$n',tinNumber = '$t',poNumber = '$pN',poDate = '$pD' WHERE id = '$id'";
+$sql = "UPDATE suppliers SET tinNumber = '$t',supplierName = '$n',address = '$add',contactNo = '$cn' WHERE supplierID = '$id'";
 
 if($conn->query($sql)){
     header('Location:../../admin/supplier.php');
