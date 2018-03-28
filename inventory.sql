@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2018 at 02:49 PM
+-- Generation Time: Mar 28, 2018 at 10:55 AM
 -- Server version: 5.7.19
--- PHP Version: 7.0.23
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory`
 --
-CREATE DATABASE IF NOT EXISTS `inventory` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `inventory`;
 
 -- --------------------------------------------------------
 
@@ -70,6 +68,22 @@ CREATE TABLE IF NOT EXISTS `delivery` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `history`
+--
+
+DROP TABLE IF EXISTS `history`;
+CREATE TABLE IF NOT EXISTS `history` (
+  `historyID` int(10) NOT NULL AUTO_INCREMENT,
+  `logID` int(10) NOT NULL,
+  `inventoryID` int(10) NOT NULL,
+  `activity` varchar(50) NOT NULL,
+  `actTime` varchar(10) NOT NULL,
+  PRIMARY KEY (`historyID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inventory`
 --
 
@@ -96,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `officeID` int(10) NOT NULL,
   `risNo` int(45) NOT NULL,
   `saiNo` int(45) NOT NULL,
-  `date` date NOT NULL,
-  `time` varchar(45) NOT NULL,
+  `issuanceDate` date NOT NULL,
+  `issuanceTime` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
   `issuer` varchar(50) NOT NULL,
   PRIMARY KEY (`issuanceID`)
@@ -142,6 +156,22 @@ CREATE TABLE IF NOT EXISTS `items` (
   `expirationDate` date DEFAULT NULL,
   `remarks` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`itemID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE IF NOT EXISTS `logs` (
+  `logID` int(10) NOT NULL AUTO_INCREMENT,
+  `accountID` int(10) NOT NULL,
+  `loginTime` varchar(10) NOT NULL,
+  `logoutTime` varchar(10) NOT NULL,
+  `loginDate` date NOT NULL,
+  PRIMARY KEY (`logID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -241,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `ppmp` (
   `itemQuantity` int(45) NOT NULL,
   `unitCost` int(45) NOT NULL,
   `totalAmount` int(45) NOT NULL,
-  `date` date NOT NULL,
+  `ppmpDate` date NOT NULL,
   PRIMARY KEY (`ppmpID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
