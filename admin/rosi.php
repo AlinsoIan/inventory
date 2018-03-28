@@ -289,7 +289,7 @@ if($_SESSION['type'] == "user"){
                                         require '../php/db.php';
 
 
-                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
+                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
                                         $res = $conn->query($sql);
 
                                         if($res){

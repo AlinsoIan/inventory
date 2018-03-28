@@ -286,7 +286,7 @@ if($_SESSION['type'] == "user"){
                                             echo "Error Connecting to database !" . $conn->error;
                                         }
 
-                                        $sql = "SELECT * FROM items WHERE startingQuantity <= orderPoint";
+                                        $sql = "SELECT * FROM items WHERE logicalCount <= orderPoint";
                                         $res = $conn->query($sql);
 
                                         if($res){

@@ -314,12 +314,12 @@ if($_SESSION['type'] == "user"){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
                                                     . "<td>" . $row['division'] ."</td>"
-                                                    . "<td>" . $row['office'] ."</td>"
-                                                    . "<td>" . $row['responsibility'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>" 
+                                                    . "<td>" . $row['officeName'] ."</td>"
+                                                    . "<td>" . $row['rcCode'] ."</td>"
+                                                    . "<td>" . $row['issuanceDate'] ."</td>"
+                                                    . "<td>" . $row['issuanceType'] ."</td>" 
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['issuanceID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['issuanceID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -332,7 +332,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

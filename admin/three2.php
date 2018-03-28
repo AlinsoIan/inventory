@@ -308,7 +308,7 @@ if($_SESSION['type'] == "user"){
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                     $_SESSION['cat']= "03";
 
-                                    $sql = "SELECT items.id AS idd,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items JOIN suppliers ON items.supplier_id = suppliers.id  WHERE category = '3'";
+                                    $sql = "SELECT items.itemID AS idd,acctSn,pgsoSn,description,unitID,startingQuantity,unitCost,brand,orderPoint,supplierName FROM items JOIN suppliers ON items.supplierID = suppliers.id  WHERE category = '3'";
                                     $res = $conn->query($sql);
 
                                     if($res){
@@ -317,7 +317,7 @@ if($_SESSION['type'] == "user"){
                                                 . "<td>" . $row['acctSn'] ."</td>"
                                                 . "<td>" . $row['pgsoSn'] ."</td>"
                                                 . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
+                                                . "<td>" . $row['unitID'] ."</td>"
                                                 . "<td>" . $row['startingQuantity'] ."</td>"
                                                 . "<td>" . $row['unitCost'] .  "</td>"
                                                 . "<td>" . $row['brand'] .  "</td>"

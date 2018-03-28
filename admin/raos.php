@@ -291,7 +291,7 @@ if($_SESSION['type'] == "user"){
                                         require '../php/db.php';
 
 
-                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
+                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -317,7 +317,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM iar";
+                                    $sql = "SELECT COUNT(deliveryID) FROM delivery";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

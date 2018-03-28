@@ -333,7 +333,7 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.office AS a,dateT,ppmp.id AS idd FROM ppmp JOIN offices ON ppmp.office_id = offices.id";
+                                $sql = "SELECT offices.officeName AS a,dateT,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID";
                                 $res = $conn->query($sql);
 
                                 if($res){

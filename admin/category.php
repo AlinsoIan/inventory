@@ -1,7 +1,7 @@
 <?php
 require '../php/db.php';
 $category = $_GET['category'];
-$sql = "SELECT description FROM items WHERE category =  ".$category;
+$sql = "SELECT description FROM items WHERE categoryNo =  ".$category;
 $res = $conn->query($sql);
 
 $data = [];
@@ -12,4 +12,3 @@ if ($res) {
 }
 
 echo json_encode($data);
-

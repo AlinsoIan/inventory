@@ -326,7 +326,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM accountslogs";
+                                    $sql = "SELECT COUNT(accountslogID) FROM accountslogs";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>Delivered Items</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -307,8 +307,8 @@ if($_SESSION['type'] == "user"){
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT iarno,items.category AS a,items.description AS b,items.unit AS c,suppliers.supplierName AS d,
-                                                delivery.quantity AS e,delivery.dateT AS f,delivery.id AS idd FROM delivery JOIN items ON delivery.itemNo = items.id
+                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,items.unit AS c,suppliers.supplierName AS d,
+                                                delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
                                                   JOIN suppliers ON delivery.supplier_id = suppliers.id";
                                 $res = $conn->query($sql);
 
@@ -335,7 +335,7 @@ if($_SESSION['type'] == "user"){
                                 <?php
 
                                 require '../php/db.php';
-                                $sql = "SELECT COUNT(id) FROM issuance";
+                                $sql = "SELECT COUNT(issuanceID) FROM issuance";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

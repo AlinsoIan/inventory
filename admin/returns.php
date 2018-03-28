@@ -301,9 +301,9 @@ if($_SESSION['type'] == "user"){
                             <tbody>
                             <?php
                             require '../php/db.php';
-                            $sql = "SELECT offices.office AS a,items.description AS b,returns.quantity AS c,
-                                    returns.reason AS d,returns.status AS e,returns.id AS idd
-                                    FROM returns JOIN items ON returns.item_id = items.id JOIN offices ON returns.office_id = offices.id";
+                            $sql = "SELECT offices.officeName AS a,items.description AS b,returns.itemQuantity AS c,
+                                    returns.reason AS d,returns.status AS e,returns.returnID AS idd
+                                    FROM returns JOIN items ON returns.itemID = items.id JOIN offices ON returns.officeID = offices.officeID";
                             $res = $conn->query($sql);
 
                             if($res){

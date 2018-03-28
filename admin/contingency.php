@@ -320,11 +320,11 @@ if($_SESSION['type'] == "user"){
                                         if($res){
                                             while ($row = $res->fetch_assoc()){
                                                 echo  "<tr>";
-                                                echo "<td width='40%'>" . $row['office'] . "</td>";
-                                                echo "<td>" . $row['abbr'] . "</td>";
-                                                echo "<td>" . $row['fpp'] . "</td>";
-                                                echo "<td>" . $row['responsibility'] . "</td>";
-                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
+                                                echo "<td width='40%'>" . $row['officeName'] . "</td>";
+                                                echo "<td>" . $row['abbrv'] . "</td>";
+                                                echo "<td>" . $row['fppCode'] . "</td>";
+                                                echo "<td>" . $row['rcCode'] . "</td>";
+                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['officeID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['officeID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
                                         }
