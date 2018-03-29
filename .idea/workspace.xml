@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/history.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/accountsLogs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/five2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/four2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/itemsLogs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logsIssuance.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/offices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ppmp.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ppmp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/reorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/reorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/rosi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/rosi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/supplierLogs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/three2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/toexpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/toexpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/two2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory.sql" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addReturn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis1.1.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/iar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/raos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/returns.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/rosi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/rosi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/ssmi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/stockcard.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,6 +22,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="deleteIssuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/deleteIssuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <marker date="1522333382680" expanded="true" signature="188:258" ph="SELECT itemI... itemissuance" />
+                <marker date="1522333382680" expanded="true" signature="379:431" ph="SELECT curre... inventory" />
+                <marker date="1522333382680" expanded="true" signature="379:432" ph="SELECT curre... inventory" />
+                <marker date="1522333382680" expanded="true" signature="379:436" ph="SELECT curre... inventory" />
+                <marker date="1522333382680" expanded="true" signature="379:441" ph="SELECT curre... inventory" />
+                <marker date="1522333382680" expanded="true" signature="379:450" ph="SELECT curre... inventory" />
+                <marker date="1522333382680" expanded="true" signature="587:646" ph="UPDATE inventory... " />
+                <marker date="1522333382680" expanded="true" signature="839:986" ph="INSERT INTO itemrecords... " />
+                <marker date="1522333382680" expanded="true" signature="1068:1112" ph="DELETE FROM issuance... " />
+                <marker date="1522333382680" expanded="true" signature="1151:1199" ph="DELETE FROM itemissuance... " />
+                <marker date="1522333382680" expanded="true" signature="1396:1508" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/login.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ssmi.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ssmi.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="349">
@@ -252,13 +259,7 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -270,17 +271,25 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../hein" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/webtek-hein/IMSQRGSO.git" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\inventory\user" />
+      <recent name="C:\wamp64\www\inventory\admin" />
+      <recent name="C:\wamp64\www\inventory\php\admin\modal" />
+      <recent name="C:\wamp64\www\inventory\php\admin" />
+      <recent name="C:\wamp64\www\inventory\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\inventory\php\admin\modal" />
@@ -288,13 +297,6 @@
       <recent name="C:\wamp64\www\bsb\admin" />
       <recent name="C:\wamp64\www\inventory\php\admin" />
       <recent name="C:\wamp64\www\mat" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\inventory\admin" />
-      <recent name="C:\wamp64\www\inventory\php\admin\modal" />
-      <recent name="C:\wamp64\www\inventory\php\admin" />
-      <recent name="C:\wamp64\www\inventory\js" />
-      <recent name="C:\wamp64\www\inventory\php\user\modal" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -446,7 +448,7 @@
       <workItem from="1522157236368" duration="1524000" />
       <workItem from="1522276632930" duration="34921000" />
       <workItem from="1522346756354" duration="60000" />
-      <workItem from="1522346960298" duration="3313000" />
+      <workItem from="1522346960298" duration="7251000" />
     </task>
     <task id="LOCAL-00001" summary="Latest">
       <created>1515713212364</created>
@@ -630,26 +632,40 @@
       <option name="project" value="LOCAL" />
       <updated>1522338862777</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Aha">
+      <created>1522350355341</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1522350355341</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Latest DB">
+      <created>1522350404669</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1522350404670</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427234000" />
+    <option name="totallyTimeSpent" value="431172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5087848" side_tool="true" weight="0.32605043" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5087848" side_tool="true" weight="0.32546374" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32941177" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49121523" weight="0.32546374" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -662,7 +678,6 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49121523" weight="0.32605043" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -687,7 +702,9 @@
     <MESSAGE value="ppmp" />
     <MESSAGE value="Latest" />
     <MESSAGE value="Yeah" />
-    <option name="LAST_COMMIT_MESSAGE" value="Yeah" />
+    <MESSAGE value="Aha" />
+    <MESSAGE value="Latest DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -695,13 +712,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/editItems2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -929,26 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <marker date="1522333382680" expanded="true" signature="188:258" ph="SELECT itemI... itemissuance" />
-            <marker date="1522333382680" expanded="true" signature="379:431" ph="SELECT curre... inventory" />
-            <marker date="1522333382680" expanded="true" signature="379:432" ph="SELECT curre... inventory" />
-            <marker date="1522333382680" expanded="true" signature="379:436" ph="SELECT curre... inventory" />
-            <marker date="1522333382680" expanded="true" signature="379:441" ph="SELECT curre... inventory" />
-            <marker date="1522333382680" expanded="true" signature="379:450" ph="SELECT curre... inventory" />
-            <marker date="1522333382680" expanded="true" signature="587:646" ph="UPDATE inventory... " />
-            <marker date="1522333382680" expanded="true" signature="839:986" ph="INSERT INTO itemrecords... " />
-            <marker date="1522333382680" expanded="true" signature="1068:1112" ph="DELETE FROM issuance... " />
-            <marker date="1522333382680" expanded="true" signature="1151:1199" ph="DELETE FROM itemissuance... " />
-            <marker date="1522333382680" expanded="true" signature="1396:1508" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/accountsLogs.php" />
     <entry file="file://$PROJECT_DIR$/php/admin/modal/editOffice.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1114,6 +1104,29 @@
           <caret line="266" column="52" selection-start-line="266" selection-start-column="52" selection-end-line="266" selection-end-column="52" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/deleteIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <marker date="1522333382680" expanded="true" signature="188:258" ph="SELECT itemI... itemissuance" />
+            <marker date="1522333382680" expanded="true" signature="379:431" ph="SELECT curre... inventory" />
+            <marker date="1522333382680" expanded="true" signature="379:432" ph="SELECT curre... inventory" />
+            <marker date="1522333382680" expanded="true" signature="379:436" ph="SELECT curre... inventory" />
+            <marker date="1522333382680" expanded="true" signature="379:441" ph="SELECT curre... inventory" />
+            <marker date="1522333382680" expanded="true" signature="379:450" ph="SELECT curre... inventory" />
+            <marker date="1522333382680" expanded="true" signature="587:646" ph="UPDATE inventory... " />
+            <marker date="1522333382680" expanded="true" signature="839:986" ph="INSERT INTO itemrecords... " />
+            <marker date="1522333382680" expanded="true" signature="1068:1112" ph="DELETE FROM issuance... " />
+            <marker date="1522333382680" expanded="true" signature="1151:1199" ph="DELETE FROM itemissuance... " />
+            <marker date="1522333382680" expanded="true" signature="1396:1508" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

@@ -7,10 +7,15 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php);
+    window.location.replace(indeindex.php    </script>";
+}
+if($_SESSION['type'] == "user"){
+    session_destroy();
+    $m="Unauthorized Access";
 
-
-    </script>";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.index.php    </script>";
 }
 ?>
 <!DOCTYPE html>
@@ -105,12 +110,6 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
@@ -136,8 +135,11 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
-                    <li>
+
+
             </div>
+            <!-- #Menu -->
+
         </aside>
         <!-- #END# Left Sidebar -->
 
@@ -145,26 +147,19 @@ if(!isset($_SESSION['username'])){
 
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-        </div>
-        <div class="row clearfix">
-
-            
-        </div>
-        <!-- Widgets -->
 		
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
-                        <a href="items.php"><i class="material-icons">shopping_cart</i></a>
+                        <a href="items2.php"><i class="material-icons">shopping_cart</i></a>
                     </div>
                     <div class="content">
                         <div class="text">ITEMS</div>
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items";
+                        $sql = "SELECT COUNT(itemID) FROM items";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -189,7 +184,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
+                        $sql = "SELECT COUNT(itemID) FROM items WHERE categoryNo = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -209,7 +204,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
+                        $sql = "SELECT COUNT(itemID) FROM inventory WHERE reorderPoint >= currentQuantity";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -228,7 +223,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM accounts";
+                        $sql = "SELECT COUNT(accountID) FROM accounts where status = 'active'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -249,7 +244,7 @@ if(!isset($_SESSION['username'])){
                          <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM returns";
+                        $sql = "SELECT COUNT(returnID) FROM returns";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -268,7 +263,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM issuance";
+                        $sql = "SELECT COUNT(issuanceID) FROM issuance";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -287,7 +282,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM suppliers";
+                        $sql = "SELECT COUNT(supplierID) FROM suppliers";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -306,7 +301,7 @@ if(!isset($_SESSION['username'])){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM offices";
+                        $sql = "SELECT COUNT(officeID) FROM offices";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -316,36 +311,6 @@ if(!isset($_SESSION['username'])){
                 </div>
             </div>
         </div>
-        <div class="row clearfix">
-            <!-- Task Info -->
-
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>TRANSACTIONS</h2>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-hover dashboard-task-infos">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Username</th>
-                                    <th>Login</th>
-                                    <th>Type</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Task Info -->
-        </div>
-
     </div>
 </section>
 

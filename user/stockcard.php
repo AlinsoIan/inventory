@@ -5,7 +5,16 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(indeindex.php  </script>";
+    window.location.replace(index.php;
+    </script>";
+}
+if($_SESSION['type'] == "user"){
+    session_destroy();
+    $m="Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.php');
+    </script>";
 }
 ?>
 <!DOCTYPE html>
@@ -15,8 +24,6 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Reports: STOCK CARD</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -91,7 +98,7 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li>
+                    <li class="active">
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
@@ -104,18 +111,12 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -130,13 +131,16 @@ if(!isset($_SESSION['username'])){
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+
+
             </div>
+            <!-- #Menu -->
+
         </aside>
         <!-- #END# Left Sidebar -->
 
