@@ -10,7 +10,7 @@
         <?php
             $a = $_GET['num'];
 
-            echo "<a href=" . '../php/admin/disableAccount.php?n=' . $a . " " ." class='btn btn-primary '>Delete</a>";
+            echo "<a href=" . '../php/admin/disableAccount.php?n=' . $a . " " ." class='btn btn-primary '>Disable</a>";
         ?>
 
         ||

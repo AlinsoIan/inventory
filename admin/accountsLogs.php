@@ -291,29 +291,29 @@ if($_SESSION['type'] == "user"){
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Logs</th>
+                                            <th>Username</th>
+                                            <th>Login Time</th>
+                                            <th>Logout Time</th>
                                             <th>Date</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM accountslogs";
+                                        $sql = "SELECT accounts.username AS a,loginTime AS b,logoutTime AS c,loginDate AS d FROM logs JOIN accounts ON logs.accountID = accounts.accountID";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
-                                                    . "<td>" . $row['logs'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>";
-                                                    
+                                                    . "<td>" . $row['a'] ."</td>"
+                                                    . "<td>" . $row['b'] ."</td>"
+                                                    . "<td>" . $row['c'] ."</td>"
+                                                    . "<td>" . $row['d'] ."</td>";
                                                 echo "</tr>";
                                             }
 
@@ -326,7 +326,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(accountslogID) FROM accountslogs";
+                                    $sql = "SELECT COUNT(logID) FROM logs";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

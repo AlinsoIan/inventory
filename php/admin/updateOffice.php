@@ -31,7 +31,7 @@ if(empty($rc)){
 }
 
 
-$sql = "UPDATE offices SET officeName = '$n',abbr = '$a',fppCode = '$f',rcCode = '$rc' WHERE officeID = '$id'";
+$sql = "UPDATE offices SET officeName = '$n',abbrv = '$a',fppCode = '$f',rcCode = '$rc' WHERE officeID = '$id'";
 
 if($conn->query($sql)){
     header('Location:../../admin/offices.php');

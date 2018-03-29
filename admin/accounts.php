@@ -356,7 +356,7 @@ if ($_SESSION['type'] == "user") {
                                     echo "<td>" . $row['userName'] . "</td>";
                                     echo "<td>" . $row['password'] . "</td>";
                                     echo "<td>" . $row['userType'] . "</td>";
-                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" . '../php/admin/modal/enableAccount.php?num=' . $row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>add</a>" . "</td>";
+                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" . '../php/admin/modal/enableAccount.php?num=' . $row['accountID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>add</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }

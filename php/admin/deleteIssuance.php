@@ -17,8 +17,8 @@ $res = $conn->query($sql);
 $d = $_POST['d'];
 
 
-if($res){
-    while ($row = $res->fetch_assoc()){
+if ($res) {
+    while ($row = $res->fetch_assoc()) {
 
         $sql1 = "SELECT currentQuantity FROM inventory WHERE itemID = " . $row['itemID'];
         $ress = $conn->query($sql1);
@@ -26,27 +26,25 @@ if($res){
 
         $nn = $r[0] + $row['quantityIssued'];
 
-        $sql2 = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID =" .$row['itemID'];
+        $sql2 = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID =" . $row['itemID'];
         $conn->query($sql2);
 
         $aa = $row['itemID'];
         $bb = $row['quantityIssued'];
 
-        $sql3 = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-        VALUES ('$aa','$r[0]','$bb','$nn','increased','$d')";
-        if($conn->query($sql3)){
-            var_dump($aa,$r[0],$bb,$nn,'increased','$d');
-        }else{
-            $m = $conn->error;
+        /*
+        if(isset($aa,$r[0],$bb,$nn,$d)) {
+            $sql3 = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+            VALUES ('$aa','$r[0]','$bb','$nn','increased','$d')";
+            $conn->query($sql3);
 
-            echo "
-            <script type = 'text/javascript'>
-            alert('$m');
-            window.location.replace('../../admin/issuance.php');
-            </script>
-            ";
         }
+        */
+
+
     }
+
+
 
 
     $sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
@@ -55,7 +53,7 @@ if($res){
     $conn->query($sql);
     header("Location:../../admin/$temp");
 
-}else{
+} else {
     $m = "Failed to Delete Issuance, Contact Administrator!";
 
     echo "

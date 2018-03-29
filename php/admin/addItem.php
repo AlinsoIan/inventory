@@ -1,4 +1,4 @@
-<?php
+`<?php
 /**
  * Created by IntelliJ IDEA.
  * User: Yanzky
@@ -29,7 +29,7 @@ $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();
 
-    $z = "SELECT unitID FROM units  WHERE unitName LIKE '%$unit%'";
+    $z = "SELECT unitID FROM units WHERE unitName LIKE '%$unit%'";
     $zz = $conn->query($z);
     $zzz = $zz->fetch_row();
 

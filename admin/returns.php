@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>PPMP</title>
+    <title>Returns</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -306,7 +306,7 @@ if($_SESSION['type'] == "user"){
                                     <th>Quantity</th>
                                     <th>Reason</th>
                                     <th>Status</th>
-                                    <th>Settings</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
 
@@ -326,7 +326,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/viewReturn.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewReturn'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -346,7 +346,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>
