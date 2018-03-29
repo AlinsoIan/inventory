@@ -34,12 +34,12 @@
                                 <select class="form-control" name="unit" style="width: 100px">
                                     <?php
                                     require '../../db.php';
-                                    $sql = "SELECT units FROM units";
+                                    $sql = "SELECT unitName FROM units";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while ($row = $res->fetch_assoc()){
-                                            echo "<option>" . $row['units'] . "</option>";
+                                            echo "<option>" . $row['unitName'] . "</option>";
                                         }
                                     }
                                     ?>
@@ -49,10 +49,10 @@
                                 <input type="text"  name = "brand" style="width:150px;" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
+                                <input type="number" onkeypress="return isNumberKey(event)" min ="1"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control">
+                                <input type="number" onkeypress="return isNumberKey(event)"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control">
                             </td>
                             <td>
                                 <select class="form-control" name="supplier" style="width:150px">

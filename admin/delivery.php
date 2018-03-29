@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>Delivered Items</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -221,25 +221,17 @@ if($_SESSION['type'] == "user"){
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">view_list</i>
-                                <span>Logs</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                                </li>
-                                <li>
-                                    <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                                </li>
-                                <li>
-                                    <a href="itemsLogs.php"><strong>Items</strong></a>
-                                </li>
-                                <li>
-                                    <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                                </li>
-                            </ul>
-                        </li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
                     </ul>
                 </li>
 
@@ -307,9 +299,9 @@ if($_SESSION['type'] == "user"){
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT iarno,items.category AS a,items.description AS b,items.unit AS c,suppliers.supplierName AS d,
-                                                delivery.quantity AS e,delivery.dateT AS f,delivery.id AS idd FROM delivery JOIN items ON delivery.itemNo = items.id
-                                                  JOIN suppliers ON delivery.supplier_id = suppliers.id";
+                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,items.unitID AS c,suppliers.supplierName AS d,
+                                                delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
+                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -335,7 +327,7 @@ if($_SESSION['type'] == "user"){
                                 <?php
 
                                 require '../php/db.php';
-                                $sql = "SELECT COUNT(id) FROM issuance";
+                                $sql = "SELECT COUNT(deliveryID) FROM delivery";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

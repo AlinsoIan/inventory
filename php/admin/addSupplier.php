@@ -10,11 +10,12 @@ require '../db.php';
 $n = $_POST['name'];
 $tin = $_POST['tinNumber'];
 $cN = $_POST['contactNumber'];
+$ad = $_POST['address'];
 
 
 
-$sql = "INSERT INTO suppliers(supplierName,tinNumber,number) 
-VALUES('$n','$tin','$cN')";
+$sql = "INSERT INTO suppliers(supplierName,tinNo,address,contactNo) 
+VALUES('$n','$tin','$ad','$cN')";
 
 if($conn->query($sql)){
     header("Location:../../admin/supplier.php");

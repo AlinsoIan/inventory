@@ -15,7 +15,7 @@ $f = $_POST['fpp'];
 $r = $_POST['rc'];
 
 
-$sql = "INSERT INTO offices(office,abbr,fpp,responsibility)
+$sql = "INSERT INTO offices(officeName,abbrv,fppCode,rcCode)
           VALUES ('$n','$a','$f','$r')";
 
 if($conn->query($sql)){

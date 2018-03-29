@@ -223,25 +223,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -323,10 +315,8 @@ if($_SESSION['type'] == "user"){
                                 while ($row = $res->fetch_assoc()){
                                     echo  "<tr>";
                                     echo "<td>" . $row['supplierName'] . "</td>";
-                                    echo "<td>" . $row['tinNumber'] . "</td>";
-                                    echo "<td>" . $row['poNumber'] . "</td>";
-                                    echo "<td>" . $row['poDate'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
+                                    echo "<td>" . $row['tinNo'] . "</td>";
+                                    echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }

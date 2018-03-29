@@ -14,7 +14,6 @@
                         <th style="width: 10%">IAR No.</th>
                         <th style="width: 8%">Category</th>
                         <th style="width: 30%;">Item</th>
-                        <th style="width: 15%">Unit</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 12%";">Qty</th>
                         <th>Delivery Date</th>
@@ -22,10 +21,10 @@
                         <tbody>
                         <tr>
                             <td>
-                                <input type="text" name="iarno[]" class="form-control" required>
+                                <input type="number" onkeypress="return isNumberKey(event)" name="iarno[]" class="form-control" required>
                             </td>
                             <td>
-                                <select name="cat[]" class="form-control">
+                                <select onchange="getDesc('1')" id="cat1" name="cat[]" class="form-control">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -34,11 +33,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="form-control" name="item[]">
+                                <select id="desc1" class="form-control" name="item[]">
                                     <?php
                                     require '../../db.php';
 
-                                    $sql = "SELECT description FROM items";
+                                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
                                     $res = $conn->query($sql);
                                     if($res){
                                         while($row = $res -> fetch_assoc()){
@@ -51,22 +50,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="units[]" class="form-control">
-                                    <?php
-                                    require '../../db.php';
-
-                                    $r = $conn->query('SELECT units FROM units');
-
-                                    if($r){
-                                        while ($row = $r->fetch_assoc()){
-                                            echo "<option>" . $row['units'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-control" name="supplier">
+                                <select class="form-control" name="supplier[]">
                                     <?php
                                     require '../../db.php';
                                     $sql = "SELECT * FROM suppliers";
@@ -85,11 +69,11 @@
 
 
                             <td>
-                                <input type="numbe" name="quantity[]" class="form-control" required>
+                                <input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required>
                             </td>
                             <td>
 
-                                <input type="date" name="d[]" class="form-control" required>
+                                <input type="date" name="d" class="form-control" required>
                             </td>
                         </tr>
 
@@ -118,6 +102,17 @@
 </div>
 <!-- #END# Multi Column -->
 <script>
+    function getDesc($i) {
+        $id = $('#cat' + $i).val();
+        $.ajax({
+            url: 'category.php',
+            data: {category: $id},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#desc' + $i).html(data);
+            }
+        });
+    }
     $(document).ready(function(){
         var i=1;
         $('#add').click(function(){
@@ -125,22 +120,19 @@
             $('#dynamic_field').append( '' +
                 '<tr id="row'+i+'">' +
                 '<td>' +
-                '<input type="text" name="iarno[]" class="form-control" required>' +
+                '<input type="text" onkeypress="return isNumberKey(event)" name="iarno[]" class="form-control" required>' +
                 '</td>' +
                 '<td>' +
-                '<select name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
+                '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
                 '</td>' +
                 '<td>' +
-                '<select name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT description FROM items');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
+                '<select id=desc' + i + ' name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query("SELECT description FROM items WHERE categoryNo = 1");if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td>' +
-                '<select name="units[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT units FROM units');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['units'] . "</option>";}}?></select>' +
+                '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
                 '</td>' +
-                '<td>' +
-                '<select name="supp[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
-                '</td>' +
-                '<td><input type="quantity" name="quantity[]" class="form-control" required></td>'+
-                '<td><input type="date" name="d[]" class="form-control" required></td>' +
+                '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required></td>'+
+                '<td><input type="date" name="d" class="form-control" required></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

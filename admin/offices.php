@@ -23,7 +23,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Settings: Offices</title>
+    <title>Offices</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -219,25 +219,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
             </ul>
         </li>
 
@@ -307,11 +299,11 @@ if($_SESSION['type'] == "user"){
                                         if($res){
                                             while ($row = $res->fetch_assoc()){
                                                 echo  "<tr>";
-                                                echo "<td width='40%'>" . $row['office'] . "</td>";
-                                                echo "<td>" . $row['abbr'] . "</td>";
-                                                echo "<td>" . $row['fpp'] . "</td>";
-                                                echo "<td>" . $row['responsibility'] . "</td>";
-                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
+                                                echo "<td width='40%'>" . $row['officeName'] . "</td>";
+                                                echo "<td>" . $row['abbrv'] . "</td>";
+                                                echo "<td>" . $row['fppCode'] . "</td>";
+                                                echo "<td>" . $row['rcCode'] . "</td>";
+                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['officeID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['officeID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -335,8 +327,6 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

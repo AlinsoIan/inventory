@@ -41,7 +41,7 @@
                         <input type="submit" value="Add" class="btn btn-primary " id="submitD">
 
 
-                        <a href="../admin/supplier.php" class="btn btn-primary pull-right">Cancel</a>
+                        <a href="../admin/offices.php" class="btn btn-primary pull-right">Cancel</a>
 
                         <br>
                     </div>

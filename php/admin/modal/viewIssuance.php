@@ -23,7 +23,7 @@
                                 <?php
                                 require '../../db.php';
                                 $id = $_GET['num'];
-                                $sql = "SELECT typeT FROM issuance WHERE id = '$id'";
+                                $sql = "SELECT type FROM issuance WHERE issuanceID = '$id'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input type='text' disabled placeholder='" .$r[0] . "' value = '" . $r[0] . "' name = 'type' class='form-control pull-left'>";
@@ -34,11 +34,11 @@
                                 <?php
                                 require '../../db.php';
                                 $id = $_GET['num'];
-                                $sql = "SELECT issuer FROM issuance WHERE id = '$id'";
+                                $sql = "SELECT issuer FROM issuance WHERE issuanceID = '$id'";
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                $sql = "SELECT username FROM accounts WHERE id = '$rr[0]'";
+                                $sql = "SELECT username FROM accounts WHERE accountID = '$rr[0]'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input type='text' disabled placeholder='" .$r[0] . "' value = '" . $r[0] . "' name = 'type' class='form-control pull-left'>";
@@ -64,7 +64,7 @@
                         <?php
                         require '../../db.php';
                             $id = $_GET['num'];
-                            $sql = "SELECT division FROM issuance WHERE id = '$id'";
+                            $sql = "SELECT division FROM issuance WHERE issuanceID = '$id'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
                             echo "<input type='text' disabled class='form-control' placeholder=' " .$r[0] . "' value = '" .$r[0] . "' name = 'division'  required>";
@@ -77,10 +77,15 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT responsibility FROM issuance WHERE id = '$id'";
+
+                        $sql = "SELECT officeID FROM issuance WHERE issuance.officeID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
-                        echo "<input type='text' disabled class='form-control' placeholder=' " .$r[0] . "' value = '" . $r[0] . "' name = 'responsibilityCenter'  required>";
+
+                        $sql = "SELECT rcCode FROM offices WHERE officeID = '$r[0]'";
+                        $ress = $conn->query($sql);
+                        $rr = $res->fetch_row();
+                        echo "<input type='text' disabled class='form-control' value = '" . $rr[0] . "' name = 'responsibilityCenter'  required>";
                         ?>
                     </div>
                 </div>
@@ -90,7 +95,7 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT ris FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT risNo FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -104,7 +109,7 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT dateT FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT issuanceDate FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -120,11 +125,15 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT office FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT officeID FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
-                        echo "<input type='text' disabled class='form-control' name = 'office'  placeholder=' " . $r[0] . "' value = '" . $r[0] ."' required>";
+                        $sql = "SELECT officeName FROM offices WHERE officeID = '$r[0]'";
+                        $ress = $conn->query($sql);
+                        $rr = $ress->fetch_row();
+
+                        echo "<input type='text' disabled class='form-control' name = 'office'  value = '" . $rr[0] ."' required>";
                         ?>
                     </div>
                 </div>
@@ -134,11 +143,15 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT fpp FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT officeID FROM issuance WHERE issuance.officeID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
-                        echo "<input type='text' disabled class='form-control' name = 'fpp'  placeholder=' " . $r[0] . "' value = '" . $r[0] ."' required>";
+                        $sql = "SELECT fppCpde FROM offices WHERE officeID = '$r[0]'";
+                        $ress = $conn->query($sql);
+                        $rr = $res->fetch_row();
+
+                        echo "<input type='text' disabled class='form-control' name = 'fpp'   value = '" . $rr[0] ."' required>";
                         ?>
                     </div>
                 </div>
@@ -148,7 +161,7 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT sai FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT saiNo FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
                             echo "<input type='text' disabled class='form-control' placeholder=' " .$r[0] . "' name = 'sai' value = '" .$r[0] ."''  required >";
@@ -161,7 +174,7 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT dateT FROM issuance WHERE id = '$id'";
+                        $sql = "SELECT issuanceDate FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -206,8 +219,9 @@
                             $id = $_GET['num'];
 
 
-                            $sql = "SELECT items.category AS a,items.description AS b,items.unit AS c,itemissuance.quantityRequested AS d,itemissuance.quantityIssued AS e,itemissuance.remarks AS f 
-                                        FROM itemissuance JOIN items on itemissuance.itemNo = items.id WHERE itemissuance.issue_id = '$id'";
+                            $sql = "SELECT items.categoryNo AS a,items.description AS b,units.unitName AS c,itemissuance.quantityRequested AS d,itemissuance.quantityIssued AS e,itemissuance.remarks AS f 
+                                        FROM itemissuance JOIN items on itemissuance.itemID = items.itemID JOIN units ON items.unitID = units.unitID
+                                         WHERE itemissuance.issuanceID = '$id'";
                             $res = $conn->query($sql);
 
                             if($res){
@@ -215,7 +229,7 @@
                                     echo "<tr>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['a'] . "'class='form-control'  name = 'category[]'>" . "</td>"
                                         . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['b'] . "' class='form-control'  name = 'description[]'>". "</td>"
-                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['d'] . "' class='form-control'  name = 'unit[]'>". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['c'] . "' class='form-control'  name = 'unit[]'>". "</td>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['d'] . "' class='form-control'  name = 'quantityRequested[]'>". "</td>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['e'] . "' class='form-control'  name = 'quantityIssued[]'>". "</td>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['f'] . "' class='form-control'  name = 'remarks[]'>". "</td>"

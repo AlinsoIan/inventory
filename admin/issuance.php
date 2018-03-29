@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
+    window.location.replace('../index.php');
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -221,25 +221,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
             </ul>
         </li>
 
@@ -294,9 +286,8 @@ if($_SESSION['type'] == "user"){
                                         <tr>
                                             <th>Division</th>
                                             <th>Office</th>
-                                            <th>Responsibility Center</th>
                                             <th>Date/Time</th>
-                                            <th>Category</th>
+                                            <th>Issuance Type</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>
@@ -307,19 +298,18 @@ if($_SESSION['type'] == "user"){
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM issuance";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
                                                     . "<td>" . $row['division'] ."</td>"
-                                                    . "<td>" . $row['office'] ."</td>"
-                                                    . "<td>" . $row['responsibility'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>" 
+                                                    . "<td>" . $row['officeName'] ."</td>"
+                                                    . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
+                                                    . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -332,7 +322,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance";
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

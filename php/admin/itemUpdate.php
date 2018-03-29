@@ -10,7 +10,7 @@ session_start();
 $temp = $_SESSION['temp'];
 $id = $_GET['ii'];
 
-$sql = "SELECT category,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand FROM items WHERE id = '$id'";
+$sql = "SELECT categoryNo,acctSn,pgsoSn,description,units.unitName AS 'unit' ,unitCost,brand,supplierID FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
@@ -33,6 +33,12 @@ if(empty($des)){
 $unit = $_POST['unit'];
 if(empty($unit)){
     $unit = $r[4];
+}else {
+    $sql = "SELECT unitID FROM units WHERE unitName LIKE '%$unit%'";
+    $res = $conn->query($sql);
+    $r = $res->fetch_row();
+
+    $unit = $r[0];
 }
 $quan = $_POST['sQuantity'];
 if(empty($quan)){
@@ -47,13 +53,24 @@ $brand = $_POST['brand'];
 if(empty($brand)){
     $brand = $r[7];
 }
+$supplier = $_POST['supplier'];
+if(empty($supplier)){
+    $supplier = $r[8];
+}else{
+    $sql = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supplier%'";
+    $res = $conn->query($sql);
+    $r = $res->fetch_row();
+
+    $supplier = $r[0];
+}
 
 
-
-$sql = "UPDATE items SET category = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unit = '$unit',
-        startingQuantity = '$quan',unitCost = '$cost',brand = '$brand' WHERE id = '$id'";
+$sql = "UPDATE items SET categoryNo = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand',supplierID = '$supplier' WHERE itemID = '$id'";
 
 if($conn->query($sql)){
+
+    $sql = "UPDATE inventory SET currentQuantity = '$quan' WHERE itemID = '$id'";
+    $conn->query($sql);
     header("Location:../../admin/$temp");
 }else{
 

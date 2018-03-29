@@ -216,25 +216,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
             </ul>
         </li>
 
@@ -291,7 +283,7 @@ if($_SESSION['type'] == "user"){
                                         require '../php/db.php';
 
 
-                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
+                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -317,7 +309,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM iar";
+                                    $sql = "SELECT COUNT(deliveryID) FROM delivery";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

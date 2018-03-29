@@ -16,14 +16,16 @@ $pass = $_POST['pass'];
 $d = date('Y:n:j');
 
 
-$sql = "INSERT INTO accounts(firstName,lastName,username,password,userType,status)
+$sql = "INSERT INTO accounts(firstName,lastName,userName,password,userType,status)
         VALUES('$first','$last','$username','$pass','$type','active')";
 
 if($conn->query($sql)){
 
+	/**
 	$sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has added account $username','$d')";
 	$conn->query($sql);
-
+	*/
+	
     header('Location:../../admin/accounts.php');
 
 }else {

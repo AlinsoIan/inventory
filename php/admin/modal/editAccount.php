@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title text-center">Add Office</h4>
+                <h4 class="title text-center">Edit Account</h4>
             </div>
             <hr>
             <div class="card-content table-responsive">
@@ -25,7 +25,7 @@
                             <?php
                             require '../../db.php';
                             $a = $_GET['num'];
-                            $sql = "SELECT firstName FROM accounts WHERE id = '$a'";
+                            $sql = "SELECT firstName FROM accounts WHERE accountID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
@@ -36,7 +36,7 @@
                             <?php
                             require '../../db.php';
                             $a = $_GET['num'];
-                            $sql = "SELECT lastName FROM accounts WHERE id = '$a'";
+                            $sql = "SELECT lastName FROM accounts WHERE accountID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
@@ -47,7 +47,7 @@
                             <?php
                             require '../../db.php';
                             $a = $_GET['num'];
-                            $sql = "SELECT username FROM accounts WHERE id = '$a'";
+                            $sql = "SELECT username FROM accounts WHERE accountID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
@@ -58,7 +58,7 @@
                             <?php
                             require '../../db.php';
                             $a = $_GET['num'];
-                            $sql = "SELECT password FROM accounts WHERE id = '$a'";
+                            $sql = "SELECT password FROM accounts WHERE accountID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 

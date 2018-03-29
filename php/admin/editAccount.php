@@ -22,7 +22,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT firstName FROM accounts where id = '$i'";
+                                    $sql = "SELECT firstName FROM accounts where accountID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='first' class='form-control' >";
@@ -38,7 +38,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT lastName FROM accounts where id = '$i'";
+                                    $sql = "SELECT lastName FROM accounts where accountID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='last' class='form-control' >";
@@ -55,7 +55,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT username FROM accounts where id = '$i'";
+                                    $sql = "SELECT userName FROM accounts where accountID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='username' class='form-control' >";
@@ -84,7 +84,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT password FROM accounts where id = '$i'";
+                                    $sql = "SELECT password FROM accounts where accountID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]' name='pass' class='form-control' >";
@@ -100,7 +100,7 @@
                                     <?php
                                     $i = $_GET['num'];
                                     require '../db.php';
-                                    $sql = "SELECT password FROM accounts where id = '$i'";
+                                    $sql = "SELECT password FROM accounts where accountID = '$i'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
                                     echo "<input type='text' placeholder='$r[0]'  class='form-control' >";

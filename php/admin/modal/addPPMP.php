@@ -18,11 +18,11 @@
                                 <?php
 
                                 require '../../db.php';
-                                $sql = "SELECT office FROM offices";
+                                $sql = "SELECT officeName FROM offices";
                                 $res = $conn -> query($sql);
                                 if($res){
                                     while($row = $res -> fetch_assoc()){
-                                        echo "<option>".$row['office'] ."</option>";
+                                        echo "<option>".$row['officeName'] ."</option>";
                                     }
 
                                 }
@@ -73,7 +73,7 @@
                                     <?php
                                     require '../../db.php';
 
-                                    $sql = "SELECT description FROM items WHERE category = 1";
+                                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
                                     $res = $conn->query($sql);
                                     if($res){
                                         while($row = $res -> fetch_assoc()){
@@ -88,8 +88,8 @@
 
                             </td>
 
-                            <td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                            <td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
+                            <td><input type="number" name="quantity[]" min="1" onkeypress="return isNumberKey(event)" required class="form-control"></td>
+                            <td><input type="number"  class="form-control" name="unitCost[]" min="1"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
                             <td><input type="text" name="amount[]" size="30px" class="form-control"></td>
                         </tr>
 
@@ -148,7 +148,7 @@
                 '</select>' +
                 '</td>' +
                 '<td>' +
-                '<select id=desc' + i + ' class="form-control" name = "des[]"> <?php require '../../db.php'; $sql = "SELECT description FROM items WHERE category = 1"; $res = $conn->query($sql); if($res){ while($row = $res -> fetch_assoc()){ echo "<option>". $row['description'] . "</option>"; } } ?> </select>' +
+                '<select id=desc' + i + ' class="form-control" name = "des[]"> <?php require '../../db.php'; $sql = "SELECT description FROM items WHERE categoryNo = 1"; $res = $conn->query($sql); if($res){ while($row = $res -> fetch_assoc()){ echo "<option>". $row['description'] . "</option>"; } } ?> </select>' +
                 '</td>' +
 
                 '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +

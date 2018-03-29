@@ -74,7 +74,7 @@
                                     <?php
 
                                     require '../../db.php';
-                                    $sql = "SELECT offices.office AS a FROM ppmp JOIN offices ON ppmp.office_id = offices.id";
+                                    $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID";
                                     $res = $conn->query($sql);
                                     if ($res) {
                                         while ($row = $res->fetch_assoc()) {
@@ -154,7 +154,7 @@
                                     <select id="desc1" class="form-control description" name="des[]">
                                         <?php
                                         require '../../db.php';
-                                        $sql = "SELECT * FROM items WHERE category = 1";
+                                        $sql = "SELECT * FROM items WHERE categoryNo = 1";
                                         $res = $conn->query($sql);
                                         if ($res) {
                                             while ($row = $res->fetch_assoc()) {
@@ -229,7 +229,7 @@
                 '</select>' +
                 '</td>' +
                 '<td>' +
-                '<select id=desc' + i + ' class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE category = 1";$res = $conn->query($sql);if ($res) {
+                '<select id=desc' + i + ' class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
                     while ($row = $res->fetch_assoc()) {
                         echo "<option>" . $row['description'] . "</option>";
                     }

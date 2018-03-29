@@ -8,16 +8,15 @@
 
 require '../db.php';
 session_start();
-
+$userID = $_SESSION['user'];
 $ti = date('h:i:a');
 
 $iar = $_POST['iarno'];
 $category = $_POST['cat'];
 $item = $_POST['item'];
-$unit = $_POST['units'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
-$d = $_POST['d'];
+$da = $_POST['d'];
 
 
 $cat = [];
@@ -27,36 +26,80 @@ foreach ($category as $a) {
     }
 }
 
+$quanz = [];
+foreach ($quan as $a) {
+        array_push($quanz, $a);
+
+}
+$itemz = [];
+foreach ($item as $a) {
+    array_push($itemz, $a);
+
+}
+
+$suppz = [];
+foreach ($supp as $a) {
+    array_push($suppz, $a);
+
+}
+
+$iarnoz = [];
+foreach ($iar as $a) {
+    array_push($iarnoz, $a);
+
+}
+
 
 if (COUNT($cat)) {
 
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT id,startingQuantity FROM items WHERE description LIKE '%$item[$m]%'";
+        $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%$itemz[$m]%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
             $r = $res->fetch_row();
 
-            $sq = "SELECT id FROM suppliers WHERE supplierName LIKE '%$supp[$m]%'";
+            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$suppz[$m]%'";
             $ress = $conn->query($sq);
             if ($ress->num_rows > 0) {
                 $rr = $ress->fetch_row();
 
 
-                $sql = "INSERT INTO delivery(iarno,itemNo,supplier_id,quantity,dateT)
-                      VALUES('$iar[$m]','$r[0]','$rr[0]','$quan[$m]','$d[$m]')";
+                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate)
+                      VALUES('$rr[0]','$r[0]', '$iarnoz[$m]', '$quanz[$m]','$da')";
 
-                $conn->query($sql);
+                if($conn->query($sql)){
+                    $n = $r[1] + $quan[$m];
 
-                $n = $r[1] + $quan[$m];
+                    $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
+                    $conn->query($ss);
 
-                $ss = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[0]'";
-                $conn->query($ss);
+                    $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
+                    $g = $conn->query($sql);
+                    $gg = $g->fetch_row();
 
-                $z = "INSERT INTO ledger(itemNo,quantity,status,dateT) VALUES ('$r[0]','$quan[$m]','increased','$d')";
-                $conn->query($z);
+                    $sql = "INSERT into itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+                            VALUES ('$r[0]','$r[1]','$quanz[$m]','$gg[0]','increased','$da')";
+                    $conn->query($sql);
+
+
+
+                }else {
+                    $m = $conn->error;
+
+                    echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/delivery.php');
+            </script>
+            ";
+                }
+
+
+
+
             } else {
                 $m = "Error Adding Inserting!";
 
@@ -80,6 +123,9 @@ if (COUNT($cat)) {
 
 
     }
+    $sql = "INSERT INTO history(accountID,activity,actDate,type)
+                    VALUES ('$userID','delivered','$da','Delivery')";
+    $conn->query($sql);
     header('Location:../../admin/delivery.php');
 
 } else {

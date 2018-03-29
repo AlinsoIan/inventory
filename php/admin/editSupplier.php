@@ -7,16 +7,15 @@
  */
 require '../db.php';
 
-$person = $_POST['contactPerson'];
 $number = $_POST['contactNumber'];
 $name = $_POST['supplierName'];
-$tax = $_POST['taxNumber'];
+$address = $_POST['address'];
 $tin = $_POST['tinNumber'];
 
 
 
-$sql = "INSERT INTO suppliers(supplierName,taxNumber,tinNumber,contactPerson,contactNumber) 
-VALUES('$name','$person','$number','$tax','$tin')";
+$sql = "INSERT INTO suppliers(tinNo,supplierName,address,contactNo) 
+VALUES('$tin','$name','$address','$number')";
 
 if($conn->query($sql)){
 

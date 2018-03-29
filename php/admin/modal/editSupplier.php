@@ -15,8 +15,8 @@
                     <thead class="text-primary">
                     <th>Supplier</th>
                     <th>Tin Number</th>
-                    <th>PO Number</th>
-                    <th>PO Date</th>
+                    <th>Address</th>
+                    <th>Contact No</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -25,7 +25,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT supplierName FROM suppliers WHERE id = '$a'";
+                                $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input name='supplierName' value='" . $r[0] . "' class='form-control' type='text' required>";
@@ -37,7 +37,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT tinNumber FROM suppliers WHERE id = '$a'";
+                                $sql = "SELECT tinNo FROM suppliers WHERE supplierID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -51,7 +51,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT poNumber FROM suppliers WHERE id = '$a'";
+                                $sql = "SELECT address FROM suppliers WHERE supplierID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -67,7 +67,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT poDate FROM suppliers WHERE id = '$a'";
+                                $sql = "SELECT contactNo FROM suppliers WHERE supplierID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

@@ -215,25 +215,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
                 </ul>
                 </li>
 
@@ -253,14 +245,14 @@ if($_SESSION['type'] == "user"){
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue hover-expand-effect">
                     <div class="icon">
-                        <a href="items.php"><i class="material-icons">shopping_cart</i></a>
+                        <a href="items2.php"><i class="material-icons">shopping_cart</i></a>
                     </div>
                     <div class="content">
                         <div class="text">ITEMS</div>
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items";
+                        $sql = "SELECT COUNT(itemID) FROM items";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -285,7 +277,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
+                        $sql = "SELECT COUNT(itemID) FROM items WHERE categoryNo = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -305,7 +297,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM items WHERE orderPoint >= startingQuantity";
+                        $sql = "SELECT COUNT(itemID) FROM inventory WHERE reorderPoint >= currentQuantity";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -324,7 +316,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM accounts where status = 'active'";
+                        $sql = "SELECT COUNT(accountID) FROM accounts where status = 'active'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -345,7 +337,7 @@ if($_SESSION['type'] == "user"){
                          <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM returns";
+                        $sql = "SELECT COUNT(returnID) FROM returns";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -364,7 +356,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM issuance";
+                        $sql = "SELECT COUNT(issuanceID) FROM issuance";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -383,7 +375,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM suppliers";
+                        $sql = "SELECT COUNT(supplierID) FROM suppliers";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
@@ -402,7 +394,7 @@ if($_SESSION['type'] == "user"){
                         <?php
 
                         require '../php/db.php';
-                        $sql = "SELECT COUNT(id) FROM offices";
+                        $sql = "SELECT COUNT(officeID) FROM offices";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 

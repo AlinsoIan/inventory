@@ -12,7 +12,7 @@ session_start();
 $temp = $_SESSION['temp'];
 $i = $_GET['n'];
 
-$sql = "DELETE FROM suppliers WHERE id = '$i'";
+$sql = "DELETE FROM suppliers WHERE supplierID = '$i'";
 
 if($conn->query($sql)){
 

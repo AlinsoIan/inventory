@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>PPMP</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -182,29 +182,7 @@ if($_SESSION['type'] == "user"){
                         <span>Manage</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">assignment</i>
-                                <span>Items</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="items.php"><strong>Category 1</strong></a>
-                                </li>
-                                <li>
-                                    <a href="two.php"><strong>Category 2</strong></a>
-                                </li>
-                                <li>
-                                    <a href="three.php"><strong>Category 3</strong></a>
-                                </li>
-                                <li>
-                                    <a href="four.php"><strong>Category 4</strong></a>
-                                </li>
-                                <li>
-                                    <a href="five.php"><strong>Category 5</strong></a>
-                                </li>
 
-                            </ul>
                         </li>
                         <li>
                             <a href="accounts.php">
@@ -245,24 +223,16 @@ if($_SESSION['type'] == "user"){
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
+                            <a href="logs.php">
                                 <i class="material-icons">view_list</i>
-                                <span>Logs</span>
+                                <span>Account Logs</span>
                             </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                                </li>
-                                <li>
-                                    <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                                </li>
-                                <li>
-                                    <a href="itemsLogs.php"><strong>Items</strong></a>
-                                </li>
-                                <li>
-                                    <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li>
+                            <a href="history.php">
+                                <i class="material-icons">view_list</i>
+                                <span>History</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -333,14 +303,14 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.office AS a,dateT,ppmp.id AS idd FROM ppmp JOIN offices ON ppmp.office_id = offices.id";
+                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID ";
                                 $res = $conn->query($sql);
 
                                 if($res){
                                     while ($row = $res->fetch_assoc()){
                                         echo  "<tr>";
                                         echo "<td>" . $row['a'] . "</td>";
-                                        echo "<td>" . $row['dateT'] . "</td>";
+                                        echo "<td>" . $row['ppmpDate'] . "</td>";
 
                                         echo "<td>" . "<a href=" .'../php/admin/modal/viewPPMP.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewPPMP'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deletePPMP.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_ppmp'>delete</a>" . "</td>";
                                         echo "</tr>";
@@ -354,7 +324,7 @@ if($_SESSION['type'] == "user"){
                                 <?php
 
                                 require '../php/db.php';
-                                $sql = "SELECT COUNT(id) FROM ppmp";
+                                $sql = "SELECT COUNT(ppmpID) FROM ppmp";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

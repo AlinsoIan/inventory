@@ -19,8 +19,9 @@
                     <th>DESCRIPTION</th>
                     <th>UOM</th>
                     <th>BRAND</th>
-                    <th>STARTING QUANTITY</th>
+                    <th>CURRENT QUANTITY</th>
                     <th>UNIT COST</th>
+                    <th>SUPPLIER</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -29,7 +30,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT category FROM items WHERE id = '$a'";
+                                $sql = "SELECT categoryNo FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -43,7 +44,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT acctSn FROM items WHERE id = '$a'";
+                                $sql = "SELECT acctSn FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -57,7 +58,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT pgsoSn FROM items WHERE id = '$a'";
+                                $sql = "SELECT pgsoSn FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -69,7 +70,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT description FROM items WHERE id = '$a'";
+                                $sql = "SELECT description FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -81,11 +82,15 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT unit FROM items WHERE id = '$a'";
+                                $sql = "SELECT unitID FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='unit' placeholder='unit' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                $sql = "SELECT unitName FROM units WHERE unitID = '$r[0]'";
+                                $ress = $conn->query($sql);
+                                $rr =$ress->fetch_row();
+
+                                echo "<input name='unit'  class='form-control' type='text' value='" . $rr[0] . "' required>";
                                 ?>
                             </td>
                             <td>
@@ -93,7 +98,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT brand FROM items WHERE id = '$a'";
+                                $sql = "SELECT brand FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -105,7 +110,7 @@
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT startingQuantity FROM items WHERE id = '$a'";
+                                $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -113,14 +118,13 @@
                                 ?>
 
 
-                                <span id = "confirmMessageAA"></span>
                             </td>
                             <td>
                                 <?php
                                 require '../../db.php';
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT unitCost FROM items WHERE id = '$a'";
+                                $sql = "SELECT unitCost FROM items WHERE itemID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -128,7 +132,24 @@
                                 ?>
 
 
-                                <span id = "confirmMessageBB"></span>
+                            </td>
+                            <td>
+                                <?php
+                                require '../../db.php';
+                                $a = $_GET['num'];
+
+                                $sql = "SELECT supplierID FROM items WHERE itemID = '$a'";
+                                $res = $conn->query($sql);
+                                $r = $res->fetch_row();
+
+                                $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$r[0]'";
+                                $ress = $conn->query($sql);
+                                $rr = $ress->fetch_row();
+
+                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
+                                ?>
+
+
                             </td>
                         </tr>
                     </tbody>

@@ -9,33 +9,58 @@ require '../db.php';
 session_start();
 $temp = $_SESSION['temp'];
 
+$supplier = $_POST['supplier'];
 $acct = $_POST['acct'];
+$cat = $_SESSION['cat'];
 $pgso = $_POST['pgso'];
 $des = $_POST['description'];
 $unit = $_POST['unit'];
-$brand = $_POST['brand'];
-$quan = $_POST['sQuantity'];
 $cost = $_POST['unitCost'];
+$brand = $_POST['brand'];
+$expiration = $_POST['expiration'];
+$quan = $_POST['sQuantity'];
+
 $level = floor($quan * .2);
-$expiration = $_POST['dateT'];
-$supplier = $_POST['supplier'];
 
-
-$sql2 = "SELECT id FROM suppliers WHERE supplierName LIKE '%$supplier%'";
+$sql2 = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supplier%'";
 $res = $conn->query($sql2);
-
-if($res) {
+if($res){
     $r = $res->fetch_row();
 
-    $sql = "INSERT INTO items(category,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,expirationDate,supplier_id) 
-VALUES('02','$acct','$pgso','$des','$unit','$quan','$cost','$brand','$level','$expiration','$r[0]')";
+    $z = "SELECT unitID FROM units  WHERE unitName LIKE '%$unit%'";
+    $zz = $conn->query($z);
+    $zzz = $zz->fetch_row();
 
-    if ($conn->query($sql)) {
+    $sql = "INSERT INTO items(categoryNo,acctSn,pgsoSn,description,unitID,unitCost,brand,supplierID,expirationDate) 
+    VALUES('$cat','$acct','$pgso','$des','$zzz[0]','$cost','$brand','$r[0]','$expiration')";
 
+    if($conn->query($sql)){
+        $f = mysqli_insert_id($conn);
+        $sql = "INSERT INTO inventory(itemID,currentQuantity,startingQuantity,reorderPoint)
+                VALUES ('$f','$quan','$quan','$level')";
 
-        header("Location:../../admin/$temp");
-    } else {
-        $m = "Error Adding Item! Please contact administrator!";
+        $conn->query($sql);
+        if($conn){
+            $sql = "INSERT into itemrecords(itemID,quantity,status,date)
+                            VALUES ('$r[0]','$quanz[$m]','increased','$da')";
+            if($conn->query($sql)){
+
+            }else {
+                $m = $conn->error;
+
+                echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/delivery.php');
+            </script>
+            ";
+            }
+        }else{
+            echo $conn->error;
+        }
+
+    }else{
+        $m = "Error Adding Item! Please contact administrator!!" ;
 
         echo "
             <script type = 'text/javascript'>
@@ -45,12 +70,14 @@ VALUES('02','$acct','$pgso','$des','$unit','$quan','$cost','$brand','$level','$e
             ";
     }
 }else{
-    $m = "Error Supplier not found! Please contact administrator!";
+    $m = "Error Supplier not Found! Please contact administrator!" ;
 
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../admin/$temp');
+            window.location.replace('../../../admin/$temp');
             </script>
             ";
 }
+
+

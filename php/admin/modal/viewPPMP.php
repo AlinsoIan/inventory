@@ -15,7 +15,7 @@
                                 <?php
                                 $i = $_GET['num'];
                                 require '../../db.php';
-                                $sql = "SELECT offices.office AS a FROM ppmp JOIN offices ON ppmp.office_id = offices.id WHERE ppmp.id = '$i'";
+                                $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID WHERE ppmp.ppmpID = '$i'";
                                 $res = $conn -> query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
@@ -29,7 +29,7 @@
                             <?php
                             $i = $_GET['num'];
                             require '../../db.php';
-                            $sql = "SELECT dateT FROM ppmp WHERE id = '$i'";
+                            $sql = "SELECT ppmpDate FROM ppmp WHERE ppmpID= '$i'";
                             $res = $conn -> query($sql);
                             $r = $res->fetch_row();
                             echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
@@ -56,8 +56,8 @@
                             $id = $_GET['num'];
 
 
-                            $sql = "SELECT items.category AS c,items.description AS a,quantity,ppmp_items.unitCost AS b,amount FROM ppmp_items JOIN items
-                                      ON ppmp_items.itemNo = items.id WHERE ppmp_items.ppmp_id = '$id'";
+                            $sql = "SELECT items.categoryNo AS c,items.description AS a,itemQuantity,ppmpitems.unitCost AS b,totalAmount FROM ppmpitems JOIN items
+                                      ON ppmpitems.itemID = items.itemID WHERE ppmpID = '$id'";
 
                             $res = $conn->query($sql);
 
@@ -66,9 +66,9 @@
                                     echo "<tr>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['c'] . "'class='form-control'  name = 'category[]'>" . "</td>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['a'] . "'class='form-control'  name = 'category[]'>" . "</td>"
-                                        . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['quantity'] . "' class='form-control'  name = 'description[]'>". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['itemQuantity'] . "' class='form-control'  name = 'description[]'>". "</td>"
                                         . "<td>" . "<input disabled type = 'text' value = '" .$row['b'] . "' class='form-control'  name = 'unit[]'>". "</td>"
-                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['amount'] . "' class='form-control'  name = 'quantityRequested[]'>". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['totalAmount'] . "' class='form-control'  name = 'quantityRequested[]'>". "</td>"
                                         . "</tr>";
                                 }
                             }

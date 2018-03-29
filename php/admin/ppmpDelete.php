@@ -9,10 +9,10 @@
 require '../db.php';
 $i = $_GET['n'];
 
-$sql = "DELETE FROM ppmp_items WHERE ppmp_id = '$i'";
+$sql = "DELETE FROM ppmp WHERE ppmpID = '$i'";
 $conn->query($sql);
 
-$sql = "DELETE FROM ppmp WHERE id = '$i'";
+$sql = "DELETE FROM ppmpitems WHERE ppmpID = '$i'";
 
 if($conn->query($sql)){
 

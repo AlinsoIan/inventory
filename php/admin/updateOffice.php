@@ -8,7 +8,7 @@
 require '../db.php';
 $id = $_GET['ii'];
 
-$sql = "SELECT office,abbr,fpp,responsibility FROM offices WHERE id = '$id'";
+$sql = "SELECT officeName,abbrv,fppCode,rcCode FROM offices WHERE officeID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
@@ -31,7 +31,7 @@ if(empty($rc)){
 }
 
 
-$sql = "UPDATE offices SET office = '$n',abbr = '$a',fpp = '$f',responsibility = '$rc' WHERE id = '$id'";
+$sql = "UPDATE offices SET officeName = '$n',abbrv = '$a',fppCode = '$f',rcCode = '$rc' WHERE officeID = '$id'";
 
 if($conn->query($sql)){
     header('Location:../../admin/offices.php');

@@ -8,7 +8,7 @@
 require '../db.php';
 $id = $_GET['ii'];
 
-$sql = "SELECT firstName,lastName,username,password,userType FROM accounts WHERE id = '$id'";
+$sql = "SELECT firstName,lastName,userName,password,userType FROM accounts WHERE accountID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
@@ -43,8 +43,8 @@ if(empty($last)){
 }
 $d = date('Y:n:j');
 
-$sql = "UPDATE accounts SET firstName = '$first',lastName = '$last',username = '$user',userType = '$type',password = '$pass' 
-      WHERE id = '$id'";
+$sql = "UPDATE accounts SET firstName = '$first',lastName = '$last',userName = '$user',userType = '$type',password = '$pass' 
+      WHERE accountID = '$id'";
 
 if($conn->query($sql)){
 

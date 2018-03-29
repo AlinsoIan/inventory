@@ -7,45 +7,50 @@
  */
 
 require '../db.php';
+session_start();
+$userID = $_SESSION['user'];
+
+$d = date('h:i:a');
 
 $office = $_POST['office'];
 
-$s = "SELECT id FROM offices WHERE office LIKE '%$office%'";
-$o  = $conn->query($s);
+$s = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
+$o = $conn->query($s);
 $oo = $o->fetch_row();
 
 $item = $_POST['item'];
-$s = "SELECT id FROM items WHERE description LIKE '%$item%'";
-$c  = $conn->query($s);
+$s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE items.description LIKE '%$item%'";
+$c = $conn->query($s);
 $cc = $c->fetch_row();
 
 
-$res = $_POST['res'];
+$ress = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
+$sql = "INSERT INTO history(accountID,activity,actDate,type)
+                    VALUES ('$userID','returned','$d','Returns')";
+$conn->query($sql);
 
-$sql2 = "SELECT id FROM offices WHERE office LIKE '%$office%'";
-$res = $conn->query($sql2);
-if($res){
-    $r = $res->fetch_row();
-    $sql = "INSERT INTO returns(item_id,reason,quantity,status,office_id,unit,)
-        VALUES('1','$res','$quantity','$status','$r[0]','$unit')";
 
-    if($conn->query($sql)){
+if ($c) {
+    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status)
+        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status')";
 
-        header('Location:../../admin/returns.php');
+    $conn->query($sql);
+    if ($status === "usable") {
+        $b = $quantity + $cc[1];
 
-    }else {
-        $m = "Error! Contact Administrator!";
-
-        echo "<script type='text/javascript'>
-        
-            alert('$m');
-            window.location.replace('../../admin/returns.php');
-        </script>";
+        $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
+        $conn->query($sql);
     }
-}else{
+
+
+
+    header('Location:../../admin/returns.php');
+
+
+} else {
     $m = "Error! Contact Administrator!";
 
     echo "<script type='text/javascript'>
