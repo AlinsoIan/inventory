@@ -87,7 +87,7 @@ if($conn->query($sql)){
 
 
         $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-                VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','increased','$d')";
+                VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','decreased','$d')";
         $conn->query($sql);
     }
 

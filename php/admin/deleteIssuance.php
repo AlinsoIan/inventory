@@ -19,19 +19,33 @@ $d = $_POST['d'];
 
 if($res){
     while ($row = $res->fetch_assoc()){
-        $ii = $row['itemID'];
-        $iii = $row['quantityIssued'];
 
-        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ii'";
-        $ress = $conn->query($sql);
+        $sql1 = "SELECT currentQuantity FROM inventory WHERE itemID = " . $row['itemID'];
+        $ress = $conn->query($sql1);
         $r = $ress->fetch_row();
 
+        $nn = $r[0] + $row['quantityIssued'];
 
-        $nn = $iii + $row['quantityIssued'];
+        $sql2 = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID =" .$row['itemID'];
+        $conn->query($sql2);
 
-        $sql = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID = '$ii'";
-        $conn->query($sql);
+        $aa = $row['itemID'];
+        $bb = $row['quantityIssued'];
 
+        $sql3 = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+        VALUES ('$aa','$r[0]','$bb','$nn','increased','$d')";
+        if($conn->query($sql3)){
+            var_dump($aa,$r[0],$bb,$nn,'increased','$d');
+        }else{
+            $m = $conn->error;
+
+            echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/issuance.php');
+            </script>
+            ";
+        }
     }
 
 
