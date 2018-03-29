@@ -10,6 +10,7 @@ require '../db.php';
 session_start();
 
 $ti = date('h:i:a');
+$userID = $_SESSION['user'];
 
 $division = $_POST['division'];
 $responsibility = $_POST['responsibilityCenter'];
@@ -89,8 +90,13 @@ if($conn->query($sql)){
         $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
                 VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','decreased','$d')";
         $conn->query($sql);
+
+
     }
 
+    $sql = "INSERT INTO history(accountID,activity,actDate,type)
+              VALUES ('$userID','issued','$d','issuance')";
+    $conn->query($sql);
 
     header('Location:../../admin/issuance.php');
 

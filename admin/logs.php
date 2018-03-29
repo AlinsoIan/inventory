@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
+    window.location.replace(index.php);
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -13,7 +13,7 @@ if($_SESSION['type'] == "user"){
     $m="Unauthorized Access";
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.php');
+    window.location.replace('../index.html');
     </script>";
 }
 ?>
@@ -182,30 +182,6 @@ if($_SESSION['type'] == "user"){
                         </a>
                         <ul class="ml-menu">
                             <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Items</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="items.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five.php"><strong>Category 5</strong></a>
-                            </li>
-
-                        </ul>
-                        </li>
-                            <li>
                                 <a href="accounts.php">
                                     <i class="material-icons">people</i>
                                     <span>Accounts</span>
@@ -244,25 +220,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li class="active">
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                        <li >
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li class="active">
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
             </ul>
         </li>
 
@@ -308,36 +276,36 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Supplier LOGS</h2>
+                            <h2 class="text-center">ACCOUNTS LOGS</h2>
                         </div>
                         <div class="body">
                             <div class="body table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Supplier Name</th>
+                                            <th>Username</th>
+                                            <th>Login Time</th>
+                                            <th>Logout Time</th>
                                             <th>Date</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php
-                                        $conn = new mysqli("localhost","root","","inventory");
-                                        if(!$conn){
-                                            echo "Error Connecting to database !" . $conn->error;
-                                        }
+                                        require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT * FROM accountslogs";
+                                        $sql = "SELECT accounts.username AS a,loginTime AS b,logoutTime AS c,loginDate AS d FROM logs JOIN accounts ON logs.accountID = accounts.accountID";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
-                                                    . "<td>" . $row['logs'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>";
-                                                    
+                                                    . "<td>" . $row['a'] ."</td>"
+                                                    . "<td>" . $row['b'] ."</td>"
+                                                    . "<td>" . $row['c'] ."</td>"
+                                                    . "<td>" . $row['d'] ."</td>";
                                                 echo "</tr>";
                                             }
 
@@ -350,7 +318,7 @@ if($_SESSION['type'] == "user"){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM accountslogs";
+                                    $sql = "SELECT COUNT(logID) FROM logs";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

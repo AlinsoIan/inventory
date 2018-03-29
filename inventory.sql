@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 29, 2018 at 07:47 AM
+-- Generation Time: Mar 29, 2018 at 03:54 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -40,14 +40,16 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userType` enum('admin','user') NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`accountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `password`, `userType`, `status`) VALUES
-(1, 'Admin', 'Admin', 'admin', 'admin', 'admin', 'active');
+(1, 'Admin', 'Admin', 'admin', 'admin', 'admin', 'active'),
+(2, 'Sakura', 'Uchiha', 'sakura', 'sakura', 'user', 'active'),
+(3, 'Sasuke', 'Uchiha', 'sasuke', 'sasuke', 'user', 'active');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `totalQuantity` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `inventory` (
   `startingQuantity` int(10) NOT NULL,
   `reorderPoint` int(11) NOT NULL,
   PRIMARY KEY (`inventoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inventory`
@@ -128,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `issuer` varchar(50) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -145,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -163,13 +165,16 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `status` varchar(45) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
 --
 
 INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `currentQuantity`, `quantity`, `latestQuantity`, `status`, `date`) VALUES
+(19, 20, 2080, 80, 2000, 'decreased', '2018-03-29'),
+(18, 20, 2000, 80, 2080, 'increased', '2018-03-29'),
+(17, 20, 2000, 2, 1998, 'decreased', '2018-03-29'),
 (16, 20, 2000, 12, 1988, 'decreased', '2018-03-29'),
 (15, 20, 2000, 22, 1978, 'decreased', '2018-03-29'),
 (14, 20, 2000, 20, 1980, 'decreased', '2018-03-29');
@@ -193,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `brand` varchar(20) NOT NULL,
   `expirationDate` date DEFAULT NULL,
   PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
@@ -217,10 +222,20 @@ CREATE TABLE IF NOT EXISTS `logs` (
   `logID` int(10) NOT NULL AUTO_INCREMENT,
   `accountID` int(10) NOT NULL,
   `loginTime` varchar(10) NOT NULL,
-  `logoutTime` varchar(10) NOT NULL,
+  `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `loginDate`) VALUES
+(8, 1, '11:45:pm', '11:45:pm', '2018-03-29'),
+(9, 1, '11:45:pm', '11:46:pm', '2018-03-29'),
+(10, 1, '11:46:pm', NULL, '2018-03-29'),
+(11, 1, '11:47:pm', NULL, '2018-03-29');
 
 -- --------------------------------------------------------
 
@@ -288,10 +303,9 @@ INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) V
 (42, 'Commission on Audit', 'COA', '1000.1.4.22', '04-00-10-01'),
 (43, 'Calamity Fund', 'COA', '1000.1.4.22', '04-00-12-02'),
 (44, 'Barangay Dev\'t Fund', 'COA', '1000.1.4.22', '04-00-14-01'),
-(45, 'All Office (Terminal leaves,monetization,BAC-infra,BAC-Goods,Prov\'l Emp. Med.Examination,etc.)', 'ALL-OFFICE', '1000.1.2', '04-00-14-02'),
+(45, 'All Office (Terminal leaves,monetization,BAC-infra,BAC-Goods,Prov', 'ALL-OFFICE', '1000.1.2', '04-00-14-02'),
 (46, 'Non-Office', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (47, 'Interspecial Accounting Transfer', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
-(48, 'Aids to Boy Scout & Girl Scout, Red Cross', 'NON-OFFICE', '1000.1.3', '04-00-01-01'),
 (49, 'Cash Incentive Awards & Sports, Honoraria', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (50, 'Non-Gov\'t Org Rep, Academic & Tech. Skills', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (51, 'Comelec Expense', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
@@ -367,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `reason` varchar(100) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `returns`

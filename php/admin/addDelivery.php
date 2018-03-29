@@ -8,7 +8,7 @@
 
 require '../db.php';
 session_start();
-
+$userID = $_SESSION['user'];
 $ti = date('h:i:a');
 
 $iar = $_POST['iarno'];
@@ -82,18 +82,9 @@ if (COUNT($cat)) {
 
                     $sql = "INSERT into itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
                             VALUES ('$r[0]','$r[1]','$quanz[$m]','$gg[0]','increased','$da')";
-                    if($conn->query($sql)){
+                    $conn->query($sql);
 
-                    }else {
-                        $m = $conn->error;
 
-                        echo "
-            <script type = 'text/javascript'>
-            alert('$m');
-            window.location.replace('../../admin/delivery.php');
-            </script>
-            ";
-                    }
 
                 }else {
                     $m = $conn->error;
@@ -132,6 +123,9 @@ if (COUNT($cat)) {
 
 
     }
+    $sql = "INSERT INTO history(accountID,activity,actDate,type)
+                    VALUES ('$userID','delivered','$da','Delivery')";
+    $conn->query($sql);
     header('Location:../../admin/delivery.php');
 
 } else {

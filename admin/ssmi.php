@@ -216,25 +216,17 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Logs</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                        </li>
-                        <li>
-                            <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                        </li>
-                       <li>
-                            <a href="itemsLogs.php"><strong>Items</strong></a>
-                        </li>
-                        <li>
-                            <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
             </ul>
         </li>
 
@@ -259,16 +251,21 @@ if($_SESSION['type'] == "user"){
                                 SSMI EXPORTABLE TABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
+                                <label>Select Month</label>
+                                <select class="form-control">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
                             </ul>
                         </div>
                         <div class="body">
