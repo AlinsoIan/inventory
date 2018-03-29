@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" afterPath="$PROJECT_DIR$/admin/accounts.php" />
-      <change beforePath="$PROJECT_DIR$/admin/accountsLogs.php" afterPath="$PROJECT_DIR$/admin/accountsLogs.php" />
-      <change beforePath="$PROJECT_DIR$/admin/returns.php" afterPath="$PROJECT_DIR$/admin/returns.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addAccount.php" afterPath="$PROJECT_DIR$/php/admin/addAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addItem.php" afterPath="$PROJECT_DIR$/php/admin/addItem.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewUser.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addOffice.php" afterPath="$PROJECT_DIR$/php/admin/addOffice.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteIssuance.php" afterPath="$PROJECT_DIR$/php/admin/deleteIssuance.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/disableAccount.php" afterPath="$PROJECT_DIR$/php/admin/disableAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/enableAccount.php" afterPath="$PROJECT_DIR$/php/admin/enableAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addOffice.php" afterPath="$PROJECT_DIR$/php/admin/modal/addOffice.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" afterPath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editAccount.php" afterPath="$PROJECT_DIR$/php/admin/modal/editAccount.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editOffice.php" afterPath="$PROJECT_DIR$/php/admin/modal/editOffice.php" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateOffice.php" afterPath="$PROJECT_DIR$/php/admin/updateOffice.php" />
-      <change beforePath="$PROJECT_DIR$/php/login.php" afterPath="$PROJECT_DIR$/php/login.php" />
-      <change beforePath="$PROJECT_DIR$/php/logout.php" afterPath="$PROJECT_DIR$/php/logout.php" />
+      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" afterPath="$PROJECT_DIR$/admin/dashboard.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -512,7 +496,7 @@
       <workItem from="1521758276228" duration="514000" />
       <workItem from="1521758936971" duration="18001000" />
       <workItem from="1522157236368" duration="1524000" />
-      <workItem from="1522276632930" duration="29677000" />
+      <workItem from="1522276632930" duration="30295000" />
     </task>
     <task id="LOCAL-00001" summary="Latest">
       <created>1515713212364</created>
@@ -682,11 +666,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522305601713</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Yeah">
+      <created>1522338202561</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1522338202561</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="418617000" />
+    <option name="totallyTimeSpent" value="419235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -736,7 +727,8 @@
     <MESSAGE value="Oh yeah!" />
     <MESSAGE value="ppmp" />
     <MESSAGE value="Latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Latest" />
+    <MESSAGE value="Yeah" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yeah" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
