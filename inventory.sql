@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 10:30 PM
+-- Generation Time: Mar 29, 2018 at 07:47 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -64,15 +64,7 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `totalQuantity` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `delivery`
---
-
-INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQuantity`, `deliveryDate`) VALUES
-(4, 1, 20, 123, 11, '2018-03-02'),
-(5, 1, 20, 123, 1231, '2018-03-15');
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -112,11 +104,11 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 --
 
 INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuantity`, `startingQuantity`, `reorderPoint`) VALUES
-(11, 16, NULL, 48, 50, 10),
+(11, 16, NULL, 2000, 50, 10),
 (12, 17, NULL, 4998, 5000, 1000),
-(13, 18, NULL, 500, 500, 100),
+(13, 18, NULL, 20048, 500, 100),
 (14, 19, NULL, 20, 20, 4),
-(15, 20, NULL, 1742, 500, 100);
+(15, 20, NULL, 2000, 500, 100);
 
 -- --------------------------------------------------------
 
@@ -136,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `issuer` varchar(50) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -153,7 +145,34 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `itemrecords`
+--
+
+DROP TABLE IF EXISTS `itemrecords`;
+CREATE TABLE IF NOT EXISTS `itemrecords` (
+  `itemrecordsID` int(45) NOT NULL AUTO_INCREMENT,
+  `itemID` int(45) NOT NULL,
+  `currentQuantity` int(45) NOT NULL,
+  `quantity` int(45) NOT NULL,
+  `latestQuantity` int(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`itemrecordsID`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `itemrecords`
+--
+
+INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `currentQuantity`, `quantity`, `latestQuantity`, `status`, `date`) VALUES
+(16, 20, 2000, 12, 1988, 'decreased', '2018-03-29'),
+(15, 20, 2000, 22, 1978, 'decreased', '2018-03-29'),
+(14, 20, 2000, 20, 1980, 'decreased', '2018-03-29');
 
 -- --------------------------------------------------------
 
@@ -296,22 +315,42 @@ DROP TABLE IF EXISTS `ppmp`;
 CREATE TABLE IF NOT EXISTS `ppmp` (
   `ppmpID` int(10) NOT NULL AUTO_INCREMENT,
   `officeID` int(10) NOT NULL,
-  `itemID` int(10) NOT NULL,
-  `itemQuantity` int(45) NOT NULL,
-  `unitCost` int(45) NOT NULL,
-  `totalAmount` int(45) NOT NULL,
   `ppmpDate` date NOT NULL,
   PRIMARY KEY (`ppmpID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmp`
 --
 
-INSERT INTO `ppmp` (`ppmpID`, `officeID`, `itemID`, `itemQuantity`, `unitCost`, `totalAmount`, `ppmpDate`) VALUES
-(2, 48, 15, 12, 11, 123, '2018-03-28'),
-(3, 48, 16, 12, 11, 123, '2018-03-28'),
-(4, 48, 16, 12, 11, 123, '2018-03-28');
+INSERT INTO `ppmp` (`ppmpID`, `officeID`, `ppmpDate`) VALUES
+(9, 37, '2018-03-29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ppmpitems`
+--
+
+DROP TABLE IF EXISTS `ppmpitems`;
+CREATE TABLE IF NOT EXISTS `ppmpitems` (
+  `ppmpitemsID` int(45) NOT NULL AUTO_INCREMENT,
+  `itemID` int(45) NOT NULL,
+  `itemQuantity` int(45) NOT NULL,
+  `unitCost` int(45) NOT NULL,
+  `totalAmount` int(45) NOT NULL,
+  `ppmpID` int(45) NOT NULL,
+  PRIMARY KEY (`ppmpitemsID`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ppmpitems`
+--
+
+INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `unitCost`, `totalAmount`, `ppmpID`) VALUES
+(10, 17, 12, 1, 2, 9),
+(9, 16, 12, 1, 2, 9),
+(8, 20, 12, 1, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -328,7 +367,21 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `reason` varchar(100) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`) VALUES
+(1, 20, 48, 12314, 'asd', 'usable'),
+(2, 18, 48, 10000, 'Rolled', 'disposable'),
+(3, 18, 48, 500, 'lajsd', 'usable'),
+(4, 18, 48, 1000, 'asd', 'usable'),
+(5, 18, 48, 1000, 'asda', 'usable'),
+(6, 18, 48, 10000, 'asd', 'usable'),
+(7, 18, 48, 1000, 'asd', 'usable'),
+(8, 18, 48, 20000, 'asd', 'usable');
 
 -- --------------------------------------------------------
 
