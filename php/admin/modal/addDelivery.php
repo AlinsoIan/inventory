@@ -126,13 +126,13 @@
                 '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
                 '</td>' +
                 '<td>' +
-                '<select id=desc' + i + ' name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query("SELECT description FROM items WHERE category = 1");if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
+                '<select id=desc' + i + ' name="item[]" class="form-control"><?php require '../../db.php'; $r = $conn->query("SELECT description FROM items WHERE categoryNo = 1");if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['description'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td>' +
                 '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
                 '</td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required></td>'+
-                '<td><input type="date" name="d[]" class="form-control" required></td>' +
+                '<td><input type="date" name="d" class="form-control" required></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

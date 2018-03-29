@@ -276,6 +276,14 @@ if($_SESSION['type'] == "user"){
         </div>
     </div>
 
+<!-- Modal for View Items Info -->
+<div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
+    <div class="modal-dialog" style="width:80%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
 
     <section class="content">
         <div class="container-fluid">

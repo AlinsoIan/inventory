@@ -306,7 +306,7 @@ if($_SESSION['type'] == "user"){
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -314,8 +314,8 @@ if($_SESSION['type'] == "user"){
                                                 echo "<tr>"
                                                     . "<td>" . $row['division'] ."</td>"
                                                     . "<td>" . $row['officeName'] ."</td>"
-                                                    . "<td>" . $row['issuanceDate'] ."</td>"
-                                                    . "<td>" . $row['issuanceTime'] ."</td>"
+                                                    . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
+                                                    . "<td>" . $row['type'] ."</td>"
 
                                                     . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";

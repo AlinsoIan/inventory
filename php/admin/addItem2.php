@@ -41,7 +41,20 @@ if($res){
 
         $conn->query($sql);
         if($conn){
-            header("Location:../../admin/$temp");
+            $sql = "INSERT into itemrecords(itemID,quantity,status,date)
+                            VALUES ('$r[0]','$quanz[$m]','increased','$da')";
+            if($conn->query($sql)){
+
+            }else {
+                $m = $conn->error;
+
+                echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/delivery.php');
+            </script>
+            ";
+            }
         }else{
             echo $conn->error;
         }

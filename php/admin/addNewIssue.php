@@ -82,7 +82,12 @@ if($conn->query($sql)){
         $n = $r[0] - $iss[$m];
 
         $sql = "UPDATE inventory SET currentQuantity ='$n' WHERE itemID = '$ttt[0]'";
+        $conn->query($sql);
 
+
+
+        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+                VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','increased','$d')";
         $conn->query($sql);
     }
 

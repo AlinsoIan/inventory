@@ -12,25 +12,25 @@
                     </h2>
                 </div>
 
-                    <div class="body">
+                    <div class="body text-center">
                         <div class="row">
                             <div class="col-md-3 ">
                                 <p class="text-center">Item Description</p>
                                 <?php
                                 $i = $_GET['num'];
                                 require '../../db.php';
-                                $sql = "SELECT description FROM items WHERE id = '$i'";
+                                $sql = "SELECT description FROM items WHERE itemID = '$i'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input type='text' value='$r[0]' name='first' class='form-control' disabled>";
                                 ?>
                             </div>
                             <div class="col-md-3 ">
-                                <p class="text-center">Item Description</p>
+                                <p class="text-center">Item Unit</p>
                                 <?php
                                 $i = $_GET['num'];
                                 require '../../db.php';
-                                $sql = "SELECT Unit FROM items WHERE id = '$i'";
+                                $sql = "SELECT unitName FROM items JOIN units ON items.unitID = units.unitID  WHERE itemID = '$i'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
                                 echo "<input type='text' value='$r[0]' name='first' class='form-control' disabled>";
@@ -48,10 +48,11 @@
                     <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
-                            <th width="8%">Item</th>
-                            <th width="40%">Quantity</th>
-                            <th width="12%">Status</th>
-                            <th width="12%">Date</th>
+                            <th>Current Quantity</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Latest Quantity</th>
+                            <th>Date</th>
                             </thead>
                             <tbody>
                             <?php
@@ -59,15 +60,17 @@
 
                                 $a = $_GET['num'];
 
-                                $sql = "SELECT items.description AS a,ledger.quantity AS b,ledger.status AS c,ledger.dateT as d FROM ledger JOIN items ON ledger.itemNo = items.id WHERE ledger.itemNo = '$a'";
+                                $sql = "SELECT currentQuantity,quantity,status,latestQuantity,date FROM itemrecords JOIN items ON itemrecords.itemID = items.itemID
+                                                    WHERE itemrecords.itemID = '$a'";
                                 $res = $conn->query($sql);
                                 if($res){
                                     while($row = $res->fetch_assoc()){
                                         echo "<tr>".
-                                            "<td>" . $row['a'] ."</td>" .
-                                            "<td>" . $row['b'] ."</td>".
-                                            "<td>" . $row['c'] ."</td>".
-                                            "<td>" . $row['d'] ."</td>".
+                                            "<td>" . $row['currentQuantity'] ."</td>".
+                                            "<td>" . $row['quantity'] ."</td>".
+                                            "<td>" . $row['status'] ."</td>".
+                                            "<td>" . $row['latestQuantity'] ."</td>".
+                                            "<td>" . $row['date'] ."</td>".
                                             "</tr>";
                                     }
                                 }
@@ -82,9 +85,14 @@
 
 
                     <div class="modal-footer text-center">
-                        <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
-                        <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../admin/items2.php" class="btn btn-danger pull-right">CLOSE</a>
+
+                        <?php
+                        session_start();
+                        $temp = $_SESSION['temp'];
+                        echo "<a href='../admin/$temp' class='btn btn-primary pull-right' >Close</a>";
+
+                        ?>
+
                     </div>
 
             </div>

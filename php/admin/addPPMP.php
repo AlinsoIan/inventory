@@ -48,19 +48,19 @@ $sq = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
 $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
 
+$sql = "INSERT INTO ppmp(officeID,ppmpDate) VALUES('$rr[0]','$d')";
+$conn->query($sql);
+$v = mysqli_insert_id($conn);
+
     for ($m = 0; count($cat) > $m; $m++) {
 
         $s = "SELECT itemID FROM items WHERE description LIKE '%$item[$m]%'";
         $res = $conn->query($s);
         $r = $res->fetch_row();
 
-
-        $sql = "INSERT INTO ppmp(officeID,itemID,itemQuantity,unitCost,totalAmount,ppmpDate)
-                      VALUES('$rr[0]','$r[0]','$quanz[$m]','$unitz[$m]','$amountz[$m]','$d')";
+        $sql = "INSERT INTO ppmpitems(itemID,itemQuantity,unitCost,totalAmount,ppmpID)
+                      VALUES('$r[0]','$quanz[$m]','$unitz[$m]','$amountz[$m]','$v')";
         $conn->query($sql);
-
-
-
     }
     header('Location:../../admin/ppmp.php');
 

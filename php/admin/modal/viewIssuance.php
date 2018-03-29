@@ -125,13 +125,13 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT officeID FROM issuance WHERE issuance.officeID = '$id'";
+                        $sql = "SELECT officeID FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
                         $sql = "SELECT officeName FROM offices WHERE officeID = '$r[0]'";
                         $ress = $conn->query($sql);
-                        $rr = $res->fetch_row();
+                        $rr = $ress->fetch_row();
 
                         echo "<input type='text' disabled class='form-control' name = 'office'  value = '" . $rr[0] ."' required>";
                         ?>

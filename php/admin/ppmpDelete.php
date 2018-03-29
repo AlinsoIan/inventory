@@ -12,6 +12,7 @@ $i = $_GET['n'];
 $sql = "DELETE FROM ppmp WHERE ppmpID = '$i'";
 $conn->query($sql);
 
+$sql = "DELETE FROM ppmpitems WHERE ppmpID = '$i'";
 
 if($conn->query($sql)){
 

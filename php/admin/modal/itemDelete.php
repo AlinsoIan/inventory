@@ -5,12 +5,15 @@
     </div>
     <div class="modal-body">
         <?php
+        session_start();
+        $temp = $_SESSION['temp'];
         $a = $_GET['num'];
 
         echo "<a href=" . '../php/admin/deleteItem.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
+        echo "<a href=' ../admin/$temp . ' class='btn btn-primary pull-right'>Cancel</a>";
         ?>
 
-        <a href="../admin/issuance.php" class='btn btn-primary pull-right'>Cancel</a>
+
     </div>
     <div class="modal-footer">
 

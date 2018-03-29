@@ -335,7 +335,7 @@ if($_SESSION['type'] == "user"){
                                 <?php
 
                                 require '../php/db.php';
-                                $sql = "SELECT COUNT(issuanceID) FROM issuance";
+                                $sql = "SELECT COUNT(deliveryID) FROM delivery";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

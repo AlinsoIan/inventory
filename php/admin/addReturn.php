@@ -15,7 +15,7 @@ $o  = $conn->query($s);
 $oo = $o->fetch_row();
 
 $item = $_POST['item'];
-$s = "SELECT items.itemID,inventory.startingQuantity FROM items INNER JOIN inventory WHERE items.description LIKE '%$item%'";
+$s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE items.description LIKE '%$item%'";
 $c  = $conn->query($s);
 $cc = $c->fetch_row();
 
@@ -25,17 +25,15 @@ $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
 
-$sql2 = "SELECT officeID FROM offices WHERE office LIKE '%$office%'";
-$res = $conn->query($sql2);
-if($res){
-    $r = $res->fetch_row();
+if($c){
     $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status)
         VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status')";
 
     if($conn->query($sql)){
         if($status === "usable"){
             $b = $quantity + $cc[1];
-            $sql = "UPDATE inventory SET startingQuantity = '$b' WHERE itemID = '$cc[0]'";
+
+            $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
             $conn->query($sql);
         }
         header('Location:../../admin/returns.php');

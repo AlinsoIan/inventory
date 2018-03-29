@@ -14,19 +14,20 @@ $temp = $_SESSION['temp'];
 
 $sql = "SELECT itemID,quantityIssued FROM itemissuance WHERE issuanceID = '$i'";
 $res = $conn->query($sql);
+$d = $_POST['d'];
 
 
 if($res){
     while ($row = $res->fetch_assoc()){
         $ii = $row['itemID'];
+        $iii = $row['quantityIssued'];
 
         $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ii'";
         $ress = $conn->query($sql);
         $r = $ress->fetch_row();
 
 
-        $nn = $r[0] + $row['quantityIssued'];
-
+        $nn = $iii + $row['quantityIssued'];
 
         $sql = "UPDATE inventory SET currentQuantity = '$nn' WHERE itemID = '$ii'";
         $conn->query($sql);

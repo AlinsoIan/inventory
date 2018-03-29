@@ -16,17 +16,17 @@ $rrr = $rr->fetch_row();
 
 
 
-$sql = "SELECT startingQuantity FROM inventory WHERE inventoryID = '$rrr[1]'";
+$sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$rrr[0]'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
-$b = $r[0] - $rrr[0];
+$b = $r[0] - $rrr[1];
 
 $sql = "DELETE FROM returns WHERE returnID = '$a'";
 
 if($conn->query($sql)){
 
-    $sql = "UPDATE inventory SET startingQuantity = '$b' WHERE inventoryID = '$rrr[1]'";
+    $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$rrr[0]'";
     $conn->query($sql);
 
     header("Location:../../admin/returns.php");

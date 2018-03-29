@@ -15,12 +15,12 @@
                         <select class="form-control" name="office">
                             <?php
                             require '../../db.php';
-                            $sql = "SELECT office FROM offices";
+                            $sql = "SELECT officeName FROM offices";
                             $res = $conn->query($sql);
 
                             if($res){
                                 while ($row = $res->fetch_assoc()){
-                                    echo "<option>" . $row['office'] . "</option>";
+                                    echo "<option>" . $row['officeName'] . "</option>";
                                 }
                             }
                             ?>
@@ -51,7 +51,7 @@
                             <select id="desc1" class="form-control description" name="item">
                                 <?php
                                 require '../../db.php';
-                                $sql = "SELECT * FROM items WHERE category = 1";
+                                $sql = "SELECT * FROM items WHERE categoryNo = 1";
                                 $res = $conn->query($sql);
                                 if ($res) {
                                     while ($row = $res->fetch_assoc()) {

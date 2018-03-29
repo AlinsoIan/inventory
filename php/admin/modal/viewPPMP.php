@@ -56,8 +56,8 @@
                             $id = $_GET['num'];
 
 
-                            $sql = "SELECT items.categoryNo AS c,items.description AS a,itemQuantity,ppmp.unitCost AS b,totalAmount FROM ppmp JOIN items
-                                      ON ppmp.itemID = items.itemID WHERE ppmp.ppmpID = '$id'";
+                            $sql = "SELECT items.categoryNo AS c,items.description AS a,itemQuantity,ppmpitems.unitCost AS b,totalAmount FROM ppmpitems JOIN items
+                                      ON ppmpitems.itemID = items.itemID WHERE ppmpID = '$id'";
 
                             $res = $conn->query($sql);
 

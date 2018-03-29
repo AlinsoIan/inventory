@@ -182,29 +182,7 @@ if($_SESSION['type'] == "user"){
                         <span>Manage</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">assignment</i>
-                                <span>Items</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="items.php"><strong>Category 1</strong></a>
-                                </li>
-                                <li>
-                                    <a href="two.php"><strong>Category 2</strong></a>
-                                </li>
-                                <li>
-                                    <a href="three.php"><strong>Category 3</strong></a>
-                                </li>
-                                <li>
-                                    <a href="four.php"><strong>Category 4</strong></a>
-                                </li>
-                                <li>
-                                    <a href="five.php"><strong>Category 5</strong></a>
-                                </li>
 
-                            </ul>
                         </li>
                         <li>
                             <a href="accounts.php">
@@ -333,7 +311,7 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID JOIN items ON ppmp.itemID = items.itemID GROUP BY ppmpID";
+                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID ";
                                 $res = $conn->query($sql);
 
                                 if($res){

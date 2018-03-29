@@ -8,6 +8,7 @@
 
 require '../db.php';
 $i = $_GET['n'];
+$da = date('Y:n:j');
 $s = "SELECT itemID,totalQuantity FROM delivery WHERE deliveryID = '$i'";
 $res = $conn->query($s);
 $r = $res->fetch_row();
@@ -24,6 +25,14 @@ $conn->query($sq);
 $sql = "DELETE FROM delivery WHERE deliveryID = '$i'";
 
 if($conn->query($sql)){
+
+    $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
+    $h = $conn->query($sql);
+    $hh = $h->fetch_row();
+
+    $sql = "INSERT into itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+                            VALUES ('$r[0]','$rr[0]','$r[1]','$hh[0]','decreased','$da')";
+    $conn->query($sql);
 
     header("Location:../../admin/delivery.php");
 

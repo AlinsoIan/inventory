@@ -68,17 +68,33 @@ if (COUNT($cat)) {
 
 
                 $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate)
-                      VALUES('$rr[0]',
-                      '$r[0]',
-                      '$iarnoz[$m]',
-                      '$quanz[$m]',
-                      '$da')";
+                      VALUES('$rr[0]','$r[0]', '$iarnoz[$m]', '$quanz[$m]','$da')";
 
                 if($conn->query($sql)){
                     $n = $r[1] + $quan[$m];
 
                     $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
                     $conn->query($ss);
+
+                    $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
+                    $g = $conn->query($sql);
+                    $gg = $g->fetch_row();
+
+                    $sql = "INSERT into itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+                            VALUES ('$r[0]','$r[1]','$quanz[$m]','$gg[0]','increased','$da')";
+                    if($conn->query($sql)){
+
+                    }else {
+                        $m = $conn->error;
+
+                        echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/delivery.php');
+            </script>
+            ";
+                    }
+
                 }else {
                     $m = $conn->error;
 
