@@ -107,6 +107,14 @@ if($_SESSION['type'] == "user"){
                             <span>Dashboard</span>
                         </a>
                     </li>
+                     <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivered Items</span>
+                        </a>
+                    </li>
+                    
+                    
                     <li>
                         <a href="ppmp.php">
                             <i class="material-icons">event_note</i>
@@ -120,18 +128,12 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivered Items</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li>
+                    <li  class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -154,13 +156,13 @@ if($_SESSION['type'] == "user"){
                         </li>
                     </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
                         </a>
                         <ul class="ml-menu">
-                            <li class="active">
+                            <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
@@ -174,47 +176,18 @@ if($_SESSION['type'] == "user"){
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="accounts.php">
-                            <i class="material-icons">people</i>
-                            <span>Accounts</span>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Other Transaction</span>
                         </a>
-                    </li>
-                    <li>
+                        <ul class="ml-menu">
+                        <li>
                         <a href="reorder.php">
                             <i class="material-icons">error</i>
                             <span>Re-order</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="supplier.php">
-                            <i class="material-icons">local_shipping</i>
-                            <span>Suppliers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Items</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="items.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five.php"><strong>Category 5</strong></a>
-                            </li>
-
-                        </ul>
                     </li>
                     <li>
                         <a href="toexpire.php">
@@ -234,21 +207,35 @@ if($_SESSION['type'] == "user"){
                         <span>History</span>
                     </a>
                     </li>
-
-                    <li>
+                </ul>
+                </li>
+                <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Settings</span>
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="offices.php">Offices</a>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="contingency.php">Contingency</a>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
                             </li>
                         </ul>
-                    </li>
+                        </li>
+
 
 
             </div>
