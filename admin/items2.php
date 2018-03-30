@@ -105,6 +105,14 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivered Items</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
                         <a href="ppmp.php">
                             <i class="material-icons">event_note</i>
                             <span>PPMP</span>
@@ -117,24 +125,18 @@ if($_SESSION['type'] == "user"){
                         </a>
                     </li>
                     <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivered Items</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li  class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
-                        <li class="active">
+                        <li class="active" >
                             <a href="items2.php"><strong>Category 1</strong></a>
                         </li>
                         <li>
@@ -171,32 +173,7 @@ if($_SESSION['type'] == "user"){
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Manage</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="accounts.php">
-                                    <i class="material-icons">people</i>
-                                    <span>Accounts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="supplier.php">
-                                    <i class="material-icons">local_shipping</i>
-                                    <span>Suppliers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="offices.php">
-                                    <i class="material-icons">location_city</i>
-                                    <span>Offices</span>
-                                </a>
-                            </li>
-                        </ul>
-                        </li>
+                    
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
@@ -227,8 +204,34 @@ if($_SESSION['type'] == "user"){
                         <span>History</span>
                     </a>
                     </li>
-            </ul>
-        </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
 
 
             </div>
