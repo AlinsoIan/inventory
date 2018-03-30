@@ -195,8 +195,9 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $a = $_SESSION['user'];
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID WHERE issuer = '$a'";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -220,7 +221,7 @@ if(!isset($_SESSION['username'])){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(issuanceID) FROM issuance";
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance WHERE issuer = '$a'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

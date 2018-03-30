@@ -28,36 +28,34 @@ if($res->num_rows > 0 && $r[4] == 'active'){
     $t = date('h:i:a');
     $d = date('Y:n:j');
 
-    /*
-    $sql = "UPDATE accounts SET loginTime = '$t',loginDate = '$d' WHERE username = '$user'";
-    $conn->query($sql);
-    */
     $_SESSION['type'] = $r[2];
     $_SESSION['username'] = $user;
     $_SESSION['full'] = strtoupper($r[1] . " " . $r[0]);
     $_SESSION['user'] = $r[3];
 
     if($r[2]=="admin") {
-        $sql = "INSERT INTO logs(accountID,loginTime,loginDate)
+        $sql = "INSERT INTO accountlogs(accountID,loginTime,loginDate)
               VALUES ('$r[3]','$t','$d')";
         $conn->query($sql);
 
-            /*
-        $sql = "SELECT MAX(logID) FROM logs";
+
+        $sql = "SELECT MAX(logID) FROM accountlogs";
         $res = $conn->query($sql);
         $r = $res->fetch_row();
-            */
+
 
 
 
         $_SESSION['logID'] = $r[0];
         header('Location:../admin/dashboard.php');
     }elseif($r[2]=="user"){
-        $sql = "INSERT INTO logs(accountID,loginTime,loginDate)
+        $sql = "INSERT INTO accountlogs(accountID,loginTime,loginDate)
               VALUES ('$r[3]','$t','$d')";
         $conn->query($sql);
-        $o = mysqli_insert_id($conn);
-        $_SESSION['logID'] = '$o';
+        $sql = "SELECT MAX(logID) FROM accountlogs";
+        $res = $conn->query($sql);
+        $r = $res->fetch_row();
+        $_SESSION['logID'] = '$r[0]';
         header('Location:../user/dashboard.php');
 
     }else{

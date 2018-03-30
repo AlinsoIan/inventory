@@ -14,7 +14,7 @@ $temp = $_SESSION['temp'];
 
 $sql = "SELECT itemID,quantityIssued FROM itemissuance WHERE issuanceID = '$i'";
 $res = $conn->query($sql);
-$d = $_POST['d'];
+$d = date('Y:n:j');
 
 
 if ($res) {
@@ -32,18 +32,14 @@ if ($res) {
         $aa = $row['itemID'];
         $bb = $row['quantityIssued'];
 
-        /*
-        if(isset($aa,$r[0],$bb,$nn,$d)) {
-            $sql3 = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-            VALUES ('$aa','$r[0]','$bb','$nn','increased','$d')";
-            $conn->query($sql3);
+        $cc = $r[0] + $bb;
 
-        }
-        */
 
+        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+        VALUES('$aa','$r[0]','$bb','$cc','increased','$d')";
+        $conn->query($sql);
 
     }
-
 
 
 

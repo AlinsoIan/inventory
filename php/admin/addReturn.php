@@ -28,8 +28,7 @@ $ress = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
-$sql = "INSERT INTO history(accountID,activity,actDate,type)
-                    VALUES ('$userID','returned','$d','Returns')";
+$sql = "INSERT INTO history(accountID,activity,actDate,type) VALUES('$userID','returned','$d','Returns')";
 $conn->query($sql);
 
 
@@ -42,6 +41,9 @@ if ($c) {
         $b = $quantity + $cc[1];
 
         $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
+        $conn->query($sql);
+
+        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date) VALUES('$cc[0]','$cc[1]','$quantity','$b','increased','$d')";
         $conn->query($sql);
     }
 

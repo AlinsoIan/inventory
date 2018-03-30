@@ -15,7 +15,7 @@ $t = date('h:i:a');
 $user = $_SESSION['username'];
 $a = $_SESSION['logID'];
 
-$sql = "UPDATE logs SET logoutTime = '$t' WHERE logID = '$a'";
+$sql = "UPDATE accountlogs SET logoutTime = '$t' WHERE logID = '$a'";
 if($conn->query($sql)){
     session_destroy();
     header('Location:../index.php');

@@ -10,11 +10,15 @@ require '../db.php';
 session_start();
 
 $ti = date('h:i:a');
+$userID = $_SESSION['user'];
 
 $division = $_POST['division'];
 $responsibility = $_POST['responsibilityCenter'];
 $ris = $_POST['ris'];
 $office = $_POST['office'];
+$sql = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
+$res = $conn->query($sql);
+$r = $res->fetch_row();
 $fpp = $_POST['fpp'];
 $sai = $_POST['sai'];
 $d = $_POST['d'];
@@ -22,17 +26,17 @@ $t = $_POST['type'];
 $s = $_SESSION['user'];
 
 
-$sql = "INSERT INTO issuance(division,office,responsibility,fpp,ris,sai,dateT,timeT,typeT,issuer) 
-        VALUES ('$division','$office','$responsibility','$fpp','$ris','$sai','$d','$ti','$t','$s')";
+$sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,type,issuer) 
+        VALUES ('$division','$r[0]','$ris','$sai','$d','$ti','$t','$s')";
 
 $category = $_POST['category'];
 $des = $_POST['des'];
-$unit = $_POST['units'];
 $qRequested = $_POST['qRequested'];
 $qIssued = $_POST['qIssued'];
 $remarks = $_POST['remarks'];
 
 if($conn->query($sql)){
+    $aa = mysqli_insert_id($conn);
     $cat = [];
     foreach ($category as $a){
         if(!empty($a)) {
@@ -43,11 +47,6 @@ if($conn->query($sql)){
     $dess = [];
     foreach ($des as $a){
             array_push($dess,$a);
-
-    }
-    $u = [];
-    foreach ($unit as $a){
-            array_push($u,$a);
 
     }
     $req = [];
@@ -68,87 +67,36 @@ if($conn->query($sql)){
 
     $id = mysqli_insert_id($conn);
     for ($m = 0;count($cat) > $m;$m++) {
-        $sql = "INSERT INTO itemissuance(category,description,unit,quantityRequested,quantityIssued,remarks,issue_id)
-                      VALUES('$cat[$m]','$dess[$m]','$u[$m]','$req[$m]','$iss[$m]','$rem[$m]','$id')";
-        if($conn->query($sql))
-        {
-            $sq = "SELECT startingQuantity,id FROM items WHERE description LIKE '$dess[$m]'";
-            $res = $conn->query($sq);
-            if($res){
-                $r = $res->fetch_row();
 
-                    if($r[0] < $iss[$m]){
+        $sql = "SELECT itemID FROM items WHERE description LIKE '%$dess[$m]%'";
+        $tt = $conn->query($sql);
+        $ttt = $tt->fetch_row();
 
-                        $sql = "DELETE FROM issuance WHERE id = '$id'";
+        $sql = "INSERT INTO itemissuance(issuanceID,itemID,quantityRequested, quantityIssued, remarks)
+                      VALUES('$aa','$ttt[0]','$req[$m]','$iss[$m]','$rem[$m]')";
+        $conn->query($sql);
 
-                        if($conn->query($sql)){
+        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ttt[0]'";
+        $res = $conn->query($sql);
+        $r = $res->fetch_row();
 
+        $n = $r[0] - $iss[$m];
 
-                            $sql = "DELETE FROM itemissuance WHERE issue_id = '$id'";
-                            if($conn->query($sql)){
-                                $m="Error! Not enough items on the inventory!";
-                                echo "
-                                <script type = 'text/javascript'>
-                                    alert('$m');
-                                    window.location.replace('../../user/issuance.php');
-                                </script>
-                                ";
-                            }
-                        }else{
-                            $m="Error! !";
-                            echo "
-                                <script type = 'text/javascript'>
-                                    alert('$m');
-                                    window.location.replace('../../user/issuance.php');
-                                </script>
-                                ";
-                        }
-
-                    }else{
-                        $n = $r[0] - $iss[$m];
-                        $sql = "UPDATE items SET startingQuantity = '$n' WHERE id = '$r[1]'";
+        $sql = "UPDATE inventory SET currentQuantity ='$n' WHERE itemID = '$ttt[0]'";
+        $conn->query($sql);
 
 
-                        if($conn->query($sql)){ 
-                            $u = $_SESSION['username'];
-                            $mm = "Has Issued to " . $office ;
-                            $query = "INSERT INTO issuanceslogs(issuances,issuancesDate,issue_id,issuer)
 
-                                VALUES('$mm','$d','$id','$u')";
-                            if($conn->query($query)){
-                                header('Location:../../user/issuance.php');
-                            }else{
-                                $m="Error! Inserting into issuancesLogs!";
-                                echo "
-                                <script type = 'text/javascript'>
-                                    alert('$m');
-                                    window.location.replace('../../user/issuance.php');
-                                </script>
-                                ";
-                            }
+        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
+                VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','decreased','$d')";
+        $conn->query($sql);
 
-                        }else{
-                            $m="Error! Updating Item Quantity!";
-                            echo "
-                                <script type = 'text/javascript'>
-                                    alert('$m');
-                                    window.location.replace('../../user/issuance.php');
-                                </script>
-                                ";
-                        }
-                    }
-                }
-            }else{
-                $m="Error! a!";
-                echo "
-                                <script type = 'text/javascript'>
-                                    alert('$m');
-                                    window.location.replace('../../user/issuance.php');
-                                </script>
-                                ";
-        }
+
     }
 
+    $sql = "INSERT INTO history(accountID,activity,actDate,type)
+              VALUES ('$userID','issued','$d','issuance')";
+    $conn->query($sql);
 
     header('Location:../../user/issuance.php');
 
@@ -159,7 +107,7 @@ if($conn->query($sql)){
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../../user/supplier.php');
+            window.location.replace('../../user/issuance.php');
             </script>
             ";
 }

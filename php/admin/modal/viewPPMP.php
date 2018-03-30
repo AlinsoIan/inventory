@@ -12,15 +12,14 @@
                     <div class="col-md-3">
                         <div class="">
                             <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                                <?php
-                                $i = $_GET['num'];
-                                require '../../db.php';
-                                $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID WHERE ppmp.ppmpID = '$i'";
-                                $res = $conn -> query($sql);
-                                $r = $res->fetch_row();
-                                echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
-
-                                ?>
+                            <?php
+                            $i = $_GET['num'];
+                            require '../../db.php';
+                            $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID WHERE ppmp.ppmpID = '$i'";
+                            $res = $conn -> query($sql);
+                            $r = $res->fetch_row();
+                            echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-2 pull-right">
@@ -33,7 +32,6 @@
                             $res = $conn -> query($sql);
                             $r = $res->fetch_row();
                             echo "<input type = 'text' value = '".$r[0] ."' disabled class = 'form-control'>";
-
                             ?>
                         </div>
                     </div>
@@ -54,13 +52,9 @@
                             <?php
                             require '../../db.php';
                             $id = $_GET['num'];
-
-
                             $sql = "SELECT items.categoryNo AS c,items.description AS a,itemQuantity,ppmpitems.unitCost AS b,totalAmount FROM ppmpitems JOIN items
                                       ON ppmpitems.itemID = items.itemID WHERE ppmpID = '$id'";
-
                             $res = $conn->query($sql);
-
                             if($res){
                                 while($row = $res->fetch_assoc()){
                                     echo "<tr>"
@@ -72,7 +66,6 @@
                                         . "</tr>";
                                 }
                             }
-
                             ?>
                         </tr>
 
@@ -111,9 +104,7 @@
             }
         });
     }
-
     $(document).ready(function () {
-
         var i = 1;
         $('#add').click(function () {
             i++;
@@ -131,16 +122,12 @@
                 '<td>' +
                 '<select id=desc' + i + ' class="form-control" name = "des[]"> <?php require '../../db.php'; $sql = "SELECT description FROM items WHERE category = 1"; $res = $conn->query($sql); if($res){ while($row = $res -> fetch_assoc()){ echo "<option>". $row['description'] . "</option>"; } } ?> </select>' +
                 '</td>' +
-
                 '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="text" name="amount[]" size="30px" class="form-control"></td>' +
-
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');
         });
-
-
     });
     $(document).on('click', '.btn_remove', function () {
         var button_id = $(this).attr("id");
@@ -156,6 +143,5 @@
                 $('#desc1').html(data);
             }
         });
-
     });
 </script>

@@ -52,7 +52,7 @@
 
                             $a = $_GET['num'];
 
-                            $sql = "SELECT currentQuantity,quantity,status,latestQuantity,date FROM itemrecords JOIN items ON itemrecords.itemID = items.itemID
+                            $sql = "SELECT currentQuantity,quantity,status,latestQuantity,date,itemsrecordsID FROM itemrecords JOIN items ON itemrecords.itemID = items.itemID
                                                     WHERE itemrecords.itemID = '$a' ORDER BY itemrecordsID ASC";
                             $res = $conn->query($sql);
                             if($res){

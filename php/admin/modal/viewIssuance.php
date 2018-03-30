@@ -78,13 +78,13 @@
                         require '../../db.php';
                         $id = $_GET['num'];
 
-                        $sql = "SELECT officeID FROM issuance WHERE issuance.officeID = '$id'";
+                        $sql = "SELECT officeID FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
                         $sql = "SELECT rcCode FROM offices WHERE officeID = '$r[0]'";
                         $ress = $conn->query($sql);
-                        $rr = $res->fetch_row();
+                        $rr = $ress->fetch_row();
                         echo "<input type='text' disabled class='form-control' value = '" . $rr[0] . "' name = 'responsibilityCenter'  required>";
                         ?>
                     </div>
@@ -143,13 +143,13 @@
                         <?php
                         require '../../db.php';
                         $id = $_GET['num'];
-                        $sql = "SELECT officeID FROM issuance WHERE issuance.officeID = '$id'";
+                        $sql = "SELECT officeID FROM issuance WHERE issuanceID = '$id'";
                         $res = $conn->query($sql);
                         $r = $res->fetch_row();
 
-                        $sql = "SELECT fppCpde FROM offices WHERE officeID = '$r[0]'";
+                        $sql = "SELECT fppCode FROM offices WHERE officeID = '$r[0]'";
                         $ress = $conn->query($sql);
-                        $rr = $res->fetch_row();
+                        $rr = $ress->fetch_row();
 
                         echo "<input type='text' disabled class='form-control' name = 'fpp'   value = '" . $rr[0] ."' required>";
                         ?>
