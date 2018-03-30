@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>PPMP</title>
+    <title>Returns</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -108,32 +108,33 @@ if($_SESSION['type'] == "user"){
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="ppmp.php">
-                        <i class="material-icons">event_note</i>
-                        <span>PPMP</span>
-                    </a>
-                </li>
-                <li>
-                <li>
-                    <a href="issuance.php">
-                        <i class="material-icons">store_mall_directory</i>
-                        <span>Issuance</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="delivery.php">
-                        <i class="material-icons">event_note</i>
-                        <span>Delivered Items</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="returns.php">
-                        <i class="material-icons">event_note</i>
-                        <span>Returns</span>
-                    </a>
-                </li>
-                <li>
+                 <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivered Items</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="issuance.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Issuance</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
+                    <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -155,94 +156,86 @@ if($_SESSION['type'] == "user"){
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                    </li>
+                    <li >
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="raos.php"><strong>RAOS</strong></a>
+                            </li>
+                            <li>
+                                <a href="rosi.php"><strong>ROSI</strong></a>
+                            </li>
+                            <li>
+                                <a href="ssmi.php"><strong>SSMI</strong></a>
+                            </li>
+                            <li>
+                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Other Transaction</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
                         <i class="material-icons">view_list</i>
-                        <span>Reports</span>
+                        <span>Account Logs</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
-                        <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                        </li>
-                    </ul>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">settings</i>
-                        <span>Manage</span>
-                    </a>
-                    <ul class="ml-menu">
-
-                        <li>
-                            <a href="accounts.php">
-                                <i class="material-icons">people</i>
-                                <span>Accounts</span>
-                            </a>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
                         </li>
-                        <li>
-                            <a href="supplier.php">
-                                <i class="material-icons">local_shipping</i>
-                                <span>Suppliers</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="offices.php">
-                                <i class="material-icons">location_city</i>
-                                <span>Offices</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">settings</i>
-                        <span>Other Transaction</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="reorder.php">
-                                <i class="material-icons">error</i>
-                                <span>Re-order</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="toexpire.php">
-                                <i class="material-icons">assignment</i>
-                                <span>To-Expire</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">view_list</i>
-                                <span>Logs</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="logsIssuance.php"><strong>Issuances</strong></a>
-                                </li>
-                                <li>
-                                    <a href="accountsLogs.php"><strong>Accounts</strong></a>
-                                </li>
-                                <li>
-                                    <a href="itemsLogs.php"><strong>Items</strong></a>
-                                </li>
-                                <li>
-                                    <a href="supplierLogs.php"><strong>Suppliers</strong></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
 
 
         </div>
@@ -306,7 +299,7 @@ if($_SESSION['type'] == "user"){
                                     <th>Quantity</th>
                                     <th>Reason</th>
                                     <th>Status</th>
-                                    <th>Settings</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
 
@@ -326,7 +319,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/viewReturn.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewReturn'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -346,7 +339,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addPPMP.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>
@@ -355,6 +348,7 @@ if($_SESSION['type'] == "user"){
         <!-- #END# Basic Examples -->
     </div>
 </section>
+
 
 <!-- Jquery Core Js -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -382,6 +376,7 @@ if($_SESSION['type'] == "user"){
 <script src="../js/pages/tables/jquery-datatable.js"></script>
 
 <script src="../js/custom.js"></script>
+
 
 
 

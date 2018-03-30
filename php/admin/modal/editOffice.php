@@ -24,7 +24,7 @@
                                 <?php
                                 require '../../db.php';
                                 $a = $_GET['num'];
-                                $sql = "SELECT office FROM offices WHERE id = '$a'";
+                                $sql = "SELECT officeName FROM offices WHERE officeID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -35,7 +35,7 @@
                                 <?php
                                 require '../../db.php';
                                 $a = $_GET['num'];
-                                $sql = "SELECT abbr FROM offices WHERE id = '$a'";
+                                $sql = "SELECT abbrv FROM offices WHERE officeID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -46,7 +46,7 @@
                                 <?php
                                 require '../../db.php';
                                 $a = $_GET['num'];
-                                $sql = "SELECT fpp FROM offices WHERE id = '$a'";
+                                $sql = "SELECT fppCode FROM offices WHERE officeID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -57,7 +57,7 @@
                                 <?php
                                 require '../../db.php';
                                 $a = $_GET['num'];
-                                $sql = "SELECT responsibility FROM offices WHERE id = '$a'";
+                                $sql = "SELECT rcCode FROM offices WHERE officeID = '$a'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 

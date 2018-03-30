@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php);
+    window.location.replace('../index.php');
     </script>";
 }
 ?>
@@ -107,12 +107,6 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
@@ -138,8 +132,11 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
-                    <li>
+
+
             </div>
+            <!-- #Menu -->
+
         </aside>
         <!-- #END# Left Sidebar -->
 
@@ -187,9 +184,8 @@ if(!isset($_SESSION['username'])){
                                         <tr>
                                             <th>Division</th>
                                             <th>Office</th>
-                                            <th>Responsibility Center</th>
                                             <th>Date/Time</th>
-                                            <th>Category</th>
+                                            <th>Issuance Type</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>
@@ -199,20 +195,19 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $aa = $_SESSION['user'];
-                                        $sql = "SELECT * FROM issuance WHERE issuer = '$aa'";
+
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
                                                     . "<td>" . $row['division'] ."</td>"
-                                                    . "<td>" . $row['office'] ."</td>"
-                                                    . "<td>" . $row['responsibility'] ."</td>"
-                                                    . "<td>" . $row['dateT'] ."</td>"
-                                                    . "<td>" . $row['typeT'] ."</td>" 
+                                                    . "<td>" . $row['officeName'] ."</td>"
+                                                    . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
+                                                    . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['id'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -225,7 +220,7 @@ if(!isset($_SESSION['username'])){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM issuance WHERE issuer = '$aa'";
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
@@ -249,8 +244,6 @@ if(!isset($_SESSION['username'])){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> 
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>

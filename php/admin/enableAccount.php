@@ -16,7 +16,7 @@ $r = $res->fetch_row();
 
 $d = date('Y:n:j');
 
-if($r[0] == "user"){
+if($r[1] == "user"){
 
     $sql = "UPDATE accounts SET status = 'active' WHERE accountID = '$i'";
 

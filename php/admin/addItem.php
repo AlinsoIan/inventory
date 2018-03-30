@@ -1,4 +1,4 @@
-<?php
+`<?php
 /**
  * Created by IntelliJ IDEA.
  * User: Yanzky
@@ -25,8 +25,18 @@ $sql2 = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supplier%'"
 $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();
+<<<<<<< HEAD
     $sql = "INSERT INTO items(category,acctSn,pgsoSn,description,unit,startingQuantity,unitCost,brand,orderPoint,supplier_id) 
     VALUES('$cat','$acct','$pgso','$des','$unit','$quan','$cost','$brand','$level','$r[0]')";
+=======
+
+    $z = "SELECT unitID FROM units WHERE unitName LIKE '%$unit%'";
+    $zz = $conn->query($z);
+    $zzz = $zz->fetch_row();
+
+    $sql = "INSERT INTO items(categoryNo,acctSn,pgsoSn,description,unitID,unitCost,brand,supplierID) 
+    VALUES('$cat','$acct','$pgso','$des','$zzz[0]','$cost','$brand','$r[0]')";
+>>>>>>> da291964dd17707c5de8b52fb9cc2f869770dd74
 
     if($conn->query($sql)){
 

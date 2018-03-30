@@ -5,8 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
-    </script>";
+    window.location.replace(indeindex.php  </script>";
 }
 ?>
 <!DOCTYPE html>
@@ -16,8 +15,6 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Reports: ROSI</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -92,7 +89,7 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li>
+                    <li class="active">
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
@@ -105,18 +102,12 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -125,7 +116,7 @@ if(!isset($_SESSION['username'])){
                             <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
                             <li>
@@ -136,8 +127,11 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
-                    <li>
+
+
             </div>
+            <!-- #Menu -->
+
         </aside>
         <!-- #END# Left Sidebar -->
 
@@ -187,7 +181,7 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
 
-                                        $sql = "SELECT *,iar.id AS idd FROM iar JOIN suppliers ON iar.supplier_id = suppliers.id";
+                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -209,17 +203,6 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                     </tbody>
                                 </table>
-                                <h3 class="title pull-left">
-                                    <?php
-
-                                    require '../php/db.php';
-                                    $sql = "SELECT COUNT(id) FROM iar";
-                                    $res = $conn->query($sql);
-                                    $r = $res->fetch_row();
-
-                                    echo "Total IAR : " . $r[0];
-                                    ?>
-                                </h3>
                             </div>
                         </div>
                     </div>

@@ -38,8 +38,26 @@ if($res->num_rows > 0 && $r[4] == 'active'){
     $_SESSION['user'] = $r[3];
 
     if($r[2]=="admin") {
+        $sql = "INSERT INTO logs(accountID,loginTime,loginDate)
+              VALUES ('$r[3]','$t','$d')";
+        $conn->query($sql);
+
+            /*
+        $sql = "SELECT MAX(logID) FROM logs";
+        $res = $conn->query($sql);
+        $r = $res->fetch_row();
+            */
+
+
+
+        $_SESSION['logID'] = $r[0];
         header('Location:../admin/dashboard.php');
     }elseif($r[2]=="user"){
+        $sql = "INSERT INTO logs(accountID,loginTime,loginDate)
+              VALUES ('$r[3]','$t','$d')";
+        $conn->query($sql);
+        $o = mysqli_insert_id($conn);
+        $_SESSION['logID'] = '$o';
         header('Location:../user/dashboard.php');
 
     }else{

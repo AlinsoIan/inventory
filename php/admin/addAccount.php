@@ -21,9 +21,11 @@ $sql = "INSERT INTO accounts(firstName,lastName,userName,password,userType,statu
 
 if($conn->query($sql)){
 
+	/**
 	$sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has added account $username','$d')";
 	$conn->query($sql);
-
+	*/
+	
     header('Location:../../admin/accounts.php');
 
 }else {

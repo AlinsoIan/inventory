@@ -16,8 +16,6 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Reports: SSMI</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -92,7 +90,7 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li>
+                    <li class="active">
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
@@ -105,18 +103,12 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
-                        <a href="iar.php">
-                            <i class="material-icons">event_note</i>
-                            <span>IAR</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -128,7 +120,7 @@ if(!isset($_SESSION['username'])){
                             <li>
                                 <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -136,8 +128,11 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
-                    <li>
+
+
             </div>
+            <!-- #Menu -->
+
         </aside>
         <!-- #END# Left Sidebar -->
 
@@ -155,16 +150,21 @@ if(!isset($_SESSION['username'])){
                                 SSMI EXPORTABLE TABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
+                                <label>Select Month</label>
+                                <select class="form-control">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
                             </ul>
                         </div>
                         <div class="body">

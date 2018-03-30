@@ -51,7 +51,7 @@ if ($res) {
     $conn->query($sql);
     $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
-    header("Location:../../admin/$temp");
+    header("Location:../../user/$temp");
 
 } else {
     $m = "Failed to Delete Issuance, Contact Administrator!";
@@ -59,7 +59,7 @@ if ($res) {
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../../admin/issuance.php');
+            window.location.replace('../../user/issuance.php');
             </script>
             ";
 }

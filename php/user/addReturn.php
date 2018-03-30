@@ -47,7 +47,7 @@ if ($c) {
 
 
 
-    header('Location:../../admin/returns.php');
+    header('Location:../../user/returns.php');
 
 
 } else {
@@ -56,7 +56,7 @@ if ($c) {
     echo "<script type='text/javascript'>
         
             alert('$m');
-            window.location.replace('../../admin/returns.php');
+            window.location.replace('../../user/returns.php');
         </script>";
 }
 

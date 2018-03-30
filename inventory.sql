@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 29, 2018 at 07:47 AM
+-- Generation Time: Mar 29, 2018 at 07:06 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -27,6 +27,34 @@ USE `inventory`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `accountlogs`
+--
+
+DROP TABLE IF EXISTS `accountlogs`;
+CREATE TABLE IF NOT EXISTS `accountlogs` (
+  `logID` int(10) NOT NULL AUTO_INCREMENT,
+  `accountID` int(10) NOT NULL,
+  `loginTime` varchar(10) NOT NULL,
+  `logoutTime` varchar(10) DEFAULT NULL,
+  `loginDate` date NOT NULL,
+  PRIMARY KEY (`logID`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accountlogs`
+--
+
+INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `loginDate`) VALUES
+(8, 1, '11:45:pm', '11:45:pm', '2018-03-29'),
+(9, 1, '11:45:pm', '11:46:pm', '2018-03-29'),
+(10, 1, '11:46:pm', '01:06:am', '2018-03-29'),
+(11, 1, '11:47:pm', NULL, '2018-03-29'),
+(12, 2, '01:06:am', NULL, '2018-03-30'),
+(13, 1, '01:08:am', NULL, '2018-03-30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `accounts`
 --
 
@@ -40,14 +68,16 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userType` enum('admin','user') NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`accountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `password`, `userType`, `status`) VALUES
-(1, 'Admin', 'Admin', 'admin', 'admin', 'admin', 'active');
+(1, 'Admin', 'Admin', 'admin', 'admin', 'admin', 'active'),
+(2, 'Sakura', 'Uchiha', 'sakura', 'sakura', 'user', 'active'),
+(3, 'Sasuke', 'Uchiha', 'sasuke', 'sasuke', 'user', 'active');
 
 -- --------------------------------------------------------
 
@@ -64,7 +94,16 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `totalQuantity` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQuantity`, `deliveryDate`) VALUES
+(2, 1, 20, 12, 12, '2018-03-14'),
+(3, 1, 20, 12, 1231, '2018-03-30'),
+(4, 1, 20, 12, 212, '2018-03-24');
 
 -- --------------------------------------------------------
 
@@ -75,12 +114,23 @@ CREATE TABLE IF NOT EXISTS `delivery` (
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE IF NOT EXISTS `history` (
   `historyID` int(10) NOT NULL AUTO_INCREMENT,
-  `logID` int(10) NOT NULL,
-  `inventoryID` int(10) NOT NULL,
+  `accountID` int(10) NOT NULL,
   `activity` varchar(50) NOT NULL,
-  `actTime` varchar(10) NOT NULL,
+  `actDate` date NOT NULL,
+  `type` varchar(45) NOT NULL,
   PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`historyID`, `accountID`, `activity`, `actDate`, `type`) VALUES
+(1, 1, 'Issued', '2012-02-02', 'issuance'),
+(2, 1, 'issued', '2018-03-29', 'issuance'),
+(3, 1, 'delivered', '2018-03-30', 'Delivery'),
+(4, 1, 'delivered', '2018-03-24', 'Delivery'),
+(5, 1, 'returned', '2018-01-01', 'Returns');
 
 -- --------------------------------------------------------
 
@@ -108,7 +158,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (12, 17, NULL, 4998, 5000, 1000),
 (13, 18, NULL, 20048, 500, 100),
 (14, 19, NULL, 20, 20, 4),
-(15, 20, NULL, 2000, 500, 100);
+(15, 20, NULL, 3830, 500, 100);
 
 -- --------------------------------------------------------
 
@@ -128,7 +178,15 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `issuer` varchar(50) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `issuance`
+--
+
+INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, `issuanceDate`, `issuanceTime`, `type`, `issuer`) VALUES
+(2, 'asd', 37, 'asd', 'asd', '2018-03-29', '01:14:am', 'Office Supplies', '1'),
+(3, 'sdf', 37, 'sdf', 'sdf', '2018-03-29', '01:18:am', 'Office Supplies', '1');
 
 -- --------------------------------------------------------
 
@@ -145,7 +203,17 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `itemissuance`
+--
+
+INSERT INTO `itemissuance` (`itemIssuanceID`, `issuanceID`, `itemID`, `quantityRequested`, `quantityIssued`, `remarks`) VALUES
+(2, 2, 20, 1, 1, '1'),
+(3, 2, 20, 2, 2, '2'),
+(4, 2, 20, 3, 3, '3'),
+(5, 3, 20, 2, 12, '12');
 
 -- --------------------------------------------------------
 
@@ -163,16 +231,26 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `status` varchar(45) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
 --
 
 INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `currentQuantity`, `quantity`, `latestQuantity`, `status`, `date`) VALUES
+(21, 20, 1999, 2, 1997, 'decreased', '2018-03-29'),
+(20, 20, 2000, 1, 1999, 'decreased', '2018-03-29'),
+(19, 20, 2080, 80, 2000, 'decreased', '2018-03-29'),
+(18, 20, 2000, 80, 2080, 'increased', '2018-03-29'),
+(17, 20, 2000, 2, 1998, 'decreased', '2018-03-29'),
 (16, 20, 2000, 12, 1988, 'decreased', '2018-03-29'),
 (15, 20, 2000, 22, 1978, 'decreased', '2018-03-29'),
-(14, 20, 2000, 20, 1980, 'decreased', '2018-03-29');
+(14, 20, 2000, 20, 1980, 'decreased', '2018-03-29'),
+(22, 20, 1997, 3, 1994, 'decreased', '2018-03-29'),
+(23, 20, 1994, 12, 1982, 'decreased', '2018-03-29'),
+(24, 20, 1982, 12, 1994, 'increased', '2018-03-14'),
+(25, 20, 1994, 1231, 3225, 'increased', '2018-03-30'),
+(26, 20, 3583, 212, 3795, 'increased', '2018-03-24');
 
 -- --------------------------------------------------------
 
@@ -205,22 +283,6 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 (18, 1, 4, 4, 4, 'Roll', 1, 30, 'B', NULL),
 (19, 1, 5, 5, 5, 'Lomi', 1, 12, 'H', NULL),
 (20, 2, 10, 1, 10, 'Itlog', 1, 6, 'X', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `logs`
---
-
-DROP TABLE IF EXISTS `logs`;
-CREATE TABLE IF NOT EXISTS `logs` (
-  `logID` int(10) NOT NULL AUTO_INCREMENT,
-  `accountID` int(10) NOT NULL,
-  `loginTime` varchar(10) NOT NULL,
-  `logoutTime` varchar(10) NOT NULL,
-  `loginDate` date NOT NULL,
-  PRIMARY KEY (`logID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -288,10 +350,9 @@ INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) V
 (42, 'Commission on Audit', 'COA', '1000.1.4.22', '04-00-10-01'),
 (43, 'Calamity Fund', 'COA', '1000.1.4.22', '04-00-12-02'),
 (44, 'Barangay Dev\'t Fund', 'COA', '1000.1.4.22', '04-00-14-01'),
-(45, 'All Office (Terminal leaves,monetization,BAC-infra,BAC-Goods,Prov\'l Emp. Med.Examination,etc.)', 'ALL-OFFICE', '1000.1.2', '04-00-14-02'),
+(45, 'All Office (Terminal leaves,monetization,BAC-infra,BAC-Goods,Prov', 'ALL-OFFICE', '1000.1.2', '04-00-14-02'),
 (46, 'Non-Office', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (47, 'Interspecial Accounting Transfer', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
-(48, 'Aids to Boy Scout & Girl Scout, Red Cross', 'NON-OFFICE', '1000.1.3', '04-00-01-01'),
 (49, 'Cash Incentive Awards & Sports, Honoraria', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (50, 'Non-Gov\'t Org Rep, Academic & Tech. Skills', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (51, 'Comelec Expense', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
@@ -367,21 +428,7 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `reason` varchar(100) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `returns`
---
-
-INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`) VALUES
-(1, 20, 48, 12314, 'asd', 'usable'),
-(2, 18, 48, 10000, 'Rolled', 'disposable'),
-(3, 18, 48, 500, 'lajsd', 'usable'),
-(4, 18, 48, 1000, 'asd', 'usable'),
-(5, 18, 48, 1000, 'asda', 'usable'),
-(6, 18, 48, 10000, 'asd', 'usable'),
-(7, 18, 48, 1000, 'asd', 'usable'),
-(8, 18, 48, 20000, 'asd', 'usable');
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
