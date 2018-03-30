@@ -43,7 +43,8 @@ if ($c) {
         $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
         $conn->query($sql);
 
-        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date) VALUES('$cc[0]','$cc[1]','$quantity','$b','increased','$d')";
+        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date) 
+        VALUES('$cc[0]','$cc[1]','$quantity','$b','increased','$d')";
         $conn->query($sql);
     }
 
