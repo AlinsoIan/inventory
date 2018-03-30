@@ -8,14 +8,6 @@ if(!isset($_SESSION['username'])){
     window.location.replace(index.php);
     </script>";
 }
-if($_SESSION['type'] == "user"){
-    session_destroy();
-    $m="Unauthorized Access";
-    echo "<script type='text/javascript'>
-    alert('$m');
-    window.location.replace('../index.html');
-    </script>";
-}
 ?>
 <!DOCTYPE html>
 <html>

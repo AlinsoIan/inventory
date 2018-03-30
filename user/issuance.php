@@ -8,14 +8,6 @@ if(!isset($_SESSION['username'])){
     window.location.replace('../index.php');
     </script>";
 }
-if($_SESSION['type'] == "user"){
-    session_destroy();
-    $m="Unauthorized Access";
-    echo "<script type='text/javascript'>
-    alert('$m');
-    window.location.replace('../index.php');
-    </script>";
-}
 ?>
 <!DOCTYPE html>
 
@@ -215,7 +207,7 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
                                                     . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -236,7 +228,7 @@ if($_SESSION['type'] == "user"){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>

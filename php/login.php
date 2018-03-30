@@ -42,9 +42,11 @@ if($res->num_rows > 0 && $r[4] == 'active'){
               VALUES ('$r[3]','$t','$d')";
         $conn->query($sql);
 
+            /*
         $sql = "SELECT MAX(logID) FROM logs";
         $res = $conn->query($sql);
         $r = $res->fetch_row();
+            */
 
 
 

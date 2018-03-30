@@ -8,14 +8,6 @@ if(!isset($_SESSION['username'])){
     window.location.replace(index.php;
     </script>";
 }
-if($_SESSION['type'] == "user"){
-    session_destroy();
-    $m="Unauthorized Access";
-    echo "<script type='text/javascript'>
-    alert('$m');
-    window.location.replace('../index.php');
-    </script>";
-}
 ?>
 <!DOCTYPE html>
 
@@ -223,7 +215,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/user/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -243,7 +235,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>
