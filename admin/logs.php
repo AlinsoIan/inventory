@@ -181,7 +181,7 @@ if($_SESSION['type'] == "user"){
                         <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -292,42 +292,28 @@ if($_SESSION['type'] == "user"){
                                             <th>Date</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
                                     <?php
-                                        require '../php/db.php';
+                                    require '../php/db.php';
+                                    $sql = "SELECT *, accounts.username AS a FROM accountlogs JOIN accounts ON accountlogs.accountID = accounts.accountID";
+                                    $res = $conn->query($sql);
 
-                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    if($res){
+                                        while ($row = $res->fetch_assoc()){
+                                            echo  "<tr>";
 
-                                        $sql = "SELECT accounts.username AS a,loginTime AS b,logoutTime AS c,loginDate AS d FROM logs JOIN accounts ON logs.accountID = accounts.accountID";
-                                        $res = $conn->query($sql);
-
-                                        if($res){
-                                            while($row = $res->fetch_assoc()){
-                                                echo "<tr>"
-                                                    . "<td>" . $row['a'] ."</td>"
-                                                    . "<td>" . $row['b'] ."</td>"
-                                                    . "<td>" . $row['c'] ."</td>"
-                                                    . "<td>" . $row['d'] ."</td>";
-                                                echo "</tr>";
-                                            }
-
+                                            echo "<td>" . $row['a'] . "</td>";
+                                            echo "<td>" . $row['loginTime'] . "</td>";
+                                            echo "<td>" . $row['logoutTime'] . "</td>";
+                                            echo "<td>" . $row['loginDate'] . "</td>";
+                                            echo "</tr>";
                                         }
+                                    }
 
                                     ?>
+                                    
                                     </tbody>
                                 </table>
-                                <h3 class="title pull-left">
-                                    <?php
-
-                                    require '../php/db.php';
-                                    $sql = "SELECT COUNT(logID) FROM logs";
-                                    $res = $conn->query($sql);
-                                    $r = $res->fetch_row();
-
-                                    echo "Total Logs : " . $r[0];
-                                    ?>
-                                </h3>
 
                             </div>
                         </div>

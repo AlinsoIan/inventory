@@ -34,7 +34,7 @@
                                 <?php
                                 require '../../db.php';
                                 $id = $_GET['num'];
-                                $sql = "SELECT issuer FROM issuance WHERE issuanceID = '$id'";
+                                $sql = "SELECT accountID FROM issuance WHERE issuanceID = '$id'";
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 

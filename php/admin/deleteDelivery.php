@@ -30,9 +30,20 @@ if($conn->query($sql)){
     $h = $conn->query($sql);
     $hh = $h->fetch_row();
 
-    $sql = "INSERT into itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-                            VALUES ('$r[0]','$rr[0]','$r[1]','$hh[0]','decreased','$da')";
+    $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$r[0]'";
+    $f = $conn->query($sql);
+    $ff = $f->fetch_row();
+
+    $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,deliveryQuantity,
+                            currentQuantity,status)
+                            VALUES('$r[0]','$ff[0]','$da','$rr[0]','$r[1]','$hh[0]','decreased')";
     $conn->query($sql);
+
+    /*
+    $p = $r[0] . "," . $ff[0] . ", " . $da. ", " .$r[1]. ", " .$quanz[$m]. ", " .$gg[0]. ",  " ."increased";
+    $sql = "INSERT INTO asa(a) VALUES('$p')";
+    $conn->query($sql);
+    */
 
     header("Location:../../admin/delivery.php");
 

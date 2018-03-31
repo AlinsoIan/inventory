@@ -180,7 +180,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>

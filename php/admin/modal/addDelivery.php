@@ -15,13 +15,13 @@
                         <th style="width: 8%">Category</th>
                         <th style="width: 30%;">Item</th>
                         <th style="width: 14%">Supplier</th>
-                        <th style="width: 12%";">Qty</th>
+                        <th style="width: 12%";">Quantity</th>
                         <th>Delivery Date</th>
                         </thead>
                         <tbody>
                         <tr>
                             <td>
-                                <input type="number" onkeypress="return isNumberKey(event)" name="iarno[]" class="form-control" required>
+                                <input type="number" onkeypress="return isNumberKey(event)" name="iarno[]" min="0" class="form-control" required>
                             </td>
                             <td>
                                 <select onchange="getDesc('1')" id="cat1" name="cat[]" class="form-control">
@@ -69,7 +69,7 @@
 
 
                             <td>
-                                <input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required>
+                                <input type="number" onkeypress="return isNumberKey(event)" min="0" name="quantity[]" class="form-control" required>
                             </td>
                             <td>
 
@@ -120,7 +120,7 @@
             $('#dynamic_field').append( '' +
                 '<tr id="row'+i+'">' +
                 '<td>' +
-                '<input type="text" onkeypress="return isNumberKey(event)" name="iarno[]" class="form-control" required>' +
+                '<input type="text" onkeypress="return isNumberKey(event)" name="iarno[]" min="0" class="form-control" required>' +
                 '</td>' +
                 '<td>' +
                 '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
@@ -131,7 +131,7 @@
                 '<td>' +
                 '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if($r){while ($row = $r->fetch_assoc()){echo "<option>" . $row['supplierName'] . "</option>";}}?></select>' +
                 '</td>' +
-                '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" class="form-control" required></td>'+
+                '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>'+
                 '<td><input type="date" name="d" class="form-control" required></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove ">X</button>' +

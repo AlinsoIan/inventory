@@ -91,13 +91,27 @@ if(!isset($_SESSION['username'])){
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
         <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
+        <div class="menu">
+            <ul class="list">
+
+                <li>
+                    <a href="dashboard.php">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                 <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
                     
-                    <li class="active">
-                        <a href="dashboard.php">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -106,13 +120,36 @@ if(!isset($_SESSION['username'])){
                             <span>Issuance</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="returns.php">
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
                     </li>
                     <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li >
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -132,10 +169,69 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Monitor</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
 
 
-            </div>
-            <!-- #Menu -->
+        </div>
+        <!-- #Menu -->
 
     </aside>
     <!-- #END# Left Sidebar -->
@@ -159,8 +255,8 @@ if(!isset($_SESSION['username'])){
     </div>
 </div>
 
-<!-- Modal for Delete PPMP -->
-<div class="modal col-lg-12" id="del_ppmp" data-backdrop="static">
+<!-- Modal for Delete Returns -->
+<div class="modal col-lg-12" id="del_returns" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
         <div class="modal-content">
         </div>
@@ -215,7 +311,7 @@ if(!isset($_SESSION['username'])){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/user/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -235,7 +331,7 @@ if(!isset($_SESSION['username'])){
                                 ?>
                             </h3>
 
-                            <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>

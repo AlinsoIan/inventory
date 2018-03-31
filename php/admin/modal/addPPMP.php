@@ -13,7 +13,7 @@
                 <div class="row clearfix">
                     <div class="col-md-3">
                         <div class="">
-                            <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                            <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </label>
                             <select name = 'office'  class="form-control">
                                 <?php
                                 require '../../db.php';
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-2 pull-right">
                         <div class="">
-                            <label>Date :</label>
+                            <label>Date </label>
                             <?php
                             $d = date('Y/n/j');
                             echo "<input type='text' class = 'form-control' name = 'd'  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";

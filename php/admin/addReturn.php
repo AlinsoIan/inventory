@@ -10,7 +10,7 @@ require '../db.php';
 session_start();
 $userID = $_SESSION['user'];
 
-$d = date('h:i:a');
+$da = date('Y:n:j');
 
 $office = $_POST['office'];
 
@@ -43,9 +43,14 @@ if ($c) {
         $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
         $conn->query($sql);
 
-        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date) 
-        VALUES('$cc[0]','$cc[1]','$quantity','$b','increased','$d')";
+        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$cc[0]'";
+        $oo = $conn->query($sql);
+        $j = $oo->fetch_row();
+
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,returnsQuantity,currentQuantity,status) 
+                VALUES('$cc[0]','$j[0]','$da','$cc[1]','$quantity','$b','increased')";
         $conn->query($sql);
+
     }
 
 

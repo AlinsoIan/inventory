@@ -90,10 +90,24 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li class="active">
+                    <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -109,12 +123,35 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="active">
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
@@ -128,6 +165,66 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Monitor</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
+
 
 
             </div>
@@ -141,82 +238,70 @@ if(!isset($_SESSION['username'])){
     <section class="content">
         <div class="container-fluid">
 
-            <!-- Exportable Table -->
+        <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                RAOS EXPORTABLE TABLE
+                                Reports of Available Office Supply (RAOS)
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
-                            <div class="body table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+
                                     <thead>
-                                        <tr>
-                                            <th>SUPPLIER</th>
-                                            <th>IAR NO</th>
-                                            <th>IAR DATE</th>
-                                            <th>IAR AMOUNT</th>
-                                            <th>QUANTITY</th>
-                                            <th>ITEMS</th>
-                                            <th>Settings</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Beginning Balance</th>
+                                        <th>RIS No.</th>
+                                        <th>IAR No.</th>
+                                        <th>Receipt Quantity</th>
+                                        <th>Receipt Unit Cost</th>
+                                        <th>Receipt Supplier</th>
+                                        <th>Issuance Quantity</th>
+                                        <th>Issuance Unit Cost</th>
+                                        <th>Issuance Office</th>
+                                        <th>Balance Quantity</th>
+                                        <th>Balance Brand</th>
+                                        <th>Balance Expiry Date</th>
+                                        <th>Running Balance</th>
+
+                                        
+                                    </tr>
                                     </thead>
+
 
                                     <tbody>
                                     <?php
-                                        require '../php/db.php';
+                                    $conn = new mysqli("localhost","root","","inventory");
+                                    if(!$conn){
+                                        echo "Error Connecting to database !" . $conn->error;
+                                    }
 
+                                    $sql = "SELECT * FROM items";
+                                    $res = $conn->query($sql);
 
-                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
-                                        $res = $conn->query($sql);
-
-                                        if($res){
-                                            while($row = $res->fetch_assoc()){
-                                                echo "<tr>"
-                                                    . "<td>" . $row['supplierName'] ."</td>"
-                                                    . "<td>" . $row['iarno'] ."</td>"
-                                                    . "<td>" . $row['iarDate'] ."</td>"
-                                                    . "<td>" . $row['amount'] ."</td>"
-                                                    . "<td>" . $row['totalQuantity'] ."</td>"
-                                                    . "<td>" . $row['totalItems'] .  "</td>" 
-
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
-                                                echo "</tr>";
-                                            }
-
+                                    if($res){
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['category'] ."</td>"
+                                                . "<td>" . $row['acctSn'] ."</td>"
+                                                . "<td>" . $row['pgsoSn'] ."</td>"
+                                                . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['unit'] ."</td>"
+                                                . "<td>" . $row['startingQuantity'] ."</td>"
+                                                . "<td>" . $row['unitCost'] ."</td>"
+                                                . "<td>" . $row['brand'] ."</td>"
+                                                . "<td>" . $row['orderPoint'] ."</td>"
+                                                . "</tr>";
                                         }
 
+                                    }
+
                                     ?>
-                                    </tbody>
                                 </table>
-                                <h3 class="title pull-left">
-                                    <?php
-
-                                    require '../php/db.php';
-                                    $sql = "SELECT COUNT(deliveryID) FROM delivery";
-                                    $res = $conn->query($sql);
-                                    $r = $res->fetch_row();
-
-                                    echo "Total IAR : " . $r[0];
-                                    ?>
-                                </h3>
-
-                                <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>

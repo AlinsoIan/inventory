@@ -177,7 +177,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -251,7 +251,7 @@ if($_SESSION['type'] == "user"){
                     <div class="card">
                         <div class="header">
                             <h2>
-                                SSMI EXPORTABLE TABLE
+                                Summary of Supplies and Materials Issued (SSMI)
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <label>Select Month</label>
@@ -277,15 +277,11 @@ if($_SESSION['type'] == "user"){
 
                                     <thead>
                                     <tr>
-                                        <th>Category</th>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Order Point</th>
+                                        <th>Date</th>
+                                        <th>Category No.</th>
+                                        <th>RIS No.</th>
+                                        <th>Item Description</th>
+                                        <th>Quantity</th>
                                     </tr>
                                     </thead>
 

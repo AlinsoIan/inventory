@@ -51,7 +51,7 @@ if($_SESSION['type'] == "user"){
 <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header" >
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
@@ -176,7 +176,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>

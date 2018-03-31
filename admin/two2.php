@@ -180,7 +180,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -326,7 +326,7 @@ if($_SESSION['type'] == "user"){
                                                  . "<td>" . $row['d'] .  "</td>"
                                                  . "<td>" . $row['expirationDate'] .  "</td>"
 
-                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems2.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "  ||  " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
+                                                 . "<td>" . "<a href=" .'../php/admin/modal/editItems2.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                              echo "</tr>";
                                          }
 

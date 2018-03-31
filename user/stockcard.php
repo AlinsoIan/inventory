@@ -5,17 +5,18 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
-    </script>";
+    window.location.replace(indeindex.php  </script>";
 }
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Reports: STOCK CARD</title>
+    <title>Inventory: Category 1</title>
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -90,10 +91,24 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li class="active">
+                    <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -108,7 +123,30 @@ if(!isset($_SESSION['username'])){
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li>
+                    <li >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -123,11 +161,70 @@ if(!isset($_SESSION['username'])){
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                             </li>
                         </ul>
                     </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Monitor</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
 
 
             </div>
@@ -137,86 +234,80 @@ if(!isset($_SESSION['username'])){
         <!-- #END# Left Sidebar -->
 
     </section>
+  
+        <!-- Modal for Print Items -->
+    <div class="modal col-lg-12" id="printItem" data-backdrop="static">
+        <div class="modal-dialog" style="width:100%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+   
+
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-            </div>
-
-            <!-- Exportable Table -->
+            <!-- Basic Examples -->
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                STOCK CARD EXPORTABLE TABLE
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <h2 class="text-center">Items</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Order Point</th>
-                                    </tr>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Unit</th>
+                                            <th>Quantity</th>
+                                            <th>Brand</th>
+                                            <th>Re-order Point</th>
+                                            <th>Supplier</th>
+                                            <th>Settings</th>
+                                        </tr>
                                     </thead>
 
-                                    <tbody>
-                                    <?php
-                                    $conn = new mysqli("localhost","root","","inventory");
-                                    if(!$conn){
-                                        echo "Error Connecting to database !" . $conn->error;
-                                    }
+                                   <tbody>
+                                        <?php
+                                        require '../php/db.php';
 
-                                    $sql = "SELECT * FROM items";
-                                    $res = $conn->query($sql);
+                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $_SESSION['cat']= "01";
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['category'] ."</td>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] ."</td>"
-                                                . "<td>" . $row['brand'] ."</td>"
-                                                . "<td>" . $row['orderPoint'] ."</td>"
-                                                . "</tr>";
+                                        $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                                  ,suppliers.supplierName AS d
+                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
+                                        $res = $conn->query($sql);
+
+                                        if($res){
+                                            while($row = $res->fetch_assoc()){
+                                                echo "<tr>"
+                                                    . "<td>" . $row['description'] ."</td>"
+                                                    . "<td>" . $row['a'] ."</td>"
+                                                    . "<td>" . $row['currentQuantity'] .  "</td>"
+                                                    . "<td>" . $row['brand'] .  "</td>"
+                                                    . "<td>" . $row['c'] .  "</td>"
+                                                    . "<td>" . $row['d'] .  "</td>"
+
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
+                                                echo "</tr>";
+                                            }
+
                                         }
 
-                                    }
-
                                     ?>
+                                    </tbody>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Exportable Table -->
+            <!-- #END# Basic Examples -->
         </div>
     </section>
 
@@ -247,8 +338,10 @@ if(!isset($_SESSION['username'])){
     <script src="../js/admin.js"></script>
     <script src="../js/pages/tables/jquery-datatable.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
+    <script src="../js/custom.js"></script>
+
+
+
 </body>
 
 </html>

@@ -50,10 +50,10 @@
                                 <input type="text"  name = "brand" style="width:120px;" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:100px;"   name = "sQuantity" class="form-control">
+                                <input type="number" min="0"  style="width:100px;"   name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number"  style="width:120px;"   name = "unitCost" class="form-control">
+                                <input type="number" min="0" style="width:120px;"   name = "unitCost" class="form-control">
                             </td>
                             <td>
                                 <select class="form-control" name="supplier" style="width: 150px">
@@ -82,12 +82,12 @@
                     <div class="text-center">
 
 
-                        <input type="submit" value="Add" class="btn btn-primary " id="submitD">
+                        <input type="submit" value="ADD" class="btn btn-success " id="submitD">
 
                         <?php
                         session_start();
                         $temp = $_SESSION['temp'];
-                        echo "<a href='../admin/$temp' class='btn btn-primary pull-right' >Cancel</a>";
+                        echo "<a href='../admin/$temp' class='btn btn-danger pull-right' >CANCEL</a>";
                         ?>
                         <br>
                     </div>

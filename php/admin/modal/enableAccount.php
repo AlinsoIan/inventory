@@ -1,32 +1,13 @@
-
-
-<div class='col-md-12'>
-    <div class='card''>
-    <div class='card-header' data-background-color='red'>
-        <h4 class='title text-center'>Activate Account?</h4>
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title text-center">ACTIVATE ACCOUNT?</h3>
     </div>
-    <hr>
-    <div class='card-content text-center'>
+    <div class="modal-body">
         <?php
-            $a = $_GET['num'];
-
-            echo "<a href=" . '../php/admin/enableAccount.php?n=' . $a . " " ." class='btn btn-primary '>Activate</a>";
+        $a = $_GET['num'];
+        echo "<a href=" . '../php/admin/enableAccount.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Activate</a>";
         ?>
-
-        ||
-        <a href="../admin/accounts.php" class='btn btn-primary ' id='submitB'>Cancel</a>
-
-
-
+        <a href="../admin/accounts.php" class='btn btn-primary pull-right'>Cancel</a>
     </div>
-    <br>
 </div>
-
-
-
-
-
-
-
-
-

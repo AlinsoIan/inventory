@@ -1,32 +1,19 @@
-
-
-<div class='col-md-12'>
-    <div class='card''>
-    <div class='card-header' data-background-color='red'>
-        <h4 class='title text-center'>Delete Delivery?</h4>
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title text-center">DELETE RETURN?</h3>
     </div>
-    <hr>
-    <div class='card-content text-center'>
+    <div class="modal-body">
         <?php
-            $a = $_GET['num'];
+        $a = $_GET['num'];
 
-            echo "<a href=" . '../php/admin/deleteReturns.php?n=' . $a . " " ." class='btn btn-primary '>Delete</a>";
+        echo "<a href=" . '../php/admin/deleteRETURNS.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
         ?>
 
-        ||
-        <a href="../admin/returns.php" class='btn btn-primary ' id='submitB'>Cancel</a>
-
-
+        <a href="../admin/RETURNS.php" class='btn btn-primary pull-right'>Cancel</a>
+    </div>
+    <div class="modal-footer">
 
     </div>
-    <br>
+
 </div>
-
-
-
-
-
-
-
-
-

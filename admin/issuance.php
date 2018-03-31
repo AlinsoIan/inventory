@@ -181,7 +181,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -312,7 +312,7 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
                                                     . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 

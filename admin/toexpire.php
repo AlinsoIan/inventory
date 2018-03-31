@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
+    window.location.replace(index.php);
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -13,7 +13,7 @@ if($_SESSION['type'] == "user"){
     $m="Unauthorized Access";
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.php');
+    window.location.replace('../index.html');
     </script>";
 }
 ?>
@@ -97,13 +97,14 @@ if($_SESSION['type'] == "user"){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                    
                     <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                  <li>
+                    <li>
                         <a href="delivery.php">
                             <i class="material-icons">event_note</i>
                             <span>Delivery</span>
@@ -176,7 +177,7 @@ if($_SESSION['type'] == "user"){
                         <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -233,7 +234,6 @@ if($_SESSION['type'] == "user"){
                         </li>
 
 
-
             </div>
             <!-- #Menu -->
 
@@ -241,31 +241,13 @@ if($_SESSION['type'] == "user"){
         <!-- #END# Left Sidebar -->
 
     </section>
-
-    <!-- Modal for Add Account -->
-    <div class="modal col-lg-12" id="add_account" data-backdrop="static">
-        <div class="modal-dialog" style="width:80%;">
+     <!-- Modal for Edit Reorder -->
+    <div class="modal col-lg-12" id="edit_reorder" data-backdrop="static">
+        <div class="modal-dialog" style="width:99%;" >
             <div class="modal-content">
             </div>
         </div>
     </div>
-
-    <!-- Modal for Edit Account -->
-    <div class="modal col-lg-12" id="edit_toexpire" data-backdrop="static">
-        <div class="modal-dialog" style="width:99%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for Delete Account -->
-    <div class="modal col-lg-12" id="del_account" data-backdrop="static">
-        <div class="modal-dialog" style="width:20%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
 
     <section class="content">
         <div class="container-fluid">
@@ -276,41 +258,43 @@ if($_SESSION['type'] == "user"){
                         <div class="header">
                             <h2 class="text-center">TO EXPIRE</h2>
                         </div>
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Item Description</th>
-                                        <th>Brand</th>
-                                        <th>Quantity</th>
-                                        <th>Expiry Date</th>
-										
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                require '../php/db.php';
-                                $sql = "SELECT * FROM items WHERE category = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
-                                $res = $conn->query($sql);
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>CATEGORY</th>
+                                            <th>ITEM DESCRIPTION</th>
+                                            <th>BRAND</th>
+                                            <th>QUANTITY</th>
+                                            <th>EXPIRY DATE</th>
+                                        </tr>
+                                    </thead>
 
-                                if($res){
-                                    while ($row = $res->fetch_assoc()){
-                                        echo  "<tr>";
+                                    <tbody>
+                                    <?php
+                                    require '../php/db.php';
+                                    $sql = "SELECT * FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE categoryNo = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
+                                    $res = $conn->query($sql);
+
+                                    if($res){
+                                        while ($row = $res->fetch_assoc()){
+                                            echo  "<tr>";
                                         
-                                        echo "<td>" . $row['category'] . "</td>";
-                                        echo "<td>" . $row['description'] . "</td>";
-                                        echo "<td>" . $row['brand'] . "</td>";
-                                        echo "<td>" . $row['startingQuantity'] . "</td>";
-                                        echo "<td>" . $row['expirationDate'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editToExpire.php?num=' .$row['id'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_toexpire'>mode_edit</a>" . "</td>";
-                                        echo "</tr>";
+                                            echo "<td>" . $row['categoryNo'] . "</td>";
+                                            echo "<td>" . $row['description'] . "</td>";
+                                            echo "<td>" . $row['brand'] . "</td>";
+                                            echo "<td>" . $row['currentQuantity'] . "</td>";
+                                            echo "<td>" . $row['expirationDate'] . "</td>";
+                                            echo "</tr>";
+                                        }
                                     }
-                                }
 
-                                ?>
-                                </tbody>
-                            </table>
+                                    ?>
+                                    </tbody>
+                                </table>
+                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -327,12 +311,23 @@ if($_SESSION['type'] == "user"){
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
 
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
+    <script src="../js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>

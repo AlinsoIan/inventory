@@ -177,7 +177,7 @@ if($_SESSION['type'] == "user"){
                         <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li class="active">
@@ -270,7 +270,7 @@ if($_SESSION['type'] == "user"){
                                             <th>BRAND</th>
                                             <th>STARTING QUANTITY</th>
                                             <th>RO-P</th>
-                                            <th>Settings</th>
+
                                         </tr>
                                     </thead>
 
@@ -281,20 +281,21 @@ if($_SESSION['type'] == "user"){
                                             echo "Error Connecting to database !" . $conn->error;
                                         }
 
-                                        $sql = "SELECT * FROM items WHERE logicalCount <= orderPoint";
+                                        $sql = "SELECT * FROM inventory JOIN items ON inventory.itemID = items.itemID JOIN units ON items.unitID = units.unitID  
+                                                      WHERE currentQuantity <= reorderPoint";
                                         $res = $conn->query($sql);
 
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
-                                                    . "<td>" . $row['category'] ."</td>"
+                                                    . "<td>" . $row['categoryNo'] ."</td>"
                                                     . "<td>" . $row['description'] ."</td>"
-                                                    . "<td>" . $row['unit'] ."</td>"
+                                                    . "<td>" . $row['unitName'] ."</td>"
                                                     . "<td>" . $row['startingQuantity'] ."</td>"
                                                     . "<td>" . $row['unitCost'] ."</td>"
                                                     . "<td>" . $row['brand'] ."</td>"
-                                                    . "<td>" . $row['orderPoint'] ."</td>"
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/editReorder.php?num=' .$row['id'] . "  " . " class='material-icons text-center' data-toggle='modal' data-target='#edit_reorder'>mode_edit</a>" . "</td>";
+                                                    . "<td>" . $row['reorderPoint'] ."</td>";
+
                                                 echo "</tr>";
                                             }
 

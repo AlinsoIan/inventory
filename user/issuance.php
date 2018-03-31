@@ -100,6 +100,20 @@ if(!isset($_SESSION['username'])){
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
+                        </a>
+                    </li>
                     <li class="active">
                         <a href="issuance.php">
                             <i class="material-icons">store_mall_directory</i>
@@ -111,6 +125,29 @@ if(!isset($_SESSION['username'])){
                             <i class="material-icons">event_note</i>
                             <span>Returns</span>
                         </a>
+                    </li>
+                    <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+                    </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -132,6 +169,66 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Monitor</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
+
 
 
             </div>
@@ -195,9 +292,8 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $a = $_SESSION['user'];
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID WHERE issuer = '$a'";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -208,7 +304,7 @@ if(!isset($_SESSION['username'])){
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
                                                     . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -221,7 +317,7 @@ if(!isset($_SESSION['username'])){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(issuanceID) FROM issuance WHERE issuer = '$a'";
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 
@@ -229,7 +325,7 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                 </h3>
 
-                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>

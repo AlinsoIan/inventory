@@ -90,10 +90,24 @@ if(!isset($_SESSION['username'])){
             <div class="menu">
                 <ul class="list">
                     
-                    <li class="active">
+                    <li>
                         <a href="dashboard.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="ppmp.php">
+                            <i class="material-icons">event_note</i>
+                            <span>PPMP</span>
                         </a>
                     </li>
                     <li>
@@ -109,6 +123,29 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="items2.php"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php"><strong>Category 5</strong></a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -120,7 +157,7 @@ if(!isset($_SESSION['username'])){
                             <li>
                                 <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -128,6 +165,65 @@ if(!isset($_SESSION['username'])){
                             </li>
                         </ul>
                     </li>
+                    
+                        <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Monitor</span>
+                        </a>
+                        <ul class="ml-menu">
+                        <li>
+                        <a href="reorder.php">
+                            <i class="material-icons">error</i>
+                            <span>Re-order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toexpire.php">
+                            <i class="material-icons">assignment</i>
+                            <span>To-Expire</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="logs.php">
+                        <i class="material-icons">view_list</i>
+                        <span>Account Logs</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="history.php">
+                        <i class="material-icons">view_list</i>
+                        <span>History</span>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Manage</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="accounts.php">
+                                    <i class="material-icons">people</i>
+                                    <span>Accounts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="supplier.php">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="offices.php">
+                                    <i class="material-icons">location_city</i>
+                                    <span>Offices</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
 
 
             </div>
@@ -147,7 +243,7 @@ if(!isset($_SESSION['username'])){
                     <div class="card">
                         <div class="header">
                             <h2>
-                                SSMI EXPORTABLE TABLE
+                                Summary of Supplies and Materials Issued (SSMI)
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <label>Select Month</label>
@@ -173,15 +269,11 @@ if(!isset($_SESSION['username'])){
 
                                     <thead>
                                     <tr>
-                                        <th>Category</th>
-                                        <th>Acct-Sn</th>
-                                        <th>Pgso-Sn</th>
-                                        <th>Description</th>
-                                        <th>Unit</th>
-                                        <th>Starting Quantity</th>
-                                        <th>Unit Cost</th>
-                                        <th>Brand</th>
-                                        <th>Order Point</th>
+                                        <th>Date</th>
+                                        <th>Category No.</th>
+                                        <th>RIS No.</th>
+                                        <th>Item Description</th>
+                                        <th>Quantity</th>
                                     </tr>
                                     </thead>
 

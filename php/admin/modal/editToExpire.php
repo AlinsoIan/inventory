@@ -106,7 +106,7 @@
                             require '../../db.php';
                             $a = $_GET['num'];
 
-                            $sql = "SELECT startingQuantity FROM items WHERE id = '$a'";
+                            $sql = "SELECT startingQuantity FROM inventory WHERE id = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 

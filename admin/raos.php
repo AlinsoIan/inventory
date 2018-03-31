@@ -177,7 +177,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -246,82 +246,70 @@ if($_SESSION['type'] == "user"){
     <section class="content">
         <div class="container-fluid">
 
-            <!-- Exportable Table -->
+        <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                RAOS EXPORTABLE TABLE
+                                Reports of Available Office Supply (RAOS)
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
-                            <div class="body table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+
                                     <thead>
-                                        <tr>
-                                            <th>SUPPLIER</th>
-                                            <th>IAR NO</th>
-                                            <th>IAR DATE</th>
-                                            <th>IAR AMOUNT</th>
-                                            <th>QUANTITY</th>
-                                            <th>ITEMS</th>
-                                            <th>Settings</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Beginning Balance</th>
+                                        <th>RIS No.</th>
+                                        <th>IAR No.</th>
+                                        <th>Receipt Quantity</th>
+                                        <th>Receipt Unit Cost</th>
+                                        <th>Receipt Supplier</th>
+                                        <th>Issuance Quantity</th>
+                                        <th>Issuance Unit Cost</th>
+                                        <th>Issuance Office</th>
+                                        <th>Balance Quantity</th>
+                                        <th>Balance Brand</th>
+                                        <th>Balance Expiry Date</th>
+                                        <th>Running Balance</th>
+
+                                        
+                                    </tr>
                                     </thead>
+
 
                                     <tbody>
                                     <?php
-                                        require '../php/db.php';
+                                    $conn = new mysqli("localhost","root","","inventory");
+                                    if(!$conn){
+                                        echo "Error Connecting to database !" . $conn->error;
+                                    }
 
+                                    $sql = "SELECT * FROM items";
+                                    $res = $conn->query($sql);
 
-                                        $sql = "SELECT *,delivery.deliveryID AS idd FROM delivery JOIN suppliers ON delivery.supplierID = suppliers.supplierID";
-                                        $res = $conn->query($sql);
-
-                                        if($res){
-                                            while($row = $res->fetch_assoc()){
-                                                echo "<tr>"
-                                                    . "<td>" . $row['supplierName'] ."</td>"
-                                                    . "<td>" . $row['iarno'] ."</td>"
-                                                    . "<td>" . $row['iarDate'] ."</td>"
-                                                    . "<td>" . $row['amount'] ."</td>"
-                                                    . "<td>" . $row['totalQuantity'] ."</td>"
-                                                    . "<td>" . $row['totalItems'] .  "</td>" 
-
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIAR.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewIAR'>mode_edit</a>" . "</td>";
-                                                echo "</tr>";
-                                            }
-
+                                    if($res){
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['category'] ."</td>"
+                                                . "<td>" . $row['acctSn'] ."</td>"
+                                                . "<td>" . $row['pgsoSn'] ."</td>"
+                                                . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['unit'] ."</td>"
+                                                . "<td>" . $row['startingQuantity'] ."</td>"
+                                                . "<td>" . $row['unitCost'] ."</td>"
+                                                . "<td>" . $row['brand'] ."</td>"
+                                                . "<td>" . $row['orderPoint'] ."</td>"
+                                                . "</tr>";
                                         }
 
+                                    }
+
                                     ?>
-                                    </tbody>
                                 </table>
-                                <h3 class="title pull-left">
-                                    <?php
-
-                                    require '../php/db.php';
-                                    $sql = "SELECT COUNT(deliveryID) FROM delivery";
-                                    $res = $conn->query($sql);
-                                    $r = $res->fetch_row();
-
-                                    echo "Total IAR : " . $r[0];
-                                    ?>
-                                </h3>
-
-                                <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addIAR">Add IAR</a>
                             </div>
                         </div>
                     </div>

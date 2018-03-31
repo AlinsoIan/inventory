@@ -180,7 +180,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -305,7 +305,7 @@ if($_SESSION['type'] == "user"){
                                                 echo "<td>" . $row['abbrv'] . "</td>";
                                                 echo "<td>" . $row['fppCode'] . "</td>";
                                                 echo "<td>" . $row['rcCode'] . "</td>";
-                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['officeID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['officeID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
+                                                echo "<td>" . "<a href=" .'../php/admin/modal/editOffice.php?num=' .$row['officeID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  &nbsp &nbsp &nbsp  " . "<a href=" .'../php/admin/modal/deleteOffice.php?num=' .$row['officeID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
                                         }

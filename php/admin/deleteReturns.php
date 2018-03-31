@@ -14,6 +14,8 @@ $sql = "SELECT itemID,itemQuantity FROM returns WHERE returnID = '$a'";
 $rr = $conn->query($sql);
 $rrr = $rr->fetch_row();
 
+$da = date('Y:n:j');
+
 
 
 $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$rrr[0]'";
@@ -28,6 +30,20 @@ if($conn->query($sql)){
 
     $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$rrr[0]'";
     $conn->query($sql);
+
+    $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$rrr[0]'";
+    $oo = $conn->query($sql);
+    $j = $oo->fetch_row();
+
+    $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,returnsQuantity,currentQuantity,status) 
+                VALUES('$rrr[0]','$j[0]','$da','$r[0]','$rrr[1]','$b','decreased')";
+    $conn->query($sql);
+
+
+    $p = $rrr[0] . "," . $j[0] . ", " . $da. ", " .$r[0]. ", " .$rrr[1]. ", " .$b. ",  " ."decreased";
+    $sql = "INSERT INTO asa(a) VALUES('$p')";
+    $conn->query($sql);
+
 
     header("Location:../../admin/returns.php");
 

@@ -1,32 +1,19 @@
-
-
-<div class='col-md-12'>
-    <div class='card''>
-    <div class='card-header' data-background-color='red'>
-        <h4 class='title text-center'>Disable Account?</h4>
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title text-center">DISABLE ACCOUNT?</h3>
     </div>
-    <hr>
-    <div class='card-content text-center'>
+    <div class="modal-body">
         <?php
-            $a = $_GET['num'];
+        $a = $_GET['num'];
 
-            echo "<a href=" . '../php/admin/disableAccount.php?n=' . $a . " " ." class='btn btn-primary '>Disable</a>";
+        echo "<a href=" . '../php/admin/disableAccount.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Disable</a>";
         ?>
 
-        ||
-        <a href="../admin/accounts.php" class='btn btn-primary ' id='submitB'>Cancel</a>
-
-
+        <a href="../admin/accounts.php" class='btn btn-primary pull-right'>Cancel</a>
+    </div>
+    <div class="modal-footer">
 
     </div>
-    <br>
+
 </div>
-
-
-
-
-
-
-
-
-

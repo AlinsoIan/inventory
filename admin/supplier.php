@@ -190,7 +190,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -315,7 +315,7 @@ if($_SESSION['type'] == "user"){
                                     echo "<td>" . $row['tinNo'] . "</td>";
                                     echo "<td>" . $row['address'] . "</td>";
                                     echo "<td>" . $row['contactNo'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
+                                    echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . " &nbsp " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "    " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }

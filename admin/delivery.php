@@ -181,7 +181,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -292,7 +292,7 @@ if($_SESSION['type'] == "user"){
                                     <th>Item</th>
                                     <th>Unit</th>
                                     <th>Supplier</th>
-                                    <th>Qty</th>
+                                    <th>Quantity</th>
                                     <th>Delivery Date</th>
                                     <th>Settings</th>
                                 </tr>

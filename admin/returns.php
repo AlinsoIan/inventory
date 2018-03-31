@@ -181,7 +181,7 @@ if($_SESSION['type'] == "user"){
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -263,8 +263,8 @@ if($_SESSION['type'] == "user"){
     </div>
 </div>
 
-<!-- Modal for Delete PPMP -->
-<div class="modal col-lg-12" id="del_ppmp" data-backdrop="static">
+<!-- Modal for Delete Returns -->
+<div class="modal col-lg-12" id="del_returns" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
         <div class="modal-content">
         </div>
@@ -319,7 +319,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }

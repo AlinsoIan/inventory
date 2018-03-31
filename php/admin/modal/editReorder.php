@@ -157,7 +157,7 @@
                         <input type="submit" value="UPDATE" class="btn btn-primary " id="submitD">
 
 
-                        <a href="../admin/reorder.php" class="btn btn-primary pull-right" >CLOSE</a>
+                        <a href="../admin/reorder.php" class="btn btn-danger pull-right" >CLOSE</a>
 
                         <br>
                     </div>

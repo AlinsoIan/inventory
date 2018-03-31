@@ -66,7 +66,7 @@
                             <input name="res" class="form-control" type="text" required>
                         </td>
                         <td>
-                            <input name="quantity" class="form-control" onkeypress="return isNumberKey(event)" type="number" required>
+                            <input name="quantity" min="0" class="form-control" onkeypress="return isNumberKey(event)" type="number" required>
                         </td>
                         <td>
                             <select name="status" class="form-control" >
@@ -82,10 +82,10 @@
                     <div class="text-center">
 
 
-                        <input type="submit" value="Add" class="btn btn-primary " id="submitD">
+                        <input type="submit" value="ADD" class="btn btn-success " id="submitD">
 
 
-                        <a href="../admin/returns.php" class="btn btn-primary pull-right">Cancel</a>
+                        <a href="../admin/returns.php" class="btn btn-danger pull-right">CLOSE</a>
 
                         <br>
                     </div>

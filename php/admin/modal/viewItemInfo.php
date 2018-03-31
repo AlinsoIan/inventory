@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-md-3 ">
                                 <p class="text-center">Item Description</p>
-                                <?php
+                               <?php
                                 $i = $_GET['num'];
                                 require '../../db.php';
                                 $sql = "SELECT description FROM items WHERE itemID = '$i'";
@@ -38,31 +38,37 @@
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                             <thead>
                             <tr>
-                                <th>Current Quantity</th>
-                                <th>Quantity</th>
-                                <th>Status</th>
-                                <th>Latest Quantity</th>
+                               
                                 <th>Date</th>
+                                <th>Starting Quantity</th>
+                                <th>Delivery(IN)</th>
+                                <th>Returns(IN)</th>
+                                <th>Issuance(OUT)</th>
+                                <th>Current Quantity</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            <?php
+                           <?php
                             require '../../db.php';
 
                             $a = $_GET['num'];
 
-                            $sql = "SELECT currentQuantity,quantity,status,latestQuantity,date FROM itemrecords JOIN items ON itemrecords.itemID = items.itemID
-                                                    WHERE itemrecords.itemID = '$a' ORDER BY itemrecordsID ASC";
+                            $sql = "SELECT recordDate,startingQuantity,deliveryQuantity,returnsQuantity,issuanceQuantity,currentQuantity,status
+                                FROM itemrecords WHERE itemID= '$a'";
                             $res = $conn->query($sql);
                             if($res){
                                 while($row = $res->fetch_assoc()){
                                     echo "<tr>".
+                                        "<td>" . $row['recordDate'] ."</td>".
+                                        "<td>" . $row['startingQuantity'] ."</td>".
+                                        "<td>" . $row['deliveryQuantity'] ."</td>".
+                                        "<td>" . $row['returnsQuantity'] ."</td>".
+                                        "<td>" . $row['issuanceQuantity'] ."</td>".
                                         "<td>" . $row['currentQuantity'] ."</td>".
-                                        "<td>" . $row['quantity'] ."</td>".
                                         "<td>" . $row['status'] ."</td>".
-                                        "<td>" . $row['latestQuantity'] ."</td>".
-                                        "<td>" . $row['date'] ."</td>".
+                                        
                                         "</tr>";
                                 }
                             }
@@ -72,6 +78,7 @@
                         </table>
 
                         <?php
+
                         session_start();
                         $temp = $_SESSION['temp'];
                         echo "<a href='../admin/$temp' class='btn btn-primary pull-right' >Close</a>";

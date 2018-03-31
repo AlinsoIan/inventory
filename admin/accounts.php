@@ -180,7 +180,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
-                            <span>Other Transaction</span>
+                            <span>Monitor</span>
                         </a>
                         <ul class="ml-menu">
                         <li>
@@ -303,7 +303,7 @@ if ($_SESSION['type'] == "user") {
                                     echo "<td>" . $row['userName'] . "</td>";
                                     echo "<td>" . $row['password'] . "</td>";
                                     echo "<td>" . $row['userType'] . "</td>";
-                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" . '../php/admin/modal/disableAccount.php?num=' . $row['accountID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>remove</a>" . "</td>";
+                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/disableAccount.php?num=' . $row['accountID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>remove</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }
@@ -351,7 +351,7 @@ if ($_SESSION['type'] == "user") {
                                     echo "<td>" . $row['userName'] . "</td>";
                                     echo "<td>" . $row['password'] . "</td>";
                                     echo "<td>" . $row['userType'] . "</td>";
-                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "  ||  " . "<a href=" . '../php/admin/modal/enableAccount.php?num=' . $row['accountID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>add</a>" . "</td>";
+                                    echo "<td>" . "<a href=" . '../php/admin/modal/editAccount.php?num=' . $row['accountID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_account'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/enableAccount.php?num=' . $row['accountID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_account'>add</a>" . "</td>";
                                     echo "</tr>";
                                 }
                             }
