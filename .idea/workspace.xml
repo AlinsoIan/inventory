@@ -2,65 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/officeInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/officeInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/admin/modal/printItem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/user/modal/viewReturn.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/contingency.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/five2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/four2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/offices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ppmp.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ppmp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/reorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/reorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/rosi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/rosi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/three2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/toexpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/toexpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/two2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deletePPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deletePPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editItems2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editItems2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editReorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editReorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editToExpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editToExpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/enableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/enableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addReturn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/deleteReturns.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/issueDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/issueDelete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/rosi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/rosi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/stockcard.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,15 +39,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="issuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/issuance.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="officeInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/officeInfo.php">
           <provider selected="true" editor-type-id="text-editor" />
@@ -106,51 +47,24 @@
       <file leaf-file-name="raos.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/raos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="192">
+              <caret line="117" column="25" lean-forward="true" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="returns.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/returns.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rosi.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/rosi.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ssmi.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/ssmi.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stockcard.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/user/stockcard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/category.php">
+      <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="issuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/issuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="329" column="68" selection-start-line="329" selection-start-column="68" selection-end-line="329" selection-end-column="68" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -242,12 +156,12 @@
         <option value="$PROJECT_DIR$/admin/officeInfo.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
         <option value="$PROJECT_DIR$/user/dashboard.php" />
-        <option value="$PROJECT_DIR$/user/issuance.php" />
         <option value="$PROJECT_DIR$/user/raos.php" />
         <option value="$PROJECT_DIR$/user/returns.php" />
         <option value="$PROJECT_DIR$/user/rosi.php" />
         <option value="$PROJECT_DIR$/user/ssmi.php" />
         <option value="$PROJECT_DIR$/user/stockcard.php" />
+        <option value="$PROJECT_DIR$/user/issuance.php" />
       </list>
     </option>
   </component>
@@ -279,12 +193,33 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modal" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modal" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -317,8 +252,8 @@
       <recent name="C:\wamp64\www\inventory\php\admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\inventory\user" />
       <recent name="C:\wamp64\www\inventory\php\user\modal" />
+      <recent name="C:\wamp64\www\inventory\user" />
       <recent name="C:\wamp64\www\inventory\php\user" />
       <recent name="C:\wamp64\www\inventory\admin" />
       <recent name="C:\wamp64\www\inventory\php\admin\modal" />
@@ -474,7 +409,7 @@
       <workItem from="1522276632930" duration="34921000" />
       <workItem from="1522346756354" duration="60000" />
       <workItem from="1522346960298" duration="3906000" />
-      <workItem from="1522450741972" duration="31371000" />
+      <workItem from="1522450741972" duration="32821000" />
     </task>
     <task id="LOCAL-00001" summary="Latest">
       <created>1515713212364</created>
@@ -686,26 +621,33 @@
       <option name="project" value="LOCAL" />
       <updated>1522414751039</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Latest">
+      <created>1522515202521</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1522515202522</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="477654000" />
+    <option name="totallyTimeSpent" value="479104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2246596" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5087848" side_tool="true" weight="0.32546374" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49924356" weight="0.32715008" />
       <window_info anchor="bottom" id="Run" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32941177" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2246596" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49121523" weight="0.32546374" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -718,7 +660,6 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49121523" weight="0.32546374" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
@@ -753,13 +694,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/admin/addAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/issueDelete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1087,30 +1021,6 @@
     <entry file="file://$PROJECT_DIR$/user/category.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/issuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/officeInfo.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/raos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/returns.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1134,10 +1044,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user/stockcard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/issuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="329" column="68" selection-start-line="329" selection-start-column="68" selection-end-line="329" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/officeInfo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/raos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="117" column="25" lean-forward="true" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

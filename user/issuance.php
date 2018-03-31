@@ -292,8 +292,10 @@ if(!isset($_SESSION['username'])){
                                         require '../php/db.php';
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                        $aa = $_SESSION['user'];
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
+                                                WHERE accountID = '$aa'";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -304,7 +306,7 @@ if(!isset($_SESSION['username'])){
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
                                                     . "<td>" . $row['type'] ."</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                                    . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
                                             }
 
@@ -325,7 +327,7 @@ if(!isset($_SESSION['username'])){
                                     ?>
                                 </h3>
 
-                                <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
+                                <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@
                         REQUISITION AND ISSUE SLIP
                     </h2>
                 </div>
-                <form action="../php/user/addNewIssue.php" method="post">
+                <form action="../php/admin/addNewIssue.php" method="post">
                     <div class="body">
                         <div class="row">
                             <div class="col-md-3 ">
@@ -39,25 +39,25 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="">
-                                <label>Division &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
+                                <label>Division &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
                                 <input type="text" name="division" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label class="label-floating text-center">Responsibility :</label>
-                                <input type="text" name="responsibilityCenter" class="form-control" required>
+                                <label class="label-floating text-center">Responsibility </label>
+                                <input type="text" disabled id = "rc" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>RIS # :</label>
+                                <label>RIS No.</label>
                                 <input type="text" name="ris" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="">
-                                <label>Date :</label>
+                                <label>Date </label>
                                 <?php
                                 $d = date('Y/n/j');
 
@@ -69,8 +69,8 @@
                     <div class="row clearfix">
                         <div class="col-md-4">
                             <div class="">
-                                <label>Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                                <select name='office' class="form-control">
+                                <label>Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </label>
+                                <select name='office' id="office" class="form-control">
                                     <?php
 
                                     require '../../db.php';
@@ -78,9 +78,9 @@
                                     $res = $conn->query($sql);
                                     if ($res) {
                                         while ($row = $res->fetch_assoc()) {
-                                            echo "<option>" . $row['a'] . "</option>";
-                                        }
+                                            echo "<option value='" . $row['a'] ."'>" . $row['a'] . "</option>";
 
+                                        }
                                     }
                                     ?>
 
@@ -89,19 +89,19 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp :</label>
-                                <input type="text" name="fpp" required class="form-control">
+                                <label>FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </label>
+                                <input type="text" id="fpp" disabled required class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>SAi # :</label>
-                                <input type="text" name="sai" required class="form-control">
+                                <label>SAI No. </label>
+                                <input type="text" name="sai"  required class="form-control">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="">
-                                <label>Date :</label>
+                                <label>Date </label>
                                 <?php
                                 $d = date('Y/n/j');
 
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row clearfix">
+                    <div onload="getInfo();" class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
                             <th width="8%">Category</th>
@@ -167,9 +167,9 @@
 
                                 </td>
 
-                                <td><input type="number" name="qRequested[]" min="0"
+                                <td><input type="number" name="qRequested[]" id="req" min="0"
                                            onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="number" class="form-control" name="qIssued[]" min="0"
+                                <td><input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
                                            onkeypress="return isNumberKey(event)" required class="form-control"></td>
                                 <td><input type="text" name="remarks[]" size="30px" class="form-control"></td>
                             </tr>
@@ -185,7 +185,7 @@
                     <div class="modal-footer text-center">
                         <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                         <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../user/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
                     </div>
 
             </div>
@@ -262,4 +262,42 @@
         });
 
     });
+
+    $('#office').change(function () {
+        $id = $(this).val();
+        $.ajax({
+            url: 'officeInfo.php',
+            data: {office: $id},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#fpp').val(data[0]);
+                $('#rc').val(data[1]);
+            }
+        });
+
+    });
+
+
+    var x = document.getElementById('office').value;
+    $.ajax({
+        url: 'officeInfo.php',
+        data: {office: x},
+        dataType: 'JSON',
+        success: function (data) {
+            $('#fpp').val(data[0]);
+            $('#rc').val(data[1]);
+        }
+    });
+
+
+    $('#req').blur(function () {
+        var r = $(this).val();
+        $('#iss').attr('max',r);
+    })
+
+
+
+
+
+
 </script>
