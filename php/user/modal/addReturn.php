@@ -7,7 +7,7 @@
                     RETURNS
                 </h2>
             </div>
-            <form action="../php/admin/addReturn.php" method="post">
+            <form action="../php/user/addReturn.php" method="post">
                 <div class="body">
                 <div class="row">
                     <div class="col-md-3">
@@ -85,7 +85,7 @@
                         <input type="submit" value="ADD" class="btn btn-success " id="submitD">
 
 
-                        <a href="../admin/returns.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../user/returns.php" class="btn btn-danger pull-right">CLOSE</a>
 
                         <br>
                     </div>

@@ -11,7 +11,7 @@
                         REQUISITION AND ISSUE SLIP
                     </h2>
                 </div>
-                <form action="../php/admin/addNewIssue.php" method="post">
+                <form action="../php/user/addNewIssue.php" method="post">
                     <div class="body">
                         <div class="row">
                             <div class="col-md-3 ">
@@ -185,7 +185,7 @@
                     <div class="modal-footer text-center">
                         <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                         <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../user/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
                     </div>
 
             </div>

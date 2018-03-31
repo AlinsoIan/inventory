@@ -84,156 +84,60 @@ if(!isset($_SESSION['username'])){
         </div>
     </nav>
 <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    
-                    <li>
-                        <a href="dashboard.php">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="issuance.php">
-                            <i class="material-icons">store_mall_directory</i>
-                            <span>Issuance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="returns.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
-                    </li>
-                    <li >
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+
+                <li>
+                    <a href="dashboard.php">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="issuance.php">
+                        <i class="material-icons">store_mall_directory</i>
+                        <span>Issuance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="returns.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Returns</span>
+                    </a>
+                </li>
+
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">assignment</i>
-                        <span>Inventory</span>
+                        <i class="material-icons">view_list</i>
+                        <span>Reports</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="items2.php"><strong>Category 1</strong></a>
+                            <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="two2.php"><strong>Category 2</strong></a>
+                            <a href="rosi.php"><strong>ROSI</strong></a>
                         </li>
                         <li>
-                            <a href="three2.php"><strong>Category 3</strong></a>
+                            <a href="ssmi.php"><strong>SSMI</strong></a>
                         </li>
-                        <li>
-                            <a href="four2.php"><strong>Category 4</strong></a>
-                        </li>
-                        <li>
-                            <a href="five2.php"><strong>Category 5</strong></a>
+                        <li class="active">
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                         </li>
                     </ul>
-                    </li>
-                    <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li class="active">
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Monitor</span>
-                        </a>
-                        <ul class="ml-menu">
-                        <li>
-                        <a href="reorder.php">
-                            <i class="material-icons">error</i>
-                            <span>Re-order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="toexpire.php">
-                            <i class="material-icons">assignment</i>
-                            <span>To-Expire</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="logs.php">
-                        <i class="material-icons">view_list</i>
-                        <span>Account Logs</span>
-                    </a>
-                    </li>
-                    <li>
-                    <a href="history.php">
-                        <i class="material-icons">view_list</i>
-                        <span>History</span>
-                    </a>
-                    </li>
-                </ul>
                 </li>
-                <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Manage</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="accounts.php">
-                                    <i class="material-icons">people</i>
-                                    <span>Accounts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="supplier.php">
-                                    <i class="material-icons">local_shipping</i>
-                                    <span>Suppliers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="offices.php">
-                                    <i class="material-icons">location_city</i>
-                                    <span>Offices</span>
-                                </a>
-                            </li>
-                        </ul>
-                        </li>
 
+        </div>
+        <!-- #Menu -->
 
-            </div>
-            <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar -->
 
-        </aside>
-        <!-- #END# Left Sidebar -->
-
-    </section>
+</section>
   
         <!-- Modal for Print Items -->
     <div class="modal col-lg-12" id="printItem" data-backdrop="static">

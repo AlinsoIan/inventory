@@ -10,7 +10,7 @@
             <?php
             $a = $_GET['num'];
 
-            echo "<form action=" . '../php/admin/approveIssuance.php?num=' . $a . " " . "' method='post'>";
+            echo "<form action=" . '../php/user/approveIssuance.php?num=' . $a . " " . "' method='post'>";
             ?>
 
                 <div class="body">
@@ -248,7 +248,7 @@
 
 
                         <div class="text-center">
-                            <a href="../admin/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
+                            <a href="../user/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
                         </div>
                     </div>
 

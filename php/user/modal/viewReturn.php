@@ -7,7 +7,7 @@
                     RETURNS
                 </h2>
             </div>
-            <form action="../php/admin/addReturn.php" method="post">
+            <form action="../php/user/addReturn.php" method="post">
                 <div class="body">
                 <div class="row">
                     <div class="col-md-3">
@@ -113,7 +113,7 @@
 
 
 
-                        <a href="../admin/returns.php" class="btn btn-primary pull-right">Close</a>
+                        <a href="../user/returns.php" class="btn btn-primary pull-right">Close</a>
 
                         <br>
                     </div>

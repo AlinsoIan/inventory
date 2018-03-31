@@ -10,7 +10,7 @@ require '../db.php';
 session_start();
 $userID = $_SESSION['user'];
 
-$d = date('h:i:a');
+$da = date('Y:n:j');
 
 $office = $_POST['office'];
 
@@ -28,8 +28,7 @@ $ress = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
-$sql = "INSERT INTO history(accountID,activity,actDate,type)
-                    VALUES ('$userID','returned','$d','Returns')";
+$sql = "INSERT INTO history(accountID,activity,actDate,type) VALUES('$userID','returned','$d','Returns')";
 $conn->query($sql);
 
 
@@ -43,6 +42,15 @@ if ($c) {
 
         $sql = "UPDATE inventory SET currentQuantity = '$b' WHERE itemID = '$cc[0]'";
         $conn->query($sql);
+
+        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$cc[0]'";
+        $oo = $conn->query($sql);
+        $j = $oo->fetch_row();
+
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,returnsQuantity,currentQuantity,status) 
+                VALUES('$cc[0]','$j[0]','$da','$cc[1]','$quantity','$b','increased')";
+        $conn->query($sql);
+
     }
 
 

@@ -34,10 +34,15 @@ if ($res) {
 
         $cc = $r[0] + $bb;
 
+        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$aa'";
+        $oo = $conn->query($sql);
+        $j = $oo->fetch_row();
 
-        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-        VALUES('$aa','$r[0]','$bb','$cc','increased','$d')";
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,issuanceQuantity,currentQuantity,status) 
+                VALUES('$aa','$j[0]','$d','$r[0]','$bb','$nn','increased')";
+
         $conn->query($sql);
+
 
     }
 
@@ -47,7 +52,7 @@ if ($res) {
     $conn->query($sql);
     $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
-    header("Location:../../user/$temp");
+    header("Location:../../user/issuance.php");
 
 } else {
     $m = "Failed to Delete Issuance, Contact Administrator!";

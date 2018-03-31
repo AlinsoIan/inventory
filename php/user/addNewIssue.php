@@ -26,7 +26,7 @@ $t = $_POST['type'];
 $s = $_SESSION['user'];
 
 
-$sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,type,issuer) 
+$sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,type,accountID) 
         VALUES ('$division','$r[0]','$ris','$sai','$d','$ti','$t','$s')";
 
 $category = $_POST['category'];
@@ -85,10 +85,23 @@ if($conn->query($sql)){
         $sql = "UPDATE inventory SET currentQuantity ='$n' WHERE itemID = '$ttt[0]'";
         $conn->query($sql);
 
+        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ttt[0]'";
+        $qq =$conn->query($sql);
+        $q = $qq->fetch_row();
 
 
-        $sql = "INSERT INTO itemrecords(itemID,currentQuantity,quantity,latestQuantity,status,date)
-                VALUES('$ttt[0]','$r[0]','$iss[$m]','$n','decreased','$d')";
+        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$ttt[0]'";
+        $f = $conn->query($sql);
+        $ff = $f->fetch_row();
+
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,issuanceQuantity,currentQuantity,status) 
+                VALUES('$ttt[0]','$ff[0]','$d','$r[0]','$iss[$m]','$n','decreased')";
+
+        $conn->query($sql);
+
+
+        $b = $ttt[0] . " " . $ff . " " . $d . " " . $r[0]. " " .$iss[$m] . " " .$n . " " . "increased";
+        $sql = "INSERT INTO asa(a) VALUES('$b')";
         $conn->query($sql);
 
 
