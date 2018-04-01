@@ -261,27 +261,38 @@ if($_SESSION['type'] == "user"){
 
                                     <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Beginning Balance</th>
-                                        <th>RIS No.</th>
-                                        <th>IAR No.</th>
-                                        <th>Receipt Quantity</th>
-                                        <th>Receipt Unit Cost</th>
-                                        <th>Receipt Supplier</th>
-                                        <th>Issuance Quantity</th>
-                                        <th>Issuance Unit Cost</th>
-                                        <th>Issuance Office</th>
-                                        <th>Balance Quantity</th>
-                                        <th>Balance Brand</th>
-                                        <th>Balance Expiry Date</th>
-                                        <th>Running Balance</th>
-
-                                        
+                                        <th>Category</th>
+                                        <th>Item</th>
+                                        <th>Current Quantity</th>
+                                        <th>Unit</th>
                                     </tr>
                                     </thead>
-
-
                                     <tbody>
+                                    <?php
+                                    require '../php/db.php';
+
+                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
+
+                                    $sql = "SELECT categoryNo,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
+                                    items.unitID = units.unitID WHERE inventory.currentQuantity >= inventory.reorderPoint";
+                                    $res = $conn->query($sql);
+
+                                    if($res){
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['categoryNo'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['b'] ."</td>"
+                                                . "<td>" . $row['c'] .  "</td>";
+
+
+                                            echo "</tr>";
+                                        }
+
+                                    }
+
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
