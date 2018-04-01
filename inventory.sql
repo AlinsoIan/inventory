@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 01, 2018 at 04:38 PM
+-- Generation Time: Apr 01, 2018 at 09:41 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -38,7 +38,20 @@ CREATE TABLE IF NOT EXISTS `accountlogs` (
   `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accountlogs`
+--
+
+INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `loginDate`) VALUES
+(81, 7, '05:23:am', NULL, '2018-04-02'),
+(82, 7, '05:25:am', NULL, '2018-04-02'),
+(83, 5, '05:29:am', NULL, '2018-04-02'),
+(84, 4, '05:33:am', NULL, '2018-04-02'),
+(85, 5, '05:33:am', '05:33:am', '2018-04-02'),
+(86, 7, '05:33:am', NULL, '2018-04-02'),
+(87, 6, '05:38:am', NULL, '2018-04-02');
 
 -- --------------------------------------------------------
 
@@ -52,31 +65,22 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `userName` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(72) NOT NULL,
   `userType` enum('admin','user') NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`accountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `password`, `userType`, `status`) VALUES
-(1, 'Admin', 'Admin', 'admin', 'admin', 'admin', 'active');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `asa`
---
-
-DROP TABLE IF EXISTS `asa`;
-CREATE TABLE IF NOT EXISTS `asa` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `a` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+(3, 'Swira', 'Cogasi', 'swi', 'swi', 'user', 'active'),
+(4, 'Elizabeth', 'Tininggal', 'beth', 'gsobeth', 'admin', 'active'),
+(5, 'Lemuel', 'Estacio', 'lemuel', 'lemuel', 'user', 'active'),
+(6, 'Christian ', 'Beltran', 'beltran', 'beltran', 'user', 'active'),
+(7, 'Zia', 'Garcia', 'zia', 'zia', 'user', 'active');
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `totalQuantity` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -112,7 +116,23 @@ CREATE TABLE IF NOT EXISTS `history` (
   `actDate` date NOT NULL,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `returnID`, `activity`, `actDate`, `type`) VALUES
+(2, 1, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(3, 7, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(4, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(5, 7, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(6, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(7, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(8, 6, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(9, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(10, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance'),
+(11, 5, NULL, NULL, NULL, 'issued', '2018-04-01', 'issuance');
 
 -- --------------------------------------------------------
 
@@ -139,7 +159,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (45, 56, NULL, 1070, 1000, 200),
 (46, 57, NULL, 1000, 1000, 200),
 (47, 58, NULL, 1000, 1000, 200),
-(48, 59, NULL, 2590, 800, 160),
+(48, 59, NULL, 2784, 800, 160),
 (49, 60, NULL, 50, 50, 10),
 (50, 61, NULL, 400, 400, 80),
 (51, 62, NULL, 20, 20, 4),
@@ -149,17 +169,17 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (55, 66, NULL, 100, 100, 20),
 (56, 67, NULL, 50, 50, 10),
 (57, 68, NULL, 2, 2, 0),
-(58, 69, NULL, 450, 450, 90),
+(58, 69, NULL, 440, 450, 90),
 (59, 70, NULL, 20, 20, 4),
 (60, 71, NULL, 5, 5, 1),
 (61, 72, NULL, 10, 10, 2),
 (62, 73, NULL, 5, 5, 1),
 (63, 74, NULL, 50, 50, 10),
 (64, 75, NULL, 50, 50, 10),
-(65, 76, NULL, 62, 62, 12),
+(65, 76, NULL, 52, 62, 12),
 (66, 77, NULL, 65, 65, 13),
 (67, 78, NULL, 300, 300, 60),
-(68, 79, NULL, 67, 67, 13),
+(68, 79, NULL, -2, 67, 13),
 (69, 80, NULL, 40, 40, 8),
 (70, 81, NULL, 24, 24, 4),
 (71, 82, NULL, 6, 6, 1),
@@ -167,13 +187,13 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (73, 84, NULL, 2, 2, 0),
 (76, 87, NULL, 6, 6, 1),
 (77, 88, NULL, 20, 20, 4),
-(78, 89, NULL, 50, 50, 10),
+(78, 89, NULL, 46, 50, 10),
 (79, 90, NULL, 2, 2, 0),
 (80, 91, NULL, 4000, 4000, 800),
 (81, 92, NULL, 6, 6, 1),
 (82, 93, NULL, 4, 4, 0),
 (83, 94, NULL, 24, 24, 4),
-(84, 95, NULL, 5, 5, 1),
+(84, 95, NULL, -1, 5, 1),
 (85, 96, NULL, 57, 57, 11),
 (86, 97, NULL, 10, 10, 2),
 (87, 98, NULL, 67, 67, 13),
@@ -182,7 +202,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (90, 101, NULL, 23, 23, 4),
 (91, 102, NULL, 21, 21, 4),
 (92, 104, NULL, 800, 800, 160),
-(94, 106, NULL, 10, 10, 2),
+(94, 106, NULL, -5, 10, 2),
 (95, 107, NULL, 190, 190, 38),
 (96, 108, NULL, 3, 3, 0),
 (97, 109, NULL, 60, 60, 12),
@@ -193,12 +213,12 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (103, 115, NULL, 30, 30, 6),
 (104, 116, NULL, 200, 200, 40),
 (105, 117, NULL, 150, 150, 30),
-(106, 118, NULL, 80, 80, 16),
+(106, 118, NULL, 75, 80, 16),
 (107, 119, NULL, 65, 65, 13),
 (108, 120, NULL, 60, 60, 12),
 (109, 121, NULL, 100, 100, 20),
-(110, 122, NULL, 50, 50, 10),
-(111, 123, NULL, 2, 2, 0),
+(110, 122, NULL, 45, 50, 10),
+(111, 123, NULL, -3, 2, 0),
 (112, 124, NULL, 100, 100, 20),
 (113, 125, NULL, 5, 5, 1),
 (114, 126, NULL, 300, 300, 60),
@@ -217,7 +237,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (129, 141, NULL, 150, 150, 30),
 (130, 142, NULL, 270, 270, 54),
 (131, 143, NULL, 80, 80, 16),
-(133, 145, NULL, 6, 6, 1),
+(133, 145, NULL, 4, 6, 1),
 (134, 146, NULL, 50, 50, 10),
 (135, 147, NULL, 13, 13, 2),
 (136, 148, NULL, 34, 34, 6),
@@ -233,7 +253,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (146, 158, NULL, 46, 46, 9),
 (147, 159, NULL, 15, 15, 3),
 (148, 160, NULL, 50, 50, 10),
-(149, 161, NULL, 20, 20, 4),
+(149, 161, NULL, 15, 20, 4),
 (150, 162, NULL, 102, 102, 20),
 (151, 163, NULL, 49, 49, 9),
 (152, 164, NULL, 102, 102, 20);
@@ -256,14 +276,21 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `accountID` int(10) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `issuance`
 --
 
 INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, `issuanceDate`, `issuanceTime`, `type`, `accountID`) VALUES
-(20, 'asdw', 61, 'asd', 'asd', '2018-04-01', '11:56:pm', 'Office Supplies', 1);
+(23, 'admin', 43, '12345', '1234', '2018-04-01', '05:08:am', 'Office Supplies', 5),
+(24, 'admin``', 61, '6712', '1525', '2018-04-01', '05:09:am', 'Office Supplies', 7),
+(25, 'admin', 61, '1234', '1234', '2018-04-01', '05:16:am', 'Office Supplies', 5),
+(26, 'admin', 43, '1235432', '54321', '2018-04-01', '05:17:am', 'Office Supplies', 5),
+(27, 'One', 61, 'Hen', '0001', '2018-04-01', '05:18:am', 'Disposal', 6),
+(28, 'admin', 61, '1231', '1232', '2018-04-01', '05:25:am', 'Office Supplies', 5),
+(29, 'admin', 61, '54321', '1234', '2018-04-01', '05:27:am', 'Office Supplies', 5),
+(30, 'daDDX', 61, '3456', '76543', '2018-04-01', '05:28:am', 'Office Supplies', 5);
 
 -- --------------------------------------------------------
 
@@ -280,14 +307,33 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemissuance`
 --
 
 INSERT INTO `itemissuance` (`itemIssuanceID`, `issuanceID`, `itemID`, `quantityRequested`, `quantityIssued`, `remarks`) VALUES
-(23, 20, 59, 100, 200, 'asd');
+(24, 21, 59, 10, 10, 'Done'),
+(25, 21, 79, 10, 10, 'Done'),
+(28, 23, 59, 10, 5, 'done'),
+(29, 23, 79, 10, 5, 'pending'),
+(30, 23, 89, 10, 5, 'done'),
+(31, 23, 145, 10, 5, 'done'),
+(32, 23, 95, 10, 5, 'pending'),
+(33, 24, 59, 3, 1, 'done'),
+(34, 24, 89, 2, 2, 'done'),
+(35, 25, 69, 15, 10, 'done'),
+(36, 25, 118, 15, 5, 'pending'),
+(37, 25, 122, 10, 5, 'pending'),
+(38, 26, 76, 20, 10, 'done'),
+(39, 26, 106, 20, 15, 'done '),
+(40, 26, 161, 10, 5, 'pending'),
+(41, 27, 95, 1, 1, 'Done'),
+(42, 27, 79, 1, 1, 'Done'),
+(43, 28, 123, 10, 5, 'not done'),
+(44, 29, 79, 2, 2, 'done'),
+(45, 30, 79, 2, 2, 'not done');
 
 -- --------------------------------------------------------
 
@@ -310,19 +356,38 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `currentQuantity` int(15) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
 --
 
 INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate`, `risNo`, `iarNo`, `startingQuantity`, `deliveryQuantity`, `returnsQuantity`, `issuanceQuantity`, `currentQuantity`, `status`) VALUES
-(120, 59, 48, '2018-04-19', NULL, 30002, 4028, 8273, NULL, NULL, 12301, 'increased'),
-(121, 59, 48, '2018-04-01', NULL, NULL, 12301, 34, NULL, NULL, 12267, 'decreased'),
-(122, 59, 48, '2018-04-01', NULL, NULL, 12267, 81, NULL, NULL, 12186, 'decreased'),
-(123, 59, 48, '2018-04-01', NULL, NULL, 12186, 1000, NULL, NULL, 11186, 'decreased'),
-(124, 59, 48, '2018-04-01', NULL, NULL, 11186, 123, NULL, NULL, 11063, 'decreased'),
-(125, 59, 48, '2018-04-01', NULL, NULL, 11063, 8273, NULL, NULL, 2790, 'decreased');
+(135, 79, 68, '2018-04-01', 12345, NULL, 0, NULL, NULL, 5, -5, 'decreased'),
+(134, 59, 48, '2018-04-01', 12345, NULL, 2790, NULL, NULL, 5, 2785, 'decreased'),
+(133, 77, 66, '2018-04-02', NULL, NULL, 63, NULL, NULL, 2, 65, 'increased'),
+(132, 59, 48, '2018-04-02', NULL, NULL, 2789, NULL, NULL, 1, 2790, 'increased'),
+(131, 77, 66, '2018-04-01', 41, NULL, 65, NULL, NULL, 2, 63, 'decreased'),
+(130, 59, 48, '2018-04-01', 41, NULL, 2790, NULL, NULL, 1, 2789, 'decreased'),
+(129, 59, 48, '2018-04-02', NULL, NULL, 2780, NULL, 10, NULL, 2790, 'increased'),
+(136, 89, 78, '2018-04-01', 12345, NULL, 50, NULL, NULL, 5, 45, 'decreased'),
+(137, 145, 133, '2018-04-01', 12345, NULL, 6, NULL, NULL, 5, 1, 'decreased'),
+(138, 95, 84, '2018-04-01', 12345, NULL, 5, NULL, NULL, 5, 0, 'decreased'),
+(139, 59, 48, '2018-04-01', 6712, NULL, 2785, NULL, NULL, 1, 2784, 'decreased'),
+(140, 89, 78, '2018-04-01', 6712, NULL, 45, NULL, NULL, 2, 43, 'decreased'),
+(141, 79, 68, '2018-04-02', NULL, NULL, -5, NULL, 2, NULL, -3, 'increased'),
+(142, 69, 58, '2018-04-01', 1234, NULL, 450, NULL, NULL, 10, 440, 'decreased'),
+(143, 118, 106, '2018-04-01', 1234, NULL, 80, NULL, NULL, 5, 75, 'decreased'),
+(144, 122, 110, '2018-04-01', 1234, NULL, 50, NULL, NULL, 5, 45, 'decreased'),
+(145, 89, 78, '2018-04-02', NULL, NULL, 43, NULL, 3, NULL, 46, 'increased'),
+(146, 76, 65, '2018-04-01', 1235432, NULL, 62, NULL, NULL, 10, 52, 'decreased'),
+(147, 106, 94, '2018-04-01', 1235432, NULL, 10, NULL, NULL, 15, -5, 'decreased'),
+(148, 161, 149, '2018-04-01', 1235432, NULL, 20, NULL, NULL, 5, 15, 'decreased'),
+(149, 79, 68, '2018-04-02', NULL, NULL, -3, NULL, 6, NULL, 3, 'increased'),
+(150, 145, 133, '2018-04-02', NULL, NULL, 1, NULL, 3, NULL, 4, 'increased'),
+(151, 123, 111, '2018-04-01', 1231, NULL, 2, NULL, NULL, 5, -3, 'decreased'),
+(152, 79, 68, '2018-04-01', 54321, NULL, 2, NULL, NULL, 2, 0, 'decreased'),
+(153, 79, 68, '2018-04-01', 3456, NULL, 0, NULL, NULL, 2, -2, 'decreased');
 
 -- --------------------------------------------------------
 
@@ -362,15 +427,15 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 (68, 6, '0021', 1, '1012', 'Battery,CR 123A, lithium,3 volts', 2, 35, 'Every Day', NULL),
 (69, 9, '0022', 1, '1013', 'Battery, CR 2025, Lithium, Flat, 3 volts', 2, 47, 'Panasonic', NULL),
 (70, 6, '0024', 1, '1015', 'Card, Calling Card', 3, 350, 'Stationary', NULL),
-(71, 9, '0028', 1, '1018', 'Binder,comb/Spiral, round, plastic,1.5\" x 44\"', 2, 39, 'Cattleya', NULL),
-(72, 9, '0029', 1, '1019', 'Binder,plastic,spiral,black,12 mm x 1.2 m (0.5\"x44\")', 2, 9, 'Cattleya', NULL),
+(71, 9, '0028', 1, '1018', 'Binder,comb/Spiral, round, plastic,1.5 x 44', 2, 39, 'Cattleya', NULL),
+(72, 9, '0029', 1, '1019', 'Binder,plastic,spiral,black,12 mm x 1.2 m (0.5x44)', 2, 9, 'Cattleya', NULL),
 (73, 6, '0033', 1, '1023', 'Binder,ring,metal,19 mm', 2, 11, 'Gold', NULL),
 (74, 10, '0038', 1, '1028', 'Pad,refill,for Printer 50,E/50 ', 2, 32, 'Sterling', NULL),
-(75, 10, '0039', 1, '1029', 'Binder, Comb, plastic, Black, 5/16\" length 46\"', 2, 32, 'Green Apple', NULL),
+(75, 10, '0039', 1, '1029', 'Binder, Comb, plastic, Black, 5/16 length 46', 2, 32, 'Green Apple', NULL),
 (76, 10, '0055', 1, '1037', 'Book,columnar,4 columns', 6, 28, 'Vello', NULL),
 (77, 10, '0056', 1, '1028', 'Book,columnar, 24 columns', 6, 45, 'Vello', NULL),
-(78, 4, '0057', 1, '1039', 'Book,record,wide, official,500 leaves, White/Blue.8.5\' x 11\'', 2, 127, 'Blue Note', NULL),
-(79, 5, '0145', 2, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, 'Canon', '2020-04-08'),
+(78, 4, '0057', 1, '1039', 'Book,record,wide, official,500 leaves, White/Blue.8.5', 2, 127, 'Blue Note', NULL),
+(79, 5, '0145', 2, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, 'Canon', '2018-04-08'),
 (80, 5, '0146', 2, '2002', 'Ink cartridge,Canon CL-811', 10, 1133, 'Canon', '2019-10-09'),
 (81, 5, '0147', 2, '2003', 'Ink cartridge,Canon CL-831', 10, 1175, 'Canon', '2019-05-16'),
 (82, 5, '0148', 2, '2004', 'Ink cartridge,Canon CLI-36, color', 10, 1140, 'Canon', '2019-05-11'),
@@ -393,7 +458,7 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 (101, 6, '0161', 2, '2015', 'Ink cartridge,Epson, L210 Black', 10, 735, 'Epson', '2024-02-02'),
 (102, 6, '0162', 2, '2016', 'Ink cartridge,for HP Officejet 7110, original, (4 cart/set-complete colors)', 10, 3554, 'HP', '2023-06-28'),
 (103, 1, '008', 3, '3003', 'Bag,Plastic,100\'s/pack,Large', 1, 112, 'X', NULL),
-(104, 4, '0117', 1, '1070', 'Fastener,screw type,2\", 100 pcs/pack', 2, 5, 'hen', NULL),
+(104, 4, '0117', 1, '1070', 'Fastener,screw type,2, 100 pcs/pack', 2, 5, 'hen', NULL),
 (106, 4, '0448', 5, '0006', 'Cabinet wooden', 2, 800, '', NULL),
 (107, 4, '0010', 3, '3005', 'Bag,sando,medium size, 100 pcs/pack', 1, 77, 'x', NULL),
 (108, 6, '0217', 2, '2174', ' Ink,Refill,HP Deckjet GT510,GT51,Cyan ', 11, 2200, 'HP', '2023-04-06'),
@@ -545,14 +610,17 @@ CREATE TABLE IF NOT EXISTS `ppmp` (
   `officeID` int(10) NOT NULL,
   `ppmpDate` date NOT NULL,
   PRIMARY KEY (`ppmpID`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmp`
 --
 
 INSERT INTO `ppmp` (`ppmpID`, `officeID`, `ppmpDate`) VALUES
-(26, 61, '2018-04-01');
+(30, 61, '2018-04-02'),
+(31, 43, '2018-04-02'),
+(32, 60, '2018-04-02'),
+(33, 61, '2018-04-02');
 
 -- --------------------------------------------------------
 
@@ -567,16 +635,22 @@ CREATE TABLE IF NOT EXISTS `ppmpitems` (
   `itemQuantity` int(45) NOT NULL,
   `ppmpID` int(45) NOT NULL,
   `unitCost` int(45) NOT NULL,
-  `totalAmount` int(45) NOT NULL,
   PRIMARY KEY (`ppmpitemsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmpitems`
 --
 
-INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `ppmpID`, `unitCost`, `totalAmount`) VALUES
-(36, 59, 100, 26, 10, 12314);
+INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `ppmpID`, `unitCost`) VALUES
+(39, 59, 10, 30, 10),
+(40, 79, 10, 30, 10),
+(41, 131, 10, 30, 10),
+(42, 59, 5, 31, 70),
+(43, 126, 5, 31, 200),
+(44, 162, 5, 31, 100),
+(45, 59, 100, 32, 100),
+(46, 78, 40, 33, 40);
 
 -- --------------------------------------------------------
 
@@ -592,8 +666,21 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `itemQuantity` int(45) NOT NULL,
   `reason` varchar(100) NOT NULL,
   `status` varchar(45) NOT NULL,
+  `accountID` int(45) NOT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`, `accountID`) VALUES
+(1, 59, 61, 10, 'Excess', 'usable', 3),
+(2, 79, 61, 2, 'wrong item', 'usable', 7),
+(3, 89, 61, 3, 'wrong item', 'usable', 7),
+(4, 79, 6, 6, 'excess item', 'usable', 7),
+(5, 145, 38, 3, 'excess item', 'usable', 7),
+(6, 79, 10, 2, 'wrong item', 'disposable', 7);
 
 -- --------------------------------------------------------
 
