@@ -165,9 +165,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -283,14 +280,14 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 5: Office Supplies</h2>
+                            <h2 class="text-center">Category 5: Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                     <tr>
-                                        <th>Description</th>
+                                        <th style="width: 20%">Description</th>
                                         <th>Unit</th>
                                         <th>Quantity</th>
                                         <th>Brand</th>

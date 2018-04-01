@@ -12,12 +12,12 @@
                 <div class="modal-header">
                     <div class="row">
                         <div class="col-md-4">
-                            <label>Item Description</label>
+                            <label>Office</label>
                             <?php
                             require '../../db.php';
                             $a = $_GET['num'];
 
-                            $sql = "SELECT description FROM items WHERE itemID = '$a'";
+                            $sql = "SELECT officeName FROM offices WHERE officeID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
@@ -25,11 +25,16 @@
                             ?>
                         </div>
                         <div class="col-md-2 pull-right">
-                            <label>Stock Number</label>
+                            <label>Responsibility</label>
                             <?php
+                            require '../../db.php';
                             $a = $_GET['num'];
 
-                            echo "<input type='text' disabled='' value='$a' class='form-control'>";
+                            $sql = "SELECT rcCode FROM offices WHERE officeID = '$a'";
+                            $res = $conn->query($sql);
+                            $r = $res->fetch_row();
+
+                            echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
                             ?>
                         </div>
                         <div class="col-md-2 pull-right">
@@ -38,7 +43,7 @@
                             require '../../db.php';
                             $a = $_GET['num'];
 
-                            $sql = "SELECT reorderPoint FROM inventory WHERE itemID = '$a'";
+                            $sql = "SELECT fppCode FROM offices WHERE officeID = '$a'";
                             $res = $conn->query($sql);
                             $r = $res->fetch_row();
 
@@ -55,12 +60,9 @@
                             <tr>
                                 <th>Date</th>
                                 <th>RIS</th>
-                                <th>IAR</th>
-                                <th>Starting Quantity</th>
-                                <th>Delivery</th>
-                                <th>Returns</th>
-                                <th>Issuance</th>
-                                <th>Balance</th>
+                                <th>Category</th>
+                                <th>Item</th>
+                                <th>Quantity</th>
 
                             </tr>
                             </thead>
@@ -70,20 +72,18 @@
 
                             $a = $_GET['num'];
 
-                            $sql = "SELECT recordDate,risNo,iarNo,startingQuantity,deliveryQuantity,returnsQuantity,issuanceQuantity,
-                            currentQuantity,status FROM itemrecords WHERE itemID = '$a'";
+                            $sql = "SELECT issuance.issuanceDate AS a,risNo,items.categoryNo AS b,items.description AS c,itemissuance.quantityIssued AS d FROM issuance
+                                      JOIN itemissuance ON issuance.issuanceId = itemissuance.issuanceID JOIN items ON itemissuance.itemID = items.itemID";
+
                             $res = $conn->query($sql);
                             if ($res) {
                                 while ($row = $res->fetch_assoc()) {
                                     echo "<tr>" .
-                                        "<td>" . $row['recordDate'] . "</td>" .
+                                        "<td>" . $row['a'] . "</td>" .
                                         "<td>" . $row['risNo'] . "</td>" .
-                                        "<td>" . $row['iarNo'] . "</td>" .
-                                        "<td>" . $row['startingQuantity'] . "</td>" .
-                                        "<td>" . $row['deliveryQuantity'] . "</td>" .
-                                        "<td>" . $row['returnsQuantity'] . "</td>" .
-                                        "<td>" . $row['issuanceQuantity'] . "</td>" .
-                                        "<td>" . $row['currentQuantity'] . "</td>" .
+                                        "<td>" . $row['b'] . "</td>" .
+                                        "<td>" . $row['c'] . "</td>" .
+                                        "<td>" . $row['d'] . "</td>" .
 
                                         "</tr>";
                                 }
@@ -101,7 +101,7 @@
     <!-- #END# Exportable Table -->
 </div>
 <div class="modal-footer text-center">
-    <a href="../admin/stockcard.php" class="btn btn-danger pull-right">CLOSE</a>
+    <a href="../admin/ssmi.php" class="btn btn-danger pull-right">CLOSE</a>
 </div>
 
 

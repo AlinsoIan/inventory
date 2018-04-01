@@ -33,8 +33,8 @@ $conn->query($sql);
 
 
 if ($c) {
-    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status)
-        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status')";
+    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status,accountID)
+        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status','$userID')";
 
     $conn->query($sql);
     if ($status === "usable") {

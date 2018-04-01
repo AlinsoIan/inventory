@@ -71,6 +71,7 @@ if (COUNT($cat)) {
                       VALUES('$rr[0]','$r[0]', '$iarnoz[$m]', '$quanz[$m]','$da')";
 
                 if($conn->query($sql)){
+                    $v = mysqli_insert_id($conn);
                     $n = $r[1] + $quan[$m];
 
                     $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
@@ -84,10 +85,12 @@ if (COUNT($cat)) {
                     $f = $conn->query($sql);
                     $ff = $f->fetch_row();
 
-                    $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,deliveryQuantity,
+                    $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,iarNo,startingQuantity,deliveryQuantity,
                             currentQuantity,status)
-                            VALUES('$r[0]','$ff[0]','$da','$r[1]','$quanz[$m]','$gg[0]','increased')";
+                            VALUES('$r[0]','$ff[0]','$da','$iarnoz[$m]','$r[1]','$quanz[$m]','$gg[0]','increased')";
                     $conn->query($sql);
+
+
 
                 }else {
                     $m = $conn->error;

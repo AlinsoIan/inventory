@@ -6,7 +6,7 @@ if(isset($_SESSION['user'])){
     if($_SESSION['type'] == 'admin'){
         header('Location:admin/dashboard.php');
     }else{
-        header('Location:user/dashboard.php');
+        header('Location:user/issuance.php');
     }
 }
 
@@ -16,18 +16,22 @@ if(isset($_SESSION['user'])){
 
 <head>
   <meta charset="UTF-8">
-  <title>Login form using HTML5 and CSS3</title>
+  <title>Login</title>
       <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
-
-  <body>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
 	<section id="content">
 		<form action="php/login.php" method="post">
@@ -42,13 +46,10 @@ if(isset($_SESSION['user'])){
 				<input type="submit" value="Log in" />
 			</div>
 
-		</form><!-- form -->
-	</section><!-- content -->
-</div><!-- container -->
+		</form>
+	</section>
+</div>
 </body>
-  
-
-
-</body>
+ 
 
 </html>

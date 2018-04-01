@@ -44,17 +44,17 @@ if($res){
         $conn->query($sql);
         header("Location:../../admin/$temp");
     }else{
-        $m = "Error Adding Item! Please contact administrator!!" ;
+        $m = "Error Adding Item! Please contact administrator!!Wehhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
 
         echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../admin/$temp');
+            window.location.replace('../admin/$temp');  
             </script>
             ";
     }
 }else{
-    $m = "Error Supplier not Found! Please contact administrator!" ;
+    $m = $conn->errno;
 
     echo "
             <script type = 'text/javascript'>

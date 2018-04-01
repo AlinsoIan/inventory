@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>Account Logs</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -167,9 +167,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -279,7 +276,7 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">ACCOUNTS LOGS</h2>
+                            <h2 class="text-center">ACCOUNT LOGS</h2>
                         </div>
                         <div class="body">
                             <div class="body table-responsive">

@@ -52,7 +52,7 @@ if ($res) {
     $conn->query($sql);
     $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
-    header("Location:../../user/issuance.php");
+    header("Location:../../user/$temp");
 
 } else {
     $m = "Failed to Delete Issuance, Contact Administrator!";

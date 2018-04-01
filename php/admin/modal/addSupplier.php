@@ -28,7 +28,7 @@
                                 <input type="text"  name = "address" class="form-control">
                             </td>
                             <td>
-                                <input type="number" onkeypress="return isNumberKey(event);"  name = "contactNumber" class="form-control">
+                                <input type="number" min="0" onkeypress="return isNumberKey(event);"  name = "contactNumber" class="form-control">
                             </td>
                             
 

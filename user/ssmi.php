@@ -17,6 +17,9 @@ if(!isset($_SESSION['username'])){
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Reports: SSMI</title>
 
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
@@ -42,26 +45,26 @@ if(!isset($_SESSION['username'])){
 
 <body class="theme-blue">
 <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
                 </li>
-                    <li>
-                        <a class="navbar-brand" href="dashboard.php">
-                            <h4>
-                                <?php
-                                    echo strtoupper($_SESSION['username']);
-                                ?>
-                            </h4>
-                        </a>
-                        <!-- Example single danger button -->
-                        <li class="dropdown">
+                <li>
+                    <a class="navbar-brand" href="dashboard.php">
+                        <h4>
+                            <?php
+                            echo strtoupper($_SESSION['username']);
+                            ?>
+                        </h4>
+                    </a>
+                    <!-- Example single danger button -->
+                <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">format_align_justify</i>
                     </a>
@@ -75,13 +78,13 @@ if(!isset($_SESSION['username'])){
 
 
                     </ul>
-                        
 
-                    </li>
-                </ul>
-            </div>
+
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 <!-- #Top Bar -->
 <section>
     <!-- Left Sidebar -->
@@ -89,13 +92,6 @@ if(!isset($_SESSION['username'])){
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li>
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
@@ -108,6 +104,7 @@ if(!isset($_SESSION['username'])){
                         <span>Returns</span>
                     </a>
                 </li>
+                <li>
 
                 <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -118,9 +115,6 @@ if(!isset($_SESSION['username'])){
                         <li>
                             <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
-                        <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
                         <li class="active">
                             <a href="ssmi.php"><strong>SSMI</strong></a>
                         </li>
@@ -130,6 +124,9 @@ if(!isset($_SESSION['username'])){
                     </ul>
                 </li>
 
+
+            </ul>
+
         </div>
         <!-- #Menu -->
 
@@ -137,117 +134,115 @@ if(!isset($_SESSION['username'])){
     <!-- #END# Left Sidebar -->
 
 </section>
+<!-- #END# Left Sidebar -->
 
-    <section class="content">
-        <div class="container-fluid">
+<!-- Modal for Add Office -->
+<div class="modal col-lg-12" id="addOffice" data-backdrop="static">
+    <div class="modal-dialog" style="width:90%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
 
-            <!-- Exportable Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Summary of Supplies and Materials Issued (SSMI)
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <label>Select Month</label>
-                                <select class="form-control">
-                                    <option>January</option>
-                                    <option>February</option>
-                                    <option>March</option>
-                                    <option>April</option>
-                                    <option>May</option>
-                                    <option>June</option>
-                                    <option>July</option>
-                                    <option>August</option>
-                                    <option>September</option>
-                                    <option>October</option>
-                                    <option>November</option>
-                                    <option>December</option>
-                                </select>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+<!-- Modal for Edit Office -->
+<div class="modal col-lg-12" id="editOffice" data-backdrop="static">
+    <div class="modal-dialog" style="width:100%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
 
-                                    <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Category No.</th>
-                                        <th>RIS No.</th>
-                                        <th>Item Description</th>
-                                        <th>Quantity</th>
-                                    </tr>
-                                    </thead>
+<!-- Modal for Delete Office -->
+<div class="modal col-lg-12" id="deleteOffice" data-backdrop="static">
+    <div class="modal-dialog" style="width:20%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
 
-                                    <tbody>
-                                    <?php
-                                    $conn = new mysqli("localhost","root","","inventory");
-                                    if(!$conn){
-                                        echo "Error Connecting to database !" . $conn->error;
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 ">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="text-center">Summary of Supplies and Material Issued (SSMI)</h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example ">
+                                <thead>
+                                <tr>
+                                    <th>Office</th>
+                                    <th>Abbr</th>
+                                    <th>Fpp</th>
+                                    <th>RC</th>
+                                    <th>Settings</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                require '../php/db.php';
+
+                                $sql = "SELECT * FROM offices";
+                                $res = $conn->query($sql);
+
+                                if($res){
+                                    while ($row = $res->fetch_assoc()){
+                                        echo  "<tr>";
+                                        echo "<td width='40%'>" . $row['officeName'] . "</td>";
+                                        echo "<td>" . $row['abbrv'] . "</td>";
+                                        echo "<td>" . $row['fppCode'] . "</td>";
+                                        echo "<td>" . $row['rcCode'] . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/user/modal/printSSMI.php?num=' .$row['officeID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>visibility</a>" . "</td>";
+                                        echo "</tr>";
                                     }
+                                }
 
-                                    $sql = "SELECT * FROM items";
-                                    $res = $conn->query($sql);
+                                ?>
+                                </tbody>
+                            </table>
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
-                                            echo "<tr>"
-                                                . "<td>" . $row['category'] ."</td>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] ."</td>"
-                                                . "<td>" . $row['brand'] ."</td>"
-                                                . "<td>" . $row['orderPoint'] ."</td>"
-                                                . "</tr>";
-                                        }
-
-                                    }
-
-                                    ?>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Exportable Table -->
         </div>
-    </section>
+        <!-- #END# Basic Examples -->
+    </div>
+</section>
 
-    <!-- Jquery Core Js -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Jquery Core Js -->
+<script src="../plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core Js -->
-    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
+<!-- Bootstrap Core Js -->
+<script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-    <!-- Waves Effect Plugin Js -->
-    <script src="../plugins/node-waves/waves.js"></script>
+<!-- Waves Effect Plugin Js -->
+<script src="../plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+<!-- Jquery DataTable Plugin Js -->
+<script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
-    <!-- Custom Js -->
-    <script src="../js/admin.js"></script>
-    <script src="../js/pages/tables/jquery-datatable.js"></script>
+<!-- Custom Js -->
+<script src="../js/admin.js"></script>
+<script src="../js/pages/tables/jquery-datatable.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
+<script src="../js/custom.js"></script>
+
+
+
 </body>
 
 </html>

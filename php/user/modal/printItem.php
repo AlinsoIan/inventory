@@ -101,7 +101,7 @@
     <!-- #END# Exportable Table -->
 </div>
 <div class="modal-footer text-center">
-    <a href="../admin/stockcard.php" class="btn btn-danger pull-right">CLOSE</a>
+    <a href="../user/stockcard.php" class="btn btn-danger pull-right">CLOSE</a>
 </div>
 
 

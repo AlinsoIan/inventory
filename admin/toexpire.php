@@ -23,7 +23,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Reorder</title>
+    <title>To-Expire</title>
 
     <!-- Google Fonts -->
     <link href="../css/icons2.css" rel="stylesheet" type="text/css">
@@ -161,9 +161,6 @@ if($_SESSION['type'] == "user"){
                         <ul class="ml-menu">
                             <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>

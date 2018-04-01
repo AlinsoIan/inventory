@@ -167,9 +167,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -312,7 +309,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['a'] . "</td>";
                                         echo "<td>" . $row['ppmpDate'] . "</td>";
 
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/viewPPMP.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewPPMP'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deletePPMP.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_ppmp'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/viewPPMP.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#viewPPMP'>visibility</a>" . "    " . "<a href=" .'../php/admin/modal/deletePPMP.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_ppmp'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }

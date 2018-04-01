@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(indeindex.php  </script>";
+    window.location.replace(index.php  </script>";
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ if(!isset($_SESSION['username'])){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Inventory: Category 1</title>
+    <title>Reports: STOCK CARD</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -90,13 +90,6 @@ if(!isset($_SESSION['username'])){
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li>
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
@@ -109,6 +102,7 @@ if(!isset($_SESSION['username'])){
                         <span>Returns</span>
                     </a>
                 </li>
+                <li>
 
                 <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -117,10 +111,7 @@ if(!isset($_SESSION['username'])){
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
+                            <a href="raos.php" ><strong>RAOS</strong></a>
                         </li>
                         <li>
                             <a href="ssmi.php"><strong>SSMI</strong></a>
@@ -130,6 +121,9 @@ if(!isset($_SESSION['username'])){
                         </li>
                     </ul>
                 </li>
+
+
+            </ul>
 
         </div>
         <!-- #Menu -->
@@ -157,57 +151,56 @@ if(!isset($_SESSION['username'])){
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Items</h2>
+                            <h2 class="text-center">STOCK CARD</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                        <tr>
-                                            <th>Category</th>
-                                            <th>Description</th>
-                                            <th>Unit</th>
-                                            <th>Quantity</th>
-                                            <th>Brand</th>
-                                            <th>Re-order Point</th>
-                                            <th>Supplier</th>
-                                            <th>Settings</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Brand</th>
+                                        <th>Re-order Point</th>
+                                        <th>Office</th>
+                                        <th>Settings</th>
+                                    </tr>
                                     </thead>
+                                    <tbody>
+                                    <?php
+                                    require '../php/db.php';
 
-                                   <tbody>
-                                        <?php
-                                        require '../php/db.php';
+                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
 
-                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $_SESSION['cat']= "01";
-
-                                        $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                    $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
                                                   ,suppliers.supplierName AS d
                                          FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
-                                        $res = $conn->query($sql);
+                                    $res = $conn->query($sql);
 
-                                        if($res){
-                                            while($row = $res->fetch_assoc()){
-                                                echo "<tr>"
-                                                    . "<td>" . $row['aa'] ."</td>"
-                                                    . "<td>" . $row['description'] ."</td>"
-                                                    . "<td>" . $row['a'] ."</td>"
-                                                    . "<td>" . $row['currentQuantity'] .  "</td>"
-                                                    . "<td>" . $row['brand'] .  "</td>"
-                                                    . "<td>" . $row['c'] .  "</td>"
-                                                    . "<td>" . $row['d'] .  "</td>"
+                                    if($res){
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['aa'] ."</td>"
+                                                . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['currentQuantity'] .  "</td>"
+                                                . "<td>" . $row['brand'] .  "</td>"
+                                                . "<td>" . $row['c'] .  "</td>"
+                                                . "<td>" . $row['d'] .  "</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
-                                                echo "</tr>";
-                                            }
-
+                                                . "<td>" . "<a href=" .'../php/user/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
+                                            echo "</tr>";
                                         }
+
+                                    }
 
                                     ?>
                                     </tbody>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
                                 <input type="text " name = "pgso" class="form-control" required style="width:120px;">
                             </td>
                             <td>
-                                <input type="text"  name = "description" class="form-control" style="width:350px;">
+                                <input type="text" required  name = "description" class="form-control" style="width:350px;">
                             </td>
                             <td>
                                 <select class="form-control" name="unit" style="width: 100px">
@@ -46,13 +46,13 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text"  name = "brand" style="width:150px;" class="form-control">
+                                <input type="text" name = "brand" style="width:150px;" class="form-control">
                             </td>
                             <td>
-                                <input type="number" min="0" onkeypress="return isNumberKey(event)" min ="1"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
+                                <input type="number" min="0" required onkeypress="return isNumberKey(event)" min ="1"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number" min="0" onkeypress="return isNumberKey(event)"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control">
+                                <input type="number" min="0" onkeypress="return isNumberKey(event)"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control" required>
                             </td>
                             <td>
                                 <select class="form-control" name="supplier" style="width:150px">

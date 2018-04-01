@@ -1,5 +1,6 @@
 <?php
 session_start();
+$userID = $_SESSION['user'];
 if(!isset($_SESSION['username'])){
     $m="Please Login First";
 
@@ -93,13 +94,6 @@ if(!isset($_SESSION['username'])){
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li>
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
@@ -112,6 +106,7 @@ if(!isset($_SESSION['username'])){
                         <span>Returns</span>
                     </a>
                 </li>
+                <li>
 
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -123,9 +118,6 @@ if(!isset($_SESSION['username'])){
                             <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
-                        <li>
                             <a href="ssmi.php"><strong>SSMI</strong></a>
                         </li>
                         <li>
@@ -133,6 +125,9 @@ if(!isset($_SESSION['username'])){
                         </li>
                     </ul>
                 </li>
+
+
+            </ul>
 
         </div>
         <!-- #Menu -->
@@ -204,7 +199,8 @@ if(!isset($_SESSION['username'])){
                                 require '../php/db.php';
                                 $sql = "SELECT offices.officeName AS a,items.description AS b,returns.itemQuantity AS c,
                                     returns.reason AS d,returns.status AS e,returns.returnID AS idd
-                                    FROM returns JOIN items ON returns.itemID = items.itemID JOIN offices ON returns.officeID = offices.officeID";
+                                    FROM returns JOIN items ON returns.itemID = items.itemID JOIN offices ON returns.officeID = offices.officeID
+                                     WHERE returns.accountID = '$userID'";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -227,7 +223,7 @@ if(!isset($_SESSION['username'])){
                                 <?php
 
                                 require '../php/db.php';
-                                $sql = "SELECT COUNT(returnID) FROM returns";
+                                $sql = "SELECT COUNT(returnID) FROM returns WHERE accountID = '$userID'";
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
@@ -235,7 +231,7 @@ if(!isset($_SESSION['username'])){
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>

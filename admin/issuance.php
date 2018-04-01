@@ -167,9 +167,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -291,6 +288,7 @@ if($_SESSION['type'] == "user"){
                                             <th>Office</th>
                                             <th>Date/Time</th>
                                             <th>Issuance Type</th>
+                                            <th>Issuer</th>
                                             <th>Settings</th>
                                         </tr>
                                     </thead>
@@ -301,7 +299,9 @@ if($_SESSION['type'] == "user"){
 
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,accounts.username AS a, 
+                                                issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
+                                                JOIN accounts ON issuance.accountID = accounts.accountID";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -311,6 +311,7 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['officeName'] ."</td>"
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
                                                     . "<td>" . $row['type'] ."</td>"
+                                                    . "<td>" . $row['a'] ."</td>"
 
                                                     . "<td>" . "<a href=" .'../php/admin/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/admin/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";

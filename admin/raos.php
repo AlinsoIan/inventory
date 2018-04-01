@@ -163,9 +163,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -251,7 +248,7 @@ if($_SESSION['type'] == "user"){
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
+                            <h2 class="text-center">
                                 Reports of Available Office Supply (RAOS)
                             </h2>
                         </div>
@@ -262,9 +259,12 @@ if($_SESSION['type'] == "user"){
                                     <thead>
                                     <tr>
                                         <th>Category</th>
+                                        <th>Pgso-Sn</th>
                                         <th>Item</th>
-                                        <th>Current Quantity</th>
                                         <th>Unit</th>
+                                        <th>Brand</th>
+                                        <th>Current Quantity</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -274,17 +274,19 @@ if($_SESSION['type'] == "user"){
                                     $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                     $_SESSION['cat']= "01";
 
-                                    $sql = "SELECT categoryNo,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
-                                    items.unitID = units.unitID WHERE inventory.currentQuantity >= inventory.reorderPoint";
+                                    $sql = "SELECT categoryNo,items.pgsoSn AS d,units.unitName AS e,items.brand AS f,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
+                                    items.unitID = units.unitID WHERE inventory.currentQuantity > 0";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
                                                 . "<td>" . $row['categoryNo'] ."</td>"
+                                                . "<td>" . $row['d'] ."</td>"
                                                 . "<td>" . $row['a'] ."</td>"
-                                                . "<td>" . $row['b'] ."</td>"
-                                                . "<td>" . $row['c'] .  "</td>";
+                                                . "<td>" . $row['c'] ."</td>"
+                                                . "<td>" . $row['f'] ."</td>"
+                                                . "<td>" . $row['b'] .  "</td>";
 
 
                                             echo "</tr>";

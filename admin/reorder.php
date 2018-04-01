@@ -163,9 +163,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -291,9 +288,9 @@ if($_SESSION['type'] == "user"){
                                                     . "<td>" . $row['categoryNo'] ."</td>"
                                                     . "<td>" . $row['description'] ."</td>"
                                                     . "<td>" . $row['unitName'] ."</td>"
-                                                    . "<td>" . $row['startingQuantity'] ."</td>"
                                                     . "<td>" . $row['unitCost'] ."</td>"
                                                     . "<td>" . $row['brand'] ."</td>"
+                                                    . "<td>" . $row['startingQuantity'] ."</td>"
                                                     . "<td>" . $row['reorderPoint'] ."</td>";
 
                                                 echo "</tr>";

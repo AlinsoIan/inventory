@@ -12,7 +12,9 @@ $first = $_POST['first'];
 $last = $_POST['last'];
 $type = $_POST['type'];
 $username = $_POST['username'];
+
 $pass = $_POST['pass'];
+$password = password_hash($pass,PASSWORD_BCRYPT);
 $d = date('Y:n:j');
 
 

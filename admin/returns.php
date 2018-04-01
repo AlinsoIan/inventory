@@ -167,9 +167,6 @@ if($_SESSION['type'] == "user"){
                                 <a href="raos.php"><strong>RAOS</strong></a>
                             </li>
                             <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
-                            </li>
-                            <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
                             <li>
@@ -299,6 +296,7 @@ if($_SESSION['type'] == "user"){
                                     <th>Quantity</th>
                                     <th>Reason</th>
                                     <th>Status</th>
+                                    <th>User</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
@@ -307,8 +305,9 @@ if($_SESSION['type'] == "user"){
                                 <?php
                                 require '../php/db.php';
                                 $sql = "SELECT offices.officeName AS a,items.description AS b,returns.itemQuantity AS c,
-                                    returns.reason AS d,returns.status AS e,returns.returnID AS idd
-                                    FROM returns JOIN items ON returns.itemID = items.itemID JOIN offices ON returns.officeID = offices.officeID";
+                                    returns.reason AS d,returns.status AS e,accounts.username AS f,returns.returnID AS idd
+                                    FROM returns JOIN items ON returns.itemID = items.itemID JOIN offices ON returns.officeID = offices.officeID
+                                     JOIN accounts ON returns.accountID = accounts.accountID";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -319,6 +318,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
+                                        echo "<td>" . $row['f'] . "</td>";
                                         echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }

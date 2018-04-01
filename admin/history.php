@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Returns</title>
+    <title>History</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -165,9 +165,6 @@ if($_SESSION['type'] == "user"){
                         <ul class="ml-menu">
                             <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>

@@ -231,7 +231,7 @@
                 '<td>' +
                 '<select id=desc' + i + ' class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
                     while ($row = $res->fetch_assoc()) {
-                        echo "<option>" . $row['description'] . "</option>";
+                        echo "<option>" . $row["description"] . "</option>";
                     }
                 }?></select>' +
                 '</td>' +

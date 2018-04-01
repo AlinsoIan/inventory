@@ -7,7 +7,8 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(indeindex.php    </script>";
+    window.location.replace(index.php);    
+    </script>";
 }
 if($_SESSION['type'] == "user"){
     session_destroy();
@@ -160,9 +161,6 @@ if($_SESSION['type'] == "user"){
                         <ul class="ml-menu">
                             <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>

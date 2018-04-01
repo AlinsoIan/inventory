@@ -87,60 +87,54 @@ if(!isset($_SESSION['username'])){
         </div>
     </nav>
 <!-- #Top Bar -->
-<section>
-    <!-- Left Sidebar -->
-    <aside id="leftsidebar" class="sidebar">
-        <!-- Menu -->
-        <div class="menu">
-            <ul class="list">
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="active">
+                        <a href="issuance.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Issuance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
+                    <li>
 
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="issuance.php">
-                        <i class="material-icons">store_mall_directory</i>
-                        <span>Issuance</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="returns.php">
-                        <i class="material-icons">event_note</i>
-                        <span>Returns</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="raos.php"><strong>RAOS</strong></a>
+                            </li>
+                            <li>
+                                <a href="ssmi.php"><strong>SSMI</strong></a>
+                            </li>
+                            <li>
+                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
 
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">view_list</i>
-                        <span>Reports</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
-                        <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                </ul>
 
-        </div>
-        <!-- #Menu -->
+            </div>
+            <!-- #Menu -->
 
-    </aside>
-    <!-- #END# Left Sidebar -->
+        </aside>
+        <!-- #END# Left Sidebar -->
 
-</section>
+    </section>
         <!-- #END# Left Sidebar -->
 
         <!-- Modal for Add Issuance -->
@@ -193,12 +187,11 @@ if(!isset($_SESSION['username'])){
                                     <tbody>
                                     <?php
                                         require '../php/db.php';
-
+                                        $a =$_SESSION['user'];
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $aa = $_SESSION['user'];
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
-                                                WHERE accountID = '$aa'";
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID 
+                                        WHERE issuance.accountID = '$a'";
                                         $res = $conn->query($sql);
 
                                         if($res){
@@ -222,7 +215,7 @@ if(!isset($_SESSION['username'])){
                                     <?php
 
                                     require '../php/db.php';
-                                    $sql = "SELECT COUNT(issuanceID) FROM issuance WHERE accountID =" .$_SESSION['user'];
+                                    $sql = "SELECT COUNT(issuanceID) FROM issuance WHERE accountID = '$a'";
                                     $res = $conn->query($sql);
                                     $r = $res->fetch_row();
 

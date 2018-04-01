@@ -10,7 +10,7 @@
             <?php
             $a = $_GET['num'];
 
-            echo "<form action=" . '../php/user/approveIssuance.php?num=' . $a . " " . "' method='post'>";
+            echo "<form action=" . '../php/admin/approveIssuance.php?num=' . $a . " " . "' method='post'>";
             ?>
 
                 <div class="body">

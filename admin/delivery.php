@@ -24,7 +24,7 @@ if($_SESSION['type'] == "user"){
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Delivered Items</title>
+    <title>Delivery</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -59,7 +59,7 @@ if($_SESSION['type'] == "user"){
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+            <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -165,9 +165,6 @@ if($_SESSION['type'] == "user"){
                         <ul class="ml-menu">
                             <li>
                                 <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="rosi.php"><strong>ROSI</strong></a>
                             </li>
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
@@ -334,7 +331,7 @@ if($_SESSION['type'] == "user"){
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "Total Issuance : " . $r[0];
+                                echo "Total Records: " . $r[0];
                                 ?>
                             </h3>
 

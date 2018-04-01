@@ -23,6 +23,8 @@ $st->execute();
 $res = $st->get_result();
 $r = $res->fetch_row();
 
+
+
 if($res->num_rows > 0 && $r[4] == 'active'){
 
     $t = date('h:i:a');
@@ -42,10 +44,6 @@ if($res->num_rows > 0 && $r[4] == 'active'){
         $sql = "SELECT MAX(logID) FROM accountlogs";
         $res = $conn->query($sql);
         $r = $res->fetch_row();
-
-
-
-
         $_SESSION['logID'] = $r[0];
         header('Location:../admin/dashboard.php');
     }elseif($r[2]=="user"){
@@ -55,8 +53,8 @@ if($res->num_rows > 0 && $r[4] == 'active'){
         $sql = "SELECT MAX(logID) FROM accountlogs";
         $res = $conn->query($sql);
         $r = $res->fetch_row();
-        $_SESSION['logID'] = '$r[0]';
-        header('Location:../user/dashboard.php');
+        $_SESSION['logID'] = $r[0];
+        header('Location:../user/issuance.php');
 
     }else{
         $m="Error login, Unknown user type! Contact Administrator";

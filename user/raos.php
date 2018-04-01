@@ -53,7 +53,7 @@ if(!isset($_SESSION['username'])){
                 <ul class="nav navbar-nav navbar-right">
                 </li>
                     <li>
-                        <a class="navbar-brand" href="dashboard.php">
+                        <a class="navbar-brand" >
                             <h4>
                                 <?php
                                     echo strtoupper($_SESSION['username']);
@@ -89,13 +89,6 @@ if(!isset($_SESSION['username'])){
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-
-                <li>
-                    <a href="dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li>
                     <a href="issuance.php">
                         <i class="material-icons">store_mall_directory</i>
@@ -108,6 +101,7 @@ if(!isset($_SESSION['username'])){
                         <span>Returns</span>
                     </a>
                 </li>
+                <li>
 
                 <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -119,9 +113,6 @@ if(!isset($_SESSION['username'])){
                             <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="rosi.php"><strong>ROSI</strong></a>
-                        </li>
-                        <li>
                             <a href="ssmi.php"><strong>SSMI</strong></a>
                         </li>
                         <li>
@@ -129,6 +120,9 @@ if(!isset($_SESSION['username'])){
                         </li>
                     </ul>
                 </li>
+
+
+            </ul>
 
         </div>
         <!-- #Menu -->
@@ -146,7 +140,7 @@ if(!isset($_SESSION['username'])){
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
+                            <h2 class="text-center">
                                 Reports of Available Office Supply (RAOS)
                             </h2>
                         </div>
@@ -156,54 +150,44 @@ if(!isset($_SESSION['username'])){
 
                                     <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Beginning Balance</th>
-                                        <th>RIS No.</th>
-                                        <th>IAR No.</th>
-                                        <th>Receipt Quantity</th>
-                                        <th>Receipt Unit Cost</th>
-                                        <th>Receipt Supplier</th>
-                                        <th>Issuance Quantity</th>
-                                        <th>Issuance Unit Cost</th>
-                                        <th>Issuance Office</th>
-                                        <th>Balance Quantity</th>
-                                        <th>Balance Brand</th>
-                                        <th>Balance Expiry Date</th>
-                                        <th>Running Balance</th>
+                                        <th>Category</th>
+                                        <th>Pgso-Sn</th>
+                                        <th>Item</th>
+                                        <th>Unit</th>
+                                        <th>Brand</th>
+                                        <th>Current Quantity</th>
 
-                                        
                                     </tr>
                                     </thead>
-
-
                                     <tbody>
                                     <?php
-                                    $conn = new mysqli("localhost","root","","inventory");
-                                    if(!$conn){
-                                        echo "Error Connecting to database !" . $conn->error;
-                                    }
+                                    require '../php/db.php';
 
-                                    $sql = "SELECT * FROM items";
+                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
+
+                                    $sql = "SELECT categoryNo,items.pgsoSn AS d,units.unitName AS e,items.brand AS f,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
+                                    items.unitID = units.unitID WHERE inventory.currentQuantity > 0";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
-                                                . "<td>" . $row['category'] ."</td>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] ."</td>"
-                                                . "<td>" . $row['brand'] ."</td>"
-                                                . "<td>" . $row['orderPoint'] ."</td>"
-                                                . "</tr>";
+                                                . "<td>" . $row['categoryNo'] ."</td>"
+                                                . "<td>" . $row['d'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['c'] ."</td>"
+                                                . "<td>" . $row['f'] ."</td>"
+                                                . "<td>" . $row['b'] .  "</td>";
+
+
+                                            echo "</tr>";
                                         }
 
                                     }
 
                                     ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

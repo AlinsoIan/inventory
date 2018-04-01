@@ -48,7 +48,6 @@
                         <th width="20%">Item Description</th>
                         <th width="8%">Quantity</th>
                         <th width="8%">Unit Cost</th>
-                        <th width="8%">Amount</th>
                         <th width="5%"></th>
                         </thead>
                         <tbody>
@@ -82,7 +81,7 @@
 
                             <td><input type="number" name="quantity[]" min="1" onkeypress="return isNumberKey(event)" required class="form-control"></td>
                             <td><input type="number"  class="form-control" name="unitCost[]" min="1"  onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                            <td><input type="number" name="amount[]" onkeypress="return isNumberKey(event)" size="30px" class="form-control"></td>
+
                         </tr>
 
                         </tbody>
@@ -142,7 +141,7 @@
                 '</td>' +
                 '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                '<td><input type="number" onkeypress="return isNumberKey(event)" name="amount[]" size="30px" class="form-control"></td>' +
+
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');
         });

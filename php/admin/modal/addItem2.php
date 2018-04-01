@@ -29,7 +29,7 @@
                                 <input type="text " name = "pgso" class="form-control" required style="width:120px;">
                             </td>
                             <td>
-                                <input type="text"  name = "description" class="form-control" style="width:350px;">
+                                <input type="text" required  name = "description" class="form-control" style="width:350px;">
                             </td>
                             <td>
                                 <select class="form-control" name="unit" style="width:100px">
@@ -47,13 +47,13 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text"  name = "brand" style="width:120px;" class="form-control">
+                                <input type="text" required  name = "brand" style="width:120px;" class="form-control">
                             </td>
                             <td>
-                                <input type="number" min="0"  style="width:100px;"   name = "sQuantity" class="form-control">
+                                <input type="number" required min="0"  style="width:100px;"   name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number" min="0" style="width:120px;"   name = "unitCost" class="form-control">
+                                <input type="number" required min="0" style="width:120px;"   name = "unitCost" class="form-control">
                             </td>
                             <td>
                                 <select class="form-control" name="supplier" style="width: 150px">
