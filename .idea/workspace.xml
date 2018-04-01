@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f6d9119-7665-45fa-a816-68f47f0422e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/inventory.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/rosi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/rosi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/printItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/stockcard.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +25,8 @@
       <file leaf-file-name="raos.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/raos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="282" lean-forward="true" selection-start-line="282" selection-end-line="282" />
+            <state relative-caret-position="137">
+              <caret line="243" column="14" lean-forward="true" selection-start-line="243" selection-start-column="14" selection-end-line="243" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -51,8 +43,8 @@
       <file leaf-file-name="stockcard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/stockcard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="211" column="30" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="211" selection-end-column="30" />
+            <state relative-caret-position="490">
+              <caret line="206" column="38" lean-forward="true" selection-start-line="178" selection-start-column="40" selection-end-line="206" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -60,11 +52,20 @@
       <file leaf-file-name="stockcard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/stockcard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="309" column="38" lean-forward="true" selection-start-line="309" selection-start-column="38" selection-end-line="309" selection-end-column="38" />
+            <state relative-caret-position="255">
+              <caret line="266" column="109" lean-forward="true" selection-start-line="266" selection-start-column="93" selection-end-line="266" selection-end-column="109" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssmi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="275" column="102" selection-start-line="275" selection-start-column="102" selection-end-line="275" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -74,15 +75,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="276" column="44" selection-start-line="276" selection-start-column="44" selection-end-line="278" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ssmi.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="288" column="44" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -227,6 +219,11 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -416,7 +413,7 @@
       <workItem from="1522276632930" duration="34921000" />
       <workItem from="1522346756354" duration="60000" />
       <workItem from="1522346960298" duration="3906000" />
-      <workItem from="1522450741972" duration="44103000" />
+      <workItem from="1522450741972" duration="46512000" />
     </task>
     <task id="LOCAL-00001" summary="Latest">
       <created>1515713212364</created>
@@ -649,14 +646,29 @@
       <option name="project" value="LOCAL" />
       <updated>1522519812494</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Latest">
+      <created>1522561890805</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1522561890805</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Latest">
+      <created>1522563447582</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1522563447582</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="490386000" />
+    <option name="totallyTimeSpent" value="492795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5087848" side_tool="true" weight="0.32546374" />
@@ -1043,17 +1055,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/printItem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="63" column="77" lean-forward="true" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/stockcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="211" column="30" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="211" selection-end-column="30" />
+        <state relative-caret-position="136">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1064,34 +1069,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="288" column="44" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/stockcard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="309" column="38" lean-forward="true" selection-start-line="309" selection-start-column="38" selection-end-line="309" selection-end-column="38" />
+        <state relative-caret-position="255">
+          <caret line="266" column="109" lean-forward="true" selection-start-line="266" selection-start-column="93" selection-end-line="266" selection-end-column="109" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/printItem.php">
+    <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+        <state relative-caret-position="255">
+          <caret line="275" column="102" selection-start-line="275" selection-start-column="102" selection-end-line="275" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/stockcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="206" column="38" lean-forward="true" selection-start-line="178" selection-start-column="40" selection-end-line="206" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="63" column="77" lean-forward="true" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/raos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="282" lean-forward="true" selection-start-line="282" selection-end-line="282" />
+        <state relative-caret-position="137">
+          <caret line="243" column="14" lean-forward="true" selection-start-line="243" selection-start-column="14" selection-end-line="243" selection-end-column="14" />
         </state>
       </provider>
     </entry>
