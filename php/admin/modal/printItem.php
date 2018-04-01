@@ -6,9 +6,47 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>
-                            Print Item
+                        <h2 class="text-center">
+                            Stock Card
                         </h2>
+                    </div>
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Item Description</label>
+                                <?php
+                                    require '../../db.php';
+                                    $a = $_GET['num'];
+
+                                    $sql = "SELECT description FROM items WHERE itemID = '$a'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
+                                ?>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <label>Stock Number</label>
+                                <?php
+                                $a = $_GET['num'];
+
+                                echo "<input type='text' disabled='' value='$a' class='form-control'>";
+                                ?>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <label>Reorder Point</label>
+                                <?php
+                                require '../../db.php';
+                                $a = $_GET['num'];
+
+                                $sql = "SELECT reorderPoint FROM inventory WHERE itemID = '$a'";
+                                $res = $conn->query($sql);
+                                $r = $res->fetch_row();
+
+                                echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
+                                ?>
+                            </div>
+                        </div>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -16,52 +54,43 @@
 
                                 <thead>
                                 <tr>
-                                    <th>Beginning Balance</th>
-                                    <th>RIS No.</th>
-                                    <th>IAR No.</th>
-                                    <th>Receipt Quantity</th>
-                                    <th>Receipt Unit Cost</th>
-                                    <th>Receipt Supplier</th>
-                                    <th>Issuance Quantity</th>
-                                    <th>Issuance Unit Cost</th>
-                                    <th>Issuance Office</th>
-                                    <th>Balance Quantity</th>
-                                    <th>Balance Brand</th>
-                                    <th>Balance Expiry Date</th>
-                                    <th>Running Balance</th>
+                                    <th>Date</th>
+                                    <th>RIS</th>
+                                    <th>Starting Quantity</th>
+                                    <th>Delivery</th>
+                                    <th>Returns</th>
+                                    <th>Issuance</th>
+                                    <th>Balance</th>
 
                                 </tr>
                                 </thead>
-
-
                                 <tbody>
                                 <?php
-                                $conn = new mysqli("localhost","root","","inventory");
-                                if(!$conn){
-                                    echo "Error Connecting to database !" . $conn->error;
-                                }
+                                require '../../db.php';
 
-                                $sql = "SELECT * FROM items";
+                                $a = $_GET['num'];
+
+                                $sql = "SELECT recordDate,ris,startingQuantity,deliveryQuantity,returnsQuantity,issuanceQuantity,currentQuantity,status
+                                FROM itemrecords WHERE itemID= '$a'";
                                 $res = $conn->query($sql);
-
                                 if($res){
                                     while($row = $res->fetch_assoc()){
-                                        echo "<tr>"
-                                            . "<td>" . $row['category'] ."</td>"
-                                            . "<td>" . $row['acctSn'] ."</td>"
-                                            . "<td>" . $row['pgsoSn'] ."</td>"
-                                            . "<td>" . $row['description'] ."</td>"
-                                            . "<td>" . $row['unit'] ."</td>"
-                                            . "<td>" . $row['startingQuantity'] ."</td>"
-                                            . "<td>" . $row['unitCost'] ."</td>"
-                                            . "<td>" . $row['brand'] ."</td>"
-                                            . "<td>" . $row['orderPoint'] ."</td>"
-                                            . "</tr>";
-                                    }
+                                        echo "<tr>".
+                                            "<td>" . $row['recordDate'] ."</td>".
+                                            "<td>" . $row['ris'] ."</td>".
+                                            "<td>" . $row['startingQuantity'] ."</td>".
+                                            "<td>" . $row['deliveryQuantity'] ."</td>".
+                                            "<td>" . $row['returnsQuantity'] ."</td>".
+                                            "<td>" . $row['issuanceQuantity'] ."</td>".
+                                            "<td>" . $row['currentQuantity'] ."</td>".
 
+                                            "</tr>";
+                                    }
                                 }
 
                                 ?>
+                                <tbody>
+
                             </table>
                         </div>
                     </div>

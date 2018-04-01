@@ -164,6 +164,7 @@ if(!isset($_SESSION['username'])){
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
+                                            <th>Category</th>
                                             <th>Description</th>
                                             <th>Unit</th>
                                             <th>Quantity</th>
@@ -181,7 +182,7 @@ if(!isset($_SESSION['username'])){
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
                                         $_SESSION['cat']= "01";
 
-                                        $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                        $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
                                                   ,suppliers.supplierName AS d
                                          FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
                                         $res = $conn->query($sql);
@@ -189,6 +190,7 @@ if(!isset($_SESSION['username'])){
                                         if($res){
                                             while($row = $res->fetch_assoc()){
                                                 echo "<tr>"
+                                                    . "<td>" . $row['aa'] ."</td>"
                                                     . "<td>" . $row['description'] ."</td>"
                                                     . "<td>" . $row['a'] ."</td>"
                                                     . "<td>" . $row['currentQuantity'] .  "</td>"

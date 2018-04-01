@@ -266,49 +266,51 @@ if($_SESSION['type'] == "user"){
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                        <tr>
-                                            <th>Description</th>
-                                            <th>Unit</th>
-                                            <th>Quantity</th>
-                                            <th>Brand</th>
-                                            <th>Re-order Point</th>
-                                            <th>Supplier</th>
-                                            <th>Settings</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Brand</th>
+                                        <th>Re-order Point</th>
+                                        <th>Supplier</th>
+                                        <th>Settings</th>
+                                    </tr>
                                     </thead>
 
-                                   <tbody>
-                                        <?php
-                                        require '../php/db.php';
+                                    <tbody>
+                                    <?php
+                                    require '../php/db.php';
 
-                                        $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                        $_SESSION['cat']= "01";
+                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
 
-                                        $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                    $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
                                                   ,suppliers.supplierName AS d
                                          FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
-                                        $res = $conn->query($sql);
+                                    $res = $conn->query($sql);
 
-                                        if($res){
-                                            while($row = $res->fetch_assoc()){
-                                                echo "<tr>"
-                                                    . "<td>" . $row['description'] ."</td>"
-                                                    . "<td>" . $row['a'] ."</td>"
-                                                    . "<td>" . $row['currentQuantity'] .  "</td>"
-                                                    . "<td>" . $row['brand'] .  "</td>"
-                                                    . "<td>" . $row['c'] .  "</td>"
-                                                    . "<td>" . $row['d'] .  "</td>"
+                                    if($res){
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['aa'] ."</td>"
+                                                . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['currentQuantity'] .  "</td>"
+                                                . "<td>" . $row['brand'] .  "</td>"
+                                                . "<td>" . $row['c'] .  "</td>"
+                                                . "<td>" . $row['d'] .  "</td>"
 
-                                                    . "<td>" . "<a href=" .'../php/admin/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
-                                                echo "</tr>";
-                                            }
-
+                                                . "<td>" . "<a href=" .'../php/admin/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
+                                            echo "</tr>";
                                         }
+
+                                    }
 
                                     ?>
                                     </tbody>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>

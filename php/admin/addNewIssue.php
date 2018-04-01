@@ -94,15 +94,11 @@ if($conn->query($sql)){
         $f = $conn->query($sql);
         $ff = $f->fetch_row();
 
-        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,issuanceQuantity,currentQuantity,status) 
-                VALUES('$ttt[0]','$ff[0]','$d','$r[0]','$iss[$m]','$n','decreased')";
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,ris,startingQuantity,issuanceQuantity,currentQuantity,status) 
+                VALUES('$ttt[0]','$ff[0]','$d','$ris','$r[0]','$iss[$m]','$n','decreased')";
 
         $conn->query($sql);
 
-
-        $b = $ttt[0] . " " . $ff . " " . $d . " " . $r[0]. " " .$iss[$m] . " " .$n . " " . "increased";
-        $sql = "INSERT INTO asa(a) VALUES('$b')";
-        $conn->query($sql);
 
 
     }

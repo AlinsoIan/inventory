@@ -260,47 +260,35 @@ if($_SESSION['type'] == "user"){
                                     <thead>
                                     <tr>
                                         <th>Date</th>
-                                        <th>Beginning Balance</th>
                                         <th>RIS No.</th>
                                         <th>IAR No.</th>
-                                        <th>Receipt Quantity</th>
-                                        <th>Receipt Unit Cost</th>
-                                        <th>Receipt Supplier</th>
-                                        <th>Issuance Quantity</th>
-                                        <th>Issuance Unit Cost</th>
-                                        <th>Issuance Office</th>
-                                        <th>Balance Quantity</th>
-                                        <th>Balance Brand</th>
-                                        <th>Balance Expiry Date</th>
-                                        <th>Running Balance</th>
-
-                                        
+                                        <th>Category</th>
+                                        <th>Item</th>
+                                        <th>Quantity</th>
+                                        <th>Office</th>
                                     </tr>
                                     </thead>
 
 
                                     <tbody>
                                     <?php
-                                    $conn = new mysqli("localhost","root","","inventory");
-                                    if(!$conn){
-                                        echo "Error Connecting to database !" . $conn->error;
-                                    }
+                                    require '../php/db.php';
 
-                                    $sql = "SELECT * FROM items";
+                                    $sql = "SELECT issuance.issuanceDate AS a,risNo,saiNo,items.categoryNo AS b,offices.officeName AS c,items.description AS d,quantityIssued  FROM 
+                                            issuance JOIN itemissuance ON itemissuance.itemID = itemissuance.itemID JOIN offices ON issuance.officeID = offices.officeID 
+                                            JOIN items ON itemissuance.itemID = items.itemID";
                                     $res = $conn->query($sql);
 
                                     if($res){
                                         while($row = $res->fetch_assoc()){
                                             echo "<tr>"
-                                                . "<td>" . $row['category'] ."</td>"
-                                                . "<td>" . $row['acctSn'] ."</td>"
-                                                . "<td>" . $row['pgsoSn'] ."</td>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['unit'] ."</td>"
-                                                . "<td>" . $row['startingQuantity'] ."</td>"
-                                                . "<td>" . $row['unitCost'] ."</td>"
-                                                . "<td>" . $row['brand'] ."</td>"
-                                                . "<td>" . $row['orderPoint'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['risNo'] ."</td>"
+                                                . "<td>" . $row['saiNo'] ."</td>"
+                                                . "<td>" . $row['b'] ."</td>"
+                                                . "<td>" . $row['d'] ."</td>"
+                                                . "<td>" . $row['quantityIssued'] ."</td>"
+                                                . "<td>" . $row['c'] ."</td>"
                                                 . "</tr>";
                                         }
 
