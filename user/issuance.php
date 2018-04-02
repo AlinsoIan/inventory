@@ -93,6 +93,12 @@ if(!isset($_SESSION['username'])){
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                	 <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
                     <li class="active">
                         <a href="issuance.php">
                             <i class="material-icons">store_mall_directory</i>
@@ -106,6 +112,30 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </li>
                     <li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Inventory</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="items2.php"><strong>Category 1</strong></a>
+                            </li>
+                            <li>
+                                <a href="two2.php"><strong>Category 2</strong></a>
+                            </li>
+                            <li>
+                                <a href="three2.php"><strong>Category 3</strong></a>
+                            </li>
+                            <li>
+                                <a href="four2.php"><strong>Category 4</strong></a>
+                            </li>
+                            <li>
+                                <a href="five2.php"><strong>Category 5</strong></a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">

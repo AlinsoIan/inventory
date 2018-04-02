@@ -43,11 +43,6 @@ foreach ($supp as $a) {
 
 }
 
-$iarnoz = [];
-foreach ($iar as $a) {
-    array_push($iarnoz, $a);
-
-}
 
 
 if (COUNT($cat)) {
@@ -67,8 +62,8 @@ if (COUNT($cat)) {
                 $rr = $ress->fetch_row();
 
 
-                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate)
-                      VALUES('$rr[0]','$r[0]', '$iarnoz[$m]', '$quanz[$m]','$da')";
+                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate,accountID)
+                      VALUES('$rr[0]','$r[0]', '$iar', '$quanz[$m]','$da','$userID')";
 
                 if($conn->query($sql)){
                     $v = mysqli_insert_id($conn);
@@ -87,7 +82,7 @@ if (COUNT($cat)) {
 
                     $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,iarNo,startingQuantity,deliveryQuantity,
                             currentQuantity,status)
-                            VALUES('$r[0]','$ff[0]','$da','$iarnoz[$m]','$r[1]','$quanz[$m]','$gg[0]','increased')";
+                            VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
                     $conn->query($sql);
 
 

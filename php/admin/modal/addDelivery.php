@@ -9,22 +9,25 @@
             </div>
             <form action="../php/admin/addDelivery.php" method="post">
                 <div class="row clearfix">
+                    <div class="col-md-2">
+                            <label>IAR NO</label>
+                            <input type="number" onkeypress="return isNumberKey(event)" name="iarno" min="0" class="form-control" required>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <label>DATE</label>
+                        <input type="date" onkeypress="return isNumberKey(event)" name="d" min="0" class="form-control" required>
+                    </div>
+
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
-                        <th style="width: 10%">IAR No.</th>
                         <th style="width: 8%">Category</th>
                         <th style="width: 30%;">Item</th>
                         <th style="width: 14%">Supplier</th>
-                        <th style="width: 12%" ;
-                        ">Quantity</th>
-                        <th>Delivery Date</th>
+                        <th style="width: 12%">Quantity</th>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
-                                <input type="number" onkeypress="return isNumberKey(event)" name="iarno[]" min="0"
-                                       class="form-control" required>
-                            </td>
+
                             <td>
                                 <select onchange="getDesc(1)" id="cat1" name="cat[]" class="form-control">
                                     <option>1</option>
@@ -74,10 +77,6 @@
                                 <input type="number" onkeypress="return isNumberKey(event)" min="0" name="quantity[]"
                                        class="form-control" required>
                             </td>
-                            <td>
-
-                                <input type="date" name="d" class="form-control" required>
-                            </td>
                         </tr>
 
                         </tbody>
@@ -108,9 +107,6 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<input type="text" onkeypress="return isNumberKey(event)" name="iarno[]" min="0" class="form-control" required>' +
-                '</td>' +
-                '<td>' +
                 '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
                 '</td>' +
                     '<td>' +
@@ -130,7 +126,7 @@
                 }?></select>' +
                 '</td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>' +
-                '<td><input type="date" name="d" class="form-control" required></td>' +
+
 
                 '<td"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

@@ -136,6 +136,7 @@
                             <th width="40%">Item Description</th>
                             <th width="12%">Requested</th>
                             <th width="12%">Issued</th>
+                            <th width="12%">Current</th>
                             <th>Remarks</th>
                             <th width="5%"></th>
                             </thead>
@@ -164,14 +165,19 @@
                                         }
                                         ?>
                                     </select>
-
+                                </td>
+                                <td>
+                                    <input type="number" name="qRequested[]" id="req" min="0"
+                                           onkeypress="return isNumberKey(event)" required class="form-control">
                                 </td>
 
-                                <td><input type="number" name="qRequested[]" id="req" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="text" name="remarks[]" size="30px" class="form-control"></td>
+                                <td>
+                                    <input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
+                                           onkeypress="return isNumberKey(event)" required class="form-control">
+                                </td>
+                                <td>
+                                    <input type="text" name="remarks[]" size="30px" class="form-control">
+                                </td>
                             </tr>
 
                             </tbody>
@@ -276,6 +282,8 @@
         });
 
     });
+
+
 
 
     var x = document.getElementById('office').value;

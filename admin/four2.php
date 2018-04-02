@@ -247,7 +247,7 @@ if($_SESSION['type'] == "user"){
 
         <!-- Modal for Add Item -->
         <div class="modal col-lg-12" id="addItem" data-backdrop="static">
-            <div class="modal-dialog" style="width:90%;">
+            <div class="modal-dialog" style="width:99%;">
                 <div class="modal-content">
                 </div>
             </div>
@@ -324,7 +324,7 @@ if($_SESSION['type'] == "user"){
                                                 . "<td>" . $row['c'] .  "</td>"
                                                 . "<td>" . $row['d'] .  "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItems.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
+                                                . "<td>" . "<a href=" .'../php/admin/modal/editItemsICS.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                             echo "</tr>";
                                         }
 
@@ -333,7 +333,7 @@ if($_SESSION['type'] == "user"){
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href="../php/admin/modal/addItem.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                                <a href="../php/admin/modal/addItemICS.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
                              </div>
                         </div>
                     </div>

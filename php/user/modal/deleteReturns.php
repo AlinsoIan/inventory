@@ -7,7 +7,7 @@
         <?php
         $a = $_GET['num'];
 
-        echo "<a href=" . '../php/user/deleteRETURNS.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
+        echo "<a href=" . '../php/user/deleteReturns.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
         ?>
 
         <a href="../user/returns.php" class='btn btn-primary pull-right'>Cancel</a>

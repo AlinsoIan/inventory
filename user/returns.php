@@ -6,7 +6,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php;
+    window.location.replace('index.php');
     </script>";
 }
 ?>
@@ -93,41 +93,71 @@ if(!isset($_SESSION['username'])){
     <aside id="leftsidebar" class="sidebar">
         <!-- Menu -->
         <div class="menu">
-            <ul class="list">
-                <li>
-                    <a href="issuance.php">
-                        <i class="material-icons">store_mall_directory</i>
-                        <span>Issuance</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="returns.php">
-                        <i class="material-icons">event_note</i>
-                        <span>Returns</span>
-                    </a>
-                </li>
-                <li>
+           <ul class="list">
+                     <li>
+                        <a href="delivery.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Delivery</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="issuance.php">
+                            <i class="material-icons">store_mall_directory</i>
+                            <span>Issuance</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="returns.php">
+                            <i class="material-icons">event_note</i>
+                            <span>Returns</span>
+                        </a>
+                    </li>
+                    <li>
 
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">view_list</i>
-                        <span>Reports</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                        </li>
-                    </ul>
-                </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Inventory</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="items2.php"><strong>Category 1</strong></a>
+                            </li>
+                            <li>
+                                <a href="two2.php"><strong>Category 2</strong></a>
+                            </li>
+                            <li>
+                                <a href="three2.php"><strong>Category 3</strong></a>
+                            </li>
+                            <li>
+                                <a href="four2.php"><strong>Category 4</strong></a>
+                            </li>
+                            <li>
+                                <a href="five2.php"><strong>Category 5</strong></a>
+                            </li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="raos.php"><strong>RAOS</strong></a>
+                            </li>
+                            <li>
+                                <a href="ssmi.php"><strong>SSMI</strong></a>
+                            </li>
+                            <li>
+                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
 
-            </ul>
+                </ul>
 
         </div>
         <!-- #Menu -->
@@ -211,7 +241,7 @@ if(!isset($_SESSION['username'])){
                                         echo "<td>" . $row['c'] . "</td>";
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/user/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -231,7 +261,7 @@ if(!isset($_SESSION['username'])){
                                 ?>
                             </h3>
 
-                            <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
+                            <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Return</a>
                         </div>
                     </div>
                 </div>

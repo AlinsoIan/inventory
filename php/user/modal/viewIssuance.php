@@ -4,7 +4,7 @@
         <div class="card">
             <div class="header">
                 <h2 align="center">
-                    EDIT ISSUANCE
+                    ISSUANCE INFORMATION
                 </h2>
             </div>
             <?php
