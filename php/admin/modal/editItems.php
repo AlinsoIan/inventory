@@ -13,7 +13,6 @@
             ?>
                 <table class="table">
                     <thead class="text-primary">
-                    <th>CATEGORY</th>
                     <th>ACCT-SN</th>
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
@@ -25,20 +24,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <?php
-                                require '../../db.php';
-                                $a = $_GET['num'];
-
-                                $sql = "SELECT categoryNo FROM items WHERE itemID = '$a'";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "<input name='category' placeholder='category' class='form-control' type='text' value='" . $r[0] . "' required>";
-                                ?>
-
-
-                            </td>
                             <td>
                                 <?php
                                 require '../../db.php';

@@ -14,8 +14,8 @@ $ad = $_POST['address'];
 
 
 
-$sql = "INSERT INTO suppliers(supplierName,tinNo,address,contactNo) 
-VALUES('$n','$tin','$ad','$cN')";
+$sql = "INSERT INTO suppliers(tinNo,supplierName,address,contactNo) 
+VALUES('$tin','$n','$ad','$cN')";
 
 if($conn->query($sql)){
     header("Location:../../admin/supplier.php");

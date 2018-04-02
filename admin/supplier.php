@@ -58,13 +58,13 @@ if($_SESSION['type'] == "user"){
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.php"><h4>General Services Office</h4></a>
+            <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 </li>
                 <li>
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand">
                         <h4>
                             <?php
                             echo strtoupper($_SESSION['username']);
@@ -274,7 +274,7 @@ if($_SESSION['type'] == "user"){
             <div class="col-lg-12 ">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">Offices</h2>
+                        <h2 class="text-center">Supplier</h2>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -310,7 +310,7 @@ if($_SESSION['type'] == "user"){
                                 ?>
                                 </tbody>
                             </table>
-                            <a href="../php/admin/modal/addOffice.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addOffice">Add Supplier</a>
+                            <a href="../php/admin/modal/addSupplier.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addOffice">Add Supplier</a>
                         </div>
                     </div>
                 </div>

@@ -10,5 +10,4 @@ if ($res) {
         $data[] = $row["currentQuantity"];
     }
 }
-
 echo json_encode($data);

@@ -10,14 +10,11 @@ session_start();
 $temp = $_SESSION['temp'];
 $id = $_GET['ii'];
 
-$sql = "SELECT categoryNo,acctSn,pgsoSn,description,units.unitName AS 'unit' ,unitCost,brand,supplierID FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
+$sql = "SELECT acctSn,pgsoSn,description,units.unitName AS 'unit' ,unitCost,brand,supplierID FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
-$category = $_POST['category'];
-if(empty($category)){
-    $category = $r[0];
-}
+
 $acct = $_POST['acct'];
 if(empty($acct)){
     $acct = $r[1];
@@ -65,7 +62,7 @@ if(empty($supplier)){
 }
 
 
-$sql = "UPDATE items SET categoryNo = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand',supplierID = '$supplier' WHERE itemID = '$id'";
+$sql = "UPDATE items SET acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand',supplierID = '$supplier' WHERE itemID = '$id'";
 
 if($conn->query($sql)){
 

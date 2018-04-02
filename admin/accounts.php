@@ -64,7 +64,7 @@ if ($_SESSION['type'] == "user") {
             <ul class="nav navbar-nav navbar-right">
                 </li>
                 <li>
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand" >
                         <h4>
                             <?php
                             echo strtoupper($_SESSION['username']);

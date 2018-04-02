@@ -57,7 +57,7 @@ if(!isset($_SESSION['username'])){
             <ul class="nav navbar-nav navbar-right">
                 </li>
                 <li>
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand">
                         <h4>
                             <?php
                             echo strtoupper($_SESSION['username']);
@@ -219,7 +219,7 @@ if(!isset($_SESSION['username'])){
                                 require '../php/db.php';
                                 $a = $_SESSION['user'];
 
-                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,items.unitID AS c,suppliers.supplierName AS d,
+                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,
                                                 delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
                                                   JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID
                                                   WHERE delivery.accountID = '$a'";
