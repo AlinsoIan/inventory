@@ -136,7 +136,6 @@
                             <th width="40%">Item Description</th>
                             <th width="12%">Requested</th>
                             <th width="12%">Issued</th>
-                            <th width="12%">Current</th>
                             <th>Remarks</th>
                             <th width="5%"></th>
                             </thead>
