@@ -297,6 +297,7 @@ if($_SESSION['type'] == "user"){
                                     <th>Reason</th>
                                     <th>Status</th>
                                     <th>User</th>
+                                    <th>Date</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
@@ -304,7 +305,7 @@ if($_SESSION['type'] == "user"){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.officeName AS a,items.description AS b,returns.itemQuantity AS c,
+                                $sql = "SELECT offices.officeName AS a,items.description AS b,returns.itemQuantity AS c,returns.returnDate AS o,
                                     returns.reason AS d,returns.status AS e,accounts.username AS f,returns.returnID AS idd
                                     FROM returns JOIN items ON returns.itemID = items.itemID JOIN offices ON returns.officeID = offices.officeID
                                      JOIN accounts ON returns.accountID = accounts.accountID";
@@ -319,6 +320,7 @@ if($_SESSION['type'] == "user"){
                                         echo "<td>" . $row['d'] . "</td>";
                                         echo "<td>" . $row['e'] . "</td>";
                                         echo "<td>" . $row['f'] . "</td>";
+                                        echo "<td>" . $row['o'] . "</td>";
                                         echo "<td>" . "<a href=" .'../php/admin/modal/deleteReturns.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_returns'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
