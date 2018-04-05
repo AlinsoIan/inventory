@@ -31,7 +31,7 @@ $unitz = [];
 foreach ($unitCost as $a) {
     array_push($unitz, $a);
 }
-$sq = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
+$sq = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office . "%'";
 $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
 

@@ -14,7 +14,7 @@
                     <div class="col-md-3">
                         <div class="">
                             <label >Office &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </label>
-                            <select name = 'office'  class="form-control">
+                            <select name = "office" id="office"  class="form-control">
                                 <?php
                                 require '../../db.php';
                                 $sql = "SELECT officeName FROM offices";
@@ -28,6 +28,14 @@
 
                             </select>
                         </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label>FPP</label>
+                        <input type="text" id="rc" disabled="" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label>RC</label>
+                        <input type="text" id="fpp" disabled="" class="form-control">
                     </div>
                     <div class="col-md-2 pull-right">
                         <div class="">
@@ -160,5 +168,33 @@
                 $('#desc1').html(data);
             }
         });
+    });
+
+    $('#office').change(function () {
+        $id = $(this).val();
+        $.ajax({
+            url: 'officeInfo.php',
+            data: {office: $id},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#fpp').val(data[0]);
+                $('#rc').val(data[1]);
+            }
+        });
+
+    });
+
+
+
+
+    var x = document.getElementById('office').value;
+    $.ajax({
+        url: 'officeInfo.php',
+        data: {office: x},
+        dataType: 'JSON',
+        success: function (data) {
+            $('#fpp').val(data[0]);
+            $('#rc').val(data[1]);
+        }
     });
 </script>

@@ -19,11 +19,13 @@ if ($_SESSION['type'] == "user") {
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>To-Expire</title>
+    <title>Reports: STOCK CARD</title>
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css/a.css" rel="stylesheet" type="text/css">
@@ -131,7 +133,7 @@ if ($_SESSION['type'] == "user") {
                             <span>Returns</span>
                         </a>
                     </li>
-                    <li>
+                    <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -154,7 +156,7 @@ if ($_SESSION['type'] == "user") {
                         </li>
                     </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
@@ -166,13 +168,13 @@ if ($_SESSION['type'] == "user") {
                             <li>
                                 <a href="ssmi.php"><strong>SSMI</strong></a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                             </li>
                         </ul>
                     </li>
                     
-                        <li class="active">
+                        <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">settings</i>
                             <span>Monitor</span>
@@ -184,7 +186,7 @@ if ($_SESSION['type'] == "user") {
                             <span>Re-order</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="toexpire.php">
                             <i class="material-icons">assignment</i>
                             <span>To-Expire</span>
@@ -239,65 +241,82 @@ if ($_SESSION['type'] == "user") {
         <!-- #END# Left Sidebar -->
 
     </section>
-     <!-- Modal for Edit Reorder -->
-    <div class="modal col-lg-12" id="edit_reorder" data-backdrop="static">
-        <div class="modal-dialog" style="width:99%;" >
+  
+        <!-- Modal for Print Items -->
+    <div class="modal col-lg-12" id="printItem" data-backdrop="static">
+        <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
             </div>
         </div>
     </div>
 
+   
+
+
     <section class="content">
         <div class="container-fluid">
-            <!-- Basic Table -->
+            <!-- Basic Examples -->
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">TO EXPIRE</h2>
+                            <h2 class="text-center">STOCK CARD</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
-                                        <tr>
-                                            <th>CATEGORY</th>
-                                            <th>ITEM DESCRIPTION</th>
-                                            <th>BRAND</th>
-                                            <th>QUANTITY</th>
-                                            <th>EXPIRY DATE</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Brand</th>
+                                        <th>Re-order Point</th>
+                                        <th>Office</th>
+                                        <th>Settings</th>
+                                    </tr>
                                     </thead>
-
                                     <tbody>
                                     <?php
                                     require '../php/db.php';
-                                    $sql = "SELECT * FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE categoryNo = '2' and adddate(CURRENT_DATE(), INTERVAL 3 Month) >= expirationDate";
+
+                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat']= "01";
+
+                                    $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
+                                                  ,suppliers.supplierName AS d
+                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
                                     $res = $conn->query($sql);
 
                                     if($res){
-                                        while ($row = $res->fetch_assoc()){
-                                            echo  "<tr>";
-                                        
-                                            echo "<td>" . $row['categoryNo'] . "</td>";
-                                            echo "<td>" . $row['description'] . "</td>";
-                                            echo "<td>" . $row['brand'] . "</td>";
-                                            echo "<td>" . $row['currentQuantity'] . "</td>";
-                                            echo "<td>" . $row['expirationDate'] . "</td>";
+                                        while($row = $res->fetch_assoc()){
+                                            echo "<tr>"
+                                                . "<td>" . $row['aa'] ."</td>"
+                                                . "<td>" . $row['description'] ."</td>"
+                                                . "<td>" . $row['a'] ."</td>"
+                                                . "<td>" . $row['currentQuantity'] .  "</td>"
+                                                . "<td>" . $row['brand'] .  "</td>"
+                                                . "<td>" . $row['c'] .  "</td>"
+                                                . "<td>" . $row['d'] .  "</td>"
+
+                                                . "<td>" . "<a href=" .'../php/admin/modal/printItem.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>"."</td>";
                                             echo "</tr>";
                                         }
+
                                     }
 
                                     ?>
                                     </tbody>
                                 </table>
-                            
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Table -->
+            <!-- #END# Basic Examples -->
+        </div>
     </section>
 
     <!-- Jquery Core Js -->
@@ -327,8 +346,10 @@ if ($_SESSION['type'] == "user") {
     <script src="../js/admin.js"></script>
     <script src="../js/pages/tables/jquery-datatable.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
+    <script src="../js/custom.js"></script>
+
+
+
 </body>
 
 </html>

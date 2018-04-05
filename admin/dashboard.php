@@ -1,23 +1,20 @@
 <?php
 session_start();
-
-
-if(!isset($_SESSION['username'])){
-    $m="Please Login First";
+if (!isset($_SESSION['username'])) {
+    $m = "Please Login First";
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('index.php');    
+    window.location.replace('../index.php');
     </script>";
 }
-if($_SESSION['type'] == "user"){
+if ($_SESSION['type'] == "user") {
     session_destroy();
-    $m="Unauthorized Access";
-
+    $m = "Unauthorized Access";
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.php')
-        </script>";
+    window.location.replace('../index.php');
+    </script>";
 }
 ?>
 <!DOCTYPE html>
