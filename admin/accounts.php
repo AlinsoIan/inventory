@@ -30,24 +30,25 @@ if ($_SESSION['type'] == "user") {
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/a.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
-    <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+
 </head>
 
 <body class="theme-blue">
@@ -369,18 +370,19 @@ if ($_SESSION['type'] == "user") {
 <!-- Bootstrap Core Js -->
 <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-<!-- Select Plugin Js -->
-<script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
 
 <!-- Waves Effect Plugin Js -->
 <script src="../plugins/node-waves/waves.js"></script>
 
+<!-- Sparkline Plugin Js -->
+<script src="../plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
 <!-- Custom Js -->
 <script src="../js/admin.js"></script>
+<script src="../js/pages/charts/sparkline.js"></script>
 
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
+
+
 </body>
 
 </html>

@@ -26,17 +26,14 @@ if($_SESSION['type'] == "user"){
     <title>Reorder</title>
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/a.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
-    <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -316,11 +313,7 @@ if($_SESSION['type'] == "user"){
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-    <!-- Waves Effect Plugin Js -->
-    <script src="../plugins/node-waves/waves.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
     <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
@@ -337,8 +330,6 @@ if($_SESSION['type'] == "user"){
     <script src="../js/admin.js"></script>
     <script src="../js/pages/tables/jquery-datatable.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
 </body>
 
 </html>

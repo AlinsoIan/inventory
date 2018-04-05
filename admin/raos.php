@@ -26,8 +26,9 @@ if($_SESSION['type'] == "user"){
     <title>Reports: RAOS</title>
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/a.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">

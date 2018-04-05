@@ -7,7 +7,7 @@ if(!isset($_SESSION['username'])){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace(index.php);    
+    window.location.replace('index.php');    
     </script>";
 }
 if($_SESSION['type'] == "user"){
@@ -16,7 +16,8 @@ if($_SESSION['type'] == "user"){
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('../index.index.php    </script>";
+    window.location.replace('../index.php')
+        </script>";
 }
 ?>
 <!DOCTYPE html>
@@ -30,8 +31,9 @@ if($_SESSION['type'] == "user"){
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/a.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -425,8 +427,6 @@ if($_SESSION['type'] == "user"){
 <script src="../js/admin.js"></script>
 <script src="../js/pages/charts/sparkline.js"></script>
 
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
 
 </body>
 

@@ -52,6 +52,7 @@ if($res->num_rows > 0 && $r[4] == 'active'){
     }elseif($r[2]=="user"){
         $sql = "INSERT INTO accountlogs(accountID,loginTime,loginDate)
               VALUES ('$r[3]','$t','$d')";
+        $conn->query($sql);
         $sql = "SELECT MAX(logID) FROM accountlogs";
         $res = $conn->query($sql);
         $r = $res->fetch_row();
