@@ -69,6 +69,24 @@ if($conn->query($sql)){
 
     }
 
+    for($m = 0;count($cat) > $m;$m++){
+        $sql = "SELECT currentQuantity FROM inventory JOIN items ON inventory.itemID = items.itemID WHERE
+            items.description LIKE '%" .$dess[$m].  "%'";
+        $res = $conn->query($sql);
+        $r = $res->fetch_row();
+
+        if ($iss[$m] > $r[0]){
+            $m = "Cannot Issue item, insufficient balance for !" . $dess[$m] ;
+
+            echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/issuance.php');
+            </script>
+            ";
+        }
+    }
+
     $id = mysqli_insert_id($conn);
     for ($m = 0;count($cat) > $m;$m++) {
 

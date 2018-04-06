@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 06, 2018 at 06:43 AM
+-- Generation Time: Apr 06, 2018 at 03:48 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `accountlogs` (
   `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accountlogs`
@@ -62,7 +62,12 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 (198, 4, '02:09:pm', '02:18:pm', '2018-04-06'),
 (199, 4, '02:09:pm', '02:16:pm', '2018-04-06'),
 (200, 3, '02:17:pm', NULL, '2018-04-06'),
-(201, 7, '02:18:pm', NULL, '2018-04-06');
+(201, 7, '02:18:pm', NULL, '2018-04-06'),
+(202, 4, '03:52:pm', '03:58:pm', '2018-04-06'),
+(203, 7, '03:52:pm', '03:57:pm', '2018-04-06'),
+(204, 3, '03:52:pm', '03:57:pm', '2018-04-06'),
+(205, 6, '03:55:pm', NULL, '2018-04-06'),
+(206, 4, '10:31:pm', NULL, '2018-04-06');
 
 -- --------------------------------------------------------
 
@@ -111,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `deliveryDate` date NOT NULL,
   `accountID` int(45) NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `delivery`
@@ -142,7 +147,8 @@ INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQua
 (64, 8, 145, 346, 4, '2018-04-06', 6),
 (65, 4, 66, 8765, 40, '2018-05-03', 4),
 (66, 8, 130, 8765, 30, '2018-05-03', 4),
-(67, 9, 163, 8765, 50, '2018-05-03', 4);
+(67, 9, 163, 8765, 50, '2018-05-03', 4),
+(69, 4, 61, 56, 1, '2018-04-06', 6);
 
 -- --------------------------------------------------------
 
@@ -161,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `history` (
   `actDate` date NOT NULL,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `history`
@@ -209,7 +215,14 @@ INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `re
 (82, 3, NULL, NULL, 50, 'accepted return', '2018-04-06', 'returns'),
 (83, 7, NULL, NULL, 51, 'accepted return', '2018-04-06', 'returns'),
 (84, 3, NULL, NULL, 52, 'accepted return', '2018-04-06', 'returns'),
-(85, 3, NULL, NULL, 53, 'accepted return', '2018-04-06', 'returns');
+(85, 3, NULL, NULL, 53, 'accepted return', '2018-04-06', 'returns'),
+(86, 7, NULL, 68, NULL, 'delivered', '2018-05-02', 'Delivery'),
+(87, 7, 53, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
+(88, 7, NULL, NULL, 54, 'accepted return', '2018-04-06', 'returns'),
+(89, 7, NULL, 68, NULL, 'Delivery Deleted', '2018-04-06', 'Delivery'),
+(90, 7, 53, NULL, NULL, 'Issuance Deleted', '2018-04-06', 'Issuance'),
+(91, 6, NULL, 69, NULL, 'delivered', '2018-04-06', 'Delivery'),
+(92, 7, NULL, NULL, 51, 'Returns Deleted', '2018-04-06', 'Returns');
 
 -- --------------------------------------------------------
 
@@ -236,13 +249,13 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (45, 56, NULL, 1070, 1000, 200),
 (46, 57, NULL, 1000, 1000, 200),
 (47, 58, NULL, 1000, 1000, 200),
-(50, 61, NULL, 577, 400, 80),
+(50, 61, NULL, 578, 400, 80),
 (51, 62, NULL, 30, 20, 4),
 (52, 63, NULL, 100, 100, 20),
 (53, 64, NULL, 398, 400, 80),
 (54, 65, NULL, 500, 500, 100),
 (55, 66, NULL, 640, 100, 20),
-(56, 67, NULL, 12, 50, 10),
+(56, 67, NULL, 9, 50, 10),
 (57, 68, NULL, 2, 2, 0),
 (58, 69, NULL, 437, 450, 90),
 (59, 70, NULL, 78, 20, 4),
@@ -303,7 +316,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (118, 130, NULL, 130, 100, 20),
 (119, 131, NULL, 117, 120, 24),
 (120, 132, NULL, 257, 250, 50),
-(121, 133, NULL, 371, 400, 80),
+(121, 133, NULL, 377, 400, 80),
 (122, 134, NULL, 600, 600, 120),
 (123, 135, NULL, 250, 250, 50),
 (125, 137, NULL, 80, 80, 16),
@@ -351,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `accountID` int(10) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `issuance`
@@ -386,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemissuance`
@@ -468,7 +481,7 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `currentQuantity` int(15) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=338 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=345 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
@@ -566,7 +579,14 @@ INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate
 (334, 104, 92, '2018-04-06', NULL, NULL, 797, NULL, 20, NULL, 817, 'increased'),
 (335, 119, 107, '2018-04-06', NULL, NULL, 67, NULL, 1, NULL, 68, 'increased'),
 (336, 67, 56, '2018-04-06', NULL, NULL, 9, NULL, 3, NULL, 12, 'increased'),
-(337, 150, 138, '2018-04-06', NULL, NULL, 38, NULL, 2, NULL, 40, 'increased');
+(337, 150, 138, '2018-04-06', NULL, NULL, 38, NULL, 2, NULL, 40, 'increased'),
+(338, 141, 129, '2018-05-02', NULL, 8, 150, 7, NULL, NULL, 157, 'increased'),
+(339, 143, 131, '2018-04-06', 34, NULL, 80, NULL, NULL, 6, 74, 'decreased'),
+(340, 133, 121, '2018-04-06', NULL, NULL, 371, NULL, 6, NULL, 377, 'increased'),
+(341, 141, 129, '2018-04-06', NULL, NULL, 157, 7, NULL, NULL, 150, 'decreased'),
+(342, 143, 131, '2018-04-06', NULL, NULL, 74, NULL, NULL, 6, 80, 'increased'),
+(343, 61, 50, '2018-04-06', NULL, 56, 577, 1, NULL, NULL, 578, 'increased'),
+(344, 67, 56, '2018-04-06', NULL, NULL, 12, NULL, 3, NULL, 9, 'decreased');
 
 -- --------------------------------------------------------
 
@@ -868,7 +888,7 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `accountID` int(45) NOT NULL,
   `returnDate` date DEFAULT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `returns`
@@ -877,9 +897,9 @@ CREATE TABLE IF NOT EXISTS `returns` (
 INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`, `accountID`, `returnDate`) VALUES
 (49, 119, 58, 1, 'damaged', 'usable', 3, '2018-04-06'),
 (50, 102, 61, 2, 'expired', 'disposable', 3, '2018-04-06'),
-(51, 67, 43, 3, 'Not usable', 'usable', 7, '2018-04-06'),
 (52, 150, 61, 2, 'damaged', 'usable', 3, '2018-04-06'),
-(53, 120, 61, 1, 'damaged', 'disposable', 3, '2018-04-06');
+(53, 120, 61, 1, 'damaged', 'disposable', 3, '2018-04-06'),
+(54, 133, 49, 6, 'excess item', 'usable', 7, '2018-04-06');
 
 -- --------------------------------------------------------
 
