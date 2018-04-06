@@ -23,8 +23,9 @@ if(!isset($_SESSION['username'])){
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
+    <link href="../css/a.css" rel="stylesheet" type="text/css">
     <link href="../css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../css/icons2.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -68,7 +69,7 @@ if(!isset($_SESSION['username'])){
                     <!-- Example single danger button -->
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
+                        <i class="material-icons">account_circle</i>
                     </a>
                     <ul class="dropdown-menu">
 

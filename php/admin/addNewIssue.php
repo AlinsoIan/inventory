@@ -16,7 +16,10 @@ $division = $_POST['division'];
 $responsibility = $_POST['responsibilityCenter'];
 $ris = $_POST['ris'];
 $office = $_POST['office'];
-$sql = "SELECT officeID FROM offices WHERE officeName LIKE '%$office%'";
+
+
+
+$sql = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 $fpp = $_POST['fpp'];
@@ -104,8 +107,8 @@ if($conn->query($sql)){
 
     }
 
-    $sql = "INSERT INTO history(accountID,activity,actDate,type)
-              VALUES ('$userID','issued','$d','issuance')";
+    $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type)
+              VALUES ('$userID','$id','issued','$d','issuance')";
     $conn->query($sql);
 
     header('Location:../../admin/issuance.php');

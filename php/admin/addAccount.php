@@ -10,12 +10,14 @@ require '../db.php';
 
 $first = $_POST['first'];
 $last = $_POST['last'];
-$type = $_POST['type'];
+
 $username = $_POST['username'];
 
 $pass = $_POST['pass'];
 $password = password_hash($pass,PASSWORD_BCRYPT);
 $d = date('Y:n:j');
+
+$type = $_POST['type'];
 
 
 $sql = "INSERT INTO accounts(firstName,lastName,userName,password,userType,status)
@@ -23,10 +25,6 @@ $sql = "INSERT INTO accounts(firstName,lastName,userName,password,userType,statu
 
 if($conn->query($sql)){
 
-	/**
-	$sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has added account $username','$d')";
-	$conn->query($sql);
-	*/
 	
     header('Location:../../admin/accounts.php');
 

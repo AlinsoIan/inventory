@@ -35,7 +35,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='category' placeholder='category' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                echo "<input name='category' disabled placeholder='category' class='form-control' type='text' value='" . $r[0] . "' required>";
                                 ?>
 
 
@@ -49,7 +49,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='acct' placeholder='ACCT-SN' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                echo "<input name='acct' disabled placeholder='ACCT-SN' class='form-control' type='text' value='" . $r[0] . "' required>";
                                 ?>
 
 
@@ -63,7 +63,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='pgso' placeholder='PGSO-SN' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                echo "<input name='pgso' disabled placeholder='PGSO-SN' class='form-control' type='text' value='" . $r[0] . "' required>";
                                 ?>
                             </td>
                             <td>
@@ -75,7 +75,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='description' placeholder='description' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                echo "<input name='description' disabled placeholder='description' class='form-control' type='text' value='" . $r[0] . "' required>";
                                 ?>
                             </td>
                             <td>
@@ -91,7 +91,7 @@
                                 $ress = $conn->query($sql);
                                 $rr =$ress->fetch_row();
 
-                                echo "<input name='unit'  class='form-control' type='text' value='" . $rr[0] . "' required>";
+                                echo "<input name='unit' disabled  class='form-control' type='text' value='" . $rr[0] . "' required>";
                                 ?>
                             </td>
                             <td>
@@ -103,7 +103,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='brand' placeholder='brand' class='form-control' type='text' value='" . $r[0] . "' required>";
+                                echo "<input name='brand' disabled placeholder='brand' class='form-control' type='text' value='" . $r[0] . "' required>";
                                 ?>
                             </td>
                             <td>
@@ -115,7 +115,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input type='number' placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly();' onkeyup='checkNumber()' name = 'sQuantity' class='form-control'>";
+                                echo "<input type='number' disabled placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly();' onkeyup='checkNumber()' name = 'sQuantity' class='form-control'>";
                                 ?>
 
 
@@ -129,7 +129,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input type='number' placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly2();' onkeyup='checkNumber2()' name = 'unitCost' class='form-control'>";
+                                echo "<input type='number' disabled placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly2();' onkeyup='checkNumber2()' name = 'unitCost' class='form-control'>";
                                 ?>
 
 
@@ -147,7 +147,7 @@
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
+                                echo "<input type='text' disabled value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
                                 ?>
                             </td>
                             <td>
@@ -159,7 +159,7 @@
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'icsNo' class='form-control'>";
+                                echo "<input type='text' disabled value = '" .$rr[0] . "'  name = 'icsNo' class='form-control'>";
                                 ?>
 
 

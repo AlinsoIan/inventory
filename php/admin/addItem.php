@@ -44,7 +44,7 @@ if($res){
         $conn->query($sql);
         header("Location:../../admin/$temp");
     }else{
-        $m = "Error Adding Item! Please contact administrator!!Wehhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+        $m = "Error Adding Item! Please contact administrator!";
 
         echo "
             <script type = 'text/javascript'>

@@ -22,7 +22,7 @@ $quan = $_POST['sQuantity'];
 
 $level = floor($quan * .2);
 
-$sql2 = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$supplier%'";
+$sql2 = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%" .$supplier ."%'";
 $res = $conn->query($sql2);
 if($res){
     $r = $res->fetch_row();

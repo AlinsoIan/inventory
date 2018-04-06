@@ -7,6 +7,8 @@
  */
 
 require '../db.php';
+session_start();
+$userID = $_SESSION['user'];
 $i = $_GET['n'];
 $da = date('Y:n:j');
 $s = "SELECT itemID,totalQuantity FROM delivery WHERE deliveryID = '$i'";
@@ -39,11 +41,9 @@ if($conn->query($sql)){
                             VALUES('$r[0]','$ff[0]','$da','$rr[0]','$r[1]','$hh[0]','decreased')";
     $conn->query($sql);
 
-    /*
-    $p = $r[0] . "," . $ff[0] . ", " . $da. ", " .$r[1]. ", " .$quanz[$m]. ", " .$gg[0]. ",  " ."increased";
-    $sql = "INSERT INTO asa(a) VALUES('$p')";
+    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
+                    VALUES ('$userID','$i','Delivery Deleted','$da','Delivery')";
     $conn->query($sql);
-    */
 
     header("Location:../../admin/delivery.php");
 

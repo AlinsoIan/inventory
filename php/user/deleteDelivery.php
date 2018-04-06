@@ -7,6 +7,8 @@
  */
 
 require '../db.php';
+session_start();
+$userID = $_SESSION['user'];
 $i = $_GET['n'];
 $da = date('Y:n:j');
 $s = "SELECT itemID,totalQuantity FROM delivery WHERE deliveryID = '$i'";
@@ -37,6 +39,10 @@ if($conn->query($sql)){
     $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,deliveryQuantity,
                             currentQuantity,status)
                             VALUES('$r[0]','$ff[0]','$da','$rr[0]','$r[1]','$hh[0]','decreased')";
+    $conn->query($sql);
+
+    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
+                    VALUES ('$userID','$i','Delivery Deleted','$da','Delivery')";
     $conn->query($sql);
 
     header("Location:../../user/delivery.php");

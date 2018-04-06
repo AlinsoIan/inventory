@@ -10,7 +10,7 @@ require '../db.php';
 session_start();
 $userID = $_SESSION['user'];
 
-$da = date('Y:n:j');
+$da = $_POST['d'];
 
 $office = $_POST['office'];
 
@@ -28,15 +28,15 @@ $ress = $_POST['res'];
 $quantity = $_POST['quantity'];
 $status = $_POST['status'];
 
-$sql = "INSERT INTO history(accountID,activity,actDate,type) VALUES('$userID','returned','$d','Returns')";
-$conn->query($sql);
+
 
 
 if ($c) {
-    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status,accountID)
-        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status','$userID')";
+    $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status,accountID,returnDate)
+        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status','$userID','$da')";
 
     $conn->query($sql);
+    $id = mysqli_insert_id($conn);
     if ($status === "usable") {
         $b = $quantity + $cc[1];
 
@@ -53,7 +53,13 @@ if ($c) {
 
     }
 
+    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type)
+              VALUES ('$userID','$id','accepted return','$da','returns')";
+    $conn->query($sql);
 
+    $oo = $userID . " " .$id . " " . "accepted return" . $da . "returns";
+    $sql = "INSERT INTO asa(a) VALUES ('$oo')";
+    $conn->query($sql);
 
     header('Location:../../user/returns.php');
 

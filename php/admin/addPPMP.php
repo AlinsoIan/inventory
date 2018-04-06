@@ -31,7 +31,8 @@ $unitz = [];
 foreach ($unitCost as $a) {
     array_push($unitz, $a);
 }
-$sq = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office . "%'";
+
+$sq = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
 
@@ -40,7 +41,7 @@ $sql = "INSERT INTO ppmp(officeID,ppmpDate) VALUES('$rr[0]','$d')";
 $conn->query($sql);
 $v = mysqli_insert_id($conn);
 for ($m = 0; count($cat) > $m; $m++) {
-    $s = "SELECT itemID FROM items WHERE description LIKE '%$item[$m]%'";
+    $s = "SELECT itemID FROM items WHERE description LIKE '%" .$item[$m] . "%'";
     $res = $conn->query($s);
     $r = $res->fetch_row();
     $sql = "INSERT INTO ppmpitems(itemID,itemQuantity,unitCost,ppmpID)

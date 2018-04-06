@@ -7,6 +7,8 @@
  */
 
 require '../db.php';
+session_start();
+$userID = $_SESSION['user'];
 
 $a = $_GET['n'];
 
@@ -40,10 +42,15 @@ if($conn->query($sql)){
     $conn->query($sql);
 
 
-    $p = $rrr[0] . "," . $j[0] . ", " . $da. ", " .$r[0]. ", " .$rrr[1]. ", " .$b. ",  " ."decreased";
-    $sql = "INSERT INTO asa(a) VALUES('$p')";
+
+    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type)
+                    VALUES ('$userID','$a','Returns Deleted','$da','Returns')";
     $conn->query($sql);
 
+    $oo = $userID . " " . $a . " " . "Returns Deleted" . " " . $da . " " . "Returns";
+
+    $sql = "INSERT INTO asa(a) VALUES ('$oo')";
+    $conn->query($sql);
 
     header("Location:../../user/returns.php");
 

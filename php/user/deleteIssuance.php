@@ -9,6 +9,7 @@
 require '../db.php';
 $i = $_GET['n'];
 session_start();
+$userID = $_SESSION['user'];
 
 $temp = $_SESSION['temp'];
 
@@ -43,16 +44,17 @@ if ($res) {
 
         $conn->query($sql);
 
-
     }
 
-
+    $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type)
+                    VALUES ('$userID','$i','Issuance Deleted','$d','Issuance')";
+    $conn->query($sql);
 
     $sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
     $conn->query($sql);
     $sql = "DELETE FROM itemissuance WHERE issuanceID = '$i'";
     $conn->query($sql);
-    header("Location:../../user/$temp");
+    header("Location:../../user/issuance.php");
 
 } else {
     $m = "Failed to Delete Issuance, Contact Administrator!";

@@ -31,7 +31,7 @@ if(empty($cn)){
 }
 
 
-$sql = "UPDATE suppliers SET tinNumber = '$t',supplierName = '$n',address = '$add',contactNo = '$cn' WHERE supplierID = '$id'";
+$sql = "UPDATE suppliers SET tinNo = '$t',supplierName = '$n',address = '$add',contactNo = '$cn' WHERE supplierID = '$id'";
 
 if($conn->query($sql)){
     header('Location:../../admin/supplier.php');

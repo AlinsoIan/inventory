@@ -75,7 +75,7 @@ if ($_SESSION['type'] == "user") {
                     <!-- Example single danger button -->
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
+                        <i class="material-icons">account_circle</i>
                     </a>
                     <ul class="dropdown-menu">
 

@@ -99,7 +99,7 @@
                                 <input type="text" name="sai"  required class="form-control">
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 pull-right">
                             <div class="">
                                 <label>Date </label>
                                 <?php

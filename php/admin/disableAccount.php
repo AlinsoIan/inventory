@@ -23,8 +23,6 @@ if($r[1] == "user"){
 
     if($conn->query($sql)) {
 
-        $sql = "INSERT INTO accountslogs(logs,dateT) VALUES('Admin has deleted account $r[1]','$d')";
-        $conn->query($sql);
         header('Location:../../admin/accounts.php');
     }
 }else{

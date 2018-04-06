@@ -26,6 +26,15 @@
                             ?>
                         </select>
                     </div>
+                    <div class="col-md-3 pull-right">
+                        <label>Date</label>
+                        <?php
+                        $d = date('Y/n/j');
+
+                        echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
+                        ?>
+                        </select>
+                    </div>
                 </div>
                 </div>
                 <table class="table">

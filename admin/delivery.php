@@ -76,7 +76,7 @@ if ($_SESSION['type'] == "user") {
                     <!-- Example single danger button -->
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
+                        <i class="material-icons">account_circle</i>
                     </a>
                     <ul class="dropdown-menu">
 
@@ -291,6 +291,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Unit</th>
                                     <th>Supplier</th>
                                     <th>Quantity</th>
+                                    <th>User</th>
                                     <th>Delivery Date</th>
                                     <th>Settings</th>
                                 </tr>
@@ -300,9 +301,9 @@ if ($_SESSION['type'] == "user") {
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,
+                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,accounts.username AS g, 
                                                 delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
-                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID";
+                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN accounts ON delivery.accountID = accounts.accountID";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -314,6 +315,7 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['c'] ."</td>"
                                             . "<td>" . $row['d'] ."</td>"
                                             . "<td>" . $row['e'] ."</td>"
+                                            . "<td>" . $row['g'] ."</td>"
                                             . "<td>" . $row['f'] ."</td>"
                                             . "<td><a href=" .'../php/admin/modal/deleteDelivery.php?num=' .$row['idd']  . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="header">
                     <h2 class="text-center">
-                        Stock Card
+                        SSMI
                     </h2>
                 </div>
                 <div class="modal-header">

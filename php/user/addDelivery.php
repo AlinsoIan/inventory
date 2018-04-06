@@ -85,6 +85,9 @@ if (COUNT($cat)) {
                             VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
                     $conn->query($sql);
 
+                    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
+                    VALUES ('$userID','$v','delivered','$da','Delivery')";
+                    $conn->query($sql);
 
 
                 }else {
@@ -124,9 +127,7 @@ if (COUNT($cat)) {
 
 
     }
-    $sql = "INSERT INTO history(accountID,activity,actDate,type)
-                    VALUES ('$userID','delivered','$da','Delivery')";
-    $conn->query($sql);
+
     header('Location:../../user/delivery.php');
 
 } else {

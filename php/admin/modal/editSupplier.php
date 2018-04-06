@@ -56,7 +56,7 @@
                                 $r = $res->fetch_row();
 
 
-                                echo "<input name='poNumber' value='" . $r[0] . "' class='form-control' type='text' required>";
+                                echo "<input name='address' value='" . $r[0] . "' class='form-control' type='text' required>";
 
                                 ?>
 
@@ -72,7 +72,7 @@
                                 $r = $res->fetch_row();
 
 
-                                echo "<input name='poDate' value='" . $r[0] . "' class='form-control' type='text' required>";
+                                echo "<input name='contactNo' value='" . $r[0] . "' class='form-control' type='text' required>";
 
                                 ?>
                             </td>

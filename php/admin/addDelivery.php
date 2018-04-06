@@ -50,13 +50,13 @@ if (COUNT($cat)) {
 
     for ($m = 0; count($cat) > $m; $m++) {
 
-        $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%$itemz[$m]%'";
+        $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%" .$itemz[$m] . "%'";
         $res = $conn->query($s);
 
         if ($res->num_rows > 0) {
             $r = $res->fetch_row();
 
-            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$suppz[$m]%'";
+            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%" . $suppz[$m] . "%'";
             $ress = $conn->query($sq);
             if ($ress->num_rows > 0) {
                 $rr = $ress->fetch_row();
@@ -85,7 +85,9 @@ if (COUNT($cat)) {
                             VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
                     $conn->query($sql);
 
-
+                    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
+                    VALUES ('$userID','$v','delivered','$da','Delivery')";
+                    $conn->query($sql);
 
                 }else {
                     $m = $conn->error;
@@ -124,9 +126,7 @@ if (COUNT($cat)) {
 
 
     }
-    $sql = "INSERT INTO history(accountID,activity,actDate,type)
-                    VALUES ('$userID','delivered','$da','Delivery')";
-    $conn->query($sql);
+
     header('Location:../../admin/delivery.php');
 
 } else {

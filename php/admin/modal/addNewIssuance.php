@@ -76,7 +76,9 @@
                                     require '../../db.php';
                                     $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID";
                                     $res = $conn->query($sql);
-                                    if ($res) {
+                                    if ($res->num_rows == 0) {
+                                        echo "<option disabled> No Office with PPMP</option>";
+                                    }else{
                                         while ($row = $res->fetch_assoc()) {
                                             echo "<option value='" . $row['a'] ."'>" . $row['a'] . "</option>";
 

@@ -76,7 +76,7 @@ if ($_SESSION['type'] == "user") {
                     <!-- Example single danger button -->
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">format_align_justify</i>
+                        <i class="material-icons">account_circle</i>
                     </a>
                     <ul class="dropdown-menu">
 
@@ -331,7 +331,6 @@ if ($_SESSION['type'] == "user") {
                                 ?>
                             </h3>
 
-                            <a href="../php/admin/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add <PPMP></PPMP></a>
                         </div>
                     </div>
                 </div>
