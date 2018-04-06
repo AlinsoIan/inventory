@@ -13,7 +13,6 @@ $ti = date('h:i:a');
 $userID = $_SESSION['user'];
 
 $division = $_POST['division'];
-$responsibility = $_POST['responsibilityCenter'];
 $ris = $_POST['ris'];
 $office = $_POST['office'];
 
@@ -22,7 +21,7 @@ $office = $_POST['office'];
 $sql = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
-$fpp = $_POST['fpp'];
+
 $sai = $_POST['sai'];
 $d = $_POST['d'];
 $t = $_POST['type'];

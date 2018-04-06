@@ -12,8 +12,6 @@ session_start();
 $ti = date('h:i:a');
 $userID = $_SESSION['user'];
 
-$division = $_POST['division'];
-$responsibility = $_POST['responsibilityCenter'];
 $ris = $_POST['ris'];
 $office = $_POST['office'];
 
@@ -30,8 +28,32 @@ $s = $_SESSION['user'];
 $sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,type,accountID) 
         VALUES ('$division','$r[0]','$ris','$sai','$d','$ti','$t','$s')";
 
+
+
 $category = $_POST['category'];
 $des = $_POST['des'];
+    $dess = [];
+    foreach ($des as $a){
+        array_push($dess,$a);
+
+    }
+for($m = 0;count($cat) > $m;$m++){
+    $sql = "SELECT currentQuantity FROM inventory JOIN items ON inventory.itemID = items.itemID WHERE
+            items.description LIKE '%" .$dess[$m].  "%'";
+    $res = $conn->query($sql);
+    $r = $res->fetch_row();
+
+    if ($iss[$m] > $r[0]){
+        $m = "Cannot Issue item, insufficient balance for !" . $dess[$m] ;
+
+        echo "
+            <script type = 'text/javascript'>
+            alert('$m');
+            window.location.replace('../../admin/issuance.php');
+            </script>
+            ";
+    }
+}
 $qRequested = $_POST['qRequested'];
 $qIssued = $_POST['qIssued'];
 $remarks = $_POST['remarks'];

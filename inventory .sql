@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 06, 2018 at 03:48 PM
+-- Generation Time: Apr 06, 2018 at 04:28 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `accountlogs` (
   `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accountlogs`
@@ -53,7 +53,6 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 (189, 7, '01:53:pm', '02:02:pm', '2018-04-06'),
 (190, 3, '01:53:pm', '02:02:pm', '2018-04-06'),
 (191, 3, '01:54:pm', '01:54:pm', '2018-04-06'),
-(192, 4, '01:54:pm', NULL, '2018-04-06'),
 (193, 5, '02:03:pm', '02:05:pm', '2018-04-06'),
 (194, 8, '02:03:pm', '02:05:pm', '2018-04-06'),
 (195, 7, '02:05:pm', '02:05:pm', '2018-04-06'),
@@ -61,13 +60,11 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 (197, 9, '02:06:pm', '02:09:pm', '2018-04-06'),
 (198, 4, '02:09:pm', '02:18:pm', '2018-04-06'),
 (199, 4, '02:09:pm', '02:16:pm', '2018-04-06'),
-(200, 3, '02:17:pm', NULL, '2018-04-06'),
-(201, 7, '02:18:pm', NULL, '2018-04-06'),
 (202, 4, '03:52:pm', '03:58:pm', '2018-04-06'),
 (203, 7, '03:52:pm', '03:57:pm', '2018-04-06'),
 (204, 3, '03:52:pm', '03:57:pm', '2018-04-06'),
-(205, 6, '03:55:pm', NULL, '2018-04-06'),
-(206, 4, '10:31:pm', NULL, '2018-04-06');
+(206, 4, '10:31:pm', '12:24:am', '2018-04-06'),
+(207, 4, '12:26:am', NULL, '2018-04-07');
 
 -- --------------------------------------------------------
 
@@ -364,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `accountID` int(10) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `issuance`
@@ -382,7 +379,10 @@ INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, 
 (49, 'dsfd', 25, '3442', '1230', '2018-04-06', '02:19:pm', 'Office Supplies', 3),
 (50, 'userzzzzzz', 55, '34', '97', '2018-04-06', '02:19:pm', 'Office Supplies', 7),
 (51, 'sdfg', 25, '9877', '6767', '2018-04-06', '02:20:pm', 'Office Supplies', 3),
-(52, 'wefdsd', 28, '5464', '6760', '2018-04-06', '02:22:pm', 'Office Supplies', 3);
+(52, 'wefdsd', 28, '5464', '6760', '2018-04-06', '02:22:pm', 'Office Supplies', 3),
+(54, 'admin', 61, '237', '723', '2018-04-06', '11:56:pm', 'Office Supplies', 4),
+(55, '', 61, '123', '23', '2018-04-06', '11:59:pm', 'Office Supplies', 4),
+(56, 'asd', 61, '234', '34', '2018-04-06', '12:00:am', 'Office Supplies', 4);
 
 -- --------------------------------------------------------
 
@@ -735,29 +735,29 @@ CREATE TABLE IF NOT EXISTS `offices` (
 --
 
 INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) VALUES
-(1, 'Provincial Governor\'s Office (main)', 'PGO', '1000.1', '04-00-01-01'),
-(2, 'Prov\'l gov Office-interagency(Scholarship, SPES)', 'Interagency', '1000.1.4', '04-00-01-01'),
+(1, 'Provincial Governors Office (main)', 'PGO', '1000.1', '04-00-01-01'),
+(2, 'Provincial gov Office-interagency(Scholarship, SPES)', 'Interagency', '1000.1.4', '04-00-01-01'),
 (3, 'Benguet Day Celebration Expenses', 'ADIVAY', '1000.1', '04-00-01-01'),
-(4, 'Pro\'l Employment Services Office', 'PESO', '1000.1', '04-00-01-01'),
-(5, 'Prov\'l Disaster Risk Reduction Mngmnt Office', 'PDRRMO', '3000.500.2', '04-00-01-01'),
+(4, 'Provincial Employment Services Office', 'PESO', '1000.1', '04-00-01-01'),
+(5, 'Provincial Disaster Risk Reduction Mngmnt Office', 'PDRRMO', '3000.500.2', '04-00-01-01'),
 (6, 'Benguet Cold Chain Project', 'BCCP', '8000.5', '04-00-13-04'),
 (7, 'Provincial Library office', 'LIB', '1000.1.7', '04-00-01-01'),
-(8, 'Provincial  Warden\'s Office', 'PWO(JAIL)', '1000.1.8', '04-00-01-01'),
+(8, 'Provincial  Wardens Office', 'PWO(JAIL)', '1000.1.8', '04-00-01-01'),
 (9, 'Provincial Tourism Office', 'TOURISM', '8000.4', '04-00-01-01'),
 (10, 'Board of Assessment Appeals Office', 'BTAAO-RD', '1000', '04-00-01-04'),
-(11, 'Prov\'l Human Resources Mngmt & Dev\'t Office', 'PHRMDO', '1000.1.6', '04-00-01-01'),
-(12, 'Prov\'l Sangguniang Panlalawigan Office', 'SPO', '1000.1.15', '04-00-02-01'),
-(13, 'Prov\'l Vice-Governor\'s Office', 'VICE-GOV', '1000.1.15', '04-00-02-01'),
-(14, 'Prov\'l Planning and Dev\'t Office', 'PPDO', '1000.1.9', '04-00-03-01'),
-(15, 'Prov\'l General services Office', 'PGSO', '1000.1.14', '04-00-04-01'),
-(16, 'Prov\'l Budget Office', 'PBO', '1000.1.10', '04-00-05-01'),
-(17, 'Prov\'l Accounting Office', 'PACCO', '1000.1.12', '04-00-05-02'),
-(18, 'Prov\'l Treasury Office', 'PTO', '1000.1.11', '04-00-05-03'),
-(19, 'Prov\'l assessor\'s Office', 'PASSO', '1000.1.13', '04-00-05-04'),
-(20, 'Prov\'l Legal Office', 'PLO', '1000.1.16', '04-00-06-01'),
+(11, 'Provincial Human Resources Mngmt & Dev\'t Office', 'PHRMDO', '1000.1.6', '04-00-01-01'),
+(12, 'Provincial Sangguniang Panlalawigan Office', 'SPO', '1000.1.15', '04-00-02-01'),
+(13, 'Provincial Vice-Governor\'s Office', 'VICE-GOV', '1000.1.15', '04-00-02-01'),
+(14, 'Provincial Planning and Dev\'t Office', 'PPDO', '1000.1.9', '04-00-03-01'),
+(15, 'Provincial General services Office', 'PGSO', '1000.1.14', '04-00-04-01'),
+(16, 'Provincial Budget Office', 'PBO', '1000.1.10', '04-00-05-01'),
+(17, 'Provincial Accounting Office', 'PACCO', '1000.1.12', '04-00-05-02'),
+(18, 'Provincial Treasury Office', 'PTO', '1000.1.11', '04-00-05-03'),
+(19, 'Provincial assessor\'s Office', 'PASSO', '1000.1.13', '04-00-05-04'),
+(20, 'Provincial Legal Office', 'PLO', '1000.1.16', '04-00-06-01'),
 (21, 'Regional Trial Court', 'RTC', '1000', '04-00-06-02'),
-(22, 'Prov\'l Prosecutor\'s Office', 'PPO', '1000.1.17', '04-00-07-01'),
-(23, 'Prov\'l Social Welfare & Dev\'t Office(main)', 'PSWDO', '3000-500.1', '04-00-07-01'),
+(22, 'Provincial Prosecutor\'s Office', 'PPO', '1000.1.17', '04-00-07-01'),
+(23, 'Provincial Social Welfare & Development Office(main)', 'PSWDO', '3000-500.1', '04-00-07-01'),
 (24, 'Grant and Donations', 'PSWDO', '3000-500.1', '04-00-07-01'),
 (25, 'Assistance to Individual in Crisis Situation', 'AICS', '3000-500.1', '04-00-07-01'),
 (26, 'Emergency Shelter Assistance', 'ESA', '3000-500.1', '04-00-07-01'),
@@ -766,11 +766,11 @@ INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) V
 (29, 'Family/Child&Youth/Women/Rebel Returnees', 'ESA', '3000-500.1', '04-00-07-01'),
 (30, 'Rehabilitation of Youth Offenders', 'ESA', '3000-500.1', '04-00-07-01'),
 (31, 'Livelihood Assistance (Bahay Pag-asa)', 'ESA', '3000-500.1', '04-00-07-01'),
-(32, 'Prov\'l Agriculturist \'s Office', 'OPAG', '8000.2', '04-00-08-01'),
-(33, 'Prov\'l Veterinary Office', 'PVET', '8000.3', '04-00-08-02'),
-(34, 'Prov\'l Engineering Office', 'PEO', '1000.1.18', '04-00-08-03'),
-(35, 'Prov\'l Benguet Environment Office', 'PBENRO', '8000.1.1', '04-00-08-04'),
-(36, 'Prov\'l Health Office', 'PHO', '3000-200.1', '04-00-09-01'),
+(32, 'Provincial Agriculturists Office', 'OPAG', '8000.2', '04-00-08-01'),
+(33, 'Provincial Veterinary Office', 'PVET', '8000.3', '04-00-08-02'),
+(34, 'Provincial Engineering Office', 'PEO', '1000.1.18', '04-00-08-03'),
+(35, 'Provincial Benguet Environment Office', 'PBENRO', '8000.1.1', '04-00-08-04'),
+(36, 'Provincial Health Office', 'PHO', '3000-200.1', '04-00-09-01'),
 (37, 'Atok District Office', 'ADH', '3000-200.3', '04-00-09-02'),
 (38, 'Dennis Molintas District Hospital', 'DMDH', '3000-200.5', '04-00-09-03'),
 (39, 'Northern Benguet District Hospital', 'NBDH', '3000-200.4', '04-00-09-04'),
@@ -778,12 +778,12 @@ INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) V
 (41, 'kapangan District Hospital', 'KDH', '3000-200.7', '04-00-09-06'),
 (42, 'Commission on Audit', 'COA', '1000.1.4.22', '04-00-10-01'),
 (43, 'Calamity Fund', 'COA', '1000.1.4.22', '04-00-12-02'),
-(44, 'Barangay Dev\'t Fund', 'COA', '1000.1.4.22', '04-00-14-01'),
+(44, 'Barangay Development Fund', 'COA', '1000.1.4.22', '04-00-14-01'),
 (45, 'All Office (Terminal leaves,monetization,BAC-infra,BAC-Goods,Prov', 'ALL-OFFICE', '1000.1.2', '04-00-14-02'),
 (46, 'Non-Office', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (47, 'Interspecial Accounting Transfer', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (49, 'Cash Incentive Awards & Sports, Honoraria', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
-(50, 'Non-Gov\'t Org Rep, Academic & Tech. Skills', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
+(50, 'Non-Govnmentt Org Rep, Academic & Tech. Skills', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (51, 'Comelec Expense', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (52, 'Burial Assistance to Veterans', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
 (53, 'Scout Official for a Day', 'NON-OFFICE', '1000.1.3', '04-00-14-01'),
