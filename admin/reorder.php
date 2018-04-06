@@ -263,6 +263,7 @@ if ($_SESSION['type'] == "user") {
                                             <th>UNIT COST</th>
                                             <th>BRAND</th>
                                             <th>STARTING QUANTITY</th>
+                                            <th>CURRENT QUANTITY</th>
                                             <th>RO-P</th>
 
                                         </tr>
@@ -288,6 +289,7 @@ if ($_SESSION['type'] == "user") {
                                                     . "<td>" . $row['unitCost'] ."</td>"
                                                     . "<td>" . $row['brand'] ."</td>"
                                                     . "<td>" . $row['startingQuantity'] ."</td>"
+                                                    . "<td>" . $row['currentQuantity'] ."</td>"
                                                     . "<td>" . $row['reorderPoint'] ."</td>";
 
                                                 echo "</tr>";
