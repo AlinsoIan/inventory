@@ -12,17 +12,14 @@ session_start();
 $ti = date('h:i:a');
 $userID = $_SESSION['user'];
 
-$division = $_POST['division'];
 $ris = $_POST['ris'];
 $office = $_POST['office'];
-
-
+$division = $_POST['division'];
 
 $sql = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
-$division = $_POST['division'];
-
+$fpp = $_POST['fpp'];
 $sai = $_POST['sai'];
 $d = $_POST['d'];
 $t = $_POST['type'];
@@ -32,8 +29,15 @@ $s = $_SESSION['user'];
 $sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,type,accountID) 
         VALUES ('$division','$r[0]','$ris','$sai','$d','$ti','$t','$s')";
 
+
+
 $category = $_POST['category'];
 $des = $_POST['des'];
+$dess = [];
+foreach ($des as $a){
+    array_push($dess,$a);
+
+}
 $qRequested = $_POST['qRequested'];
 $qIssued = $_POST['qIssued'];
 $remarks = $_POST['remarks'];
@@ -50,25 +54,24 @@ if($conn->query($sql)){
 
     $dess = [];
     foreach ($des as $a){
-            array_push($dess,$a);
+        array_push($dess,$a);
 
     }
     $req = [];
     foreach ($qRequested as $a){
-            array_push($req,$a);
+        array_push($req,$a);
 
     }
     $iss = [];
     foreach ($qIssued as $a){
-            array_push($iss,$a);
+        array_push($iss,$a);
 
     }
     $rem = [];
     foreach ($remarks as $a){
-            array_push($rem,$a);
+        array_push($rem,$a);
 
     }
-
 
     $id = mysqli_insert_id($conn);
     for ($m = 0;count($cat) > $m;$m++) {
