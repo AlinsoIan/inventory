@@ -14,6 +14,7 @@ $userID = $_SESSION['user'];
 
 $ris = $_POST['ris'];
 $office = $_POST['office'];
+$division = $_POST['division'];
 
 $sql = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $res = $conn->query($sql);
