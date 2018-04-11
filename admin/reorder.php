@@ -56,7 +56,6 @@ if ($_SESSION['type'] == "user") {
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                </li>
                     <li>
                         <a class="navbar-brand">
                             <h4>

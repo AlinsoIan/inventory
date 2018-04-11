@@ -131,14 +131,15 @@
                             </div>
                         </div>
                     </div>
-                    <div onload="getInfo();" class="row clearfix">
+                    <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
                             <th width="8%">Category</th>
-                            <th width="40%">Item Description</th>
-                            <th width="12%">Requested</th>
-                            <th width="12%">Issued</th>
-                            <th>Remarks</th>
+                            <th width="30%">Item Description</th>
+                            <th width="10%">Requested</th>
+                            <th width="10%">Issued</th>
+                            <th width="8%">Current Quantity</th>
+                            <th width="20%">Remarks</th>
                             <th width="5%"></th>
                             </thead>
                             <tbody>
@@ -153,14 +154,14 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select id="desc1" class="form-control description" name="des[]">
+                                    <select id="desc1" class="form-control" onchange="getCQ('1')" name="des[]">
                                         <?php
                                         require '../../db.php';
                                         $sql = "SELECT * FROM items WHERE categoryNo = 1";
                                         $res = $conn->query($sql);
                                         if ($res) {
                                             while ($row = $res->fetch_assoc()) {
-                                                echo "<option>" . $row['description'] . "</option>";
+                                                echo "<option value='" . $row['description']. "']'>" . $row['description'] . "</option>";
                                             }
 
                                         }
@@ -174,7 +175,10 @@
 
                                 <td>
                                     <input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control">
+                                           onkeypress="return isNumberKey(event)" required >
+                                </td>
+                                <td>
+                                    <input id="cQ1" type="text"  class="form-control"   disabled >
                                 </td>
                                 <td>
                                     <input type="text" name="remarks[]" size="30px" class="form-control">
@@ -219,6 +223,20 @@
         });
     }
 
+    function getCQ($i) {
+        $d = $('#desc' + $i).val();
+        $.ajax({
+            url: 'quantity.php',
+            data: {des: $d},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#cQ' + $i).val(data[0]);
+            }
+        });
+    }
+
+
+
     $(document).ready(function () {
 
         var i = 1;
@@ -236,7 +254,7 @@
                 '</select>' +
                 '</td>' +
                 '<td>' +
-                '<select id=desc' + i + ' class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
+                '<select id=desc' + i + ' class="form-control" onchange=getCQ(' + i + ')  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
                     while ($row = $res->fetch_assoc()) {
                         echo "<option>" . $row["description"] . "</option>";
                     }
@@ -244,7 +262,8 @@
                 '</td>' +
 
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
+                '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
+                '<td><input type="number"  class="form-control" id=cQ' + i + ' required ></td>' +
                 '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
@@ -257,18 +276,8 @@
         var button_id = $(this).attr("id");
         $('#row' + button_id + '').remove();
     });
-    $('#des').change(function () {
-        $id = $(this).val();
-        $.ajax({
-            url: 'quantity.php',
-            data: {des: $id},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#desc1').html(data);
-            }
-        });
 
-    });
+
 
     $('#office').change(function () {
         $id = $(this).val();
@@ -287,7 +296,7 @@
 
 
 
-    var x = document.getElementById('office').value;
+    let x = document.getElementById('office').value;
     $.ajax({
         url: 'officeInfo.php',
         data: {office: x},
@@ -299,14 +308,13 @@
     });
 
 
+
+
+
+
     $('#req').blur(function () {
         var r = $(this).val();
         $('#iss').attr('max',r);
     })
-
-
-
-
-
 
 </script>

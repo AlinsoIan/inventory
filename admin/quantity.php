@@ -1,13 +1,14 @@
 <?php
 require '../php/db.php';
 $des = $_GET['des'];
-$sql = "SELECT logicalCOunt FROM items WHERE description LIKE '%$des%'";
+$sql = "SELECT inventory.currentQuantity AS a FROM items JOIN inventory ON items.itemID = inventory.itemID
+ WHERE items.description = '$des'";
 $res = $conn->query($sql);
 
 $data = [];
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        $data[] =  "<option value='" .$row['logicalCOunt'] . "'>" . $row['logicalCOunt'] . "</option>";
+        $data[] =  $row['a'];
     }
 }
 
