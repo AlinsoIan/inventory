@@ -248,7 +248,7 @@
             i++;
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
-
+                '<td> <input list="items" class="form-control" name="des[]"> <datalist id="items"> <?php require '../../db.php'; $sql = 'SELECT description FROM items'; if($res = $conn->query($sql)){ while ($row = $res->fetch_assoc()){ echo "<option value='" . $row['description']. "'>"; } } ?>'+
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
                 '<td><input typ  e="number"  class="form-control" id=cQ' + i + ' required ></td>' +
