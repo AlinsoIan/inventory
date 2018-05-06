@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
-    </list>
+    <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +28,8 @@
       <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="255" column="64" selection-start-line="255" selection-start-column="64" selection-end-line="255" selection-end-column="64" />
+            <state relative-caret-position="165">
+              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
             </state>
           </provider>
         </entry>
@@ -309,7 +305,7 @@
       <workItem from="1523869325637" duration="14349000" />
       <workItem from="1525601362212" duration="1418000" />
       <workItem from="1525604465741" duration="598000" />
-      <workItem from="1525645581326" duration="650000" />
+      <workItem from="1525645581326" duration="914000" />
     </task>
     <task id="LOCAL-00001" summary="New">
       <created>1522926964522</created>
@@ -381,11 +377,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525603035398</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Latest May 7">
+      <created>1525646446064</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1525646446064</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64222000" />
+    <option name="totallyTimeSpent" value="64486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -434,7 +437,8 @@
     <MESSAGE value="Aha" />
     <MESSAGE value="DB" />
     <MESSAGE value="Latest May 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Latest May 6" />
+    <MESSAGE value="Latest May 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest May 7" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
@@ -789,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="255" column="64" selection-start-line="255" selection-start-column="64" selection-end-line="255" selection-end-column="64" />
+        <state relative-caret-position="165">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
         </state>
       </provider>
     </entry>
