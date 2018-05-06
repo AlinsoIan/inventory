@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/quan.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/defaultQuantity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/tables/jquery-datatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/tables/jquery-datatable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/.travis.yml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,18 +29,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="48" />
+            <state relative-caret-position="250">
+              <caret line="255" column="64" selection-start-line="255" selection-start-column="64" selection-end-line="255" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inventory .sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inventory .sql">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -69,7 +66,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/php/admin/addItem.php" />
         <option value="$PROJECT_DIR$/php/admin/addItemICS.php" />
         <option value="$PROJECT_DIR$/php/admin/disableAccount.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/editSupplier.php" />
@@ -116,10 +112,11 @@
         <option value="$PROJECT_DIR$/js/pages/tables/jquery-datatable.js" />
         <option value="$PROJECT_DIR$/admin/defaultQuantity.php" />
         <option value="$PROJECT_DIR$/css/icons.css" />
-        <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/user/modal/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/admin/addDelivery.php" />
+        <option value="$PROJECT_DIR$/php/db.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
       </list>
     </option>
   </component>
@@ -151,6 +148,24 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="modal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +307,9 @@
       <workItem from="1523540382755" duration="3245000" />
       <workItem from="1523749875734" duration="833000" />
       <workItem from="1523869325637" duration="14349000" />
-      <workItem from="1525601362212" duration="1231000" />
+      <workItem from="1525601362212" duration="1418000" />
+      <workItem from="1525604465741" duration="598000" />
+      <workItem from="1525645581326" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="New">
       <created>1522926964522</created>
@@ -350,20 +367,34 @@
       <option name="project" value="LOCAL" />
       <updated>1523413094482</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="DB">
+      <created>1525602946893</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1525602946893</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Latest May 6">
+      <created>1525603035398</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525603035398</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62787000" />
+    <option name="totallyTimeSpent" value="64222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2408492" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23718888" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32715008" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32707354" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -381,12 +412,12 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
       <window_info anchor="right" id="Maven Projects" order="3" />
     </layout>
   </component>
@@ -402,9 +433,17 @@
     <MESSAGE value="Yeah" />
     <MESSAGE value="Aha" />
     <MESSAGE value="DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB" />
+    <MESSAGE value="Latest May 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest May 6" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2686">
+          <caret line="158" column="53" selection-start-line="158" selection-start-column="53" selection-end-line="158" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/defaultQuantity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -657,9 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/jquery-datatable/jquery.dataTables.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/pages/tables/jquery-datatable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -744,15 +780,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
+    <entry file="file://$PROJECT_DIR$/php/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="48" />
+        <state relative-caret-position="136">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventory .sql">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="255" column="64" selection-start-line="255" selection-start-column="64" selection-end-line="255" selection-end-column="64" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

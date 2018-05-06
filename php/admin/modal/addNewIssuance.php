@@ -134,7 +134,6 @@
                     <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
-                            <th width="8%">Category</th>
                             <th width="30%">Item Description</th>
                             <th width="10%">Requested</th>
                             <th width="10%">Issued</th>
@@ -144,29 +143,22 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>
-                                    <select name="category[] " id="cat1" onchange="getDesc('1')" style="width: 70px;" class="form-control">
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                        <option value="4">04</option>
-                                        <option value="5">05</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select id="desc1" class="form-control" onchange="getCQ('1')" name="des[]">
-                                        <?php
-                                        require '../../db.php';
-                                        $sql = "SELECT * FROM items WHERE categoryNo = 1";
-                                        $res = $conn->query($sql);
-                                        if ($res) {
-                                            while ($row = $res->fetch_assoc()) {
-                                                echo "<option value='" . $row['description']. "']'>" . $row['description'] . "</option>";
-                                            }
 
+                                <td>
+                                    <input list="items" class="form-control" name="des[]">
+
+                                    <datalist id="items">
+                                    <?php
+                                        require '../../db.php';
+                                        $sql = 'SELECT description FROM items';
+
+                                        if($res = $conn->query($sql)){
+                                            while ($row = $res->fetch_assoc()){
+                                                echo "<option value='" . $row['description']. "'>";
+                                            }
                                         }
-                                        ?>
-                                    </select>
+                                    ?>
+                                    </datalist>
                                 </td>
                                 <td>
                                     <input type="number" name="qRequested[]" id="req" min="0"
@@ -256,26 +248,10 @@
             i++;
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
-                '<td>' +
-                '<select id=cat' + i + ' onchange=getDesc(' + i + ')  name="category[]" style="width: 70px;" class="form-control itemCategory">' +
-                '<option value=1>01</option>' +
-                '<option value=2>02</option>' +
-                '<option value=3>03</option>' +
-                '<option value=4>04</option>' +
-                '<option value=5>05</option>' +
-                '</select>' +
-                '</td>' +
-                '<td>' +
-                '<select id=desc' + i + ' class="form-control" onchange=getCQ(' + i + ')  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
-                    while ($row = $res->fetch_assoc()) {
-                        echo "<option>" . $row["description"] . "</option>";
-                    }
-                }?></select>' +
-                '</td>' +
 
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
-                '<td><input type="number"  class="form-control" id=cQ' + i + ' required ></td>' +
+                '<td><input typ  e="number"  class="form-control" id=cQ' + i + ' required ></td>' +
                 '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
 
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
