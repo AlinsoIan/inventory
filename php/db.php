@@ -6,7 +6,7 @@
  * Time: 11:07 PM
  */
 date_default_timezone_set('Asia/Manila');
-$conn = new mysqli("localhost","root","","inventory");
+$conn = new mysqli("localhost","root","","inventory2");
 
 if(!$conn){
     echo "Database Error" . $conn->error;

@@ -175,10 +175,10 @@
 
                                 <td>
                                     <input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
-                                           onkeypress="return isNumberKey(event)" required >
+                                           onkeypress="return isNumberKey(event)" required>
                                 </td>
                                 <td>
-                                    <input id="cQ1" type="text"  class="form-control"   disabled >
+                                    <input id="cQ1" type="text"  class="form-control ehe" disabled >
                                 </td>
                                 <td>
                                     <input type="text" name="remarks[]" size="30px" class="form-control">
@@ -234,6 +234,18 @@
             }
         });
     }
+    function getDefault($i){
+        $id = 'desc' + $i;
+        $y = document.getElementById($id)
+        $.ajax({
+            url: 'defaultQuantity.php',
+            data: {defaultQuantity: $y},
+            dataType: 'JSON',
+            success: function (data) {
+                $('#' + $id).val(data[0]);
+            }
+        });
+    }
 
 
 
@@ -245,7 +257,7 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="category[]" style="width: 70px;" class="form-control itemCategory">' +
+                '<select id=cat' + i + ' onchange=getDesc(' + i + ')  name="category[]" style="width: 70px;" class="form-control itemCategory">' +
                 '<option value=1>01</option>' +
                 '<option value=2>02</option>' +
                 '<option value=3>03</option>' +
@@ -307,14 +319,23 @@
         }
     });
 
-
-
-
+    let z = document.getElementById('desc1').value;
+    $.ajax({
+        url: 'defaultQuantity.php',
+        data: {defaultQuantity: z},
+        dataType: 'JSON',
+        success: function (data) {
+            $('#cQ1').val(data[0]);
+        }
+    });
 
 
     $('#req').blur(function () {
         var r = $(this).val();
         $('#iss').attr('max',r);
     })
+
+
+
 
 </script>

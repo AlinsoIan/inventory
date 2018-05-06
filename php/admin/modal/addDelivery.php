@@ -24,6 +24,7 @@
                         <th style="width: 30%;">Item</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 12%">Quantity</th>
+                        <th width="5%"></th>
                         </thead>
                         <tbody>
                         <tr>
@@ -128,7 +129,9 @@
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>' +
 
 
-                '<td"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
+                '<td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
+
+
                 '</tr>');
         });
         $(document).on('click', '.btn_remove', function () {
