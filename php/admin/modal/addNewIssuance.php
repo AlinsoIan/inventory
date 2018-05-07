@@ -131,6 +131,18 @@
                             </div>
                         </div>
                     </div>
+                    <datalist id="items">
+                        <?php
+                        require '../../db.php';
+                        $sql = 'SELECT description FROM items';
+
+                        if($res = $conn->query($sql)){
+                            while ($row = $res->fetch_assoc()){
+                                echo "<option value='" . $row['description']. "'>";
+                            }
+                        }
+                        ?>
+                    </datalist>
                     <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
@@ -147,18 +159,7 @@
                                 <td>
                                     <input list="items" class="form-control" name="des[]">
 
-                                    <datalist id="items">
-                                    <?php
-                                        require '../../db.php';
-                                        $sql = 'SELECT description FROM items';
 
-                                        if($res = $conn->query($sql)){
-                                            while ($row = $res->fetch_assoc()){
-                                                echo "<option value='" . $row['description']. "'>";
-                                            }
-                                        }
-                                    ?>
-                                    </datalist>
                                 </td>
                                 <td>
                                     <input type="number" name="qRequested[]" id="req" min="0"
@@ -248,18 +249,20 @@
             i++;
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
-                '<td> <input list="items" class="form-control" name="des[]"> <datalist id="items"> <?php require '../../db.php'; $sql = 'SELECT description FROM items'; if($res = $conn->query($sql)){ while ($row = $res->fetch_assoc()){ echo "<option value='" . $row['description']. "'>"; } } ?>'+
+                '<td>' +
+                '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
+                '</td>' +
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
-                '<td><input typ  e="number"  class="form-control" id=cQ' + i + ' required ></td>' +
+                '<td><input type="number"  class="form-control" id=cQ' + i + ' required ></td>' +
                 '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
-
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');
         });
 
 
     });
+
     $(document).on('click', '.btn_remove', function () {
         var button_id = $(this).attr("id");
         $('#row' + button_id + '').remove();
@@ -295,15 +298,7 @@
         }
     });
 
-    let z = document.getElementById('desc1').value;
-    $.ajax({
-        url: 'defaultQuantity.php',
-        data: {defaultQuantity: z},
-        dataType: 'JSON',
-        success: function (data) {
-            $('#cQ1').val(data[0]);
-        }
-    });
+
 
 
     $('#req').blur(function () {

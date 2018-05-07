@@ -16,7 +16,7 @@
                     <th>ACCT-SN</th>
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
-                    <th>UOM</th>
+                    <th style="width: 10%">UOM</th>
                     <th>BRAND</th>
                     <th>CURRENT QUANTITY</th>
                     <th>UNIT COST</th>
@@ -71,11 +71,21 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                $sql = "SELECT unitName FROM units WHERE unitID = '$r[0]'";
+                                $sql = "SELECT unitName,unitID FROM units WHERE unitID = '$r[0]'";
                                 $ress = $conn->query($sql);
                                 $rr =$ress->fetch_row();
 
-                                echo "<input name='unit'  class='form-control' type='text' value='" . $rr[0] . "' required>";
+                                $sql = "SELECT unitName,unitID FROM units";
+                                $resss = $conn->query($sql);
+
+                                echo "<select name='unit'   class='form-control'>";
+                                if($conn->query($sql)){
+                                        echo "<option value='" . $rr[1] . "' selected> " . $rr[0] . "</option>";
+                                    while ($row = $resss->fetch_assoc()){
+                                        echo "<option value='". $row['unitID']."'>" . $row['unitName'] . "</option>";
+                                    }
+                                }
+                                echo "</select>";
                                 ?>
                             </td>
                             <td>
@@ -127,7 +137,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$r[0]'";
+                                $sql = "SELECT supplierName,supplierID FROM suppliers WHERE supplierID = '$r[0]'";
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
