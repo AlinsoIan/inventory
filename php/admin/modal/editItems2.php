@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <div class="body">
 <div class="col-md-12">
     <div class="modal-content">
@@ -26,6 +29,7 @@
                     </thead>
                     <tbody>
                         <tr>
+
                             <td>
                                 <?php
                                 require '../../db.php';
@@ -35,10 +39,19 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input name='category' placeholder='category' class='form-control' type='text' value='" . $r[0] . "' required>";
+
+                                $sql = "SELECT DISTINCT categoryNo FROM items";
+                                $resss = $conn->query($sql);
+
+                                echo "<select name='category' class='form-control'>";
+                                if($conn->query($sql)){
+                                    echo "<option selected> " . $r[0] . "</option>";
+                                    while ($row = $resss->fetch_assoc()){
+                                        echo "<option>" . $row['categoryNo'] . "</option>";
+                                    }
+                                }
+                                echo "</select>";
                                 ?>
-
-
                             </td>
                             <td>
                                 <?php
@@ -87,11 +100,21 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                $sql = "SELECT unitName FROM units WHERE unitID = '$r[0]'";
+                                $sql = "SELECT unitName,unitID FROM units WHERE unitID = '$r[0]'";
                                 $ress = $conn->query($sql);
                                 $rr =$ress->fetch_row();
 
-                                echo "<input name='unit'  class='form-control' type='text' value='" . $rr[0] . "' required>";
+                                $sql = "SELECT unitName,unitID FROM units";
+                                $resss = $conn->query($sql);
+
+                                echo "<select name='unit'   class='form-control'>";
+                                if($conn->query($sql)){
+                                    echo "<option value='" . $rr[1] . "' selected> " . $rr[0] . "</option>";
+                                    while ($row = $resss->fetch_assoc()){
+                                        echo "<option value='". $row['unitID']."'>" . $row['unitName'] . "</option>";
+                                    }
+                                }
+                                echo "</select>";
                                 ?>
                             </td>
                             <td>
@@ -143,11 +166,19 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$r[0]'";
+                                $sql = "SELECT supplierName,supplierID FROM suppliers WHERE supplierID = '$r[0]'";
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
+                                $sql = "SELECT supplierName,supplierID FROM suppliers";
+                                $rz = $conn->query($sql);
+
+                                echo "<select class ='form-control' name='supplier'>";
+                                echo "<option value=' " . $rr[1] . "' selected>" . $rr[0] . "</option>";
+                                while ($row = $rz->fetch_assoc()){
+                                    echo "<option value='" . $row['supplierID']."'>" . $row['supplierName'] . "</option>";
+                                }
+                                echo "</select>";
                                 ?>
                             </td>
                             <td>
@@ -159,7 +190,7 @@
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'expiration' class='form-control'>";
+                                echo "<input type='date' value = '" .$rr[0] . "'  name = 'expiration' class='form-control'>";
                                 ?>
 
 
@@ -175,7 +206,6 @@
                         <input type="submit" value="UPDATE" class="btn btn-primary " id="submitD">
 
                         <?php
-                        session_start();
                         $temp = $_SESSION['temp'];
                         echo "<a href='../admin/$temp' class='btn btn-danger pull-right' >CLOSE</a>";
                         ?>

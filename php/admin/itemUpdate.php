@@ -13,7 +13,7 @@ $userID = $_SESSION['user'];
 $t = date('h:i:a');
 $d = date('Y:n:j');
 
-$sql = "SELECT acctSn,pgsoSn,description,units.unitName,unitCost,brand,supplierID FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
+$sql = "SELECT acctSn,pgsoSn,description,units.unitName,unitCost,brand,supplierID,categoryNo FROM items JOIN units ON items.unitID = units.unitID WHERE itemID = '$id'";
 $res = $conn->query($sql);
 $r = $res->fetch_row();
 
@@ -78,13 +78,32 @@ if($_POST['brand'] != $brand) {
 
 
 $supplier = $r[6];
-if($_POST['brand'] != $brand){
+if($_POST['supplier'] != $supplier){
     $supplier = $_POST['supplier'];
+
+    $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$r[6]'";
+    $bvz = $conn->query($sql);
+    $bvcz = $bvz->fetch_row();
+
+    $sql = "SELECT supplierName FROM suppliers WHERE supplierID = '$supplier'";
+    $bv = $conn->query($sql);
+    $bvc = $bv->fetch_row();
+
+    $act = "Updated supplier from " . $bvcz[0] . " to " . $bvc[0];
+    $sql = "INSERT INTO updatehistory(accountID,activity,time,date,type,itemID) VALUES ('$userID','$act','$t','$d','Item Update','$id')";
+    $conn->query($sql);
 
 }
 
+$category = $r[7];
+if($_POST['category'] != $category) {
+    $category = $_POST['category'];
+    $act = "Updated Category from " . $r[7] . " to " . $category;
+    $sql = "INSERT INTO updatehistory(accountID,activity,time,date,type,itemID) VALUES ('$userID','$act','$t','$d','Item Update','$id')";
+    $conn->query($sql);
+}
 
-$sql = "UPDATE items SET acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand',supplierID = '$supplier' WHERE itemID = '$id'";
+$sql = "UPDATE items SET categoryNo = '$category',acctSn = '$acct',pgsoSn = '$pgso',description = '$des',unitID = '$unit',unitCost = '$cost',brand = '$brand',supplierID = '$supplier' WHERE itemID = '$id'";
 
 if($conn->query($sql)){
 
@@ -93,8 +112,9 @@ if($conn->query($sql)){
     header("Location:../../admin/$temp");
 }else{
 
-
-    $m = $unit;
+    var_dump($conn->error);
+    die;
+    $m = "Error updating ITEM contact Administrator";
 
     echo "
             <script type = 'text/javascript'>

@@ -15,6 +15,7 @@
                     <th>UNIT</th>
                     <th>BRAND</th>
                     <th style="width: 10px">STARTING QUANTITY</th>
+
                     <th>UNIT COST</th>
                     <th>SUPPLIER</th>
                     <th>EXPIRATION DATE</th>

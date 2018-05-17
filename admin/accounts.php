@@ -232,7 +232,7 @@ if ($_SESSION['type'] == "user") {
                                 </a>
                             </li>
                         </ul>
-                        </li>
+                </li>
 
 
         </div>

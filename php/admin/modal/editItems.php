@@ -13,6 +13,7 @@
             ?>
                 <table class="table">
                     <thead class="text-primary">
+                    <th>CATEGORY</th>
                     <th>ACCT-SN</th>
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
@@ -24,6 +25,29 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>
+                                <?php
+                                require '../../db.php';
+                                $a = $_GET['num'];
+
+                                $sql = "SELECT categoryNo FROM items WHERE itemID = '$a'";
+                                $res = $conn->query($sql);
+                                $r = $res->fetch_row();
+
+
+                                $sql = "SELECT DISTINCT categoryNo FROM items";
+                                $resss = $conn->query($sql);
+
+                                echo "<select name='category' class='form-control'>";
+                                if($conn->query($sql)){
+                                    echo "<option selected> " . $r[0] . "</option>";
+                                    while ($row = $resss->fetch_assoc()){
+                                        echo "<option>" . $row['categoryNo'] . "</option>";
+                                    }
+                                }
+                                echo "</select>";
+                                ?>
+                            </td>
                             <td>
                                 <?php
                                 require '../../db.php';
@@ -141,7 +165,15 @@
                                 $ress = $conn->query($sql);
                                 $rr = $ress->fetch_row();
 
-                                echo "<input type='text' value = '" .$rr[0] . "'  name = 'supplier' class='form-control'>";
+                                $sql = "SELECT supplierName,supplierID FROM suppliers";
+                                $rz = $conn->query($sql);
+
+                                echo "<select class ='form-control' name='supplier'>";
+                                echo "<option value=' " . $rr[1] . "' selected>" . $rr[0] . "</option>";
+                                while ($row = $rz->fetch_assoc()){
+                                    echo "<option value='" . $row['supplierID']."'>" . $row['supplierName'] . "</option>";
+                                }
+                                echo "</select>";
                                 ?>
 
 
