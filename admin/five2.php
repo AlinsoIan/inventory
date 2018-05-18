@@ -38,10 +38,10 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -50,31 +50,32 @@ if ($_SESSION['type'] == "user") {
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 </head>
 
 <body class="theme-blue">
 <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" ><h4>General Services Office</h4></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand"><h4>General Services Office</h4></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
                 </li>
-                    <li>
-                        <a class="navbar-brand">
-                            <h4>
-                                <?php
-                                    echo strtoupper($_SESSION['username']);
-                                ?>
-                            </h4>
-                        </a>
-                        <!-- Example single danger button -->
-                        <li class="dropdown">
+                <li>
+                    <a class="navbar-brand">
+                        <h4>
+                            <?php
+                            echo strtoupper($_SESSION['username']);
+                            ?>
+                        </h4>
+                    </a>
+                    <!-- Example single danger button -->
+                <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">account_circle</i>
                     </a>
@@ -88,54 +89,54 @@ if ($_SESSION['type'] == "user") {
 
 
                     </ul>
-                        
 
-                    </li>
-                </ul>
-            </div>
+
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    
-                    <li>
-                        <a href="dashboard.php">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="issuance.php">
-                            <i class="material-icons">store_mall_directory</i>
-                            <span>Issuance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="returns.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
-                    </li>
-                    <li class="active">
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+
+                <li>
+                    <a href="dashboard.php">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="delivery.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Delivery</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="ppmp.php">
+                        <i class="material-icons">event_note</i>
+                        <span>PPMP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="issuance.php">
+                        <i class="material-icons">store_mall_directory</i>
+                        <span>Issuance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="returns.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Returns</span>
+                    </a>
+                </li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -157,99 +158,104 @@ if ($_SESSION['type'] == "user") {
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
                     </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li>
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Monitor</span>
-                        </a>
-                        <ul class="ml-menu">
-                        <li>
-                        <a href="reorder.php">
-                            <i class="material-icons">error</i>
-                            <span>Re-order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="toexpire.php">
-                            <i class="material-icons">assignment</i>
-                            <span>To-Expire</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="logs.php">
-                        <i class="material-icons">view_list</i>
-                        <span>Account Logs</span>
-                    </a>
-                    </li>
-                    <li>
-                    <a href="history.php">
-                        <i class="material-icons">view_list</i>
-                        <span>History</span>
-                    </a>
-                    </li>
-                </ul>
                 </li>
                 <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Manage</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="accounts.php">
-                                    <i class="material-icons">people</i>
-                                    <span>Accounts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="supplier.php">
-                                    <i class="material-icons">local_shipping</i>
-                                    <span>Suppliers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="offices.php">
-                                    <i class="material-icons">location_city</i>
-                                    <span>Offices</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>Reports</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
+                        <li>
+                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                        </li>
+                        <li>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Monitor</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="reorder.php">
+                                <i class="material-icons">error</i>
+                                <span>Re-order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="toexpire.php">
+                                <i class="material-icons">assignment</i>
+                                <span>To-Expire</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="logs.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Account Logs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="history.php">
+                                <i class="material-icons">view_list</i>
+                                <span>History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="updatehistory.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Update History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Manage</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="accounts.php">
+                                <i class="material-icons">people</i>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="supplier.php">
+                                <i class="material-icons">local_shipping</i>
+                                <span>Suppliers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="offices.php">
+                                <i class="material-icons">location_city</i>
+                                <span>Offices</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
+        </div>
+        <!-- #Menu -->
 
-            </div>
-            <!-- #Menu -->
-
-        </aside>
-        <!-- #END# Left Sidebar -->
+    </aside>
+    <!-- #END# Left Sidebar -->
 
     <!-- Modal for Add Item -->
-        <div class="modal col-lg-12" id="addItem" data-backdrop="static">
-            <div class="modal-dialog" style="width:99%;">
-                <div class="modal-content">
-                </div>
+    <div class="modal col-lg-12" id="addItem" data-backdrop="static">
+        <div class="modal-dialog" style="width:99%;">
+            <div class="modal-content">
             </div>
         </div>
+    </div>
 
     <!-- Modal for Edit Items -->
     <div class="modal col-lg-12" id="editItems" data-backdrop="static">
@@ -267,13 +273,13 @@ if ($_SESSION['type'] == "user") {
         </div>
     </div>
 
-        <!-- Modal for View Items Info -->
-        <div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
-            <div class="modal-dialog" style="width:80%;">
-                <div class="modal-content">
-                </div>
+    <!-- Modal for View Items Info -->
+    <div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
+        <div class="modal-dialog" style="width:80%;">
+            <div class="modal-content">
             </div>
         </div>
+    </div>
 
 
     <section class="content">
@@ -283,7 +289,8 @@ if ($_SESSION['type'] == "user") {
                 <div class="col-lg-12 ">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-center">Category 5: Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)</h2>
+                            <h2 class="text-center">Category 5: Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O.
+                                TO M.O.O.E.)</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -304,25 +311,25 @@ if ($_SESSION['type'] == "user") {
                                     <?php
                                     require '../php/db.php';
 
-                                    $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
-                                    $_SESSION['cat']= "05";
+                                    $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
+                                    $_SESSION['cat'] = "05";
 
                                     $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
                                                   ,suppliers.supplierName AS d
                                          FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '5'";
                                     $res = $conn->query($sql);
 
-                                    if($res){
-                                        while($row = $res->fetch_assoc()){
+                                    if ($res) {
+                                        while ($row = $res->fetch_assoc()) {
                                             echo "<tr>"
-                                                . "<td>" . $row['description'] ."</td>"
-                                                . "<td>" . $row['a'] ."</td>"
-                                                . "<td>" . $row['currentQuantity'] .  "</td>"
-                                                . "<td>" . $row['brand'] .  "</td>"
-                                                . "<td>" . $row['c'] .  "</td>"
-                                                . "<td>" . $row['d'] .  "</td>"
+                                                . "<td>" . $row['description'] . "</td>"
+                                                . "<td>" . $row['a'] . "</td>"
+                                                . "<td>" . $row['currentQuantity'] . "</td>"
+                                                . "<td>" . $row['brand'] . "</td>"
+                                                . "<td>" . $row['c'] . "</td>"
+                                                . "<td>" . $row['d'] . "</td>"
 
-                                                . "<td>" . "<a href=" .'../php/admin/modal/editItemsICS.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" .'../php/admin/modal/itemDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" .'../php/admin/modal/viewItemInfo.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
+                                                . "<td>" . "<a href=" . '../php/admin/modal/editItemsICS.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/itemDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" . '../php/admin/modal/viewItemInfo.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                             echo "</tr>";
                                         }
 
@@ -331,7 +338,8 @@ if ($_SESSION['type'] == "user") {
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href="../php/admin/modal/addItemICS.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addItem">Add Item</a>
+                                <a href="../php/admin/modal/addItemICS.php" class="btn btn-primary pull-right"
+                                   data-toggle="modal" data-target="#addItem">Add Item</a>
                             </div>
                         </div>
                     </div>
@@ -369,7 +377,6 @@ if ($_SESSION['type'] == "user") {
     <script src="../js/pages/tables/jquery-datatable.js"></script>
 
     <script src="../js/custom.js"></script>
-
 
 
 </body>

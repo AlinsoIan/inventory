@@ -205,6 +205,12 @@ if ($_SESSION['type'] == "user") {
                                 <span>History</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="updatehistory.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Update History</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="active">

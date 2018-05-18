@@ -38,16 +38,15 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
-
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 
 </head>
 
@@ -65,7 +64,7 @@ if ($_SESSION['type'] == "user") {
             <ul class="nav navbar-nav navbar-right">
                 </li>
                 <li>
-                    <a class="navbar-brand" >
+                    <a class="navbar-brand">
                         <h4>
                             <?php
                             echo strtoupper($_SESSION['username']);
@@ -108,33 +107,33 @@ if ($_SESSION['type'] == "user") {
                         <span>Dashboard</span>
                     </a>
                 </li>
-               <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="issuance.php">
-                            <i class="material-icons">store_mall_directory</i>
-                            <span>Issuance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="returns.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
-                    </li>
-                    <li>
+                <li>
+                    <a href="delivery.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Delivery</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="ppmp.php">
+                        <i class="material-icons">event_note</i>
+                        <span>PPMP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="issuance.php">
+                        <i class="material-icons">store_mall_directory</i>
+                        <span>Issuance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="returns.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Returns</span>
+                    </a>
+                </li>
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -156,82 +155,88 @@ if ($_SESSION['type'] == "user") {
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
                     </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li>
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Monitor</span>
-                        </a>
-                        <ul class="ml-menu">
-                        <li>
-                        <a href="reorder.php">
-                            <i class="material-icons">error</i>
-                            <span>Re-order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="toexpire.php">
-                            <i class="material-icons">assignment</i>
-                            <span>To-Expire</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="logs.php">
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
-                        <span>Account Logs</span>
+                        <span>Reports</span>
                     </a>
-                    </li>
-                    <li>
-                    <a href="history.php">
-                        <i class="material-icons">view_list</i>
-                        <span>History</span>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="raos.php"><strong>RAOS</strong></a>
+                        </li>
+                        <li>
+                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                        </li>
+                        <li>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Monitor</span>
                     </a>
-                    </li>
-                </ul>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="reorder.php">
+                                <i class="material-icons">error</i>
+                                <span>Re-order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="toexpire.php">
+                                <i class="material-icons">assignment</i>
+                                <span>To-Expire</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="logs.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Account Logs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="history.php">
+                                <i class="material-icons">view_list</i>
+                                <span>History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="updatehistory.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Update History</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Manage</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li class="active">
-                                <a href="accounts.php">
-                                    <i class="material-icons">people</i>
-                                    <span>Accounts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="supplier.php">
-                                    <i class="material-icons">local_shipping</i>
-                                    <span>Suppliers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="offices.php">
-                                    <i class="material-icons">location_city</i>
-                                    <span>Offices</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Manage</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a href="accounts.php">
+                                <i class="material-icons">people</i>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="supplier.php">
+                                <i class="material-icons">local_shipping</i>
+                                <span>Suppliers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="offices.php">
+                                <i class="material-icons">location_city</i>
+                                <span>Offices</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
 
@@ -380,7 +385,6 @@ if ($_SESSION['type'] == "user") {
 <!-- Custom Js -->
 <script src="../js/admin.js"></script>
 <script src="../js/pages/charts/sparkline.js"></script>
-
 
 
 </body>

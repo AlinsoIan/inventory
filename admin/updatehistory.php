@@ -18,12 +18,13 @@ if ($_SESSION['type'] == "user") {
 }
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Reports: SSMI</title>
+    <title>History</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -37,10 +38,10 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -49,7 +50,7 @@ if ($_SESSION['type'] == "user") {
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 </head>
 
 <body class="theme-blue">
@@ -57,7 +58,8 @@ if ($_SESSION['type'] == "user") {
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
@@ -157,7 +159,7 @@ if ($_SESSION['type'] == "user") {
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
                         <span>Reports</span>
@@ -166,7 +168,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="ssmi.php"><strong>SSMI</strong></a>
                         </li>
                         <li>
@@ -175,7 +177,7 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
 
-                <li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">settings</i>
                         <span>Monitor</span>
@@ -205,7 +207,7 @@ if ($_SESSION['type'] == "user") {
                                 <span>History</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="updatehistory.php">
                                 <i class="material-icons">view_list</i>
                                 <span>Update History</span>
@@ -240,6 +242,7 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
 
+
         </div>
         <!-- #Menu -->
 
@@ -249,25 +252,33 @@ if ($_SESSION['type'] == "user") {
 </section>
 <!-- #END# Left Sidebar -->
 
-<!-- Modal for Add Office -->
-<div class="modal col-lg-12" id="addOffice" data-backdrop="static">
-    <div class="modal-dialog" style="width:90%;">
+<!-- Modal for Add Issuance -->
+<div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+    <div class="modal-dialog" style="width:70%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Edit Office -->
-<div class="modal col-lg-12" id="editOffice" data-backdrop="static">
-    <div class="modal-dialog" style="width:100%;">
+<!-- Modal for Edit Issuance -->
+<div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
+    <div class="modal-dialog" style="width:80%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Delete Office -->
-<div class="modal col-lg-12" id="deleteOffice" data-backdrop="static">
+<!-- Modal for Delete PPMP -->
+<div class="modal col-lg-12" id="del_ppmp" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!-- Modal for View PPMP -->
+<div class="modal col-lg-12" id="viewPPMP" data-backdrop="static">
+    <div class="modal-dialog" style="width:70%;">
         <div class="modal-content">
         </div>
     </div>
@@ -281,35 +292,36 @@ if ($_SESSION['type'] == "user") {
             <div class="col-lg-12 ">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">Summary of Supplies and Material Issued (SSMI)</h2>
+                        <h2 class="text-center">UPDATE HISTORY</h2>
                     </div>
                     <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example ">
+                        <div class="body table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Office</th>
-                                    <th>Abbr</th>
-                                    <th>Fpp</th>
-                                    <th>RC</th>
-                                    <th>Settings</th>
+                                    <th>User</th>
+                                    <th>Activity</th>
+                                    <th>Date/Time</th>
+                                    <th>Type</th>
+                                    <th>Item</th>
                                 </tr>
                                 </thead>
+
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-
-                                $sql = "SELECT * FROM offices";
+                                $sql = "SELECT * FROM updatehistory JOIN accounts ON updatehistory.accountID = accounts.accountID JOIN items
+                                  ON updatehistory.itemID = items.itemID";
                                 $res = $conn->query($sql);
 
-                                if($res){
-                                    while ($row = $res->fetch_assoc()){
-                                        echo  "<tr>";
-                                        echo "<td width='40%'>" . $row['officeName'] . "</td>";
-                                        echo "<td>" . $row['abbrv'] . "</td>";
-                                        echo "<td>" . $row['fppCode'] . "</td>";
-                                        echo "<td>" . $row['rcCode'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/printSSMI.php?num=' .$row['officeID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>visibility</a>" . "</td>";
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['userName'] . "</td>";
+                                        echo "<td>" . $row['activity'] . "</td>";
+                                        echo "<td>" . $row['date'] . "," . $row['time'] . "</td>";
+                                        echo "<td>" . $row['type'] . "</td>";
+                                        echo "<td>" . $row['description'] . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -317,6 +329,17 @@ if ($_SESSION['type'] == "user") {
                                 ?>
                                 </tbody>
                             </table>
+                            <h3 class="title pull-left">
+                                <?php
+
+                                require '../php/db.php';
+                                $sql = "SELECT COUNT(historyID) FROM history";
+                                $res = $conn->query($sql);
+                                $r = $res->fetch_row();
+
+                                echo "Total Records : " . $r[0];
+                                ?>
+                            </h3>
 
                         </div>
                     </div>
@@ -353,7 +376,6 @@ if ($_SESSION['type'] == "user") {
 <script src="../js/pages/tables/jquery-datatable.js"></script>
 
 <script src="../js/custom.js"></script>
-
 
 
 </body>

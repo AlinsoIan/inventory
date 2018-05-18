@@ -39,42 +39,42 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
-
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 </head>
 
 <body class="theme-blue">
 <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand"><h4>General Services Office</h4></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand"><h4>General Services Office</h4></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
                 </li>
-                    <li>
-                        <a class="navbar-brand">
-                            <h4>
-                                <?php
-                                    echo strtoupper($_SESSION['username']);
-                                ?>
-                            </h4>
-                        </a>
-                        <!-- Example single danger button -->
-                        <li class="dropdown">
+                <li>
+                    <a class="navbar-brand">
+                        <h4>
+                            <?php
+                            echo strtoupper($_SESSION['username']);
+                            ?>
+                        </h4>
+                    </a>
+                    <!-- Example single danger button -->
+                <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">account_circle</i>
                     </a>
@@ -88,54 +88,54 @@ if ($_SESSION['type'] == "user") {
 
 
                     </ul>
-                        
 
-                    </li>
-                </ul>
-            </div>
+
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    
-                    <li>
-                        <a href="dashboard.php">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a href="delivery.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a href="ppmp.php">
-                            <i class="material-icons">event_note</i>
-                            <span>PPMP</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="issuance.php">
-                            <i class="material-icons">store_mall_directory</i>
-                            <span>Issuance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="returns.php">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
-                    </li>
-                    <li  class="active">
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+
+                <li>
+                    <a href="dashboard.php">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="delivery.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Delivery</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="ppmp.php">
+                        <i class="material-icons">event_note</i>
+                        <span>PPMP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="issuance.php">
+                        <i class="material-icons">store_mall_directory</i>
+                        <span>Issuance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="returns.php">
+                        <i class="material-icons">event_note</i>
+                        <span>Returns</span>
+                    </a>
+                </li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -157,93 +157,98 @@ if ($_SESSION['type'] == "user") {
                             <a href="five2.php"><strong>Category 5</strong></a>
                         </li>
                     </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li>
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Monitor</span>
-                        </a>
-                        <ul class="ml-menu">
-                        <li>
-                        <a href="reorder.php">
-                            <i class="material-icons">error</i>
-                            <span>Re-order</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="toexpire.php">
-                            <i class="material-icons">assignment</i>
-                            <span>To-Expire</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="logs.php">
-                        <i class="material-icons">view_list</i>
-                        <span>Account Logs</span>
-                    </a>
-                    </li>
-                    <li>
-                    <a href="history.php">
-                        <i class="material-icons">view_list</i>
-                        <span>History</span>
-                    </a>
-                    </li>
-                </ul>
                 </li>
                 <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">settings</i>
-                            <span>Manage</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="accounts.php">
-                                    <i class="material-icons">people</i>
-                                    <span>Accounts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="supplier.php">
-                                    <i class="material-icons">local_shipping</i>
-                                    <span>Suppliers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="offices.php">
-                                    <i class="material-icons">location_city</i>
-                                    <span>Offices</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>Reports</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="raos.php"><strong>RAOS</strong></a>
                         </li>
+                        <li>
+                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                        </li>
+                        <li>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Monitor</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="reorder.php">
+                                <i class="material-icons">error</i>
+                                <span>Re-order</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="toexpire.php">
+                                <i class="material-icons">assignment</i>
+                                <span>To-Expire</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="logs.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Account Logs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="history.php">
+                                <i class="material-icons">view_list</i>
+                                <span>History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="updatehistory.php">
+                                <i class="material-icons">view_list</i>
+                                <span>Update History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Manage</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="accounts.php">
+                                <i class="material-icons">people</i>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="supplier.php">
+                                <i class="material-icons">local_shipping</i>
+                                <span>Suppliers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="offices.php">
+                                <i class="material-icons">location_city</i>
+                                <span>Offices</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
+        </div>
+        <!-- #Menu -->
 
-            </div>
-            <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar -->
 
-        </aside>
-        <!-- #END# Left Sidebar -->
-
-    </section>
+</section>
 
 <!-- Modal for Add Supplier -->
 <div class="modal col-lg-12" id="add_supplier" data-backdrop="static">
@@ -273,49 +278,50 @@ if ($_SESSION['type'] == "user") {
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-        <!-- Basic Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2 class="text-center">INVENTORY</h2>
-                    </div>
-                    <div class="body table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Logical Count</th>
-                                <th>Physical Count</th>
-                                <th>Difference</th>
-                                <th>Remarks</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            require '../php/db.php';
-                            $sql = "SELECT * FROM suppliers";
-                            $res = $conn->query($sql);
+            <!-- Basic Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="text-center">INVENTORY</h2>
+                        </div>
+                        <div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Logical Count</th>
+                                    <th>Physical Count</th>
+                                    <th>Difference</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                require '../php/db.php';
+                                $sql = "SELECT * FROM suppliers";
+                                $res = $conn->query($sql);
 
-                            if($res){
-                                while ($row = $res->fetch_assoc()){
-                                    echo  "<tr>";
-                                    echo "<td>" . $row['supplierName'] . "</td>";
-                                    echo "<td>" . $row['tinNo'] . "</td>";
-                                    echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
-                                    echo "</tr>";
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['supplierName'] . "</td>";
+                                        echo "<td>" . $row['tinNo'] . "</td>";
+                                        echo "<td>" . "<a href=" . '../php/admin/modal/editSupplier.php?num=' . $row['supplierID'] . "  " . " class='material-icons' data-toggle='modal' data-target='#edit_supplier'>mode_edit</a>" . "  ||  " . "<a href=" . '../php/admin/modal/deleteSupplier.php?num=' . $row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#del_supplier'>delete</a>" . "</td>";
+                                        echo "</tr>";
+                                    }
                                 }
-                            }
 
-                            ?>
-                            </tbody>
-                        </table>
-                        <a href="../php/admin/modal/addInventory.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_supplier">Add Inventory</a>
+                                ?>
+                                </tbody>
+                            </table>
+                            <a href="../php/admin/modal/addInventory.php" class="btn btn-primary pull-right"
+                               data-toggle="modal" data-target="#add_supplier">Add Inventory</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #END# Basic Table -->
+            <!-- #END# Basic Table -->
 </section>
 
 <!-- Jquery Core Js -->
