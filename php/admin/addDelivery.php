@@ -12,19 +12,12 @@ $userID = $_SESSION['user'];
 $ti = date('h:i:a');
 
 $iar = $_POST['iarno'];
-$category = $_POST['cat'];
-$item = $_POST['item'];
+$item = $_POST['des'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
 $da = $_POST['d'];
 
 
-$cat = [];
-foreach ($category as $a) {
-    if (!empty($a)) {
-        array_push($cat, $a);
-    }
-}
 
 $quanz = [];
 foreach ($quan as $a) {
@@ -45,10 +38,10 @@ foreach ($supp as $a) {
 
 
 
-if (COUNT($cat)) {
+if (COUNT($item)) {
 
 
-    for ($m = 0; count($cat) > $m; $m++) {
+    for ($m = 0; count($item) > $m; $m++) {
 
         $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%" .$itemz[$m] . "%'";
         $res = $conn->query($s);
@@ -85,8 +78,8 @@ if (COUNT($cat)) {
                             VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
                     $conn->query($sql);
 
-                    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
-                    VALUES ('$userID','$v','delivered','$da','Delivery')";
+                    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)
+                    VALUES ('$userID','$v','delivered','$da','Delivery','$r[0]')";
                     $conn->query($sql);
 
                 }else {
@@ -131,6 +124,8 @@ if (COUNT($cat)) {
 
 } else {
 
+    var_dump($conn->error);
+    die;
     $m = "Error Adding Issuance!";
 
     echo "

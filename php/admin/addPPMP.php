@@ -7,18 +7,11 @@
  */
 require '../db.php';
 session_start();
-$category = $_POST['category'];
 $item = $_POST['des'];
 $quan = $_POST['quantity'];
 $unitCost = $_POST['unitCost'];
 $d = $_POST['d'];
 $office = $_POST['office'];
-$cat = [];
-foreach ($category as $a) {
-    if (!empty($a)) {
-        array_push($cat, $a);
-    }
-}
 $itemz = [];
 foreach ($item as $a) {
     array_push($itemz, $a);
@@ -40,7 +33,7 @@ $rr = $ress->fetch_row();
 $sql = "INSERT INTO ppmp(officeID,ppmpDate) VALUES('$rr[0]','$d')";
 $conn->query($sql);
 $v = mysqli_insert_id($conn);
-for ($m = 0; count($cat) > $m; $m++) {
+for ($m = 0; count($item) > $m; $m++) {
     $s = "SELECT itemID FROM items WHERE description LIKE '%" .$item[$m] . "%'";
     $res = $conn->query($s);
     $r = $res->fetch_row();

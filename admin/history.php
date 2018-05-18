@@ -303,13 +303,15 @@ if ($_SESSION['type'] == "user") {
                                     <th>Activity</th>
                                     <th>Date</th>
                                     <th>Type</th>
+                                    <th>Item</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT * FROM history JOIN accounts ON history.accountID = accounts.accountID";
+                                $sql = "SELECT * FROM history JOIN accounts ON history.accountID = accounts.accountID JOIN items
+                                ON history.itemID = items.itemID";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -319,6 +321,7 @@ if ($_SESSION['type'] == "user") {
                                         echo "<td>" . $row['activity'] . "</td>";
                                         echo "<td>" . $row['actDate'] . "</td>";
                                         echo "<td>" . $row['type'] . "</td>";
+                                        echo "<td>" . $row['description'] . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -326,17 +329,7 @@ if ($_SESSION['type'] == "user") {
                                 ?>
                                 </tbody>
                             </table>
-                            <h3 class="title pull-left">
-                                <?php
 
-                                require '../php/db.php';
-                                $sql = "SELECT COUNT(historyID) FROM history";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "Total Records : " . $r[0];
-                                ?>
-                            </h3>
 
                         </div>
                     </div>

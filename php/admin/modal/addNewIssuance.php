@@ -149,7 +149,6 @@
                             <th width="30%">Item Description</th>
                             <th width="10%">Requested</th>
                             <th width="10%">Issued</th>
-                            <th width="8%">Current Quantity</th>
                             <th width="20%">Remarks</th>
                             <th width="5%"></th>
                             </thead>
@@ -158,8 +157,6 @@
 
                                 <td>
                                     <input list="items" class="form-control" name="des[]">
-
-
                                 </td>
                                 <td>
                                     <input type="number" name="qRequested[]" id="req" min="0"
@@ -169,9 +166,6 @@
                                 <td>
                                     <input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
                                            onkeypress="return isNumberKey(event)" required>
-                                </td>
-                                <td>
-                                    <input id="cQ1" type="text"  class="form-control ehe" disabled >
                                 </td>
                                 <td>
                                     <input type="text" name="remarks[]" size="30px" class="form-control">
@@ -254,7 +248,7 @@
                 '</td>' +
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
-                '<td><input type="number"  class="form-control" id=cQ' + i + ' required ></td>' +
+
                 '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

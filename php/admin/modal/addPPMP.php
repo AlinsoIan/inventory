@@ -42,17 +42,29 @@
                             <label>Date </label>
                             <?php
                             $d = date('Y/n/j');
-                            echo "<input type='text' class = 'form-control' name = 'd'  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";
+                            echo "<input type='date' class = 'form-control' name = 'd'  placeholder=' " . $d . "' value = '" . $d ."'size='15' required>";
+
                             ?>
 
                         </div>
                     </div>
+                    <datalist id="items">
+                        <?php
+                        require '../../db.php';
+                        $sql = 'SELECT description FROM items';
+
+                        if($res = $conn->query($sql)){
+                            while ($row = $res->fetch_assoc()){
+                                echo "<option value='" . $row['description']. "'>";
+                            }
+                        }
+                        ?>
+                    </datalist>
                 </div>
                 <hr style="height:2px;border:none;color:#333;background-color:#333;" />
                 <div class="row clearfix">
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
-                        <th width="8%">Category</th>
                         <th width="20%">Item Description</th>
                         <th width="8%">Quantity</th>
                         <th width="8%">Unit Cost</th>
@@ -61,29 +73,7 @@
                         <tbody>
                         <tr>
                             <td>
-                                <select name="category[]" id="cat1" onchange="getDesc('1')" style="width: 70px;" class="form-control">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                    <option>04</option>
-                                    <option>05</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="desc1" class="form-control" name = "des[]">
-
-                                    <?php
-                                    require '../../db.php';
-                                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
-                                    $res = $conn->query($sql);
-                                    if($res){
-                                        while($row = $res -> fetch_assoc()){
-                                            echo "<option>". $row['description'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-
-                                </select>
+                                <input list="items" class="form-control" name="des[]">
 
                             </td>
 
@@ -136,16 +126,7 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="category[]" style="width: 70px;" class="form-control">' +
-                '<option value=1>01</option>' +
-                '<option value=2>02</option>' +
-                '<option value=3>03</option>' +
-                '<option value=4>04</option>' +
-                '<option value=5>05</option>' +
-                '</select>' +
-                '</td>' +
-                '<td>' +
-                '<select id=desc' + i + ' class="form-control" name = "des[]"> <?php require '../../db.php'; $sql = "SELECT description FROM items WHERE categoryNo = 1"; $res = $conn->query($sql); if($res){ while($row = $res -> fetch_assoc()){ echo "<option>". $row['description'] . "</option>"; } } ?> </select>' +
+                '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
                 '</td>' +
                 '<td><input type="number" name="quantity[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
                 '<td><input type="number"  class="form-control" name="unitCost[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +

@@ -35,11 +35,22 @@
                         ?>
                         </select>
                     </div>
+                    <datalist id="items">
+                        <?php
+                        require '../../db.php';
+                        $sql = 'SELECT description FROM items';
+
+                        if($res = $conn->query($sql)){
+                            while ($row = $res->fetch_assoc()){
+                                echo "<option value='" . $row['description']. "'>";
+                            }
+                        }
+                        ?>
+                    </datalist>
                 </div>
                 </div>
                 <table class="table">
                     <thead class="text-primary">
-                    <th style="width: 8%">Category</th>
                     <th style="width: 30%">Item</th>
                     <th style="20%">Reason</th>
                     <th style="width: 8%;">Quantity</th>
@@ -48,28 +59,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <select name="category" id="cat1" onchange="getDesc('1')" class="form-control">
-                                <option value="1">01</option>
-                                <option value="2">02</option>
-                                <option value="3">03</option>
-                                <option value="4">04</option>
-                                <option value="5">05</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select id="desc1" class="form-control description" name="item">
-                                <?php
-                                require '../../db.php';
-                                $sql = "SELECT * FROM items WHERE categoryNo = 1";
-                                $res = $conn->query($sql);
-                                if ($res) {
-                                    while ($row = $res->fetch_assoc()) {
-                                        echo "<option>" . $row['description'] . "</option>";
-                                    }
-
-                                }
-                                ?>
-                            </select>
+                            <input list="items" class="form-control" name="des[]">
                         </td>
                         <td>
                             <input name="res" class="form-control" type="text" required>

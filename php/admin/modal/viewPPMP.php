@@ -40,7 +40,6 @@
                 <div class="row clearfix">
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
-                        <th width="8%">Category</th>
                         <th width="20%">Item Description</th>
                         <th width="8%">Quantity</th>
                         <th width="8%">Unit Cost</th>
@@ -51,16 +50,16 @@
                             <?php
                             require '../../db.php';
                             $id = $_GET['num'];
-                            $sql = "SELECT items.categoryNo AS c,items.description AS a,itemQuantity,ppmpitems.unitCost AS b FROM ppmpitems JOIN items
+                            $sql = "SELECT items.description AS a,itemQuantity,ppmpitems.unitCost AS b FROM ppmpitems JOIN items
                                       ON ppmpitems.itemID = items.itemID WHERE ppmpID = '$id'";
                             $res = $conn->query($sql);
                             if($res){
                                 while($row = $res->fetch_assoc()){
                                     echo "<tr>"
-                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['c'] . "'class='form-control'  name = 'category[]'>" . "</td>"
-                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['a'] . "'class='form-control'  name = 'category[]'>" . "</td>"
-                                        . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['itemQuantity'] . "' class='form-control'  name = 'description[]'>". "</td>"
-                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['b'] . "' class='form-control'  name = 'unit[]'>". "</td>"
+
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['a'] . "'class='form-control'  >" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' size = '50px' value = '" .$row['itemQuantity'] . "' class='form-control' >". "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" .$row['b'] . "' class='form-control'  >". "</td>"
 
                                         . "</tr>";
                                 }

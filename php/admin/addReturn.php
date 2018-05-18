@@ -50,13 +50,13 @@ if ($c) {
                 VALUES('$cc[0]','$j[0]','$da','$cc[1]','$quantity','$b','increased')";
         $conn->query($sql);
 
+        $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type,itemID)
+              VALUES ('$userID','$id','accepted return','$da','returns','$cc[0]')";
+        $conn->query($sql);
 
 
     }
 
-    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type)
-              VALUES ('$userID','$id','accepted return','$da','returns')";
-    $conn->query($sql);
 
 
 
