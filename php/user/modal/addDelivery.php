@@ -10,17 +10,30 @@
             <form action="../php/user/addDelivery.php" method="post">
                 <div class="row clearfix">
                     <div class="col-md-2">
-                            <label>IAR NO</label>
-                            <input type="number" onkeypress="return isNumberKey(event)" name="iarno" min="0" class="form-control" required>
+                        <label>IAR NO</label>
+                        <input type="number" onkeypress="return isNumberKey(event)" name="iarno" min="0"
+                               class="form-control" required>
                     </div>
                     <div class="col-md-2 pull-right">
                         <label>DATE</label>
-                        <input type="date" onkeypress="return isNumberKey(event)" name="d" min="0" class="form-control" required>
+                        <input type="date" onkeypress="return isNumberKey(event)" name="d" min="0" class="form-control"
+                               required>
                     </div>
+                    <datalist id="items">
+                        <?php
+                        require '../../db.php';
+                        $sql = 'SELECT description FROM items';
+
+                        if ($res = $conn->query($sql)) {
+                            while ($row = $res->fetch_assoc()) {
+                                echo "<option value='" . $row['description'] . "'>";
+                            }
+                        }
+                        ?>
+                    </datalist>
 
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
-                        <th style="width: 8%">Category</th>
                         <th style="width: 30%;">Item</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 12%">Quantity</th>
@@ -30,31 +43,9 @@
                         <tr>
 
                             <td>
-                                <select onchange="getDesc(1)" id="cat1" name="cat[]" class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                <input list="items" class="form-control" name="des[]">
                             </td>
-                            <td>
-                                <select id="desc1" class="form-control" name="item[]">
-                                    <?php
-                                    require '../../db.php';
 
-                                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            echo "<option>" . $row['description'] . "</option>";
-                                        }
-
-                                    }
-
-                                    ?>
-                                </select>
-                            </td>
                             <td>
                                 <select class="form-control" name="supplier[]">
                                     <?php
@@ -107,19 +98,10 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="cat[]" class="form-control"> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> </select>' +
+                '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
                 '</td>' +
-                    '<td>' +
-                    '<select id=desc' + i + ' class="form-control" name="item[]">' +
-                    '<?php require '../../db.php' ;
-                    $sql = "SELECT description FROM items WHERE categoryNo = 1";
-                    $res = $conn->query($sql); if ($res) { while ($row = $res->fetch_assoc()) {
-                    echo "<option>" . $row["description"] . "</option>"; } } ?>' +
-
-                    '</select>' +
-                    '</td>' +
-                 '<td>'  +
-                '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if ($r){
+                '<td>' +
+                '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if ($r) {
                     while ($row = $r->fetch_assoc()) {
                         echo "<option>" . $row['supplierName'] . "</option>";
                     }

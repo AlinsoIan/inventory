@@ -129,10 +129,21 @@
                             </div>
                         </div>
                     </div>
+                    <datalist id="items">
+                        <?php
+                        require '../../db.php';
+                        $sql = 'SELECT description FROM items';
+
+                        if($res = $conn->query($sql)){
+                            while ($row = $res->fetch_assoc()){
+                                echo "<option value='" . $row['description']. "'>";
+                            }
+                        }
+                        ?>
+                    </datalist>
                     <div onload="getInfo();" class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
-                            <th width="8%">Category</th>
                             <th width="40%">Item Description</th>
                             <th width="12%">Requested</th>
                             <th width="12%">Issued</th>
@@ -141,29 +152,9 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>
-                                    <select name="category[] " id="cat1" onchange="getDesc('1')" style="width: 70px;" class="form-control">
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                        <option value="4">04</option>
-                                        <option value="5">05</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select id="desc1" class="form-control description" name="des[]">
-                                        <?php
-                                        require '../../db.php';
-                                        $sql = "SELECT * FROM items WHERE categoryNo = 1";
-                                        $res = $conn->query($sql);
-                                        if ($res) {
-                                            while ($row = $res->fetch_assoc()) {
-                                                echo "<option>" . $row['description'] . "</option>";
-                                            }
 
-                                        }
-                                        ?>
-                                    </select>
+                                <td>
+                                    <input list="items" class="form-control" name="des[]">
 
                                 </td>
 
@@ -220,20 +211,7 @@
             $('#dynamic_field').append('' +
                 '<tr id="row' + i + '">' +
                 '<td>' +
-                '<select id=cat' + i + ' onchange=getDesc(' + i + ') name="category[]" style="width: 70px;" class="form-control itemCategory">' +
-                '<option value=1>01</option>' +
-                '<option value=2>02</option>' +
-                '<option value=3>03</option>' +
-                '<option value=4>04</option>' +
-                '<option value=5>05</option>' +
-                '</select>' +
-                '</td>' +
-                '<td>' +
-                '<select id=desc' + i + ' class="form-control description"  name = "des[]"><?php require '../../db.php';$sql = "SELECT description FROM items WHERE categoryNo = 1";$res = $conn->query($sql);if ($res) {
-                    while ($row = $res->fetch_assoc()) {
-                        echo "<option>" . $row["description"] . "</option>";
-                    }
-                }?></select>' +
+                '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
                 '</td>' +
 
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +

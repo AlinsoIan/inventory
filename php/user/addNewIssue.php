@@ -31,7 +31,7 @@ $sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuance
 
 
 
-$category = $_POST['category'];
+
 $des = $_POST['des'];
     $dess = [];
     foreach ($des as $a){
@@ -46,11 +46,7 @@ if($conn->query($sql)){
     $v = mysqli_insert_id($conn);
     $aa = mysqli_insert_id($conn);
     $cat = [];
-    foreach ($category as $a){
-        if(!empty($a)) {
-            array_push($cat,$a);
-        }
-    }
+
 
     $dess = [];
     foreach ($des as $a){
@@ -74,7 +70,7 @@ if($conn->query($sql)){
     }
 
     $id = mysqli_insert_id($conn);
-    for ($m = 0;count($cat) > $m;$m++) {
+    for ($m = 0;count($des) > $m;$m++) {
 
         $sql = "SELECT itemID FROM items WHERE description LIKE '%$dess[$m]%'";
         $tt = $conn->query($sql);
@@ -107,13 +103,14 @@ if($conn->query($sql)){
 
         $conn->query($sql);
 
+        $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type,itemID)
+              VALUES ('$userID','$id','issued','$d','issuance','$ttt[0]')";
+        $conn->query($sql);
 
 
     }
 
-    $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type)
-              VALUES ('$userID','$id','issued','$d','issuance')";
-    $conn->query($sql);
+
 
     header('Location:../../user/issuance.php');
 
