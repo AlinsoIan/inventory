@@ -98,7 +98,7 @@ if ($_SESSION['type'] == "user") {
             <ul class="list">
 
                 <li class="active">
-                    <a href="dashboard.php">
+                    <a href="dashboard.php" >
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
