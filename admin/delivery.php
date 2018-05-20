@@ -299,7 +299,6 @@ if ($_SESSION['type'] == "user") {
                                     <th>Quantity</th>
                                     <th>User</th>
                                     <th>Delivery Date</th>
-                                    <th>Settings</th>
                                 </tr>
                                 </thead>
 

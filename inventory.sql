@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 06, 2018 at 10:33 AM
+-- Generation Time: May 20, 2018 at 02:19 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `accountlogs` (
   `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accountlogs`
@@ -67,7 +67,13 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 (207, 4, '12:26:am', NULL, '2018-04-07'),
 (208, 3, '04:56:am', '04:57:am', '2018-04-07'),
 (209, 4, '04:58:am', NULL, '2018-04-07'),
-(210, 3, '05:19:am', NULL, '2018-04-07');
+(210, 3, '05:19:am', NULL, '2018-04-07'),
+(211, 3, '06:31:am', NULL, '2018-05-19'),
+(212, 4, '06:56:am', '06:57:am', '2018-05-19'),
+(213, 4, '07:05:am', NULL, '2018-05-19'),
+(214, 4, '06:09:am', NULL, '2018-05-20'),
+(215, 3, '07:54:am', NULL, '2018-05-20'),
+(216, 3, '07:57:am', NULL, '2018-05-20');
 
 -- --------------------------------------------------------
 
@@ -103,6 +109,61 @@ INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `passw
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `appointment`
+--
+
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `appt_id` int(45) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `sched_id` int(11) NOT NULL,
+  `appointment_date` date NOT NULL,
+  `status` varchar(45) NOT NULL DEFAULT 'ongoing',
+  PRIMARY KEY (`appt_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appt_id`, `user_id`, `sched_id`, `appointment_date`, `status`) VALUES
+(1, 1, 1, '2018-05-16', 'ongoing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE IF NOT EXISTS `company` (
+  `company_id` int(45) NOT NULL AUTO_INCREMENT,
+  `contact_person` varchar(45) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  `company_name` varchar(250) NOT NULL,
+  `suffix` varchar(10) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `tel_num` varchar(45) NOT NULL,
+  `mobile_num` varchar(45) NOT NULL,
+  `alt_number` varchar(250) NOT NULL,
+  `about` text,
+  `status` varchar(250) NOT NULL DEFAULT 'registered',
+  `image_url` varchar(250) NOT NULL,
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`company_id`, `contact_person`, `address`, `company_name`, `suffix`, `email`, `tel_num`, `mobile_num`, `alt_number`, `about`, `status`, `image_url`) VALUES
+(1, 'test test test', '#1,ortigas  Manila,Pasig City', 'Trend Micro', 'Mr', 'test@gmail.com', '06545646846', '06453468', '09847689', 'Trend Micro Inc. is a Japanese multinational cyber security & defense company founded in Los Angeles, California with global headquarters in Tokyo, Japan, a R&D center in Taipei, Taiwan, and regional headquarters in Asia, Europe and the Americas.', 'registered', 'Trend-Micro-Logo.png'),
+(2, '  ', '#1200,MSE Building, Ayala Ave. Metro Manila,Makati', 'Accenture', 'Mr', '', '(02) 841 0111', '', '', 'Accenture solves our clients\' toughest challenges by providing unmatched services in strategy, consulting, digital, technology and operations. We partner with more than three-quarters of the Fortune Global 500, driving innovation to improve the way the world works and lives.', 'registered', 'accenture.png'),
+(3, '  ', '#,Nokia-Manila Technology Center? Building I UP Ayala Land Technohub? Commonweal', 'Nokia', 'Mr', 'nokia@gmail.com', '', '+63 28-577-000?', '', 'Nokia is a global leader in innovations such as mobile networks, digital health and phones. See how we create technology to connect.', 'registered', 'nokia.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `delivery`
 --
 
@@ -116,39 +177,15 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `deliveryDate` date NOT NULL,
   `accountID` int(45) NOT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `delivery`
 --
 
 INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQuantity`, `deliveryDate`, `accountID`) VALUES
-(43, 6, 110, 34, 4, '2018-04-26', 7),
-(44, 4, 62, 345, 5, '2018-04-06', 3),
-(45, 6, 98, 345, 5, '2018-04-06', 3),
-(46, 8, 126, 345, 4, '2018-04-06', 3),
-(47, 8, 95, 22, 4, '2018-04-28', 7),
-(48, 4, 79, 22, 8, '2018-04-28', 7),
-(49, 7, 117, 6, 4, '2018-04-27', 8),
-(50, 9, 92, 6, 2, '2018-04-27', 8),
-(51, 4, 62, 23, 7, '2018-04-06', 5),
-(52, 9, 79, 23, 2, '2018-04-06', 5),
-(53, 9, 84, 23, 2, '2018-04-06', 5),
-(54, 5, 132, 6, 7, '2018-04-27', 9),
-(55, 4, 61, 346, 5, '2018-04-06', 6),
-(56, 6, 66, 346, 4, '2018-04-06', 6),
-(57, 6, 78, 346, 3, '2018-04-06', 6),
-(58, 5, 77, 346, 2, '2018-04-06', 6),
-(59, 10, 78, 346, 1, '2018-04-06', 6),
-(60, 4, 79, 346, 4, '2018-04-06', 6),
-(61, 8, 108, 346, 4, '2018-04-06', 6),
-(62, 8, 95, 346, 4, '2018-04-06', 6),
-(63, 7, 89, 346, 4, '2018-04-06', 6),
-(64, 8, 145, 346, 4, '2018-04-06', 6),
-(65, 4, 66, 8765, 40, '2018-05-03', 4),
-(66, 8, 130, 8765, 30, '2018-05-03', 4),
-(67, 9, 163, 8765, 50, '2018-05-03', 4),
-(69, 4, 61, 56, 1, '2018-04-06', 6);
+(72, 4, 61, 123, 15, '2018-05-25', 4),
+(73, 8, 62, 123, 15, '2018-05-25', 4);
 
 -- --------------------------------------------------------
 
@@ -166,73 +203,23 @@ CREATE TABLE IF NOT EXISTS `history` (
   `activity` varchar(50) NOT NULL,
   `actDate` date NOT NULL,
   `type` varchar(45) NOT NULL,
+  `itemID` int(45) DEFAULT NULL,
   PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `history`
 --
 
-INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `returnID`, `activity`, `actDate`, `type`) VALUES
-(42, 7, NULL, 43, NULL, 'delivered', '2018-04-26', 'Delivery'),
-(43, 3, NULL, 44, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(44, 3, NULL, 45, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(45, 3, NULL, 46, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(46, 7, NULL, 47, NULL, 'delivered', '2018-04-28', 'Delivery'),
-(47, 7, NULL, 48, NULL, 'delivered', '2018-04-28', 'Delivery'),
-(48, 7, 41, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(49, 3, 42, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(50, 8, NULL, 49, NULL, 'delivered', '2018-04-27', 'Delivery'),
-(51, 8, NULL, 50, NULL, 'delivered', '2018-04-27', 'Delivery'),
-(52, 5, NULL, 51, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(53, 5, NULL, 52, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(54, 5, NULL, 53, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(55, 8, 43, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(56, 5, 44, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(57, 8, 45, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(58, 9, NULL, 54, NULL, 'delivered', '2018-04-27', 'Delivery'),
-(59, 9, 46, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(60, 6, NULL, 55, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(61, 6, NULL, 56, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(62, 6, NULL, 57, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(63, 6, NULL, 58, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(64, 6, NULL, 59, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(65, 6, NULL, 60, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(66, 6, NULL, 61, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(67, 6, NULL, 62, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(68, 6, NULL, 63, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(69, 6, NULL, 64, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(70, 6, 47, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(71, 3, 48, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(72, 3, 49, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(73, 7, 50, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(74, 3, 51, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(75, 3, 52, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(76, 4, NULL, 65, NULL, 'delivered', '2018-05-03', 'Delivery'),
-(77, 4, NULL, 66, NULL, 'delivered', '2018-05-03', 'Delivery'),
-(78, 4, NULL, 67, NULL, 'delivered', '2018-05-03', 'Delivery'),
-(81, 3, NULL, NULL, 49, 'accepted return', '2018-04-06', 'returns'),
-(82, 3, NULL, NULL, 50, 'accepted return', '2018-04-06', 'returns'),
-(83, 7, NULL, NULL, 51, 'accepted return', '2018-04-06', 'returns'),
-(84, 3, NULL, NULL, 52, 'accepted return', '2018-04-06', 'returns'),
-(85, 3, NULL, NULL, 53, 'accepted return', '2018-04-06', 'returns'),
-(86, 7, NULL, 68, NULL, 'delivered', '2018-05-02', 'Delivery'),
-(87, 7, 53, NULL, NULL, 'issued', '2018-04-06', 'issuance'),
-(88, 7, NULL, NULL, 54, 'accepted return', '2018-04-06', 'returns'),
-(89, 7, NULL, 68, NULL, 'Delivery Deleted', '2018-04-06', 'Delivery'),
-(90, 7, 53, NULL, NULL, 'Issuance Deleted', '2018-04-06', 'Issuance'),
-(91, 6, NULL, 69, NULL, 'delivered', '2018-04-06', 'Delivery'),
-(92, 7, NULL, NULL, 51, 'Returns Deleted', '2018-04-06', 'Returns'),
-(93, 3, 57, NULL, NULL, 'issued', '2018-04-07', 'issuance'),
-(94, 3, 57, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(95, 4, 55, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(96, 4, 54, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(97, 4, 58, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(98, 4, 59, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(99, 4, 60, NULL, NULL, 'issued', '2018-04-07', 'issuance'),
-(100, 3, 61, NULL, NULL, 'issued', '2018-04-07', 'issuance'),
-(101, 4, 56, NULL, NULL, 'Issuance Deleted', '2018-04-07', 'Issuance'),
-(102, 4, 62, NULL, NULL, 'issued', '2018-04-07', 'issuance');
+INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `returnID`, `activity`, `actDate`, `type`, `itemID`) VALUES
+(120, 4, NULL, NULL, 56, 'Returns Deleted', '2018-05-19', 'Returns', NULL),
+(121, 4, NULL, NULL, 57, 'accepted return', '2018-05-19', 'returns', 61),
+(122, 4, 67, NULL, NULL, 'Issuance Deleted', '2018-05-20', 'Issuance', NULL),
+(123, 4, 68, NULL, NULL, 'issued', '2018-05-19', 'issuance', 164),
+(124, 4, 68, NULL, NULL, 'issued', '2018-05-19', 'issuance', 62),
+(125, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 164),
+(126, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 162),
+(127, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 148);
 
 -- --------------------------------------------------------
 
@@ -259,8 +246,8 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (45, 56, NULL, 1070, 1000, 200),
 (46, 57, NULL, 1000, 1000, 200),
 (47, 58, NULL, 1000, 1000, 200),
-(50, 61, NULL, 420, 400, 80),
-(51, 62, NULL, 30, 20, 4),
+(50, 61, NULL, 447, 400, 80),
+(51, 62, NULL, 33, 20, 4),
 (52, 63, NULL, 100, 100, 20),
 (53, 64, NULL, 398, 400, 80),
 (54, 65, NULL, 500, 500, 100),
@@ -338,23 +325,23 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (133, 145, NULL, 25, 6, 1),
 (134, 146, NULL, 50, 50, 10),
 (135, 147, NULL, 13, 13, 2),
-(136, 148, NULL, 34, 34, 6),
+(136, 148, NULL, 33, 34, 6),
 (137, 149, NULL, 20, 20, 4),
 (138, 150, NULL, 40, 38, 7),
 (139, 151, NULL, 241, 11, 2),
 (140, 152, NULL, 140, 140, 28),
 (141, 153, NULL, 138, 60, 12),
 (142, 154, NULL, 44, 4, 0),
-(143, 155, NULL, 35, 35, 7),
+(143, 155, NULL, -37, 35, 7),
 (144, 156, NULL, 31, 6, 1),
 (145, 157, NULL, 6, 6, 1),
 (146, 158, NULL, 46, 46, 9),
 (147, 159, NULL, -26, 15, 3),
 (148, 160, NULL, 49, 50, 10),
 (149, 161, NULL, -16, 20, 4),
-(150, 162, NULL, 102, 102, 20),
+(150, 162, NULL, 24, 102, 20),
 (151, 163, NULL, 99, 49, 9),
-(152, 164, NULL, 98, 102, 20);
+(152, 164, NULL, 85, 102, 20);
 
 -- --------------------------------------------------------
 
@@ -374,28 +361,15 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `type` varchar(45) NOT NULL,
   `accountID` int(10) NOT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `issuance`
 --
 
 INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, `issuanceDate`, `issuanceTime`, `type`, `accountID`) VALUES
-(41, 'userzzzz', 61, '72367', '82643', '2018-04-06', '01:46:pm', 'Disposal', 7),
-(42, 'tgg', 61, '5667', '3453', '2018-04-06', '01:47:pm', 'Office Supplies', 3),
-(43, 'usern', 61, '987', '86', '2018-04-06', '02:04:pm', 'Office Supplies', 8),
-(44, '4tre', 61, '3465', '5456', '2018-04-06', '02:04:pm', 'Office Supplies', 5),
-(45, 'usernnn', 61, '87', '8787', '2018-04-06', '02:04:pm', 'Office Supplies', 8),
-(46, 'usrf', 61, '45', '32', '2018-04-06', '02:07:pm', 'Office Supplies', 9),
-(47, 'ewre', 61, '1244', '667', '2018-04-06', '02:08:pm', 'Office Supplies', 6),
-(48, 'afdsdf', 55, '33454', '5677', '2018-04-06', '02:18:pm', 'Office Supplies', 3),
-(49, 'dsfd', 25, '3442', '1230', '2018-04-06', '02:19:pm', 'Office Supplies', 3),
-(50, 'userzzzzzz', 55, '34', '97', '2018-04-06', '02:19:pm', 'Office Supplies', 7),
-(51, 'sdfg', 25, '9877', '6767', '2018-04-06', '02:20:pm', 'Office Supplies', 3),
-(52, 'wefdsd', 28, '5464', '6760', '2018-04-06', '02:22:pm', 'Office Supplies', 3),
-(60, 'PG', 61, '3466', '345', '2018-04-07', '05:18:am', 'Office Supplies', 4),
-(61, 'Kim', 61, '466', '467', '2018-04-07', '05:20:am', 'Office Supplies', 3),
-(62, 'Admin', 61, '287', '283', '2018-04-07', '05:26:am', 'Office Supplies', 4);
+(68, 'admin', 61, '123', '123', '2018-05-19', '07:51:am', 'Office Supplies', 4),
+(69, 'sdf', 61, '123', '324', '2018-05-19', '07:57:am', 'Office Supplies', 3);
 
 -- --------------------------------------------------------
 
@@ -412,71 +386,18 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemissuance`
 --
 
 INSERT INTO `itemissuance` (`itemIssuanceID`, `issuanceID`, `itemID`, `quantityRequested`, `quantityIssued`, `remarks`) VALUES
-(58, 41, 75, 3, 3, 'good'),
-(59, 42, 64, 2, 2, 'df'),
-(60, 42, 79, 3, 2, 'done'),
-(61, 42, 119, 5, 3, 'done'),
-(62, 42, 160, 2, 1, 'done'),
-(63, 42, 111, 1, 1, 'done'),
-(64, 42, 61, 7, 7, 'done'),
-(65, 43, 77, 2, 2, 'good'),
-(66, 43, 133, 2, 8, 'good'),
-(67, 44, 61, 5, 4, 'done'),
-(68, 44, 69, 4, 3, 'done'),
-(69, 44, 79, 5, 4, 'done'),
-(70, 44, 123, 4, 3, 'done'),
-(71, 44, 104, 1, 1, 'done'),
-(72, 45, 89, 4, 4, 'good'),
-(73, 45, 61, 3, 2, 'good'),
-(74, 46, 123, 3, 3, 'good'),
-(75, 47, 61, 4, 3, 'done'),
-(76, 47, 79, 4, 4, 'done'),
-(77, 47, 77, 3, 3, 'done'),
-(78, 47, 89, 3, 3, 'done'),
-(79, 47, 145, 2, 1, 'sdd'),
-(80, 47, 95, 2, 2, 'fdg'),
-(81, 48, 61, 4, 4, 'done'),
-(82, 48, 129, 4, 2, 'done'),
-(83, 48, 89, 4, 2, 'done'),
-(84, 48, 145, 4, 1, 'done'),
-(85, 48, 95, 6, 5, 'done'),
-(86, 48, 76, 5, 5, 'done'),
-(87, 49, 62, 7, 7, 'done'),
-(88, 49, 66, 8, 4, 'done'),
-(89, 49, 79, 6, 3, 'done'),
-(90, 49, 88, 6, 4, 'done'),
-(91, 49, 89, 8, 5, 'done'),
-(92, 49, 131, 3, 1, 'done'),
-(93, 49, 145, 9, 7, 'done'),
-(94, 49, 164, 6, 4, 'done'),
-(95, 49, 95, 5, 5, 'done'),
-(96, 49, 106, 1, 1, 'done'),
-(97, 50, 131, 4, 2, 'good'),
-(98, 50, 129, 2, 3, 'good'),
-(99, 50, 61, 1, 2, 'good'),
-(100, 51, 61, 79, 77, 'done'),
-(101, 51, 118, 7, 7, 'done'),
-(102, 51, 89, 5, 5, 'done'),
-(103, 51, 76, 54, 53, 'done'),
-(104, 51, 161, 33, 31, 'done'),
-(105, 51, 99, 2, 1, 'done'),
-(106, 52, 67, 43, 41, 'done'),
-(107, 52, 84, 3, 2, 'done'),
-(108, 52, 133, 22, 21, 'done'),
-(109, 52, 159, 23, 21, 'done'),
-(110, 52, 120, 4, 2, 'done'),
-(112, 60, 61, 45, 45, 'completed'),
-(113, 60, 108, 30, 30, 'completed'),
-(114, 60, 159, 25, 20, '5 more'),
-(115, 61, 61, 23, 23, 'completed'),
-(116, 62, 61, 90, 90, 'completed');
+(136, 68, 143, 1, 12, 'asd'),
+(137, 68, 160, 2, 12, 'asd'),
+(141, 69, 164, 2, 2, 'asd'),
+(142, 69, 162, 2, 2, 'asd'),
+(143, 69, 148, 2, 2, 'asd');
 
 -- --------------------------------------------------------
 
@@ -499,119 +420,35 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `currentQuantity` int(15) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=352 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=375 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
 --
 
 INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate`, `risNo`, `iarNo`, `startingQuantity`, `deliveryQuantity`, `returnsQuantity`, `issuanceQuantity`, `currentQuantity`, `status`) VALUES
-(246, 110, 98, '2018-04-26', NULL, 34, 200, 4, NULL, NULL, 204, 'increased'),
-(247, 62, 51, '2018-04-06', NULL, 345, 20, 5, NULL, NULL, 25, 'increased'),
-(248, 98, 87, '2018-04-06', NULL, 345, 67, 5, NULL, NULL, 72, 'increased'),
-(249, 126, 114, '2018-04-06', NULL, 345, 300, 4, NULL, NULL, 304, 'increased'),
-(250, 95, 84, '2018-04-28', NULL, 22, 102, 4, NULL, NULL, 106, 'increased'),
-(251, 79, 68, '2018-04-28', NULL, 22, 20, 8, NULL, NULL, 28, 'increased'),
-(252, 75, 64, '2018-04-06', 72367, NULL, 50, NULL, NULL, 3, 47, 'decreased'),
-(253, 64, 53, '2018-04-06', 5667, NULL, 400, NULL, NULL, 2, 398, 'decreased'),
-(254, 79, 68, '2018-04-06', 5667, NULL, 28, NULL, NULL, 2, 26, 'decreased'),
-(255, 119, 107, '2018-04-06', 5667, NULL, 65, NULL, NULL, 3, 62, 'decreased'),
-(256, 160, 148, '2018-04-06', 5667, NULL, 50, NULL, NULL, 1, 49, 'decreased'),
-(257, 111, 99, '2018-04-06', 5667, NULL, 20, NULL, NULL, 1, 19, 'decreased'),
-(258, 61, 50, '2018-04-06', 5667, NULL, 667, NULL, NULL, 7, 660, 'decreased'),
-(259, 89, 78, '2018-04-06', NULL, NULL, 38, NULL, 4, NULL, 42, 'increased'),
-(260, 145, 133, '2018-04-06', NULL, NULL, 30, NULL, 4, NULL, 34, 'increased'),
-(261, 79, 68, '2018-04-06', NULL, NULL, 26, NULL, 4, NULL, 22, 'decreased'),
-(262, 145, 133, '2018-04-06', NULL, NULL, 34, NULL, 4, NULL, 30, 'decreased'),
-(263, 119, 107, '2018-04-06', NULL, NULL, 62, NULL, 5, NULL, 67, 'increased'),
-(264, 117, 105, '2018-04-27', NULL, 6, 150, 4, NULL, NULL, 154, 'increased'),
-(265, 92, 81, '2018-04-27', NULL, 6, 6, 2, NULL, NULL, 8, 'increased'),
-(266, 62, 51, '2018-04-06', NULL, 23, 25, 7, NULL, NULL, 32, 'increased'),
-(267, 79, 68, '2018-04-06', NULL, 23, 22, 2, NULL, NULL, 24, 'increased'),
-(268, 84, 73, '2018-04-06', NULL, 23, 2, 2, NULL, NULL, 4, 'increased'),
-(269, 77, 66, '2018-04-06', 987, NULL, 65, NULL, NULL, 2, 63, 'decreased'),
-(270, 133, 121, '2018-04-06', 987, NULL, 400, NULL, NULL, 8, 392, 'decreased'),
-(271, 61, 50, '2018-04-06', 3465, NULL, 660, NULL, NULL, 4, 656, 'decreased'),
-(272, 69, 58, '2018-04-06', 3465, NULL, 440, NULL, NULL, 3, 437, 'decreased'),
-(273, 79, 68, '2018-04-06', 3465, NULL, 24, NULL, NULL, 4, 20, 'decreased'),
-(274, 123, 111, '2018-04-06', 3465, NULL, 30, NULL, NULL, 3, 27, 'decreased'),
-(275, 104, 92, '2018-04-06', 3465, NULL, 798, NULL, NULL, 1, 797, 'decreased'),
-(276, 89, 78, '2018-04-06', 87, NULL, 42, NULL, NULL, 4, 38, 'decreased'),
-(277, 61, 50, '2018-04-06', 87, NULL, 656, NULL, NULL, 2, 654, 'decreased'),
-(278, 70, 59, '2018-04-06', NULL, NULL, 75, NULL, 3, NULL, 78, 'increased'),
-(279, 89, 78, '2018-04-06', NULL, NULL, 38, NULL, 4, NULL, 42, 'increased'),
-(280, 132, 120, '2018-04-27', NULL, 6, 250, 7, NULL, NULL, 257, 'increased'),
-(281, 123, 111, '2018-04-06', 45, NULL, 27, NULL, NULL, 3, 24, 'decreased'),
-(282, 61, 50, '2018-04-06', NULL, 346, 654, 5, NULL, NULL, 659, 'increased'),
-(283, 66, 55, '2018-04-06', NULL, 346, 600, 4, NULL, NULL, 604, 'increased'),
-(284, 78, 67, '2018-04-06', NULL, 346, 300, 3, NULL, NULL, 303, 'increased'),
-(285, 77, 66, '2018-04-06', NULL, 346, 63, 2, NULL, NULL, 65, 'increased'),
-(286, 78, 67, '2018-04-06', NULL, 346, 303, 1, NULL, NULL, 304, 'increased'),
-(287, 79, 68, '2018-04-06', NULL, 346, 20, 4, NULL, NULL, 24, 'increased'),
-(288, 108, 96, '2018-04-06', NULL, 346, 203, 4, NULL, NULL, 207, 'increased'),
-(289, 95, 84, '2018-04-06', NULL, 346, 106, 4, NULL, NULL, 110, 'increased'),
-(290, 89, 78, '2018-04-06', NULL, 346, 42, 4, NULL, NULL, 46, 'increased'),
-(291, 145, 133, '2018-04-06', NULL, 346, 30, 4, NULL, NULL, 34, 'increased'),
-(292, 61, 50, '2018-04-06', 1244, NULL, 659, NULL, NULL, 3, 656, 'decreased'),
-(293, 79, 68, '2018-04-06', 1244, NULL, 24, NULL, NULL, 4, 20, 'decreased'),
-(294, 77, 66, '2018-04-06', 1244, NULL, 65, NULL, NULL, 3, 62, 'decreased'),
-(295, 89, 78, '2018-04-06', 1244, NULL, 46, NULL, NULL, 3, 43, 'decreased'),
-(296, 145, 133, '2018-04-06', 1244, NULL, 34, NULL, NULL, 1, 33, 'decreased'),
-(297, 95, 84, '2018-04-06', 1244, NULL, 110, NULL, NULL, 2, 108, 'decreased'),
-(298, 61, 50, '2018-04-06', NULL, NULL, 656, NULL, 4, NULL, 660, 'increased'),
-(299, 61, 50, '2018-04-06', 33454, NULL, 660, NULL, NULL, 4, 656, 'decreased'),
-(300, 129, 117, '2018-04-06', 33454, NULL, 2, NULL, NULL, 2, 0, 'decreased'),
-(301, 89, 78, '2018-04-06', 33454, NULL, 43, NULL, NULL, 2, 41, 'decreased'),
-(302, 145, 133, '2018-04-06', 33454, NULL, 33, NULL, NULL, 1, 32, 'decreased'),
-(303, 95, 84, '2018-04-06', 33454, NULL, 108, NULL, NULL, 5, 103, 'decreased'),
-(304, 76, 65, '2018-04-06', 33454, NULL, 52, NULL, NULL, 5, 47, 'decreased'),
-(305, 62, 51, '2018-04-06', 3442, NULL, 32, NULL, NULL, 7, 25, 'decreased'),
-(306, 66, 55, '2018-04-06', 3442, NULL, 604, NULL, NULL, 4, 600, 'decreased'),
-(307, 79, 68, '2018-04-06', 3442, NULL, 20, NULL, NULL, 3, 17, 'decreased'),
-(308, 88, 77, '2018-04-06', 3442, NULL, 20, NULL, NULL, 4, 16, 'decreased'),
-(309, 89, 78, '2018-04-06', 3442, NULL, 41, NULL, NULL, 5, 36, 'decreased'),
-(310, 131, 119, '2018-04-06', 3442, NULL, 120, NULL, NULL, 1, 119, 'decreased'),
-(311, 145, 133, '2018-04-06', 3442, NULL, 32, NULL, NULL, 7, 25, 'decreased'),
-(312, 164, 152, '2018-04-06', 3442, NULL, 102, NULL, NULL, 4, 98, 'decreased'),
-(313, 95, 84, '2018-04-06', 3442, NULL, 103, NULL, NULL, 5, 98, 'decreased'),
-(314, 106, 94, '2018-04-06', 3442, NULL, 21, NULL, NULL, 1, 20, 'decreased'),
-(315, 131, 119, '2018-04-06', 34, NULL, 119, NULL, NULL, 2, 117, 'decreased'),
-(316, 129, 117, '2018-04-06', 34, NULL, 0, NULL, NULL, 3, -3, 'decreased'),
-(317, 61, 50, '2018-04-06', 34, NULL, 656, NULL, NULL, 2, 654, 'decreased'),
-(318, 61, 50, '2018-04-06', 9877, NULL, 654, NULL, NULL, 77, 577, 'decreased'),
-(319, 118, 106, '2018-04-06', 9877, NULL, 95, NULL, NULL, 7, 88, 'decreased'),
-(320, 89, 78, '2018-04-06', 9877, NULL, 36, NULL, NULL, 5, 31, 'decreased'),
-(321, 76, 65, '2018-04-06', 9877, NULL, 47, NULL, NULL, 53, -6, 'decreased'),
-(322, 161, 149, '2018-04-06', 9877, NULL, 15, NULL, NULL, 31, -16, 'decreased'),
-(323, 99, 88, '2018-04-06', 9877, NULL, 10, NULL, NULL, 1, 9, 'decreased'),
-(324, 67, 56, '2018-04-06', 5464, NULL, 50, NULL, NULL, 41, 9, 'decreased'),
-(325, 84, 73, '2018-04-06', 5464, NULL, 4, NULL, NULL, 2, 2, 'decreased'),
-(326, 133, 121, '2018-04-06', 5464, NULL, 392, NULL, NULL, 21, 371, 'decreased'),
-(327, 159, 147, '2018-04-06', 5464, NULL, 15, NULL, NULL, 21, -6, 'decreased'),
-(328, 120, 108, '2018-04-06', 5464, NULL, 70, NULL, NULL, 2, 68, 'decreased'),
-(329, 66, 55, '2018-05-03', NULL, 8765, 600, 40, NULL, NULL, 640, 'increased'),
-(330, 130, 118, '2018-05-03', NULL, 8765, 100, 30, NULL, NULL, 130, 'increased'),
-(331, 163, 151, '2018-05-03', NULL, 8765, 49, 50, NULL, NULL, 99, 'increased'),
-(332, 62, 51, '2018-04-06', NULL, NULL, 25, NULL, 5, NULL, 30, 'increased'),
-(333, 71, 60, '2018-04-06', NULL, NULL, 5, NULL, 40, NULL, 45, 'increased'),
-(334, 104, 92, '2018-04-06', NULL, NULL, 797, NULL, 20, NULL, 817, 'increased'),
-(335, 119, 107, '2018-04-06', NULL, NULL, 67, NULL, 1, NULL, 68, 'increased'),
-(336, 67, 56, '2018-04-06', NULL, NULL, 9, NULL, 3, NULL, 12, 'increased'),
-(337, 150, 138, '2018-04-06', NULL, NULL, 38, NULL, 2, NULL, 40, 'increased'),
-(338, 141, 129, '2018-05-02', NULL, 8, 150, 7, NULL, NULL, 157, 'increased'),
-(339, 143, 131, '2018-04-06', 34, NULL, 80, NULL, NULL, 6, 74, 'decreased'),
-(340, 133, 121, '2018-04-06', NULL, NULL, 371, NULL, 6, NULL, 377, 'increased'),
-(341, 141, 129, '2018-04-06', NULL, NULL, 157, 7, NULL, NULL, 150, 'decreased'),
-(342, 143, 131, '2018-04-06', NULL, NULL, 74, NULL, NULL, 6, 80, 'increased'),
-(343, 61, 50, '2018-04-06', NULL, 56, 577, 1, NULL, NULL, 578, 'increased'),
-(344, 67, 56, '2018-04-06', NULL, NULL, 12, NULL, 3, NULL, 9, 'decreased'),
-(345, 61, 50, '2018-04-07', 23, NULL, 578, NULL, NULL, 600, -22, 'decreased'),
-(346, 61, 50, '2018-04-07', NULL, NULL, -22, NULL, NULL, 600, 578, 'increased'),
-(347, 61, 50, '2018-04-07', 3466, NULL, 578, NULL, NULL, 45, 533, 'decreased'),
-(348, 108, 96, '2018-04-07', 3466, NULL, 207, NULL, NULL, 30, 177, 'decreased'),
-(349, 159, 147, '2018-04-07', 3466, NULL, -6, NULL, NULL, 20, -26, 'decreased'),
-(350, 61, 50, '2018-04-07', 466, NULL, 533, NULL, NULL, 23, 510, 'decreased'),
-(351, 61, 50, '2018-04-07', 287, NULL, 510, NULL, NULL, 90, 420, 'decreased');
+(374, 148, 136, '2018-05-19', 123, NULL, 34, NULL, NULL, 1, 33, 'decreased'),
+(373, 162, 150, '2018-05-19', 123, NULL, 25, NULL, NULL, 1, 24, 'decreased'),
+(372, 164, 152, '2018-05-19', 123, NULL, 86, NULL, NULL, 1, 85, 'decreased'),
+(371, 62, 51, '2018-05-19', 123, NULL, 45, NULL, NULL, 12, 33, 'decreased'),
+(370, 164, 152, '2018-05-19', 123, NULL, 98, NULL, NULL, 12, 86, 'decreased'),
+(369, 61, 50, '2018-05-19', NULL, NULL, 447, NULL, 12, NULL, 435, 'decreased'),
+(368, 155, 143, '2018-05-18', 123, NULL, 35, NULL, NULL, 12, 23, 'decreased'),
+(367, 162, 150, '2018-05-18', 123, NULL, 102, NULL, NULL, 12, 90, 'decreased'),
+(366, 156, 144, '2018-05-19', NULL, NULL, 19, NULL, NULL, 12, 31, 'increased'),
+(365, 164, 152, '2018-05-19', NULL, NULL, 86, NULL, NULL, 12, 98, 'increased'),
+(364, 156, 144, '2018-05-18', 123, NULL, 31, NULL, NULL, 12, 19, 'decreased'),
+(363, 164, 152, '2018-05-18', 123, NULL, 98, NULL, NULL, 12, 86, 'decreased'),
+(362, 162, 150, '2018-05-19', NULL, NULL, 87, NULL, NULL, 15, 102, 'increased'),
+(361, 163, 151, '2018-05-19', NULL, NULL, 87, NULL, NULL, 12, 99, 'increased'),
+(360, 62, 51, '2018-05-25', NULL, 123, 30, 15, NULL, NULL, 45, 'increased'),
+(359, 61, 50, '2018-05-25', NULL, 123, 432, 15, NULL, NULL, 447, 'increased'),
+(358, 61, 50, '2018-05-19', NULL, NULL, 447, 15, NULL, NULL, 432, 'decreased'),
+(357, 61, 50, '2018-05-19', NULL, NULL, 447, NULL, 12, NULL, 435, 'decreased'),
+(356, 162, 150, '2018-05-18', 123, NULL, 102, NULL, NULL, 15, 87, 'decreased'),
+(355, 163, 151, '2018-05-18', 123, NULL, 99, NULL, NULL, 12, 87, 'decreased'),
+(354, 61, 50, '2018-05-29', NULL, 123, 420, 15, NULL, NULL, 435, 'increased'),
+(353, 65, 54, '2018-05-19', NULL, NULL, 512, 12, NULL, NULL, 500, 'decreased');
 
 -- --------------------------------------------------------
 
@@ -640,7 +477,7 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `description`, `unitID`, `unitCost`, `brand`, `expirationDate`, `icsNo`) VALUES
-(61, 4, '0013-BLACK', 1, '1004', 'Ballpen,ordinary,BLACK', 2, 90, 'Pilot', NULL, NULL),
+(61, 4, '0013-BLACK', 1, '1004', 'Ballpen,ordinary,BLACK', 2, 90, '3', NULL, NULL),
 (62, 4, '0015', 1, '1006', 'Band,rubber,big size, #18, 450 grams', 3, 228, 'Elastic', NULL, NULL),
 (63, 4, '0016', 1, '1007', 'Battery,alkaline,9 volts', 2, 110, 'Pamasonic', NULL, NULL),
 (64, 4, '0017', 1, '1008', 'Battery,alkaline,size AA', 2, 27, 'Panasonic', NULL, NULL),
@@ -658,8 +495,8 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 (76, 10, '0055', 1, '1037', 'Book,columnar,4 columns', 6, 28, 'Vello', NULL, NULL),
 (77, 10, '0056', 1, '1028', 'Book,columnar, 24 columns', 6, 45, 'Vello', NULL, NULL),
 (78, 4, '0057', 1, '1039', 'Book,record,wide, official,500 leaves, White/Blue.8.5', 2, 127, 'Blue Note', NULL, NULL),
-(79, 5, '0145', 2, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, 'Canon', '2018-04-08', NULL),
-(80, 5, '0146', 2, '2002', 'Ink cartridge,Canon CL-811', 10, 1133, 'Canon', '2019-10-09', NULL),
+(79, 5, '0145', 1, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, 'Canon', '2018-04-08', NULL),
+(80, 5, '0146', 2, '2002', 'Ink cartridge,Canon CL-811', 10, 1133, 'Canon', '2019-10-10', NULL),
 (81, 5, '0147', 2, '2003', 'Ink cartridge,Canon CL-831', 10, 1175, 'Canon', '2019-05-16', NULL),
 (82, 5, '0148', 2, '2004', 'Ink cartridge,Canon CLI-36, color', 10, 1140, 'Canon', '2019-05-11', NULL),
 (83, 5, '0149', 2, '2005', 'Ink cartridge,Canon CLI-8, Cyan', 10, 914, 'Canon', '2021-11-22', NULL),
@@ -717,7 +554,7 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 (141, 4, '0129', 3, '3029', 'Freshener,air,320 ml, 5 in 1', 11, 198, 'xy', NULL, NULL),
 (142, 4, '0130', 3, '3030', 'Gloves, rubber, Large, medium, small', 16, 46, 'xy', NULL, NULL),
 (143, 4, '0134', 3, '3031', 'Handle,mop,steel', 2, 413, 'zz', NULL, NULL),
-(145, 4, '0001', 4, '4001', 'Album,DVD/CD case,folder', 2, 1500, 'Kodak', NULL, NULL),
+(145, 4, '0001', 4, '4001', 'Album,DVD/CD case,folder', 2, 1500, 'Kodak', NULL, '12345'),
 (146, 9, '0027', 4, '4002', 'Bin,trash with cover,foot operated,medium,round,plastic', 2, 198, 'Attach-A-Trash', NULL, NULL),
 (147, 4, '0068', 4, '4008', 'Card reader,usb type', 2, 104, 'Micro SD', NULL, NULL),
 (148, 4, '0069', 4, '4036', 'Card reader, internal', 5, 330, 'Micro SD', NULL, NULL),
@@ -833,19 +670,14 @@ CREATE TABLE IF NOT EXISTS `ppmp` (
   `officeID` int(10) NOT NULL,
   `ppmpDate` date NOT NULL,
   PRIMARY KEY (`ppmpID`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmp`
 --
 
 INSERT INTO `ppmp` (`ppmpID`, `officeID`, `ppmpDate`) VALUES
-(40, 61, '2018-04-06'),
-(41, 55, '2018-04-06'),
-(42, 25, '2018-04-06'),
-(43, 28, '2018-04-06'),
-(44, 3, '2018-04-06'),
-(45, 43, '2018-04-06');
+(48, 61, '2018-05-29');
 
 -- --------------------------------------------------------
 
@@ -861,40 +693,14 @@ CREATE TABLE IF NOT EXISTS `ppmpitems` (
   `ppmpID` int(45) NOT NULL,
   `unitCost` int(45) NOT NULL,
   PRIMARY KEY (`ppmpitemsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmpitems`
 --
 
 INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `ppmpID`, `unitCost`) VALUES
-(60, 61, 90, 40, 100),
-(61, 119, 7, 41, 200),
-(62, 161, 9, 41, 350),
-(63, 68, 3, 41, 150),
-(64, 61, 54, 42, 5),
-(65, 79, 4, 42, 121),
-(66, 89, 65, 42, 51),
-(67, 145, 79, 42, 12),
-(68, 95, 5, 42, 1234),
-(69, 104, 43, 42, 2),
-(70, 129, 7, 42, 132),
-(71, 89, 54, 42, 49),
-(72, 91, 21, 43, 100),
-(73, 95, 5, 43, 1000),
-(74, 61, 34, 44, 5),
-(75, 78, 31, 44, 21),
-(76, 75, 56, 44, 23),
-(77, 69, 31, 44, 43),
-(78, 129, 80, 44, 100),
-(79, 123, 57, 44, 108),
-(80, 130, 34, 44, 45),
-(81, 164, 56, 44, 12),
-(82, 84, 2, 45, 133),
-(83, 70, 4, 45, 14),
-(84, 116, 23, 45, 122),
-(85, 163, 45, 45, 434),
-(86, 125, 345, 45, 30);
+(87, 61, 12, 48, 12);
 
 -- --------------------------------------------------------
 
@@ -913,18 +719,46 @@ CREATE TABLE IF NOT EXISTS `returns` (
   `accountID` int(45) NOT NULL,
   `returnDate` date DEFAULT NULL,
   PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `returns`
 --
 
 INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`, `accountID`, `returnDate`) VALUES
-(49, 119, 58, 1, 'damaged', 'usable', 3, '2018-04-06'),
-(50, 102, 61, 2, 'expired', 'disposable', 3, '2018-04-06'),
-(52, 150, 61, 2, 'damaged', 'usable', 3, '2018-04-06'),
-(53, 120, 61, 1, 'damaged', 'disposable', 3, '2018-04-06'),
-(54, 133, 49, 6, 'excess item', 'usable', 7, '2018-04-06');
+(57, 61, 61, 12, '123asd', 'usable', 4, '2018-05-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+CREATE TABLE IF NOT EXISTS `schedule` (
+  `sched_id` int(45) NOT NULL AUTO_INCREMENT,
+  `company_id` int(11) NOT NULL,
+  `sched_type` varchar(45) NOT NULL,
+  `event_type` varchar(45) NOT NULL,
+  `sched_date` varchar(45) NOT NULL,
+  `start_time` varchar(45) NOT NULL,
+  `end_time` varchar(45) NOT NULL,
+  `location` varchar(45) NOT NULL,
+  `room` varchar(45) NOT NULL,
+  `slots` int(6) NOT NULL,
+  `defaultSlot` int(15) NOT NULL,
+  PRIMARY KEY (`sched_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`sched_id`, `company_id`, `sched_type`, `event_type`, `sched_date`, `start_time`, `end_time`, `location`, `room`, `slots`, `defaultSlot`) VALUES
+(1, 2, 'Exam', 'Internship', '2018-06-02', '09:00', '11:00', 'Saint Louis University Maryheights Campus', 'D524', 49, 50),
+(2, 1, 'Exam', 'Employment', '2018-06-04', '08:00', '09:30', 'Saint Louis University Maryheaights Campus', 'D424', 45, 45),
+(3, 3, 'Exam', 'Seminar', '2018-06-08', '13:00', '16:00', 'Prince Bernhard Gym, Saint Louis University', '', 300, 300),
+(4, 1, 'Exam', 'Seminar', '2018-06-28', '08:00', '13:00', 'SLU Maryheights', 'AVR', 200, 200);
 
 -- --------------------------------------------------------
 
@@ -1009,7 +843,54 @@ CREATE TABLE IF NOT EXISTS `updatehistory` (
   `type` varchar(45) NOT NULL,
   `itemID` int(45) NOT NULL,
   PRIMARY KEY (`updatehistoryID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `updatehistory`
+--
+
+INSERT INTO `updatehistory` (`updatehistoryID`, `accountID`, `activity`, `time`, `date`, `type`, `itemID`) VALUES
+(11, 4, 'Updated Expiration date from 2019-10-09 to 2019-10-10', '08:08:pm', '2018-05-17', 'Item Update', 80),
+(10, 4, 'Updated Category from 2 to 1', '08:04:pm', '2018-05-17', 'Item Update', 61),
+(9, 4, 'Updated Category from 1 to 2', '08:04:pm', '2018-05-17', 'Item Update', 61),
+(8, 4, 'Updated Category from  to 1', '08:02:pm', '2018-05-17', 'Item Update', 79),
+(12, 4, 'Updated ICS from  to 100', '08:15:pm', '2018-05-17', 'Item Update', 145),
+(13, 4, 'Updated ICS from  to 12', '08:16:pm', '2018-05-17', 'Item Update', 145),
+(14, 4, 'Updated ICS from  to 123', '08:16:pm', '2018-05-17', 'Item Update', 145),
+(15, 4, 'Updated ICS from  to ', '08:16:pm', '2018-05-17', 'Item Update', 145),
+(16, 4, 'Updated ICS from 123 to ', '08:16:pm', '2018-05-17', 'Item Update', 145),
+(17, 4, 'Updated ICS from 1234 to 12345', '08:17:pm', '2018-05-17', 'Item Update', 145);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(45) NOT NULL AUTO_INCREMENT,
+  `password` varchar(45) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `id_num` int(45) NOT NULL,
+  `contact_num` varchar(45) NOT NULL,
+  `course` varchar(45) DEFAULT NULL,
+  `year` int(11) DEFAULT NULL,
+  `user_type` varchar(45) NOT NULL,
+  `status` varchar(250) NOT NULL DEFAULT 'registered',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `password`, `first_name`, `last_name`, `email`, `id_num`, `contact_num`, `course`, `year`, `user_type`, `status`) VALUES
+(1, '1234', 'Famae', 'Pascua', 'famaepascua@gmail.com', 2143735, '09099299181', 'BSIT', 4, 'student', 'registered'),
+(2, '1234', 'Admin', 'Admin', 'admin@gmail.com', 123456, '05845488', '', 0, 'admin', 'registered'),
+(3, '1234', 'Denyse', 'Cayadi', 'denyse@gmail.com', 2146790, '', 'BSIT', 4, 'student', 'registered');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

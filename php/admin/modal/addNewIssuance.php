@@ -198,41 +198,9 @@
 <!-- #END# Multi Column -->
 
 <script>
-    function getDesc($i) {
-        $id = $('#cat' + $i).val();
-        $.ajax({
-            url: 'category.php',
-            data: {category: $id},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#desc' + $i).html(data);
-            }
-        });
-    }
 
-    function getCQ($i) {
-        $d = $('#desc' + $i).val();
-        $.ajax({
-            url: 'quantity.php',
-            data: {des: $d},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#cQ' + $i).val(data[0]);
-            }
-        });
-    }
-    function getDefault($i){
-        $id = 'desc' + $i;
-        $y = document.getElementById($id)
-        $.ajax({
-            url: 'defaultQuantity.php',
-            data: {defaultQuantity: $y},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#' + $id).val(data[0]);
-            }
-        });
-    }
+
+
 
 
 

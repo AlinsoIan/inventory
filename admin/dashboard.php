@@ -448,7 +448,6 @@ if ($_SESSION['type'] == "user") {
 
 <!-- Custom Js -->
 <script src="../js/admin.js"></script>
-<script src="../js/pages/charts/sparkline.js"></script>
 
 <script>
     $(document).ready(function(){
