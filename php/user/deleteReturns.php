@@ -43,8 +43,8 @@ if($conn->query($sql)){
 
 
 
-    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type)
-                    VALUES ('$userID','$a','Returns Deleted','$da','Returns')";
+    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type,itemID)
+                    VALUES ('$userID','$a','Returns Deleted','$da','Returns','$rrr[0]')";
     $conn->query($sql);
 
     $oo = $userID . " " . $a . " " . "Returns Deleted" . " " . $da . " " . "Returns";
