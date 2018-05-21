@@ -1,146 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/five2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/four2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/officeInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/officeInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/offices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ppmp.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ppmp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/quantity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/quantity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/reorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/reorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard3.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard4.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard5.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard5.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/three2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/toexpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/toexpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/two2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/updatehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/updatehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addItem2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItem2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addItemICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItemICS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addPPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addPPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deletePPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deletePPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/disableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/disableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editReorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editReorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/editSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/editSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/enableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/enableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/itemUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/itemUpdate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/itemUpdate2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/itemUpdate2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/itemUpdateICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/itemUpdateICS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addInventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addInventory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItemICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItemICS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addPPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deletePPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deletePPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/disableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editItems.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editItems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editItems2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editItems2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editItemsICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editItemsICS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editReorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editReorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/editToExpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/editToExpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/enableAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/enableAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/issueDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/issueDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/itemDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/itemDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/items.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/items.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/printItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/printSSMI.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printSSMI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIAR.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewIAR.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewItemInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewPPMP.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewPPMP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/newSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/newSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/officeDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/officeDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/ppmpDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/ppmpDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/units.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/units.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateOffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateOffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateReorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateReorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/updateSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/updateSupplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/deleteIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/deleteIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/deleteReturns.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/deleteReturns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/editItems.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/editItems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/editItems2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/editItems2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/editItemsICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/editItemsICS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/issueDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/issueDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/printItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/printItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/printSSMI.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/printSSMI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/viewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/viewItemInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/viewItemInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/viewReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/viewReturn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/updateIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/updateIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/five2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/four2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/officeInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/officeInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/three2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/two2.php" afterDir="false" />
-    </list>
+    <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -164,20 +25,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="editItems.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="editItems.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/admin/modal/editItems.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="135" column="85" selection-start-line="135" selection-start-column="81" selection-end-line="135" selection-end-column="85" />
+            <state relative-caret-position="247">
+              <caret line="135" column="189" selection-start-line="135" selection-start-column="189" selection-end-line="135" selection-end-column="189" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editItems2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/editItems2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2067" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="itemUpdate.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+            <state relative-caret-position="269">
+              <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemUpdate2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemUpdateICS.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/admin/itemUpdateICS.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="120" column="41" lean-forward="true" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -191,6 +77,7 @@
       <find>supplier</find>
       <find>datal</find>
       <find>print</find>
+      <find>quan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,9 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/accounts.php" />
-        <option value="$PROJECT_DIR$/admin/five2.php" />
-        <option value="$PROJECT_DIR$/admin/four2.php" />
         <option value="$PROJECT_DIR$/admin/inventory.php" />
         <option value="$PROJECT_DIR$/admin/issuance.php" />
         <option value="$PROJECT_DIR$/admin/items2.php" />
@@ -256,6 +140,9 @@
         <option value="$PROJECT_DIR$/php/user/addReturn.php" />
         <option value="$PROJECT_DIR$/php/user/modal/addReturn.php" />
         <option value="$PROJECT_DIR$/php/admin/itemUpdate.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/editItems.php" />
+        <option value="$PROJECT_DIR$/php/admin/itemUpdate2.php" />
+        <option value="$PROJECT_DIR$/php/admin/itemUpdateICS.php" />
       </list>
     </option>
   </component>
@@ -293,24 +180,6 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -466,7 +335,7 @@
       <workItem from="1526534052692" duration="6860000" />
       <workItem from="1526678425247" duration="20158000" />
       <workItem from="1526853778430" duration="1607000" />
-      <workItem from="1526897303373" duration="1901000" />
+      <workItem from="1526897303373" duration="2173000" />
     </task>
     <task id="LOCAL-00001" summary="New">
       <created>1522926964522</created>
@@ -615,17 +484,23 @@
       <option name="project" value="LOCAL" />
       <updated>1526782800504</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="marami">
+      <created>1526899443037</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526899443037</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107946000" />
+    <option name="totallyTimeSpent" value="108218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26701966" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26399395" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
@@ -677,30 +552,10 @@
     <MESSAGE value="EXCEL only" />
     <MESSAGE value="Fixed EDIT for issuance" />
     <MESSAGE value="DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB" />
+    <MESSAGE value="marami" />
+    <option name="LAST_COMMIT_MESSAGE" value="marami" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewPPMP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/issuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3638">
-          <caret line="214" column="29" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/history.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/user/addDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -947,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/user/modal/addReturn.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -970,8 +818,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/editItems.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="135" column="85" selection-start-line="135" selection-start-column="81" selection-end-line="135" selection-end-column="85" />
+        <state relative-caret-position="247">
+          <caret line="135" column="189" selection-start-line="135" selection-start-column="189" selection-end-line="135" selection-end-column="189" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/editItems2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2067" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdateICS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="120" column="41" lean-forward="true" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="41" />
         </state>
       </provider>
     </entry>
