@@ -90,7 +90,7 @@
                         <input type="submit" value="Update" class="btn btn-primary " id="submitD">
 
 
-                        <a href="../admin/supplier.php" class="btn btn-primary pull-right">Cancel</a>
+                        <a href="../admin/supplier.php" class="btn btn-danger pull-right">CANCEL</a>
 
                         <br>
                     </div>

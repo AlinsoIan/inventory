@@ -122,20 +122,20 @@ if(!isset($_SESSION['username'])){
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="items2.php"><strong>Category 1</strong></a>
-                            </li>
-                            <li>
-                                <a href="two2.php"><strong>Category 2</strong></a>
-                            </li>
-                            <li>
-                                <a href="three2.php"><strong>Category 3</strong></a>
-                            </li>
-                            <li>
-                                <a href="four2.php"><strong>Category 4</strong></a>
-                            </li>
-                            <li>
-                                <a href="five2.php"><strong>Category 5</strong></a>
-                            </li>
+                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                        </li>
+                        <li>
+                            <a href="two2.php" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
+                        </li>
+                        <li>
+                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                        </li>
+                        <li>
+                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                        </li>
+                        <li>
+                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
+                        </li>
                         </ul>
                     </li>
 
@@ -145,15 +145,15 @@ if(!isset($_SESSION['username'])){
                             <span>Reports</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li>
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
+                             <li>
+                            <a href="raos.php" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
+                        </li>
+                        <li>
+                            <a href="ssmi.php" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
+                        </li>
+                        <li>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                        </li>
                         </ul>
                     </li>
                     
@@ -221,7 +221,7 @@ if(!isset($_SESSION['username'])){
                                     <th>Quantity</th>
                                     <th>Reason</th>
                                     <th>Status</th>
-                                    <th>Delete</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
 
@@ -250,17 +250,6 @@ if(!isset($_SESSION['username'])){
                                 ?>
                                 </tbody>
                             </table>
-                            <h3 class="title pull-left">
-                                <?php
-
-                                require '../php/db.php';
-                                $sql = "SELECT COUNT(returnID) FROM returns WHERE accountID = '$userID'";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "Total Records : " . $r[0];
-                                ?>
-                            </h3>
 
                             <a href="../php/user/modal/addReturn.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Return</a>
                         </div>

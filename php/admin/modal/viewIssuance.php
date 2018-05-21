@@ -279,7 +279,7 @@ session_start();
 
                 <div class="text-center">
                     <input type="submit" value="Update" class="btn btn-primary btn-lg" id="submitD">
-                    <a href="../admin/issuance.php" class="btn btn-primary btn-lg waves-effect">CLOSE</a>
+                    <a href="../admin/issuance.php" class="btn btn-danger btn-lg waves-effect">CANCEL</a>
                 </div>
             </div>
 

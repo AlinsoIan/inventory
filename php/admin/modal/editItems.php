@@ -133,7 +133,7 @@
                                 $res = $conn->query($sql);
                                 $r = $res->fetch_row();
 
-                                echo "<input type='number' placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly();' onkeyup='checkNumber()' name = 'sQuantity' class='form-control'>";
+                                echo "<input type='number' placeholder='starting quantity' value = '" .$r[0] . "' id = 'quantity' onkeydown='NumberOnly();' onkeyup='checkNumber()' name = 'quantity' class='form-control'>";
                                 ?>
 
 
@@ -191,7 +191,7 @@
                         <?php
                         session_start();
                         $temp = $_SESSION['temp'];
-                        echo "<a href='../admin/$temp' class='btn btn-primary pull-right' >CLOSE</a>";
+                        echo "<a href='../admin/$temp' class='btn btn-danger pull-right' >CANCEL</a>";
                         ?>
                         <br>
                     </div>

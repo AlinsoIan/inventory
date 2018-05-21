@@ -10,7 +10,7 @@
             <form action="../php/admin/addDelivery.php" method="post">
                 <div class="row clearfix">
                     <div class="col-md-2">
-                        <label>IAR NO</label>
+                        <label  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</label>
                         <input type="number" onkeypress="return isNumberKey(event)" name="iarno" min="0"
                                class="form-control" required>
                     </div>
@@ -23,7 +23,7 @@
                     <datalist id="items">
                         <?php
                         require '../../db.php';
-                        $sql = 'SELECT description FROM items';
+                        $sql = 'SELECT description,itemID FROM items';
 
                         if ($res = $conn->query($sql)) {
                             while ($row = $res->fetch_assoc()) {
@@ -81,7 +81,7 @@
                 <div class="modal-footer text-center">
                     <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                     <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                    <a href="../admin/delivery.php" class="btn btn-danger pull-right">CLOSE</a>
+                    <a href="../admin/delivery.php" class="btn btn-danger pull-right">CANCEL</a>
                 </div>
 
             </form>

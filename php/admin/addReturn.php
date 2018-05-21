@@ -18,10 +18,11 @@ $s = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $o = $conn->query($s);
 $oo = $o->fetch_row();
 
-$item = $_POST['item'];
+$item = $_POST['des'];
 $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE items.description LIKE '%". $item ."%'";
 $c = $conn->query($s);
 $cc = $c->fetch_row();
+
 
 
 $ress = $_POST['res'];
@@ -34,7 +35,10 @@ if ($c) {
     $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status,accountID,returnDate)
         VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status','$userID','$da')";
 
+
     $conn->query($sql);
+
+
     if ($status === "usable") {
         $id = mysqli_insert_id($conn);
         $b = $quantity + $cc[1];

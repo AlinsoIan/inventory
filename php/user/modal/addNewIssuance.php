@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>RIS No.</label>
+                                <label  data-toggle="tooltip" title="Requisition and Issue Slip Number">RIS No.</label>
                                 <input type="text" name="ris" class="form-control" required>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>SAI No. </label>
+                                <label data-toggle="tooltip" title="Supplies Availability Inquiry Number">SAI No. </label>
                                 <input type="text" name="sai"  required class="form-control">
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                     <div class="modal-footer text-center">
                         <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                         <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../user/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../user/issuance.php" class="btn btn-danger pull-right">CANCEL</a>
                     </div>
 
             </div>
@@ -273,9 +273,8 @@
         $('#iss').attr('max',r);
     })
 
-
-
-
-
+ $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 
 </script>

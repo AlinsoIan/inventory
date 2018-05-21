@@ -120,20 +120,20 @@ if(!isset($_SESSION['username'])){
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
-                            <a href="items2.php"><strong>Category 1</strong></a>
+                       <li>
+                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href="two2.php"><strong>Category 2</strong></a>
+                            <a href="two2.php" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href="three2.php"><strong>Category 3</strong></a>
+                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href="four2.php"><strong>Category 4</strong></a>
+                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href="five2.php"><strong>Category 5</strong></a>
+                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
                         </li>
                     </ul>
                     </li>
@@ -141,17 +141,19 @@ if(!isset($_SESSION['username'])){
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="raos.php"><strong>RAOS</strong></a>
-                            </li>
-                            <li>
-                                <a href="ssmi.php"><strong>SSMI</strong></a>
-                            </li>
-                            <li>
-                                <a href="stockcard.php"><strong>STOCK CARD</strong></a>
-                            </li>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="raos.php" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
+                        </li>
+                        <li>
+                            <a href="ssmi.php" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
+                        </li>
+                        <li>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                        </li>
+                    </ul>
+                </li>
                         </ul>
                     </li>
 
@@ -204,14 +206,14 @@ if(!isset($_SESSION['username'])){
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>IAR No.</th>
+                                    <th data-toggle="tooltip" title="Inspection Acceptance Reports Number">IAR No.</th>
                                     <th>Category</th>
                                     <th>Item</th>
                                     <th>Unit</th>
                                     <th>Supplier</th>
                                     <th>Quantity</th>
                                     <th>Delivery Date</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
 
@@ -245,17 +247,6 @@ if(!isset($_SESSION['username'])){
                                 ?>
                                 </tbody>
                             </table>
-                            <h3 class="title pull-left">
-                                <?php
-                                $a = $_SESSION['user'];
-                                require '../php/db.php';
-                                $sql = "SELECT COUNT(deliveryID) FROM delivery WHERE accountID = '$a'";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "Total Records: " . $r[0];
-                                ?>
-                            </h3>
 
                             <a href="../php/user/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
                         </div>
@@ -294,7 +285,11 @@ if(!isset($_SESSION['username'])){
 
 <script src="../js/custom.js"></script>
 
-
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 
 </body>
 

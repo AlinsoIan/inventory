@@ -76,7 +76,7 @@
                             <input type="submit" value="Update" class="btn btn-primary " id="submitD">
 
 
-                            <a href="../admin/offices.php" class="btn btn-danger pull-right">CLOSE</a>
+                            <a href="../admin/offices.php" class="btn btn-danger pull-right">CANCEL</a>
 
                             <br>
                         </div>

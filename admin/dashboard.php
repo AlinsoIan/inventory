@@ -159,10 +159,10 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
+                            <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                            <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
                             <a href="stockcard.php"><strong>STOCK CARD</strong></a>

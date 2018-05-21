@@ -135,27 +135,26 @@ if ($_SESSION['type'] == "user") {
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>
-                </li>
-                <li>
+                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="items2.php"><strong>Category 1</strong></a>
+                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href="two2.php"><strong>Category 2</strong></a>
+                            <a href="two2.php" data-toggle="tooltip" title="ink & photocopier consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href="three2.php"><strong>Category 3</strong></a>
+                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href="four2.php"><strong>Category 4</strong></a>
+                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href="five2.php"><strong>Category 5</strong></a>
+                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -166,10 +165,10 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="raos.php"><strong>RAOS</strong></a>
+                            <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                            <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
                             <a href="stockcard.php"><strong>STOCK CARD</strong></a>
@@ -291,7 +290,7 @@ if ($_SESSION['type'] == "user") {
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>IAR No.</th>
+                                    <th  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
                                     <th>Category</th>
                                     <th>Item</th>
                                     <th>Unit</th>
@@ -322,7 +321,7 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['e'] . "</td>"
                                             . "<td>" . $row['g'] . "</td>"
                                             . "<td>" . $row['f'] . "</td>"
-                                            . "<td><a href=" . '../php/admin/modal/deleteDelivery.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td><a href=" . '../php/admin/modal/deleteDelivery.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 

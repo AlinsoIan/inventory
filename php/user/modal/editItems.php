@@ -17,7 +17,7 @@
                     <th>ACCT-SN</th>
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
-                    <th>UOM</th>
+                    <th data-toggle="tooltip" title="Unit of Measurement">UOM</th>
                     <th>BRAND</th>
                     <th>CURRENT QUANTITY</th>
                     <th>UNIT COST</th>
@@ -162,7 +162,7 @@
                         <?php
                         session_start();
                         $temp = $_SESSION['temp'];
-                        echo "<a href='../user/$temp' class='btn btn-primary pull-right' >CLOSE</a>";
+                        echo "<a href='../user/$temp' class='btn btn-primary pull-right' >CANCEL</a>";
                         ?>
                         <br>
                     </div>

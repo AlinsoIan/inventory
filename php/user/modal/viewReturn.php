@@ -113,7 +113,7 @@
 
 
 
-                        <a href="../user/returns.php" class="btn btn-primary pull-right">Close</a>
+                        <a href="../user/returns.php" class="btn btn-primary pull-right">CLOSE</a>
 
                         <br>
                     </div>

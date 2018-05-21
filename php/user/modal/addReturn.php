@@ -36,19 +36,20 @@
                             </select>
                         </div>
                     </div>
-                    <datalist id="items">
-                        <?php
-                        require '../../db.php';
-                        $sql = 'SELECT description FROM items';
 
-                        if ($res = $conn->query($sql)) {
-                            while ($row = $res->fetch_assoc()) {
-                                echo "<option value='" . $row['description'] . "'>";
-                            }
-                        }
-                        ?>
-                    </datalist>
                 </div>
+                <datalist id="items">
+                    <?php
+                    require '../../db.php';
+                    $sql = 'SELECT description FROM items';
+
+                    if ($res = $conn->query($sql)) {
+                        while ($row = $res->fetch_assoc()) {
+                            echo "<option value='" . $row['description'] . "'>";
+                        }
+                    }
+                    ?>
+                </datalist>
                 <table class="table">
                     <thead class="text-primary">
                     <th style="width: 30%">Item</th>
@@ -59,7 +60,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <input list="items" class="form-control" name="des[]">
+                            <input list="items" class="form-control" name="des">
                         </td>
                         <td>
                             <input name="res" class="form-control" type="text" required>
@@ -85,7 +86,7 @@
                         <input type="submit" value="ADD" class="btn btn-success " id="submitD">
 
 
-                        <a href="../user/returns.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../user/returns.php" class="btn btn-danger pull-right">CANCEL</a>
 
                         <br>
                     </div>

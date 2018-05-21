@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>RIS No.</label>
+                                <label  data-toggle="tooltip" title="Requisition and Issue Slip">RIS No.</label>
                                 <input type="text" name="ris" class="form-control" required>
                             </div>
                         </div>
@@ -91,13 +91,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </label>
+                                <label  data-toggle="tooltip" title="FPP">FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </label>
                                 <input type="text" id="fpp" disabled required class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>SAI No. </label>
+                                <label  data-toggle="tooltip" title="Supplies Availability Inquiry">SAI No. </label>
                                 <input type="text" name="sai"  required class="form-control">
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                     <div class="modal-footer text-center">
                         <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                         <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../admin/issuance.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../admin/issuance.php" class="btn btn-danger pull-right">CANCEL</a>
                     </div>
 
             </div>

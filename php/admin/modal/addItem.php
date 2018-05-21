@@ -9,10 +9,10 @@
             <form action="../php/admin/addItem.php" method="post">
                 <table class="table">
                     <thead class="text-primary">
-                    <th>ACCT-SN</th>
-                    <th>PGSO-SN</th>
+                    <th  data-toggle="tooltip" title="Accoutn Serial No.">ACCT-SN</th>
+                    <th  data-toggle="tooltip" title="PGSO Serial No.">PGSO-SN</th>
                     <th>ITEM DESCRIPTION</th>
-                    <th>UOM</th>
+                    <th  data-toggle="tooltip" title="Unit of Measurement">UOM</th>
                     <th>BRAND</th>
                     <th style="width: 10px">STARTING QUANTITY</th>
                     <th>UNIT COST</th>

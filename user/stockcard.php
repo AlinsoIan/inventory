@@ -140,14 +140,16 @@ if(!isset($_SESSION['username'])){
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="raos.php" ><strong>RAOS</strong></a>
+                            <a href="raos.php" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="ssmi.php"><strong>SSMI</strong></a>
+                            <a href="ssmi.php" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
                         </li>
                         <li class="active">
                             <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                         </li>
+                    </ul>
+                </li>
                     </ul>
                 </li>
 

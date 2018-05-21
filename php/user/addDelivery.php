@@ -12,8 +12,7 @@ $userID = $_SESSION['user'];
 $ti = date('h:i:a');
 
 $iar = $_POST['iarno'];
-$category = $_POST['cat'];
-$item = $_POST['item'];
+$item = $_POST['des'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
 $da = $_POST['d'];
@@ -126,7 +125,8 @@ if (COUNT($item)) {
     header('Location:../../user/delivery.php');
 
 } else {
-
+var_dump($conn->error);
+die;
     $m = "Error Adding Issuance!";
 
     echo "

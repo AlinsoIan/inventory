@@ -44,6 +44,7 @@ if($conn->query($sql)){
     $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
                     VALUES ('$userID','$i','Delivery Deleted','$da','Delivery')";
     $conn->query($sql);
+    
 
     header("Location:../../user/delivery.php");
 

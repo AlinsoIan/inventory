@@ -178,7 +178,7 @@ session_start();
                         <?php
 
                         $temp = $_SESSION['temp'];
-                        echo "<a href='../user/$temp' class='btn btn-danger pull-right' >CLOSE</a>";
+                        echo "<a href='../user/$temp' class='btn btn-primary pull-right' >CLOSE</a>";
                         ?>
                         <br>
                     </div>

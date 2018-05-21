@@ -30,11 +30,11 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <label>FPP</label>
+                        <label  data-toggle="tooltip" title="FPP">FPP</label>
                         <input type="text" id="rc" disabled="" class="form-control">
                     </div>
                     <div class="col-md-2">
-                        <label>RC</label>
+                        <label  data-toggle="tooltip" title="Responsibility Center">RC</label>
                         <input type="text" id="fpp" disabled="" class="form-control">
                     </div>
                     <div class="col-md-2 pull-right">
@@ -93,7 +93,7 @@
                 <div class="modal-footer text-center">
                     <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
                     <button type="submit" id ="add" class="btn btn-success text-center" value="submit">ADD</button>
-                    <a href="../admin/ppmp.php" class="btn btn-danger pull-right">CLOSE</a>
+                    <a href="../admin/ppmp.php" class="btn btn-danger pull-right">CANCEL</a>
                 </div>
 
         </div>

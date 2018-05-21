@@ -9,46 +9,47 @@
             </div>
             <form action="../php/admin/addReturn.php" method="post">
                 <div class="body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label>OFFICE</label>
-                        <select class="form-control" name="office">
-                            <?php
-                            require '../../db.php';
-                            $sql = "SELECT officeName FROM offices";
-                            $res = $conn->query($sql);
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>OFFICE</label>
+                            <select class="form-control" name="office">
+                                <?php
+                                require '../../db.php';
+                                $sql = "SELECT officeName FROM offices";
+                                $res = $conn->query($sql);
 
-                            if($res){
-                                while ($row = $res->fetch_assoc()){
-                                    echo "<option>" . $row['officeName'] . "</option>";
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo "<option>" . $row['officeName'] . "</option>";
+                                    }
                                 }
-                            }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-md-3 pull-right">
+                            <label>Date</label>
+                            <?php
+                            $d = date('Y/n/j');
+
+                            echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
                             ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3 pull-right">
-                        <label>Date</label>
-                        <?php
-                        $d = date('Y/n/j');
+                            </select>
+                        </div>
 
-                        echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
-                        ?>
-                        </select>
                     </div>
-                    <datalist id="items">
-                        <?php
-                        require '../../db.php';
-                        $sql = 'SELECT description FROM items';
+                </div>
+                <datalist id="items">
+                    <?php
+                    require '../../db.php';
+                    $sql = 'SELECT description FROM items';
 
-                        if($res = $conn->query($sql)){
-                            while ($row = $res->fetch_assoc()){
-                                echo "<option value='" . $row['description']. "'>";
-                            }
+                    if($res = $conn->query($sql)){
+                        while ($row = $res->fetch_assoc()){
+                            echo "<option value='" . $row['description']. "'>";
                         }
-                        ?>
-                    </datalist>
-                </div>
-                </div>
+                    }
+                    ?>
+                </datalist>
                 <table class="table">
                     <thead class="text-primary">
                     <th style="width: 30%">Item</th>
@@ -59,16 +60,17 @@
                     <tbody>
                     <tr>
                         <td>
-                            <input list="items" class="form-control" name="des[]">
+                            <input list="items" class="form-control" name="des">
                         </td>
                         <td>
                             <input name="res" class="form-control" type="text" required>
                         </td>
                         <td>
-                            <input name="quantity" min="0" class="form-control" onkeypress="return isNumberKey(event)" type="number" required>
+                            <input name="quantity" min="0" class="form-control" onkeypress="return isNumberKey(event)"
+                                   type="number" required>
                         </td>
                         <td>
-                            <select name="status" class="form-control" >
+                            <select name="status" class="form-control">
                                 <option value="usable">Usable</option>
                                 <option value="disposable">Disposable</option>
                             </select>
@@ -84,7 +86,7 @@
                         <input type="submit" value="ADD" class="btn btn-success " id="submitD">
 
 
-                        <a href="../admin/returns.php" class="btn btn-danger pull-right">CLOSE</a>
+                        <a href="../admin/returns.php" class="btn btn-danger pull-right">CANCEL</a>
 
                         <br>
                     </div>

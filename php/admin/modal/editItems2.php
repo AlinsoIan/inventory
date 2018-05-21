@@ -207,7 +207,7 @@
 
                         <?php
                         $temp = $_SESSION['temp'];
-                        echo "<a href='../admin/$temp' class='btn btn-danger pull-right' >CLOSE</a>";
+                        echo "<a href='../admin/$temp' class='btn btn-danger pull-right' >CANCEL</a>";
                         ?>
                         <br>
                     </div>

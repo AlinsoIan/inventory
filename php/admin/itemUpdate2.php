@@ -114,6 +114,8 @@ $sql = "UPDATE items SET expirationDate='$exp',categoryNo='$category',acctSn = '
 
 if($conn->query($sql)){
 
+    $quan = $_POST['sQuantity'];
+
     $sql = "UPDATE inventory SET currentQuantity = '$quan' WHERE itemID = '$id'";
     $conn->query($sql);
     header("Location:../../admin/$temp");

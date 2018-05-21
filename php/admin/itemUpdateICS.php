@@ -114,6 +114,8 @@ $sql = "UPDATE items SET icsNo='$ics',categoryNo='$category',acctSn = '$acct',pg
 
 if($conn->query($sql)){
 
+    $quan = $_POST['sQuantity'];
+
     $sql = "UPDATE inventory SET currentQuantity = '$quan' WHERE itemID = '$id'";
     $conn->query($sql);
     header("Location:../../admin/$temp");
