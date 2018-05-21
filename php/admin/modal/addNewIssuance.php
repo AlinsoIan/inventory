@@ -59,7 +59,7 @@
                             <div class="">
                                 <label>Date </label>
                                 <?php
-                                $d = date('Y/n/j');
+                                $d = date('n/j/Y');
 
                                 echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
                                 ?>
