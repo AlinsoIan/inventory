@@ -290,7 +290,7 @@ if ($_SESSION['type'] == "user") {
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>User Type</th>
-                                <th>Settings</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>

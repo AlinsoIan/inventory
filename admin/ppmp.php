@@ -301,7 +301,7 @@ if ($_SESSION['type'] == "user") {
                                 <tr>
                                     <th width="8%">Office</th>
                                     <th width="8%">Date</th>
-                                    <th width="5%">Settings</th>
+                                    <th width="5%"></th>
                                 </tr>
                                 </thead>
 

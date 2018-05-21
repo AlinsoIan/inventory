@@ -293,7 +293,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Abbreviation</th>
                                     <th data-toggle="tooltip" title="FPP">FPP</th>
                                     <th data-toggle="tooltip" title="Responsibility Center">RC</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>

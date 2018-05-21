@@ -292,7 +292,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Abbr</th>
                                     <th>Fpp</th>
                                     <th>RC</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>

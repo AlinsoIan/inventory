@@ -281,7 +281,7 @@ if ($_SESSION['type'] == "user") {
             <div class="col-lg-12 ">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">Supplier</h2>
+                        <h2 class="text-center">Active Supplier</h2>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -292,14 +292,14 @@ if ($_SESSION['type'] == "user") {
                                     <th>Supplier</th>
                                     <th>Address</th>
                                     <th>Contact No</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT * FROM suppliers";
+                                $sql = "SELECT * FROM suppliers WHERE status != 'disabled'";
                                 $res = $conn->query($sql);
 
                                 if($res){
@@ -309,7 +309,49 @@ if ($_SESSION['type'] == "user") {
                                         echo "<td>" . $row['supplierName'] . "</td>";
                                         echo "<td>" . $row['address'] . "</td>";
                                         echo "<td>" . $row['contactNo'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  &nbsp &nbsp &nbsp  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>delete</a>" . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/editSupplier.php?num=' .$row['supplierID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>mode_edit</a>" . "  &nbsp &nbsp &nbsp  " . "<a href=" .'../php/admin/modal/deleteSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>remove</a>" . "</td>";
+                                        echo "</tr>";
+                                    }
+                                }
+
+                                ?>
+                                </tbody>
+                            </table>
+                            <a href="../php/admin/modal/addSupplier.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addOffice">Add Supplier</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2 class="text-center">Disabled Supplier</h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example ">
+                                <thead>
+                                <tr>
+                                    <th>Tin No</th>
+                                    <th>Supplier</th>
+                                    <th>Address</th>
+                                    <th>Contact No</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                require '../php/db.php';
+
+                                $sql = "SELECT * FROM suppliers WHERE status = 'disabled'";
+                                $res = $conn->query($sql);
+
+                                if($res){
+                                    while ($row = $res->fetch_assoc()){
+                                        echo  "<tr>";
+                                        echo "<td>" . $row['tinNo'] . "</td>";
+                                        echo "<td>" . $row['supplierName'] . "</td>";
+                                        echo "<td>" . $row['address'] . "</td>";
+                                        echo "<td>" . $row['contactNo'] . "</td>";
+                                        echo "<td>" . "<a href=" .'../php/admin/modal/activateSupplier.php?num=' .$row['supplierID'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteOffice'>add</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }

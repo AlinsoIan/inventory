@@ -296,7 +296,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Date/Time</th>
                                     <th>Issuance Type</th>
                                     <th>Issuer</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
 
@@ -329,17 +329,7 @@ if ($_SESSION['type'] == "user") {
                                 ?>
                                 </tbody>
                             </table>
-                            <h3 class="title pull-left">
-                                <?php
 
-                                require '../php/db.php';
-                                $sql = "SELECT COUNT(issuanceID) FROM issuance";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "Total Issuance : " . $r[0];
-                                ?>
-                            </h3>
 
                             <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Issuance</a>

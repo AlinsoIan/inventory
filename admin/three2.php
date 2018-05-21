@@ -301,7 +301,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Brand</th>
                                     <th>Re-order Point</th>
                                     <th>Supplier</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
 

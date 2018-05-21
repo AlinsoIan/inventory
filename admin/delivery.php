@@ -330,17 +330,7 @@ if ($_SESSION['type'] == "user") {
                                 ?>
                                 </tbody>
                             </table>
-                            <h3 class="title pull-left">
-                                <?php
 
-                                require '../php/db.php';
-                                $sql = "SELECT COUNT(deliveryID) FROM delivery";
-                                $res = $conn->query($sql);
-                                $r = $res->fetch_row();
-
-                                echo "Total Records: " . $r[0];
-                                ?>
-                            </h3>
 
                             <a href="../php/admin/modal/addDelivery.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
