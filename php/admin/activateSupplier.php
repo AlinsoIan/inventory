@@ -12,7 +12,7 @@ session_start();
 $temp = $_SESSION['temp'];
 $i = $_GET['n'];
 
-$sql = "UPDATE suppliers SET status = 'disabled' WHERE supplierID = '$i'";
+$sql = "UPDATE suppliers SET status = 'active' WHERE supplierID = '$i'";
 
 if($conn->query($sql)){
 

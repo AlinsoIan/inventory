@@ -41,9 +41,11 @@ if($conn->query($sql)){
                             VALUES('$r[0]','$ff[0]','$da','$rr[0]','$r[1]','$hh[0]','decreased')";
     $conn->query($sql);
 
-    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type)
-                    VALUES ('$userID','$i','Delivery Deleted','$da','Delivery')";
+    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)
+                    VALUES ('$userID','$i','Delivery Deleted','$da','Delivery','$r[0]')";
     $conn->query($sql);
+
+
 
     header("Location:../../admin/delivery.php");
 

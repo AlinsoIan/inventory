@@ -25,6 +25,7 @@ $sql = "INSERT INTO accounts(firstName,lastName,userName,password,userType,statu
 
 if($conn->query($sql)){
 
+
 	
     header('Location:../../admin/accounts.php');
 

@@ -46,8 +46,8 @@ if ($res) {
 
     }
 
-    $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type)
-                    VALUES ('$userID','$i','Issuance Deleted','$d','Issuance')";
+    $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type,itemID)
+                    VALUES ('$userID','$i','Issuance Deleted','$d','Issuance','$aa')";
     $conn->query($sql);
 
     $sql = "DELETE FROM issuance WHERE issuanceID = '$i'";
