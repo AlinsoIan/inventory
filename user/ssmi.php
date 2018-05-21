@@ -207,7 +207,7 @@ if(!isset($_SESSION['username'])){
                                     <th>Abbr</th>
                                     <th>Fpp</th>
                                     <th>RC</th>
-                                    <th>Settings</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>

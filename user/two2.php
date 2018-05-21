@@ -222,7 +222,7 @@ if(!isset($_SESSION['username'])){
                                          <th>Re-order Point</th>
                                          <th>Supplier</th>
                                          <th>Expiration Date</th>
-                                         <th>Settings</th>
+                                         <th></th>
                                      </tr>
                                      </thead>
 
