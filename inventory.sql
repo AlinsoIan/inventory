@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 20, 2018 at 02:19 AM
--- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- Host: localhost
+-- Generation Time: May 26, 2018 at 04:16 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,14 +31,13 @@ USE `inventory`;
 --
 
 DROP TABLE IF EXISTS `accountlogs`;
-CREATE TABLE IF NOT EXISTS `accountlogs` (
-  `logID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `accountlogs` (
+  `logID` int(10) NOT NULL,
   `accountID` int(10) NOT NULL,
   `loginTime` varchar(10) NOT NULL,
   `logoutTime` varchar(10) DEFAULT NULL,
-  `loginDate` date NOT NULL,
-  PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=latin1;
+  `loginDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accountlogs`
@@ -73,7 +72,10 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 (213, 4, '07:05:am', NULL, '2018-05-19'),
 (214, 4, '06:09:am', NULL, '2018-05-20'),
 (215, 3, '07:54:am', NULL, '2018-05-20'),
-(216, 3, '07:57:am', NULL, '2018-05-20');
+(216, 3, '07:57:am', NULL, '2018-05-20'),
+(217, 4, '03:09:pm', NULL, '2018-05-25'),
+(218, 4, '07:45:pm', NULL, '2018-05-25'),
+(219, 4, '09:43:am', NULL, '2018-05-26');
 
 -- --------------------------------------------------------
 
@@ -82,16 +84,15 @@ INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `log
 --
 
 DROP TABLE IF EXISTS `accounts`;
-CREATE TABLE IF NOT EXISTS `accounts` (
-  `accountID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `accounts` (
+  `accountID` int(10) NOT NULL,
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `userName` varchar(45) NOT NULL,
   `password` varchar(72) NOT NULL,
   `userType` enum('admin','user') NOT NULL,
-  `status` varchar(45) NOT NULL,
-  PRIMARY KEY (`accountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `status` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
@@ -113,14 +114,13 @@ INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `passw
 --
 
 DROP TABLE IF EXISTS `appointment`;
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `appt_id` int(45) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `appointment` (
+  `appt_id` int(45) NOT NULL,
   `user_id` int(11) NOT NULL,
   `sched_id` int(11) NOT NULL,
   `appointment_date` date NOT NULL,
-  `status` varchar(45) NOT NULL DEFAULT 'ongoing',
-  PRIMARY KEY (`appt_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `status` varchar(45) NOT NULL DEFAULT 'ongoing'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
@@ -136,8 +136,8 @@ INSERT INTO `appointment` (`appt_id`, `user_id`, `sched_id`, `appointment_date`,
 --
 
 DROP TABLE IF EXISTS `company`;
-CREATE TABLE IF NOT EXISTS `company` (
-  `company_id` int(45) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `company` (
+  `company_id` int(45) NOT NULL,
   `contact_person` varchar(45) NOT NULL,
   `address` varchar(80) NOT NULL,
   `company_name` varchar(250) NOT NULL,
@@ -148,9 +148,8 @@ CREATE TABLE IF NOT EXISTS `company` (
   `alt_number` varchar(250) NOT NULL,
   `about` text,
   `status` varchar(250) NOT NULL DEFAULT 'registered',
-  `image_url` varchar(250) NOT NULL,
-  PRIMARY KEY (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `image_url` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `company`
@@ -168,24 +167,47 @@ INSERT INTO `company` (`company_id`, `contact_person`, `address`, `company_name`
 --
 
 DROP TABLE IF EXISTS `delivery`;
-CREATE TABLE IF NOT EXISTS `delivery` (
-  `deliveryID` int(10) NOT NULL AUTO_INCREMENT,
-  `supplierID` int(10) NOT NULL,
-  `itemID` int(10) NOT NULL,
+CREATE TABLE `delivery` (
+  `deliveryID` int(10) NOT NULL,
   `iarNo` int(10) NOT NULL,
-  `totalQuantity` int(45) NOT NULL,
   `deliveryDate` date NOT NULL,
   `accountID` int(45) NOT NULL,
-  PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
+  `poDate` date DEFAULT NULL,
+  `poNumber` int(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `delivery`
 --
 
-INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQuantity`, `deliveryDate`, `accountID`) VALUES
-(72, 4, 61, 123, 15, '2018-05-25', 4),
-(73, 8, 62, 123, 15, '2018-05-25', 4);
+INSERT INTO `delivery` (`deliveryID`, `iarNo`, `deliveryDate`, `accountID`, `poDate`, `poNumber`) VALUES
+(93, 12, '2018-05-22', 4, '2018-05-10', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deliveryItems`
+--
+
+DROP TABLE IF EXISTS `deliveryItems`;
+CREATE TABLE `deliveryItems` (
+  `deliveryItemsID` int(255) NOT NULL,
+  `itemID` int(45) NOT NULL,
+  `totalQuantity` int(45) NOT NULL,
+  `unitCost` int(45) NOT NULL,
+  `remarks` varchar(100) NOT NULL,
+  `supplierID` int(45) NOT NULL,
+  `deliveryID` int(45) NOT NULL,
+  `totalCost` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `deliveryItems`
+--
+
+INSERT INTO `deliveryItems` (`deliveryItemsID`, `itemID`, `totalQuantity`, `unitCost`, `remarks`, `supplierID`, `deliveryID`, `totalCost`) VALUES
+(8, 64, 12, 231, 'adsd', 4, 93, 123.13),
+(9, 68, 12, 123, 'dfdf', 4, 93, 12.23);
 
 -- --------------------------------------------------------
 
@@ -194,8 +216,8 @@ INSERT INTO `delivery` (`deliveryID`, `supplierID`, `itemID`, `iarNo`, `totalQua
 --
 
 DROP TABLE IF EXISTS `history`;
-CREATE TABLE IF NOT EXISTS `history` (
-  `historyID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `history` (
+  `historyID` int(10) NOT NULL,
   `accountID` int(10) NOT NULL,
   `issuanceID` int(10) DEFAULT NULL,
   `deliveryID` int(10) DEFAULT NULL,
@@ -203,9 +225,8 @@ CREATE TABLE IF NOT EXISTS `history` (
   `activity` varchar(50) NOT NULL,
   `actDate` date NOT NULL,
   `type` varchar(45) NOT NULL,
-  `itemID` int(45) DEFAULT NULL,
-  PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
+  `itemID` int(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `history`
@@ -219,7 +240,40 @@ INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `re
 (124, 4, 68, NULL, NULL, 'issued', '2018-05-19', 'issuance', 62),
 (125, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 164),
 (126, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 162),
-(127, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 148);
+(127, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 148),
+(128, 4, NULL, 74, NULL, 'delivered', '2018-05-10', 'Delivery', 63),
+(129, 4, NULL, 72, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 61),
+(130, 4, NULL, 73, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 62),
+(131, 4, NULL, 74, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 63),
+(132, 4, NULL, 75, NULL, 'delivered', '2018-05-11', 'Delivery', 66),
+(133, 4, NULL, 76, NULL, 'delivered', '2018-05-11', 'Delivery', 163),
+(134, 4, NULL, 75, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(135, 4, NULL, 76, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(136, 4, NULL, 77, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(137, 4, NULL, 78, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(138, 4, NULL, 79, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(139, 4, NULL, 80, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(140, 4, NULL, 82, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(141, 4, NULL, 81, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(142, 4, NULL, 1, NULL, 'delivered', '2018-05-28', 'Delivery', 68),
+(143, 4, NULL, 88, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 68),
+(144, 4, NULL, 87, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(145, 4, NULL, 86, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(146, 4, NULL, 84, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(147, 4, NULL, 83, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(148, 4, NULL, 85, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
+(149, 4, NULL, 2, NULL, 'delivered', '2018-05-27', 'Delivery', 72),
+(150, 4, NULL, 89, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 72),
+(151, 4, NULL, 3, NULL, 'delivered', '2018-05-21', 'Delivery', 65),
+(152, 4, NULL, 4, NULL, 'delivered', '2018-05-21', 'Delivery', 70),
+(153, 4, NULL, 90, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 65),
+(154, 4, NULL, 5, NULL, 'delivered', '2018-05-28', 'Delivery', 70),
+(155, 4, NULL, 91, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 70),
+(156, 4, NULL, 6, NULL, 'delivered', '2018-05-27', 'Delivery', 67),
+(157, 4, NULL, 7, NULL, 'delivered', '2018-05-27', 'Delivery', 71),
+(158, 4, NULL, 92, NULL, 'Delivery Deleted', '2018-05-26', 'Delivery', 67),
+(159, 4, NULL, 8, NULL, 'delivered', '2018-05-22', 'Delivery', 64),
+(160, 4, NULL, 9, NULL, 'delivered', '2018-05-22', 'Delivery', 68);
 
 -- --------------------------------------------------------
 
@@ -228,15 +282,14 @@ INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `re
 --
 
 DROP TABLE IF EXISTS `inventory`;
-CREATE TABLE IF NOT EXISTS `inventory` (
-  `inventoryID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `inventory` (
+  `inventoryID` int(10) NOT NULL,
   `itemID` int(10) NOT NULL,
   `physicalCount` int(45) DEFAULT NULL,
   `currentQuantity` int(45) NOT NULL,
   `startingQuantity` int(10) NOT NULL,
-  `reorderPoint` int(11) NOT NULL,
-  PRIMARY KEY (`inventoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
+  `reorderPoint` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inventory`
@@ -246,17 +299,17 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (45, 56, NULL, 1070, 1000, 200),
 (46, 57, NULL, 1000, 1000, 200),
 (47, 58, NULL, 1000, 1000, 200),
-(50, 61, NULL, 447, 400, 80),
-(51, 62, NULL, 33, 20, 4),
+(50, 61, NULL, 432, 400, 80),
+(51, 62, NULL, 18, 20, 4),
 (52, 63, NULL, 100, 100, 20),
-(53, 64, NULL, 398, 400, 80),
+(53, 64, NULL, 410, 400, 80),
 (54, 65, NULL, 500, 500, 100),
-(55, 66, NULL, 640, 100, 20),
+(55, 66, NULL, 652, 100, 20),
 (56, 67, NULL, 9, 50, 10),
-(57, 68, NULL, 2, 2, 0),
+(57, 68, NULL, 14, 2, 0),
 (58, 69, NULL, 437, 450, 90),
-(59, 70, NULL, 78, 20, 4),
-(60, 71, NULL, 45, 5, 1),
+(59, 70, NULL, 79, 20, 4),
+(60, 71, NULL, 57, 5, 1),
 (61, 72, NULL, 10, 10, 2),
 (62, 73, NULL, 5, 5, 1),
 (63, 74, NULL, 55, 50, 10),
@@ -340,7 +393,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (148, 160, NULL, 49, 50, 10),
 (149, 161, NULL, -16, 20, 4),
 (150, 162, NULL, 24, 102, 20),
-(151, 163, NULL, 99, 49, 9),
+(151, 163, NULL, 111, 49, 9),
 (152, 164, NULL, 85, 102, 20);
 
 -- --------------------------------------------------------
@@ -350,8 +403,8 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 --
 
 DROP TABLE IF EXISTS `issuance`;
-CREATE TABLE IF NOT EXISTS `issuance` (
-  `issuanceID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `issuance` (
+  `issuanceID` int(10) NOT NULL,
   `division` varchar(150) NOT NULL,
   `officeID` int(10) NOT NULL,
   `risNo` varchar(45) DEFAULT NULL,
@@ -359,9 +412,8 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `issuanceDate` date NOT NULL,
   `issuanceTime` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
-  `accountID` int(10) NOT NULL,
-  PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+  `accountID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `issuance`
@@ -378,15 +430,14 @@ INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, 
 --
 
 DROP TABLE IF EXISTS `itemissuance`;
-CREATE TABLE IF NOT EXISTS `itemissuance` (
-  `itemIssuanceID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `itemissuance` (
+  `itemIssuanceID` int(10) NOT NULL,
   `issuanceID` int(10) NOT NULL,
   `itemID` int(10) NOT NULL,
   `quantityRequested` int(5) NOT NULL,
   `quantityIssued` int(5) NOT NULL,
-  `remarks` varchar(150) NOT NULL,
-  PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=latin1;
+  `remarks` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemissuance`
@@ -406,8 +457,8 @@ INSERT INTO `itemissuance` (`itemIssuanceID`, `issuanceID`, `itemID`, `quantityR
 --
 
 DROP TABLE IF EXISTS `itemrecords`;
-CREATE TABLE IF NOT EXISTS `itemrecords` (
-  `itemrecordsID` int(45) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `itemrecords` (
+  `itemrecordsID` int(45) NOT NULL,
   `itemID` int(45) NOT NULL,
   `inventoryID` int(10) NOT NULL,
   `recordDate` date NOT NULL,
@@ -418,9 +469,8 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `returnsQuantity` int(15) DEFAULT NULL,
   `issuanceQuantity` int(15) DEFAULT NULL,
   `currentQuantity` int(15) NOT NULL,
-  `status` varchar(45) NOT NULL,
-  PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=375 DEFAULT CHARSET=latin1;
+  `status` varchar(45) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemrecords`
@@ -448,7 +498,40 @@ INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate
 (356, 162, 150, '2018-05-18', 123, NULL, 102, NULL, NULL, 15, 87, 'decreased'),
 (355, 163, 151, '2018-05-18', 123, NULL, 99, NULL, NULL, 12, 87, 'decreased'),
 (354, 61, 50, '2018-05-29', NULL, 123, 420, 15, NULL, NULL, 435, 'increased'),
-(353, 65, 54, '2018-05-19', NULL, NULL, 512, 12, NULL, NULL, 500, 'decreased');
+(353, 65, 54, '2018-05-19', NULL, NULL, 512, 12, NULL, NULL, 500, 'decreased'),
+(375, 63, 52, '2018-05-10', NULL, 1234, 100, 12, NULL, NULL, 112, 'increased'),
+(376, 61, 50, '2018-05-25', NULL, NULL, 447, 15, NULL, NULL, 432, 'decreased'),
+(377, 62, 51, '2018-05-25', NULL, NULL, 33, 15, NULL, NULL, 18, 'decreased'),
+(378, 63, 52, '2018-05-25', NULL, NULL, 112, 12, NULL, NULL, 100, 'decreased'),
+(379, 66, 55, '2018-05-11', NULL, 123, 640, 12, NULL, NULL, 652, 'increased'),
+(380, 163, 151, '2018-05-11', NULL, 123, 99, 12, NULL, NULL, 111, 'increased'),
+(381, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(382, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(383, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(384, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(385, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(386, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(387, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(388, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(389, 68, 57, '2018-05-28', NULL, 123, 2, 12, NULL, NULL, 14, 'increased'),
+(390, 68, 57, '2018-05-25', NULL, NULL, 14, 12, NULL, NULL, 2, 'decreased'),
+(391, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(392, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(393, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(394, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(395, 0, 0, '2018-05-25', NULL, NULL, 0, 0, NULL, NULL, 0, 'decreased'),
+(396, 72, 61, '2018-05-27', NULL, 1, 10, 1, NULL, NULL, 11, 'increased'),
+(397, 72, 61, '2018-05-25', NULL, NULL, 11, 1, NULL, NULL, 10, 'decreased'),
+(398, 65, 54, '2018-05-21', NULL, 231, 500, 1, NULL, NULL, 501, 'increased'),
+(399, 70, 59, '2018-05-21', NULL, 231, 78, 1, NULL, NULL, 79, 'increased'),
+(400, 65, 54, '2018-05-25', NULL, NULL, 501, 1, NULL, NULL, 500, 'decreased'),
+(401, 70, 59, '2018-05-28', NULL, 123, 79, 12, NULL, NULL, 91, 'increased'),
+(402, 70, 59, '2018-05-25', NULL, NULL, 91, 12, NULL, NULL, 79, 'decreased'),
+(403, 67, 56, '2018-05-27', NULL, 213, 9, 12, NULL, NULL, 21, 'increased'),
+(404, 71, 60, '2018-05-27', NULL, 213, 45, 12, NULL, NULL, 57, 'increased'),
+(405, 67, 56, '2018-05-26', NULL, NULL, 21, 12, NULL, NULL, 9, 'decreased'),
+(406, 64, 53, '2018-05-22', NULL, 12, 398, 12, NULL, NULL, 410, 'increased'),
+(407, 68, 57, '2018-05-22', NULL, 12, 2, 12, NULL, NULL, 14, 'increased');
 
 -- --------------------------------------------------------
 
@@ -457,8 +540,8 @@ INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate
 --
 
 DROP TABLE IF EXISTS `items`;
-CREATE TABLE IF NOT EXISTS `items` (
-  `itemID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `items` (
+  `itemID` int(10) NOT NULL,
   `supplierID` int(10) NOT NULL,
   `acctSn` varchar(45) NOT NULL,
   `categoryNo` int(10) NOT NULL,
@@ -468,9 +551,8 @@ CREATE TABLE IF NOT EXISTS `items` (
   `unitCost` int(11) NOT NULL,
   `brand` varchar(20) DEFAULT NULL,
   `expirationDate` date DEFAULT NULL,
-  `icsNo` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
+  `icsNo` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
@@ -582,15 +664,13 @@ INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `
 --
 
 DROP TABLE IF EXISTS `offices`;
-CREATE TABLE IF NOT EXISTS `offices` (
-  `officeID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `offices` (
+  `officeID` int(10) NOT NULL,
   `officeName` varchar(100) NOT NULL,
   `abbrv` varchar(45) NOT NULL,
   `fppCode` varchar(45) NOT NULL,
-  `rcCode` varchar(45) NOT NULL,
-  PRIMARY KEY (`officeID`),
-  UNIQUE KEY `officeName` (`officeName`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+  `rcCode` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `offices`
@@ -665,12 +745,11 @@ INSERT INTO `offices` (`officeID`, `officeName`, `abbrv`, `fppCode`, `rcCode`) V
 --
 
 DROP TABLE IF EXISTS `ppmp`;
-CREATE TABLE IF NOT EXISTS `ppmp` (
-  `ppmpID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ppmp` (
+  `ppmpID` int(10) NOT NULL,
   `officeID` int(10) NOT NULL,
-  `ppmpDate` date NOT NULL,
-  PRIMARY KEY (`ppmpID`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+  `ppmpDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmp`
@@ -686,14 +765,13 @@ INSERT INTO `ppmp` (`ppmpID`, `officeID`, `ppmpDate`) VALUES
 --
 
 DROP TABLE IF EXISTS `ppmpitems`;
-CREATE TABLE IF NOT EXISTS `ppmpitems` (
-  `ppmpitemsID` int(45) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ppmpitems` (
+  `ppmpitemsID` int(45) NOT NULL,
   `itemID` int(45) NOT NULL,
   `itemQuantity` int(45) NOT NULL,
   `ppmpID` int(45) NOT NULL,
-  `unitCost` int(45) NOT NULL,
-  PRIMARY KEY (`ppmpitemsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
+  `unitCost` int(45) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ppmpitems`
@@ -709,17 +787,16 @@ INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `ppmpID`, `uni
 --
 
 DROP TABLE IF EXISTS `returns`;
-CREATE TABLE IF NOT EXISTS `returns` (
-  `returnID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `returns` (
+  `returnID` int(10) NOT NULL,
   `itemID` int(10) NOT NULL,
   `officeID` int(10) NOT NULL,
   `itemQuantity` int(45) NOT NULL,
   `reason` varchar(100) NOT NULL,
   `status` varchar(45) NOT NULL,
   `accountID` int(45) NOT NULL,
-  `returnDate` date DEFAULT NULL,
-  PRIMARY KEY (`returnID`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+  `returnDate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `returns`
@@ -735,8 +812,8 @@ INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason
 --
 
 DROP TABLE IF EXISTS `schedule`;
-CREATE TABLE IF NOT EXISTS `schedule` (
-  `sched_id` int(45) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schedule` (
+  `sched_id` int(45) NOT NULL,
   `company_id` int(11) NOT NULL,
   `sched_type` varchar(45) NOT NULL,
   `event_type` varchar(45) NOT NULL,
@@ -746,9 +823,8 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   `location` varchar(45) NOT NULL,
   `room` varchar(45) NOT NULL,
   `slots` int(6) NOT NULL,
-  `defaultSlot` int(15) NOT NULL,
-  PRIMARY KEY (`sched_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `defaultSlot` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedule`
@@ -767,15 +843,13 @@ INSERT INTO `schedule` (`sched_id`, `company_id`, `sched_type`, `event_type`, `s
 --
 
 DROP TABLE IF EXISTS `suppliers`;
-CREATE TABLE IF NOT EXISTS `suppliers` (
-  `supplierID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `suppliers` (
+  `supplierID` int(10) NOT NULL,
   `tinNo` int(10) NOT NULL,
   `supplierName` varchar(45) NOT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `contactNo` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`supplierID`),
-  UNIQUE KEY `tinNo` (`tinNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `contactNo` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `suppliers`
@@ -797,11 +871,10 @@ INSERT INTO `suppliers` (`supplierID`, `tinNo`, `supplierName`, `address`, `cont
 --
 
 DROP TABLE IF EXISTS `units`;
-CREATE TABLE IF NOT EXISTS `units` (
-  `unitID` int(10) NOT NULL AUTO_INCREMENT,
-  `unitName` varchar(45) NOT NULL,
-  PRIMARY KEY (`unitID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+CREATE TABLE `units` (
+  `unitID` int(10) NOT NULL,
+  `unitName` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `units`
@@ -834,16 +907,15 @@ INSERT INTO `units` (`unitID`, `unitName`) VALUES
 --
 
 DROP TABLE IF EXISTS `updatehistory`;
-CREATE TABLE IF NOT EXISTS `updatehistory` (
-  `updatehistoryID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `updatehistory` (
+  `updatehistoryID` int(255) NOT NULL,
   `accountID` int(45) NOT NULL,
   `activity` varchar(255) NOT NULL,
   `time` varchar(45) NOT NULL,
   `date` date NOT NULL,
   `type` varchar(45) NOT NULL,
-  `itemID` int(45) NOT NULL,
-  PRIMARY KEY (`updatehistoryID`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `itemID` int(45) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `updatehistory`
@@ -861,36 +933,255 @@ INSERT INTO `updatehistory` (`updatehistoryID`, `accountID`, `activity`, `time`,
 (16, 4, 'Updated ICS from 123 to ', '08:16:pm', '2018-05-17', 'Item Update', 145),
 (17, 4, 'Updated ICS from 1234 to 12345', '08:17:pm', '2018-05-17', 'Item Update', 145);
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `user`
+-- Indexes for dumped tables
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(45) NOT NULL AUTO_INCREMENT,
-  `password` varchar(45) NOT NULL,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `id_num` int(45) NOT NULL,
-  `contact_num` varchar(45) NOT NULL,
-  `course` varchar(45) DEFAULT NULL,
-  `year` int(11) DEFAULT NULL,
-  `user_type` varchar(45) NOT NULL,
-  `status` varchar(250) NOT NULL DEFAULT 'registered',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+--
+-- Indexes for table `accountlogs`
+--
+ALTER TABLE `accountlogs`
+  ADD PRIMARY KEY (`logID`);
 
 --
--- Dumping data for table `user`
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`accountID`);
+
+--
+-- Indexes for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD PRIMARY KEY (`appt_id`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`company_id`);
+
+--
+-- Indexes for table `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`deliveryID`);
+
+--
+-- Indexes for table `deliveryItems`
+--
+ALTER TABLE `deliveryItems`
+  ADD PRIMARY KEY (`deliveryItemsID`);
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`historyID`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`inventoryID`);
+
+--
+-- Indexes for table `issuance`
+--
+ALTER TABLE `issuance`
+  ADD PRIMARY KEY (`issuanceID`);
+
+--
+-- Indexes for table `itemissuance`
+--
+ALTER TABLE `itemissuance`
+  ADD PRIMARY KEY (`itemIssuanceID`);
+
+--
+-- Indexes for table `itemrecords`
+--
+ALTER TABLE `itemrecords`
+  ADD PRIMARY KEY (`itemrecordsID`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`itemID`);
+
+--
+-- Indexes for table `offices`
+--
+ALTER TABLE `offices`
+  ADD PRIMARY KEY (`officeID`),
+  ADD UNIQUE KEY `officeName` (`officeName`);
+
+--
+-- Indexes for table `ppmp`
+--
+ALTER TABLE `ppmp`
+  ADD PRIMARY KEY (`ppmpID`);
+
+--
+-- Indexes for table `ppmpitems`
+--
+ALTER TABLE `ppmpitems`
+  ADD PRIMARY KEY (`ppmpitemsID`);
+
+--
+-- Indexes for table `returns`
+--
+ALTER TABLE `returns`
+  ADD PRIMARY KEY (`returnID`);
+
+--
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`sched_id`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`supplierID`),
+  ADD UNIQUE KEY `tinNo` (`tinNo`);
+
+--
+-- Indexes for table `units`
+--
+ALTER TABLE `units`
+  ADD PRIMARY KEY (`unitID`);
+
+--
+-- Indexes for table `updatehistory`
+--
+ALTER TABLE `updatehistory`
+  ADD PRIMARY KEY (`updatehistoryID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
-INSERT INTO `user` (`user_id`, `password`, `first_name`, `last_name`, `email`, `id_num`, `contact_num`, `course`, `year`, `user_type`, `status`) VALUES
-(1, '1234', 'Famae', 'Pascua', 'famaepascua@gmail.com', 2143735, '09099299181', 'BSIT', 4, 'student', 'registered'),
-(2, '1234', 'Admin', 'Admin', 'admin@gmail.com', 123456, '05845488', '', 0, 'admin', 'registered'),
-(3, '1234', 'Denyse', 'Cayadi', 'denyse@gmail.com', 2146790, '', 'BSIT', 4, 'student', 'registered');
+--
+-- AUTO_INCREMENT for table `accountlogs`
+--
+ALTER TABLE `accountlogs`
+  MODIFY `logID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `accountID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `appointment`
+--
+ALTER TABLE `appointment`
+  MODIFY `appt_id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `company_id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `deliveryID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+
+--
+-- AUTO_INCREMENT for table `deliveryItems`
+--
+ALTER TABLE `deliveryItems`
+  MODIFY `deliveryItemsID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `historyID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+
+--
+-- AUTO_INCREMENT for table `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `inventoryID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+
+--
+-- AUTO_INCREMENT for table `issuance`
+--
+ALTER TABLE `issuance`
+  MODIFY `issuanceID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT for table `itemissuance`
+--
+ALTER TABLE `itemissuance`
+  MODIFY `itemIssuanceID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+
+--
+-- AUTO_INCREMENT for table `itemrecords`
+--
+ALTER TABLE `itemrecords`
+  MODIFY `itemrecordsID` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=408;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `itemID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+
+--
+-- AUTO_INCREMENT for table `offices`
+--
+ALTER TABLE `offices`
+  MODIFY `officeID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT for table `ppmp`
+--
+ALTER TABLE `ppmp`
+  MODIFY `ppmpID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `ppmpitems`
+--
+ALTER TABLE `ppmpitems`
+  MODIFY `ppmpitemsID` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+
+--
+-- AUTO_INCREMENT for table `returns`
+--
+ALTER TABLE `returns`
+  MODIFY `returnID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `sched_id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `supplierID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `units`
+--
+ALTER TABLE `units`
+  MODIFY `unitID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `updatehistory`
+--
+ALTER TABLE `updatehistory`
+  MODIFY `updatehistoryID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
