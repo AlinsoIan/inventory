@@ -15,8 +15,18 @@
                                class="form-control" required>
                     </div>
                     <div class="col-md-2 pull-right">
-                        <label>DATE</label>
+                        <label>DELIVERY DATE</label>
                         <input type="date" onkeypress="return isNumberKey(event)" name="d" min="0" class="form-control"
+                               required>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <label>PO DATE</label>
+                        <input type="date" onkeypress="return isNumberKey(event)" name="pod" min="0" class="form-control"
+                               required>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <label>PO NUMBER</label>
+                        <input type="text" onkeypress="return isNumberKey(event)" name="pon" min="0" class="form-control"
                                required>
                     </div>
 
@@ -24,7 +34,6 @@
                         <?php
                         require '../../db.php';
                         $sql = 'SELECT description,itemID FROM items';
-
                         if ($res = $conn->query($sql)) {
                             while ($row = $res->fetch_assoc()) {
                                 echo "<option value='" . $row['description'] . "'>";
@@ -35,9 +44,12 @@
 
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
-                        <th style="width: 20%;">Item</th>
+                        <th style="width: 15%;">Item</th>
                         <th style="width: 14%">Supplier</th>
-                        <th style="width: 12%">Quantity</th>
+                        <th style="width: 8%">Quantity</th>
+                        <th style="width: 8%">Unit Cost</th>
+                        <th style="width: 8%">Total Cost</th>
+                        <th style="width: 20%">Remarks</th>
                         <th width="5%"></th>
                         </thead>
                         <tbody>
@@ -55,10 +67,7 @@
                                         while ($row = $res->fetch_assoc()) {
                                             echo "<option>" . $row['supplierName'] . "</option>";
                                         }
-
                                     }
-
-
                                     ?>
                                 </select>
                             </td>
@@ -66,6 +75,18 @@
 
                             <td>
                                 <input type="number" onkeypress="return isNumberKey(event)" min="0" name="quantity[]"
+                                       class="form-control" required>
+                            </td>
+                            <td>
+                                <input type="number" onkeypress="return isNumberKey(event)" min="0" name="unitCost[]"
+                                       class="form-control" required>
+                            </td>
+                            <td>
+                                <input type="number"  min="0" name="totalCost[]"
+                                       class="form-control" required step="any">
+                            </td>
+                            <td>
+                                <input type="text" name="remarks[]"
                                        class="form-control" required>
                             </td>
                         </tr>
@@ -108,20 +129,17 @@
                 }?></select>' +
                 '</td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>' +
-
-
+                '<td><input type="number" onkeypress="return isNumberKey(event)" name="unitCost[]" min="0" class="form-control" required></td>' +
+                '<td><input type="number" step="any" name="totalCost[]" min="0" class="form-control" required></td>' +
+                '<td><input type="text"  name="remarks[]" min="0" class="form-control" required></td>' +
                 '<td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
-
-
                 '</tr>');
         });
         $(document).on('click', '.btn_remove', function () {
             var button_id = $(this).attr("id");
             $('#row' + button_id + '').remove();
         });
-
     });
-
     function getDesc($i) {
         $id = $('#cat' + $i).val();
         $.ajax({
@@ -133,7 +151,6 @@
             }
         });
     }
-
     $('#des').change(function () {
         $id = $(this).val();
         $.ajax({
@@ -144,6 +161,5 @@
                 $('#desc1').html(data);
             }
         });
-
     });
 </script>

@@ -104,13 +104,13 @@ if ($_SESSION['type'] == "user") {
             <ul class="list">
 
                 <li>
-                    <a href="dashboard.php">
+                    <a  href= "#" onclick = "location.href='dashboard.php'">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="delivery.php">
+                    <a  href= "#" onclick = "location.href='delivery.php'">
                         <i class="material-icons">event_note</i>
                         <span>Delivery</span>
                     </a>
@@ -118,19 +118,19 @@ if ($_SESSION['type'] == "user") {
 
 
                 <li>
-                    <a href="ppmp.php">
+                    <a  href= "#" onclick = "location.href='ppmp.php'">
                         <i class="material-icons">event_note</i>
                         <span>PPMP</span>
                     </a>
                 </li>
                 <li>
-                    <a href="issuance.php">
+                    <a  href= "#" onclick = "location.href='issuance.php'">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="returns.php">
+                    <a  href= "#" onclick = "location.href='returns.php'">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>

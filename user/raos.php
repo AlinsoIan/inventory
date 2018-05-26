@@ -69,7 +69,7 @@ if(!isset($_SESSION['username'])){
                     <ul class="dropdown-menu">
 
                         <li>
-                            <a href="../php/logout.php">
+                            <a href="#" onclick="location.href='../php/logout.php'">
                                 <h4>Logout</h4>
                             </a>
                         </li>
@@ -91,19 +91,19 @@ if(!isset($_SESSION['username'])){
         <div class="menu">
             <ul class="list">
                 <li>
-                        <a href="delivery.php">
+                        <a href="#" onclick="location.href='delivery.php'">
                             <i class="material-icons">event_note</i>
                             <span>Delivery</span>
                         </a>
                     </li>
                 <li>
-                    <a href="issuance.php">
+                    <a href="#" onclick="location.href='issuance.php'">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="returns.php">
+                    <a href="#" onclick="location.href='returns.php'">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>
@@ -115,19 +115,19 @@ if(!isset($_SESSION['username'])){
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                            <a href="#" onclick="location.href='items2'.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href="two2.php" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
+                            <a href="#" onclick="location.href='two2.php'" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                            <a href="#" onclick="location.href='three2.php'" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                            <a href="#" onclick="location.href='four2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
+                            <a href="#" onclick="location.href'five2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -140,13 +140,13 @@ if(!isset($_SESSION['username'])){
                     </a>
                     <ul class="ml-menu">
                         <li class="active">
-                            <a href="raos.php" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
+                            <a href="#" onclick="location.href='raos.php'" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href="ssmi.php" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
+                            <a href="#" onclick="location.href='ssmi.php'" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
                         </li>
                         <li>
-                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
+                            <a href="#" onclick="location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
                         </li>
                     </ul>
                 </li>
