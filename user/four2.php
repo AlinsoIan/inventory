@@ -138,23 +138,7 @@ if(!isset($_SESSION['username'])){
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                        </a>
-                        <ul class="ml-menu">
-                             <li>
-                            <a href="#" onclick="location.href='raos.php'" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="#" onclick="location.href='ssmi.php'" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="#" onclick="location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
-                        </li>
-                        </ul>
-                    </li>
+
                     
 
                 </ul>

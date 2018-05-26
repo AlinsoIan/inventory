@@ -145,8 +145,8 @@
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
                             <th width="40%">Item Description</th>
-                            <th width="12%">Requested</th>
-                            <th width="12%">Issued</th>
+                            <th width="12%">QTY Requested</th>
+                            <th width="12%">QTY Issued</th>
                             <th>Remarks</th>
                             <th width="5%"></th>
                             </thead>

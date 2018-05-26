@@ -278,7 +278,6 @@ if ($_SESSION['type'] == "user") {
                                     <th>Quantity</th>
                                     <th>Brand</th>
                                     <th>Re-order Point</th>
-                                    <th>Supplier</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -289,9 +288,8 @@ if ($_SESSION['type'] == "user") {
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
                                 $_SESSION['cat'] = "01";
 
-                                $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
-                                                  ,suppliers.supplierName AS d
-                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
+                                $sql = "SELECT items.categoryNo AS aa,items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c
+                                         FROM items  JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -303,7 +301,6 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['currentQuantity'] . "</td>"
                                             . "<td>" . $row['brand'] . "</td>"
                                             . "<td>" . $row['c'] . "</td>"
-                                            . "<td>" . $row['d'] . "</td>"
 
                                             . "<td>" . "<a href=" . '../php/admin/modal/printItem.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#printItem'>visibility</a>" . "</td>";
                                         echo "</tr>";

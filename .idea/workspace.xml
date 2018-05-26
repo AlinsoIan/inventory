@@ -2,402 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="Updated USER module backend">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inventory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inventory.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/user/modal/viewDelivery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delivery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/five2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/four2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inventory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inventory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/offices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ppmp.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ppmp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/reorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/reorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/ssmi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard3.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard4.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/stockcard5.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/stockcard5.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/three2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/toexpire.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/toexpire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/two2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/updatehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/updatehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/a.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/a.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/icons2.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/icons2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/material-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/material-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/all-themes.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/all-themes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-amber.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-amber.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-black.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-black.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-blue-grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-blue-grey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-brown.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-brown.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-cyan.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-cyan.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-deep-orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-deep-orange.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-deep-purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-deep-purple.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-green.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-grey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-indigo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-indigo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-light-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-light-blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-lime.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-lime.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-orange.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-pink.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-purple.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-red.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-red.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-teal.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-teal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/themes/theme-yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/themes/theme-yellow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventoryzia(adminmodule).rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/tables/editable-table.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/tables/editable-table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/tables/jquery-datatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/tables/jquery-datatable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/modals.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/modals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/range-sliders.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/range-sliders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/sortable-nestable.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/sortable-nestable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/ui/tooltips-popovers.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/ui/tooltips-popovers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-3.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-4.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-5.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pages/widgets/infobox/infobox-5.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/animate-css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/animate-css/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/animate-css/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/animate-css/animate.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/autosize/autosize.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/autosize/autosize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/autosize/autosize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/autosize/autosize.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap-theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/bootstrap/js/npm.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/bootstrap/js/npm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chartjs/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chartjs/Chart.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chartjs/Chart.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chartjs/Chart.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chartjs/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chartjs/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chartjs/Chart.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chartjs/Chart.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.proto.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.proto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/chosen/chosen.proto.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/chosen/chosen.proto.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/editable-table/mindmup-editabletable.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/editable-table/mindmup-editabletable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-cookie/jquery.cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-cookie/jquery.cookie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-countto/jquery.countTo.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-countto/jquery.countTo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.flash.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.flash.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.html5.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.html5.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.print.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/buttons.print.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/jszip.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/jszip.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/pdfmake.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/extensions/export/pdfmake.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/jquery.dataTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.date.extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.date.extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.dependencyLib.jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.dependencyLib.jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.numeric.extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.numeric.extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.phone.extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.phone.extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.regex.extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/inputmask.regex.extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/jquery.inputmask.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/inputmask/jquery.inputmask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-inputmask/jquery.inputmask.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-inputmask/jquery.inputmask.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/jquery.sparkline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-box.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-box.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-bullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-bullet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-discrete.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-discrete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-line.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-line.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-pie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-tristate.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/chart-tristate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/interact.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/interact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/jquery.sparkline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/rangemap.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/rangemap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/simpledraw.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/simpledraw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-base.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-vml.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-sparkline/src/vcanvas-vml.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-spinner/css/bootstrap-spinner.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-spinner/css/bootstrap-spinner.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-spinner/js/jquery.spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-spinner/js/jquery.spinner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-spinner/js/jquery.spinner.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-spinner/js/jquery.spinner.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-steps/jquery.steps.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/additional-methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/additional-methods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/jquery.validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/jquery.validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_az" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_az" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_bg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_bn_BD.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_bn_BD.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_cs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_da.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_da.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_de.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_de.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_el.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_el.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es_AR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es_PE.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_es_PE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_et.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_et.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_eu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_fr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ge.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ge.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_gl.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_gl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_he.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_he.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hy_AM.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_hy_AM.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_is.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_is.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_it.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_it.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ja.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ka.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ka.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_kk.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_kk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_lt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_lv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_mk.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_mk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_my.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_my.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_nl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_no.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_no.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pt_BR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_pt_PT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_si.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_si.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sr_lat.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sr_lat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_sv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_th.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_th.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_tj.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_tj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_tr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_uk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_vi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_zh.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_zh.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/messages_zh_TW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_de.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_de.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_es_CL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_fi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_nl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery-validation/localization/methods_pt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/jquery/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/material-design-iconic-font/css/material-design-iconic-font.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/material-design-iconic-font/css/material-design-iconic-font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/materialize-css/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/materialize-css/css/materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/materialize-css/css/materialize.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/materialize-css/css/materialize.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/materialize-css/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/materialize-css/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/materialize-css/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/materialize-css/js/materialize.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/momentjs/ender.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/momentjs/ender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/momentjs/moment.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/momentjs/moment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/momentjs/package.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/momentjs/package.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/Gruntfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/_gitignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/_gitignore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/_travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/_travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/bower.travis.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/bower.travis.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/area-as-line.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/area-as-line.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/area.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/area.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/bar-colors.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/bar-colors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/bar-no-axes.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/bar-no-axes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/days.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/days.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/decimal-custom-hover.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/decimal-custom-hover.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/diagonal-xlabels-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/diagonal-xlabels-bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/diagonal-xlabels.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/diagonal-xlabels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/donut-colors.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/donut-colors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/donut-formatter.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/donut-formatter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/donut.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/donut.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/dst.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/dst.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/goals.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/goals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/lib/example.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/lib/example.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/lib/example.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/lib/example.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/months-no-smooth.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/months-no-smooth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/negative.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/negative.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/no-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/no-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/non-continuous.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/non-continuous.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/non-date.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/non-date.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/quarters.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/quarters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/resize.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/resize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/stacked_bars.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/stacked_bars.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/timestamps.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/timestamps.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/updating.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/updating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/weeks.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/weeks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/examples/years.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/examples/years.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/less/morris.core.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/less/morris.core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.area.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.area.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.bar.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.bar.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.donut.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.donut.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.grid.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.grid.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.hover.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.hover.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.line.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/lib/morris.line.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/morris.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/morris.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/morris.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/morris.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/morris.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/morris.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/area/area_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/area/area_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/bar/bar_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/bar/bar_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/bar/colours.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/bar/colours.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/commas_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/commas_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/donut/donut_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/donut/donut_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/auto_grid_lines_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/auto_grid_lines_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/set_data_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/set_data_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/y_label_format_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/grid/y_label_format_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/hover_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/hover_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/label_series_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/label_series_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/line/line_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/line/line_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/pad_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/pad_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/parse_time_spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/lib/parse_time_spec.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/specs.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/specs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/support/placeholder.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/support/placeholder.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/examples.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/examples.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/run.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/visual_specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/morrisjs/spec/viz/visual_specs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/node-waves/waves.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/node-waves/waves.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/node-waves/waves.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/node-waves/waves.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/node-waves/waves.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/node-waves/waves.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/node-waves/waves.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/node-waves/waves.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_alerts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_alerts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_badgelistgroupitem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_badgelistgroupitem.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_bootstrapnotify.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_bootstrapnotify.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_bootstrapselect.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_bootstrapselect.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_breadcrumbs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_breadcrumbs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_charts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_charts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_checkboxradio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_checkboxradio.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_collapse.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_collapse.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_colorpicker.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_colorpicker.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_customanimate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_customanimate.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_dashboard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_datetimepicker.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_datetimepicker.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_demo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_demo.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_dialogs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_dialogs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_dropdownmenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_dropdownmenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_dropzone.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_dropzone.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_formwizard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_formwizard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_general.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_helpers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_helpers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_infobox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_infobox.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_inputformgroup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_inputformgroup.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_ionrangeslider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_ionrangeslider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_jquerydatatable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_jquerydatatable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_jquerynestable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_jquerynestable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_labels.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_labels.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_leftsidebaroverlay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_leftsidebaroverlay.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_lightgallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_lightgallery.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_materialicons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_materialicons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_media.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_mediaobject.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_mediaobject.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_modals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_modals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_multiselect.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_multiselect.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_navtabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_navtabs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_noUISlider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_noUISlider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_pageloader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_pageloader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_pagination.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_panels.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_panels.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_preloaders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_preloaders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_progressbars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_progressbars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_searchbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_searchbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_switch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_switch.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_tables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_tagsinput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_tagsinput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_thumbnails.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_thumbnails.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_tooltippopovers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_tooltippopovers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_waveseffect.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_waveseffect.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/browser-support/_ie10.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/browser-support/_ie10.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/browser-support/_ie11.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/browser-support/_ie11.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/pages/_404.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_404.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/pages/_500.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_500.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/pages/_forgotpasswordpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_forgotpasswordpage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/pages/_loginpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_loginpage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/pages/_signuppage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/pages/_signuppage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/_all-themes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/_all-themes.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/_theme-color-variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/_theme-color-variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-amber.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-amber.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-black.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-black.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-blue-grey.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-blue-grey.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-blue.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-blue.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-brown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-brown.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-cyan.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-cyan.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-deep-orange.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-deep-orange.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-deep-purple.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-deep-purple.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-green.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-green.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-grey.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-grey.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-indigo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-indigo.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-light-blue.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-light-blue.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-light-green.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-light-green.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-lime.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-lime.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-orange.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-orange.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-pink.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-pink.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-purple.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-purple.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-red.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-red.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-teal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-teal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/themes/theme-yellow.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/themes/theme-yellow.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addItem2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItem2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addItemICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addItemICS.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addNewIssue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addReturn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/addSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addSupplier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItem2.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItem2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/addItemICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addItemICS.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/printItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addDelivery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addNewIssue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/addReturn.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addReturn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/deleteDelivery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addDelivery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user/modal/deleteDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/deleteDelivery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/delivery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/five2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/five2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/four2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/four2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/items2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/items2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/raos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/raos.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user/returns.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/returns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/ssmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/ssmi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/stockcard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/ssmi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/stockcard.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user/three2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/three2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/two2.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/two2.php" afterDir="false" />
     </list>
@@ -424,29 +64,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addDelivery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/addDelivery.php">
+      <file leaf-file-name="addNewIssue.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="137" column="60" lean-forward="true" selection-start-line="137" selection-start-column="60" selection-end-line="137" selection-end-column="60" />
+            <state relative-caret-position="378">
+              <caret line="120" column="47" selection-start-line="120" selection-start-column="47" selection-end-line="120" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addDelivery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/addDelivery.php">
+      <file leaf-file-name="addReturn.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/user/addReturn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-488">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="939">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewDelivery.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewDelivery.php">
+      <file leaf-file-name="deleteDelivery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/user/deleteDelivery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="101" column="127" selection-start-line="101" selection-start-column="127" selection-end-line="101" selection-end-column="127" />
+            <state relative-caret-position="256">
+              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stockcard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/stockcard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="299" column="74" lean-forward="true" selection-start-line="299" selection-start-column="74" selection-end-line="299" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="printItem.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/printItem.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="supplier.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/supplier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="344" column="58" lean-forward="true" selection-start-line="344" selection-start-column="58" selection-end-line="344" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addSupplier.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/addSupplier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activateSupplier.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/activateSupplier.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="150" column="48" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addNewIssuance.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="148" column="48" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -461,6 +160,7 @@
       <find>datal</find>
       <find>print</find>
       <find>quan</find>
+      <find>suppz</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -470,57 +170,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/user/delivery.php" />
-        <option value="$PROJECT_DIR$/user/issuance.php" />
-        <option value="$PROJECT_DIR$/php/admin/modal/addReturn.php" />
-        <option value="$PROJECT_DIR$/php/admin/addReturn.php" />
-        <option value="$PROJECT_DIR$/php/user/addReturn.php" />
-        <option value="$PROJECT_DIR$/php/user/modal/addReturn.php" />
-        <option value="$PROJECT_DIR$/php/admin/itemUpdate.php" />
-        <option value="$PROJECT_DIR$/php/admin/modal/editItems.php" />
-        <option value="$PROJECT_DIR$/php/admin/itemUpdate2.php" />
-        <option value="$PROJECT_DIR$/php/admin/itemUpdateICS.php" />
-        <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
-        <option value="$PROJECT_DIR$/admin/ppmp.php" />
-        <option value="$PROJECT_DIR$/admin/issuance.php" />
-        <option value="$PROJECT_DIR$/admin/returns.php" />
-        <option value="$PROJECT_DIR$/admin/items2.php" />
-        <option value="$PROJECT_DIR$/admin/two2.php" />
-        <option value="$PROJECT_DIR$/admin/three2.php" />
-        <option value="$PROJECT_DIR$/admin/four2.php" />
-        <option value="$PROJECT_DIR$/admin/five2.php" />
-        <option value="$PROJECT_DIR$/admin/ssmi.php" />
-        <option value="$PROJECT_DIR$/admin/stockcard.php" />
-        <option value="$PROJECT_DIR$/admin/stockcard2.php" />
-        <option value="$PROJECT_DIR$/admin/stockcard3.php" />
-        <option value="$PROJECT_DIR$/admin/stockcard4.php" />
-        <option value="$PROJECT_DIR$/admin/stockcard5.php" />
-        <option value="$PROJECT_DIR$/admin/offices.php" />
         <option value="$PROJECT_DIR$/php/admin/addAccount.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteIssuance.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteReturns.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/deleteSupplier.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteSupplier.php" />
         <option value="$PROJECT_DIR$/php/admin/activateSupplier.php" />
-        <option value="$PROJECT_DIR$/admin/supplier.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/activateSupplier.php" />
-        <option value="$PROJECT_DIR$/user/items2.php" />
-        <option value="$PROJECT_DIR$/user/two2.php" />
-        <option value="$PROJECT_DIR$/user/three2.php" />
-        <option value="$PROJECT_DIR$/user/four2.php" />
-        <option value="$PROJECT_DIR$/user/five2.php" />
         <option value="$PROJECT_DIR$/user/ssmi.php" />
         <option value="$PROJECT_DIR$/user/stockcard.php" />
-        <option value="$PROJECT_DIR$/php/user/deleteDelivery.php" />
         <option value="$PROJECT_DIR$/php/user/deleteIssuance.php" />
         <option value="$PROJECT_DIR$/php/user/deleteReturns.php" />
         <option value="$PROJECT_DIR$/admin/accounts.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/deleteDelivery.php" />
         <option value="$PROJECT_DIR$/admin/delivery.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteDelivery.php" />
-        <option value="$PROJECT_DIR$/php/admin/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" />
+        <option value="$PROJECT_DIR$/php/user/modal/addDelivery.php" />
+        <option value="$PROJECT_DIR$/php/user/modal/deleteDelivery.php" />
+        <option value="$PROJECT_DIR$/php/user/modal/viewDelivery.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/addItem.php" />
+        <option value="$PROJECT_DIR$/php/admin/addItem.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/addItem2.php" />
+        <option value="$PROJECT_DIR$/php/admin/addItem2.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/addItemICS.php" />
+        <option value="$PROJECT_DIR$/php/admin/addItemICS.php" />
+        <option value="$PROJECT_DIR$/admin/four2.php" />
+        <option value="$PROJECT_DIR$/admin/five2.php" />
+        <option value="$PROJECT_DIR$/admin/issuance.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" />
+        <option value="$PROJECT_DIR$/user/delivery.php" />
+        <option value="$PROJECT_DIR$/user/five2.php" />
+        <option value="$PROJECT_DIR$/user/four2.php" />
+        <option value="$PROJECT_DIR$/user/issuance.php" />
+        <option value="$PROJECT_DIR$/user/items2.php" />
+        <option value="$PROJECT_DIR$/user/returns.php" />
+        <option value="$PROJECT_DIR$/user/three2.php" />
+        <option value="$PROJECT_DIR$/user/two2.php" />
+        <option value="$PROJECT_DIR$/php/admin/addDelivery.php" />
+        <option value="$PROJECT_DIR$/admin/stockcard.php" />
+        <option value="$PROJECT_DIR$/php/admin/addNewIssue.php" />
+        <option value="$PROJECT_DIR$/php/admin/addReturn.php" />
+        <option value="$PROJECT_DIR$/php/user/addDelivery.php" />
+        <option value="$PROJECT_DIR$/php/user/addNewIssue.php" />
+        <option value="$PROJECT_DIR$/php/user/addReturn.php" />
+        <option value="$PROJECT_DIR$/php/user/deleteDelivery.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/printItem.php" />
+        <option value="$PROJECT_DIR$/admin/supplier.php" />
+        <option value="$PROJECT_DIR$/php/admin/addSupplier.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" />
+        <option value="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" />
       </list>
     </option>
   </component>
@@ -553,7 +253,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -564,26 +263,14 @@
             <path>
               <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -597,12 +284,166 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/php/admin/modal" />
-      <recent name="C:\wamp\www\inventory\php\admin\modal" />
-      <recent name="C:\wamp\www\inventory\php\admin" />
       <recent name="C:\wamp\www\inventory\php\user" />
       <recent name="C:\wamp\www\inventory\admin" />
+      <recent name="C:\wamp\www\inventory\user" />
+      <recent name="C:\wamp\www\inventory\php\user\modal" />
+      <recent name="$PROJECT_DIR$/php/admin/modal" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/accounts.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/dashboard.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/delivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/five2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/four2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/history.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/inventory.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/issuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/items2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/logs.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/offices.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/ppmp.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/raos.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/reorder.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/returns.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/ssmi.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard3.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard4.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard5.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/supplier.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/three2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/toexpire.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/two2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/updatehistory.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/inventory.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/deleteDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/deleteDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/viewDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/delivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/five2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/four2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/issuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/items2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/raos.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/returns.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/ssmi.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/stockcard.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/three2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/two2.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/inventoryzia(adminmodule).rar</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -906,40 +747,51 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129507000" />
+    <option name="totallyTimeSpent" value="138919000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1366" height="738" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21515152" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21515152" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info id="Favorites" order="6" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -973,266 +825,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updated USER module backend" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/two2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="305" column="40" selection-start-line="305" selection-start-column="40" selection-end-line="305" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/three2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="303" column="40" selection-start-line="303" selection-start-column="40" selection-end-line="303" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/four2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="307" column="40" selection-start-line="307" selection-start-column="40" selection-end-line="307" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/five2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="304" column="44" selection-start-line="304" selection-start-column="44" selection-end-line="304" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/ssmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="294" column="40" selection-start-line="294" selection-start-column="40" selection-end-line="294" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="281" column="40" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="281" column="40" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="281" column="40" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="281" column="40" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="281" column="40" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/offices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="295" column="40" selection-start-line="295" selection-start-column="40" selection-end-line="295" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addItem.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addItem2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addReturn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deletePPMP.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/deleteSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="118" selection-start-line="9" selection-start-column="118" selection-end-line="9" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/disableAccount.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/supplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="358" column="34" lean-forward="true" selection-start-line="358" selection-start-column="34" selection-end-line="358" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/activateSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/activateSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/editIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/items2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="220" column="48" selection-start-line="220" selection-start-column="48" selection-end-line="220" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/two2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="224" column="45" selection-start-line="224" selection-start-column="45" selection-end-line="224" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/three2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="220" column="40" selection-start-line="220" selection-start-column="40" selection-end-line="220" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/four2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="226" column="45" selection-start-line="226" selection-start-column="45" selection-end-line="226" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/five2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="217" column="44" selection-start-line="217" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/ssmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="209" column="40" selection-start-line="209" selection-start-column="40" selection-end-line="209" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/stockcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="198" column="44" selection-start-line="198" selection-start-column="44" selection-end-line="198" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="49" column="82" selection-start-line="49" selection-start-column="82" selection-end-line="49" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteItem.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/deleteReturns.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="84" selection-start-line="46" selection-start-column="84" selection-end-line="46" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/addDelivery.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/deleteDelivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="44" column="84" selection-start-line="44" selection-start-column="84" selection-end-line="44" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/deleteIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="49" column="82" selection-start-line="49" selection-start-column="82" selection-end-line="49" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/deleteReturns.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/itemUpdate.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewIssuance.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/updateIssuance.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/updateIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/accounts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="308" column="62" selection-start-line="308" selection-start-column="62" selection-end-line="308" selection-end-column="62" />
+        <state relative-caret-position="166">
+          <caret line="301" column="31" selection-start-line="301" selection-start-column="31" selection-end-line="301" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1255,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/delivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="322" column="94" selection-start-line="322" selection-start-column="94" selection-end-line="322" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/deleteDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1269,24 +858,306 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addDelivery.php">
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-488">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="322">
+          <caret line="101" column="127" selection-start-line="101" selection-start-column="127" selection-end-line="101" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/addDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" column="22" lean-forward="true" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/viewDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="27" lean-forward="true" selection-start-line="125" selection-start-column="27" selection-end-line="125" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/deleteDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addItem2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="72" column="41" lean-forward="true" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addItem2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/items2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="315" column="78" selection-start-line="315" selection-start-column="78" selection-end-line="315" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addItemICS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/four2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="335" column="99" selection-start-line="335" selection-start-column="99" selection-end-line="335" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/five2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="329" column="70" selection-start-line="329" selection-start-column="70" selection-end-line="329" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/issuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="317" column="71" selection-start-line="317" selection-start-column="71" selection-end-line="317" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addItemICS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/editItemsICS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/delivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/five2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/four2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/issuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/items2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/raos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1938" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/officeInfo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/returns.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/two2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="122" column="74" selection-start-line="122" selection-start-column="74" selection-end-line="122" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/three2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/addDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="1380">
           <caret line="137" column="60" lean-forward="true" selection-start-line="137" selection-start-column="60" selection-end-line="137" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewDelivery.php">
+    <entry file="file://$PROJECT_DIR$/admin/delivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="101" column="127" selection-start-line="101" selection-start-column="127" selection-end-line="101" selection-end-column="127" />
+        <state relative-caret-position="-85">
+          <caret line="298" column="37" lean-forward="true" selection-start-line="298" selection-start-column="37" selection-end-line="298" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addNewIssue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="57" column="27" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addPPMP.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addPPMP.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addReturn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addReturn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="280" column="100" selection-start-line="280" selection-start-column="100" selection-end-line="280" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/addDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="120" column="47" selection-start-line="120" selection-start-column="47" selection-end-line="120" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/addReturn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="939">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/deleteDelivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/stockcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="299" column="74" lean-forward="true" selection-start-line="299" selection-start-column="74" selection-end-line="299" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/printItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/supplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="344" column="58" lean-forward="true" selection-start-line="344" selection-start-column="58" selection-end-line="344" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addSupplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/activateSupplier.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="150" column="48" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="148" column="48" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
         </state>
       </provider>
     </entry>

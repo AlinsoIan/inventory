@@ -59,7 +59,7 @@
                             <div class="">
                                 <label>Date </label>
                                 <?php
-                                $d = date('n/j/Y');
+                                $d = date('Y/n/j');
 
                                 echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
                                 ?>
@@ -105,7 +105,7 @@
                             <div class="">
                                 <label>Date </label>
                                 <?php
-                                $d = date('Y/n/j');
+                                $d = date('Y/n/j/');
 
                                 echo "<input type='text' class = 'form-control' name = ''  placeholder=' " . $d . "' value = '" . $d . "'size='15' required>";
                                 ?>
@@ -147,8 +147,8 @@
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
                             <th width="30%">Item Description</th>
-                            <th width="10%">Requested</th>
-                            <th width="10%">Issued</th>
+                            <th width="10%">QTY Requested</th>
+                            <th width="10%">QTY Issued</th>
                             <th width="20%">Remarks</th>
                             <th width="5%"></th>
                             </thead>

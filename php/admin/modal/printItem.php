@@ -56,11 +56,13 @@
                                 <th>Date</th>
                                 <th>RIS</th>
                                 <th>IAR</th>
-                                <th>Starting Quantity</th>
+                                <th>Beginning Balance</th>
                                 <th>Delivery</th>
                                 <th>Returns</th>
                                 <th>Issuance</th>
                                 <th>Balance</th>
+                                <th>Office</th>
+                                <th>Supplier</th>
 
                             </tr>
                             </thead>
@@ -71,7 +73,8 @@
                             $a = $_GET['num'];
 
                             $sql = "SELECT recordDate,risNo,iarNo,startingQuantity,deliveryQuantity,returnsQuantity,issuanceQuantity,
-                            currentQuantity,status FROM itemrecords WHERE itemID = '$a'";
+                            currentQuantity,status,supplierName,officeName FROM itemrecords JOIN suppliers ON itemrecords.supplierID = suppliers.supplierID
+                             JOIN offices ON itemrecords.officeID = offices.officeID WHERE itemID = '$a'";
                             $res = $conn->query($sql);
                             if ($res) {
                                 while ($row = $res->fetch_assoc()) {
@@ -84,6 +87,8 @@
                                         "<td>" . $row['returnsQuantity'] . "</td>" .
                                         "<td>" . $row['issuanceQuantity'] . "</td>" .
                                         "<td>" . $row['currentQuantity'] . "</td>" .
+                                        "<td>" . $row['officeName'] . "</td>" .
+                                        "<td>" . $row['supplierName'] . "</td>" .
 
                                         "</tr>";
                                 }

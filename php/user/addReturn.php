@@ -16,12 +16,15 @@ $office = $_POST['office'];
 
 $s = "SELECT officeID FROM offices WHERE officeName LIKE '%" . $office ."%'";
 $o = $conn->query($s);
-$oo = $o->fetch_row();
+$ooz = $o->fetch_row();
+
+
 
 $item = $_POST['des'];
 $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory ON items.itemID = inventory.itemID WHERE items.description LIKE '%". $item ."%'";
 $c = $conn->query($s);
 $cc = $c->fetch_row();
+
 
 
 $ress = $_POST['res'];
@@ -32,9 +35,12 @@ $status = $_POST['status'];
 
 if ($c) {
     $sql = "INSERT INTO returns(itemID,officeID,itemQuantity,reason,status,accountID,returnDate)
-        VALUES('$cc[0]','$oo[0]','$quantity','$ress','$status','$userID','$da')";
+        VALUES('$cc[0]','$ooz[0]','$quantity','$ress','$status','$userID','$da')";
+
 
     $conn->query($sql);
+
+
     if ($status === "usable") {
         $id = mysqli_insert_id($conn);
         $b = $quantity + $cc[1];
@@ -46,9 +52,11 @@ if ($c) {
         $oo = $conn->query($sql);
         $j = $oo->fetch_row();
 
-        $sql = "INSERT into itemrecords(itemID,inventoryID,returnDate,startingQuantity,returnsQuantity,currentQuantity,status) 
-                VALUES('$cc[0]','$j[0]','$da','$cc[1]','$quantity','$b','increased')";
+
+        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,startingQuantity,returnsQuantity,currentQuantity,status,officeID) 
+                VALUES('$cc[0]','$j[0]','$da','$cc[1]','$quantity','$b','increased','$ooz[0]')";
         $conn->query($sql);
+
 
         $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type,itemID)
               VALUES ('$userID','$id','accepted return','$da','returns','$cc[0]')";
@@ -57,13 +65,6 @@ if ($c) {
 
     }
 
-    $sql = "INSERT INTO history(accountID,returnID,activity,actDate,type,itemID)
-              VALUES ('$userID','$id','accepted return','$da','returns','$cc[0]')";
-    $conn->query($sql);
-
-    $oo = $userID . " " .$id . " " . "accepted return" . $da . "returns";
-    $sql = "INSERT INTO asa(a) VALUES ('$oo')";
-    $conn->query($sql);
 
 
 
@@ -77,7 +78,7 @@ if ($c) {
     echo "<script type='text/javascript'>
         
             alert('$m');
-            window.location.replace('../../admin/returns.php');
+            window.location.replace('../../user/returns.php');
         </script>";
 }
 

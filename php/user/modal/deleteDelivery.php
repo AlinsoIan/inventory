@@ -10,7 +10,7 @@
         echo "<a href=" . '../php/user/deleteDelivery.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
         ?>
 
-        <a href="../user/delivery.php" class='btn btn-primary pull-right'>CANCEL</a>
+        <a href="../user/delivery.php" class='btn btn-primary pull-right'>Cancel</a>
     </div>
     <div class="modal-footer">
 

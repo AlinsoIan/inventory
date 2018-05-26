@@ -291,6 +291,7 @@ if ($_SESSION['type'] == "user") {
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
+                                    <th>Tracking No</th>
                                     <th>Division</th>
                                     <th>Office</th>
                                     <th>Date/Time</th>
@@ -306,7 +307,7 @@ if ($_SESSION['type'] == "user") {
 
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
 
-                                $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,accounts.username AS a, 
+                                $sql = "SELECT issuanceID,division,offices.officeName,issuanceDate,issuanceTime,type,accounts.username AS a, 
                                                 issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
                                                 JOIN accounts ON issuance.accountID = accounts.accountID";
                                 $res = $conn->query($sql);
@@ -314,6 +315,7 @@ if ($_SESSION['type'] == "user") {
                                 if ($res) {
                                     while ($row = $res->fetch_assoc()) {
                                         echo "<tr>"
+                                            . "<td>" . $row['issuanceID'] . "</td>"
                                             . "<td>" . $row['division'] . "</td>"
                                             . "<td>" . $row['officeName'] . "</td>"
                                             . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] . "</td>"

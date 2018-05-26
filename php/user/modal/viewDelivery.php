@@ -1,3 +1,7 @@
+<?php
+require '../../db.php';
+?>
+
 <!-- Multi Column -->
 <div class="row clearfix">
     <div class="col-lg-12">
@@ -11,36 +15,64 @@
                 <div class="row clearfix">
                     <div class="col-md-2">
                         <label  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</label>
-                        <input type="number" onkeypress="return isNumberKey(event)" name="iarno" min="0"
-                               class="form-control" required>
+
+                        <?php
+                            $n = $_GET['num'];
+
+
+
+                            $sql = "SELECT iarNo FROM delivery WHERE deliveryID = '$n'";
+                            $res = $conn->query($sql);
+                            $r = $res->fetch_row();
+
+                            echo "<input type='number' onkeypress='return isNumberKey(event)' name='iarno' min='0'
+                               value='$r[0]' class='form-control' disabled>";
+                        ?>
+
                     </div>
                     <div class="col-md-2 pull-right">
                         <label>DELIVERY DATE</label>
-                        <input type="date" onkeypress="return isNumberKey(event)" name="d" min="0" class="form-control"
-                               required>
+                        <?php
+                        $n = $_GET['num'];
+
+
+
+                        $sql = "SELECT deliveryDate FROM delivery WHERE deliveryID = '$n'";
+                        $res = $conn->query($sql);
+                        $r = $res->fetch_row();
+
+                        echo "<input type='date' onkeypress='return isNumberKey(event)' name='iarno' min='0'
+                               value='$r[0]' class='form-control' disabled>";
+                        ?>
                     </div>
                     <div class="col-md-2 pull-right">
                         <label>PO DATE</label>
-                        <input type="date" onkeypress="return isNumberKey(event)" name="pod" min="0" class="form-control"
-                               required>
+                        <?php
+                        $n = $_GET['num'];
+                        $sql = "SELECT poDate FROM delivery WHERE deliveryID = '$n'";
+                        $res = $conn->query($sql);
+                        $r = $res->fetch_row();
+
+                        echo "<input type='date' onkeypress='return isNumberKey(event)' name='iarno' min='0'
+                               value='$r[0]' class='form-control' disabled>";
+                        ?>
                     </div>
                     <div class="col-md-2 pull-right">
                         <label>PO NUMBER</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" name="pon" min="0" class="form-control"
-                               required>
+                        <?php
+                        $n = $_GET['num'];
+
+
+
+                        $sql = "SELECT poNumber FROM delivery WHERE deliveryID = '$n'";
+                        $res = $conn->query($sql);
+                        $r = $res->fetch_row();
+
+                        echo "<input type='number' onkeypress='return isNumberKey(event)' name='iarno' min='0'
+                               value='$r[0]' class='form-control' disabled>";
+                        ?>
                     </div>
 
-                    <datalist id="items">
-                        <?php
-                        require '../../db.php';
-                        $sql = 'SELECT description,itemID FROM items';
-                        if ($res = $conn->query($sql)) {
-                            while ($row = $res->fetch_assoc()) {
-                                echo "<option value='" . $row['description'] . "'>";
-                            }
-                        }
-                        ?>
-                    </datalist>
 
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
@@ -50,46 +82,30 @@
                         <th style="width: 8%">Unit Cost</th>
                         <th style="width: 8%">Total Cost</th>
                         <th style="width: 20%">Remarks</th>
-                        <th width="5%"></th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                <input list="items" class="form-control" name="des[]">
-                            </td>
-                            <td>
-                                <select class="form-control" name="supplier[]">
-                                    <?php
-                                    require '../../db.php';
-                                    $sql = "SELECT * FROM suppliers";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            echo "<option>" . $row['supplierName'] . "</option>";
-                                        }
+                            <?php
+                                require '../../db.php';
+
+                                $n = $_GET['num'];
+
+                                $sql = "SELECT * FROM deliveryItems JOIN items ON deliveryItems.itemID = items.itemID
+                                  JOIN suppliers ON deliveryItems.supplierID = suppliers.supplierID WHERE deliveryID = '$n'";
+                                $res = $conn->query($sql);
+                                if($res){
+                                    while ($row = $res->fetch_assoc()){
+                                        echo "<tr>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['description'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['supplierName'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['totalQuantity'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['unitCost'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['totalCost'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['remarks'] . "'></td>";
                                     }
-                                    ?>
-                                </select>
-                            </td>
+                                }
 
 
-                            <td>
-                                <input type="number" onkeypress="return isNumberKey(event)" min="0" name="quantity[]"
-                                       class="form-control" required>
-                            </td>
-                            <td>
-                                <input type="number" onkeypress="return isNumberKey(event)" min="0" name="unitCost[]"
-                                       class="form-control" required>
-                            </td>
-                            <td>
-                                <input type="number"  min="0" name="totalCost[]"
-                                       class="form-control" required step="any">
-                            </td>
-                            <td>
-                                <input type="text" name="remarks[]"
-                                       class="form-control" required>
-                            </td>
-                        </tr>
+                            ?>
 
                         </tbody>
 
@@ -100,9 +116,7 @@
 
 
                 <div class="modal-footer text-center">
-                    <button type="button" name="add" id="add" class="btn btn-primary pull-left">ADD ROW</button>
-                    <button type="submit" id="add" class="btn btn-success text-center" value="submit">ADD</button>
-                    <a href="../user/delivery.php" class="btn btn-danger pull-right">CANCEL</a>
+                    <a href="../user/delivery.php" class="btn btn-danger pull-right">CLOSE</a>
                 </div>
 
             </form>
@@ -130,7 +144,6 @@
                 '</td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>' +
                 '<td><input type="number" onkeypress="return isNumberKey(event)" name="unitCost[]" min="0" class="form-control" required></td>' +
-                '<td><input type="number" step="any" name="totalCost[]" min="0" class="form-control" required></td>' +
                 '<td><input type="text"  name="remarks[]" min="0" class="form-control" required></td>' +
                 '<td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');

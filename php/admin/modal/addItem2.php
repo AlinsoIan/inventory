@@ -64,6 +64,7 @@
                                     $res = $conn->query($sql);
 
                                     if($res){
+                                        echo "<option>" . "---" . "</option>";
                                         while ($row = $res->fetch_assoc()){
                                             echo "<option>" . $row['supplierName'] . "</option>";
                                         }

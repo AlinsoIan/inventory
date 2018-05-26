@@ -142,19 +142,19 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='items2.php'" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='two2.php'" data-toggle="tooltip" title="ink & photocopier consumable"><strong>Category 2</strong></a>
+                            <a href="two2.php" data-toggle="tooltip" title="ink & photocopier consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='three2.php'" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='four2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li class="active">
-                            <a href= "#" onclick = "location.href='five2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
+                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -165,13 +165,13 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='raos.php'" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
+                            <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='ssmi.php'" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
+                            <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -183,31 +183,31 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='reorder.php'">
+                            <a href="reorder.php">
                                 <i class="material-icons">error</i>
                                 <span>Re-order</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='toexpire.php'">
+                            <a href="toexpire.php">
                                 <i class="material-icons">assignment</i>
                                 <span>To-Expire</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='logs.php'">
+                            <a href="logs.php">
                                 <i class="material-icons">view_list</i>
                                 <span>Account Logs</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='history.php'">
+                            <a href="history.php">
                                 <i class="material-icons">view_list</i>
                                 <span>History</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='updatehistory.php'">
+                            <a href="updatehistory.php">
                                 <i class="material-icons">view_list</i>
                                 <span>Update History</span>
                             </a>
@@ -221,19 +221,19 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='accounts.php'">
+                            <a href="accounts.php">
                                 <i class="material-icons">people</i>
                                 <span>Accounts</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='supplier.php'">
+                            <a href="supplier.php">
                                 <i class="material-icons">local_shipping</i>
                                 <span>Suppliers</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='offices.php'">
+                            <a href="offices.php">
                                 <i class="material-icons">location_city</i>
                                 <span>Offices</span>
                             </a>
@@ -314,7 +314,7 @@ if ($_SESSION['type'] == "user") {
                                     $_SESSION['cat'] = "05";
 
                                     $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
-                                                  ,suppliers.supplierName AS d
+                                                  ,suppliers.supplierName AS d,icsNo
                                          FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '5'";
                                     $res = $conn->query($sql);
 
@@ -327,8 +327,9 @@ if ($_SESSION['type'] == "user") {
                                                 . "<td>" . $row['brand'] . "</td>"
                                                 . "<td>" . $row['c'] . "</td>"
                                                 . "<td>" . $row['d'] . "</td>"
+                                                . "<td>" . $row['icsNo'] . "</td>"
 
-                                                ."<td>" . "<a href=" . '../php/admin/modal/editItems.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Edit'  data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/itemDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" . '../php/admin/modal/viewItemInfo.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='More Info' data-target='#itemInfo'>info_outline</a>" . "</td>";
+                                                ."<td>" . "<a href=" . '../php/admin/modal/editItemsICS.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Edit'  data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/itemDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" . '../php/admin/modal/viewItemInfo.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='More Info' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                             echo "</tr>";
                                         }
 
@@ -337,7 +338,7 @@ if ($_SESSION['type'] == "user") {
                                     ?>
                                     </tbody>
                                 </table>
-                                <a href= "#" onclick = "location.href='../php/admin/modal/addItemICS.php'" class="btn btn-primary pull-right"
+                                <a href="../php/admin/modal/addItemICS.php" class="btn btn-primary pull-right"
                                    data-toggle="modal" data-target="#addItem">Add Item</a>
                             </div>
                         </div>

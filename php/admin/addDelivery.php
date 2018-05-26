@@ -105,9 +105,11 @@ if (COUNT($item)) {
                         $f = $conn->query($sql);
                         $ff = $f->fetch_row();
 
+
+
                         $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,iarNo,startingQuantity,deliveryQuantity,
-                            currentQuantity,status)
-                            VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
+                            currentQuantity,status,supplierID)
+                            VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased','$rr[0]')";
                         $conn->query($sql);
 
                         $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)

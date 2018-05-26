@@ -1,11 +1,20 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])){
-    $m="Please Login First";
+$user = $_SESSION['user'];
+if (!isset($_SESSION['username'])) {
+    $m = "Please Login First";
 
     echo "<script type='text/javascript'>
     alert('$m');
-    window.location.replace('index.php');
+    window.location.replace('../index.php');
+    </script>";
+}
+if ($_SESSION['type'] != "user") {
+    session_destroy();
+    $m = "Unauthorized Access";
+    echo "<script type='text/javascript'>
+    alert('$m');
+    window.location.replace('../index.php');
     </script>";
 }
 ?>
@@ -30,10 +39,10 @@ if(!isset($_SESSION['username'])){
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -42,7 +51,7 @@ if(!isset($_SESSION['username'])){
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 </head>
 
 <body class="theme-blue">
@@ -50,7 +59,8 @@ if(!isset($_SESSION['username'])){
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
@@ -94,68 +104,55 @@ if(!isset($_SESSION['username'])){
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-                 <li class="active">
-                        <a href= "#" onclick="location.href='delivery.php'">
-                            <i class="material-icons">event_note</i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#" onclick="location.href='issuance.php'">
-                            <i class="material-icons">store_mall_directory</i>
-                            <span>Issuance</span>
-                        </a>
-                    </li>
+                <li class="active">
+                    <a href="#" onclick="location.href='delivery.php'">
+                        <i class="material-icons">event_note</i>
+                        <span>Delivery</span>
+                    </a>
+                </li>
 
-                    <li>
-                        <a href= "#" onclick="location.href='returns.php'">
-                            <i class="material-icons">event_note</i>
-                            <span>Returns</span>
-                        </a>
-                    </li>
-                    <li>
+                <li>
+                    <a href="#" onclick="location.href='issuance.php'">
+                        <i class="material-icons">store_mall_directory</i>
+                        <span>Issuance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="location.href='returns.php'">
+                        <i class="material-icons">event_note</i>
+                        <span>Returns</span>
+                    </a>
+                </li>
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
-                       <li>
-                            <a href="#" onclick="location.href='items2.php'" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                        <li>
+                            <a href="#" onclick="location.href='items2.php'" data-toggle="tooltip"
+                               title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='two2.php'" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
+                            <a href="#" onclick="location.href='two2.php'" data-toggle="tooltip"
+                               title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='three2.php'" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                            <a href="#" onclick="location.href='three2.php'" data-toggle="tooltip"
+                               title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='four2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                            <a href="#" onclick="location.href='four2.php'" data-toggle="tooltip"
+                               title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='five2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
-                        </li>
-                    </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Reports</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="#" onclick="location.href='raos.php'" data-toggle="tooltip" title="Reports of Available Office Supply""><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href="#" onclick="location.href='ssmi.php'" data-toggle="tooltip" title="Summary of Supplies and Material Issued"><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href="#" onclick="location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
+                            <a href="#" onclick="location.href='five2.php'" data-toggle="tooltip"
+                               title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category
+                                    5</strong></a>
                         </li>
                     </ul>
                 </li>
-                        </ul>
-                    </li>
+
 
 
         </div>
@@ -163,6 +160,38 @@ if(!isset($_SESSION['username'])){
 
     </aside>
     <!-- #END# Left Sidebar -->
+
+    <!-- Modal for Add Item -->
+    <div class="modal col-lg-12" id="addItem" data-backdrop="static">
+        <div class="modal-dialog" style="width:99%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Edit Items -->
+    <div class="modal col-lg-12" id="editItems" data-backdrop="static">
+        <div class="modal-dialog" style="width:100%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Delete Items -->
+    <div class="modal col-lg-12" id="deleteItem" data-backdrop="static">
+        <div class="modal-dialog" style="width:20%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for View Items Info -->
+    <div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
+        <div class="modal-dialog" style="width:80%;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
 
 </section>
 <!-- #END# Left Sidebar -->
@@ -206,13 +235,11 @@ if(!isset($_SESSION['username'])){
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th data-toggle="tooltip" title="Inspection Acceptance Reports Number">IAR No.</th>
-                                    <th>Category</th>
-                                    <th>Item</th>
-                                    <th>Unit</th>
-                                    <th>Supplier</th>
-                                    <th>Quantity</th>
+                                    <th  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
+                                    <th>User</th>
                                     <th>Delivery Date</th>
+                                    <th>PO Date</th>
+                                    <th>PO Number</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -220,25 +247,26 @@ if(!isset($_SESSION['username'])){
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $a = $_SESSION['user'];
 
-                                $sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,
+
+                                $sql = "SELECT deliveryID,iarNo,username,deliveryDate,poDate,poNumber FROM delivery JOIN accounts ON delivery.accountID = accounts.accountID WHERE accounts.accountID = '$user'";
+
+                                /*$sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,accounts.username AS g,
                                                 delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
-                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID
-                                                  WHERE delivery.accountID = '$a'";
+                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN accounts ON delivery.accountID = accounts.accountID";
+                                */
+
                                 $res = $conn->query($sql);
 
-                                if($res){
-                                    while($row = $res->fetch_assoc()){
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
                                         echo "<tr>"
-                                            . "<td>" . $row['iarno'] ."</td>"
-                                            . "<td>" . $row['a'] ."</td>"
-                                            . "<td>" . $row['b'] ."</td>"
-                                            . "<td>" . $row['c'] ."</td>"
-                                            . "<td>" . $row['d'] ."</td>"
-                                            . "<td>" . $row['e'] ."</td>"
-                                            . "<td>" . $row['f'] ."</td>"
-                                            . "<td><a href=" .'../php/user/modal/deleteDelivery.php?num=' .$row['idd']  . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>" . $row['iarNo'] . "</td>"
+                                            . "<td>" . $row['username'] . "</td>"
+                                            . "<td>" . $row['deliveryDate'] . "</td>"
+                                            . "<td>" . $row['poDate'] . "</td>"
+                                            . "<td>" . $row['poNumber'] . "</td>"
+                                            . "<td>" . "<a href=" . '../php/user/modal/viewDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#editIssuance'>visibility</a>" . "<a href=" . '../php/user/modal/deleteDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 
@@ -248,7 +276,9 @@ if(!isset($_SESSION['username'])){
                                 </tbody>
                             </table>
 
-                            <a href="../php/user/modal/addDelivery.php" class="btn btn-primary pull-right" data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
+
+                            <a href= "../php/user/modal/addDelivery.php" class="btn btn-primary pull-right"
+                               data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
                         </div>
                     </div>
                 </div>
@@ -285,11 +315,6 @@ if(!isset($_SESSION['username'])){
 
 <script src="../js/custom.js"></script>
 
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
 
 </body>
 

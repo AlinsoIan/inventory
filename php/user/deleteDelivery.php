@@ -11,7 +11,7 @@ session_start();
 $userID = $_SESSION['user'];
 $i = $_GET['n'];
 $da = date('Y:n:j');
-$s = "SELECT itemID,totalQuantity FROM delivery WHERE deliveryID = '$i'";
+$s = "SELECT itemID,totalQuantity FROM deliveryItems WHERE deliveryID = '$i'";
 $res = $conn->query($s);
 $r = $res->fetch_row();
 
@@ -27,6 +27,9 @@ $conn->query($sq);
 $sql = "DELETE FROM delivery WHERE deliveryID = '$i'";
 
 if($conn->query($sql)){
+
+    $sql = "DELETE FROM deliveryItems WHERE deliveryID = '$i'";
+    $conn->query($sql);
 
     $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
     $h = $conn->query($sql);
@@ -44,17 +47,17 @@ if($conn->query($sql)){
     $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)
                     VALUES ('$userID','$i','Delivery Deleted','$da','Delivery','$r[0]')";
     $conn->query($sql);
-    
+
+
 
     header("Location:../../user/delivery.php");
 
 }else{
-    $m = "Failed to Delete Delivery, Contact Administrator!";
 
     echo "
             <script type = 'text/javascript'>
             alert('$m');
-            window.location.replace('../../user/issuance.php');
+            window.location.replace('../../admin/issuance.php');
             </script>
             ";
 }

@@ -16,15 +16,43 @@ $item = $_POST['des'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
 $da = $_POST['d'];
+$da1 = $_POST['pod'];
+$poNum = $_POST['pon'];
+$rem = $_POST['remarks'];
+$cost = $_POST['unitCost'];
+$tCost = $_POST['totalCost'];
 
 
+$remz = [];
+foreach ($rem as $a) {
+    array_push($remz, $a);
 
+}
+
+$tCostz = [];
+foreach ($tCost as $a) {
+    array_push($tCostz, $a);
+
+}
+
+$costz = [];
+foreach ($cost as $a) {
+    array_push($costz, $a);
+
+}
 
 $quanz = [];
 foreach ($quan as $a) {
         array_push($quanz, $a);
 
 }
+
+$quanz = [];
+foreach ($quan as $a) {
+    array_push($quanz, $a);
+
+}
+
 $itemz = [];
 foreach ($item as $a) {
     array_push($itemz, $a);
@@ -41,51 +69,70 @@ foreach ($supp as $a) {
 
 if (COUNT($item)) {
 
+    $sql = "INSERT INTO delivery(iarNo,deliveryDate,accountID,poDate,poNumber) VALUES ('$iar','$da','$userID','$da1','$poNum')";
+    if($conn->query($sql)){
+        $id = mysqli_insert_id($conn);
 
-    for ($m = 0; count($item) > $m; $m++) {
+        for ($m = 0; count($item) > $m; $m++) {
 
-        $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%$itemz[$m]%'";
-        $res = $conn->query($s);
-
-        if ($res->num_rows > 0) {
-            $r = $res->fetch_row();
-
-            $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%$suppz[$m]%'";
-            $ress = $conn->query($sq);
-            if ($ress->num_rows > 0) {
-                $rr = $ress->fetch_row();
+            $s = "SELECT items.itemID,inventory.currentQuantity FROM items JOIN inventory on items.itemID = inventory.itemID WHERE items.description LIKE '%" . $itemz[$m] ."%'";
 
 
-                $sql = "INSERT INTO delivery(supplierID,itemID,iarNo,totalQuantity,deliveryDate,accountID)
-                      VALUES('$rr[0]','$r[0]', '$iar', '$quanz[$m]','$da','$userID')";
+            if ($res = $conn->query($s)) {
+                $r = $res->fetch_row();
 
-                if($conn->query($sql)){
-                    $v = mysqli_insert_id($conn);
-                    $n = $r[1] + $quan[$m];
+                $sq = "SELECT supplierID FROM suppliers WHERE supplierName LIKE '%" . $suppz[$m] . "%'";
+                $ress = $conn->query($sq);
+                if ($ress->num_rows > 0) {
+                    $rr = $ress->fetch_row();
 
-                    $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
-                    $conn->query($ss);
 
-                    $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
-                    $g = $conn->query($sql);
-                    $gg = $g->fetch_row();
+                    $sql = "INSERT INTO deliveryItems(deliveryID,itemID,totalQuantity,unitCost,remarks,supplierID,totalCost)
+                      VALUES('$id','$r[0]','$quanz[$m]','$costz[$m]', '$remz[$m]','$rr[0]','$tCostz[$m]')";
 
-                    $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$r[0]'";
-                    $f = $conn->query($sql);
-                    $ff = $f->fetch_row();
+                    if($conn->query($sql)){
+                        $v = mysqli_insert_id($conn);
+                        $n = $r[1] + $quan[$m];
 
-                    $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,iarNo,startingQuantity,deliveryQuantity,
-                            currentQuantity,status)
-                            VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased')";
-                    $conn->query($sql);
+                        $ss = "UPDATE inventory SET currentQuantity = '$n' WHERE itemID = '$r[0]'";
+                        $conn->query($ss);
 
-                    $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)
+                        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$r[0]'";
+                        $g = $conn->query($sql);
+                        $gg = $g->fetch_row();
+
+                        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$r[0]'";
+                        $f = $conn->query($sql);
+                        $ff = $f->fetch_row();
+
+
+
+                        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,iarNo,startingQuantity,deliveryQuantity,
+                            currentQuantity,status,supplierID)
+                            VALUES('$r[0]','$ff[0]','$da','$iar','$r[1]','$quanz[$m]','$gg[0]','increased','$rr[0]')";
+                        $conn->query($sql);
+
+                        $sql = "INSERT INTO history(accountID,deliveryID,activity,actDate,type,itemID)
                     VALUES ('$userID','$v','delivered','$da','Delivery','$r[0]')";
-                    $conn->query($sql);
+                        $conn->query($sql);
+
+                    }else {
+                        var_dump($conn->error);
+                        die;
+
+                        echo "
+                            <script type = 'text/javascript'>
+                            alert('$m');
+                            window.location.replace('../../user/delivery.php');
+                            </script>
+                            ";
+                                    }
 
 
-                }else {
-                    $m = $conn->error;
+
+
+                } else {
+                    $m = "Error Adding Inserting!";
 
                     echo "
             <script type = 'text/javascript'>
@@ -94,39 +141,26 @@ if (COUNT($item)) {
             </script>
             ";
                 }
-
-
-
-
             } else {
-                $m = "Error Adding Inserting!";
+                $m = "Error Adding Item!";
 
                 echo "
-            <script type = 'text/javascript'>
-            alert('$m');
-            window.location.replace('../../user/delivery.php');
-            </script>
-            ";
-            }
-        } else {
-            $m = "Error Adding Item!";
-
-            echo "
                 <script type = 'text/javascript'>
                 alert('$m');
                 window.location.replace('../../user/delivery.php');
                 </script>
                 ";
+            }
+
+
         }
-
-
     }
+
 
     header('Location:../../user/delivery.php');
 
 } else {
-var_dump($conn->error);
-die;
+
     $m = "Error Adding Issuance!";
 
     echo "

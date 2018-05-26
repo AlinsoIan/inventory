@@ -258,11 +258,11 @@ session_start();
                             if ($res) {
                                 while ($row = $res->fetch_assoc()) {
                                     echo "<tr>"
-                                        . "<td>" . "<input list='items'  size = '50px' value = '" . $row['b'] . "' class='form-control'  name = 'des[]'>" . "</td>"
-                                        . "<td>" . "<input  list = 'units' value = '" . $row['c'] . "' class='form-control'  name = 'unit[]'>" . "</td>"
-                                        . "<td>" . "<input  type = 'text' value = '" . $row['d'] . "' class='form-control'  name = 'qRequested[]'>" . "</td>"
-                                        . "<td>" . "<input  type = 'text' value = '" . $row['e'] . "' class='form-control'  name = 'qIssued[]'>" . "</td>"
-                                        . "<td>" . "<input  type = 'text' value = '" . $row['f'] . "' class='form-control'  name = 'remarks[]'>" . "</td>"
+                                        . "<td>" . "<input disabled list='items'  size = '50px' value = '" . $row['b'] . "' class='form-control'  name = 'des[]'>" . "</td>"
+                                        . "<td>" . "<input disabled list = 'units' value = '" . $row['c'] . "' class='form-control'  name = 'unit[]'>" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" . $row['d'] . "' class='form-control'  name = 'qRequested[]'>" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" . $row['e'] . "' class='form-control'  name = 'qIssued[]'>" . "</td>"
+                                        . "<td>" . "<input disabled type = 'text' value = '" . $row['f'] . "' class='form-control'  name = 'remarks[]'>" . "</td>"
 
                                         . "</tr>";
                                 }
@@ -278,8 +278,7 @@ session_start();
 
 
                 <div class="text-center">
-                    <input type="submit" value="Update" class="btn btn-primary btn-lg" id="submitD">
-                    <a href="../admin/issuance.php" class="btn btn-danger btn-lg waves-effect">CANCEL</a>
+                    <a href="../admin/issuance.php" class="btn btn-danger btn-lg waves-effect">CLOSE</a>
                 </div>
             </div>
 

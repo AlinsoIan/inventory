@@ -299,7 +299,7 @@ if ($_SESSION['type'] == "user") {
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT * FROM suppliers WHERE status != 'disabled'";
+                                $sql = "SELECT * FROM suppliers WHERE status != 'disabled' AND supplierID != 1";
                                 $res = $conn->query($sql);
 
                                 if($res){
