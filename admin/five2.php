@@ -117,12 +117,19 @@ if ($_SESSION['type'] == "user") {
                     </a>
                 </li>
 
-
                 <li>
-                    <a  href= "#" onclick = "location.href='ppmp.php'">
-                        <i class="material-icons">event_note</i>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                         <span>PPMP</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href= "#" onclick = "location.href='ppmp.php'" ><strong>Offices</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a  href= "#" onclick = "location.href='issuance.php'">

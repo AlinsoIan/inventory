@@ -18,12 +18,13 @@ if ($_SESSION['type'] == "user") {
 }
 ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Reports: SSMI</title>
+    <title>PPMP</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -37,10 +38,10 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -49,7 +50,7 @@ if ($_SESSION['type'] == "user") {
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
 </head>
 
 <body class="theme-blue">
@@ -57,7 +58,8 @@ if ($_SESSION['type'] == "user") {
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
@@ -103,20 +105,20 @@ if ($_SESSION['type'] == "user") {
             <ul class="list">
 
                 <li>
-                    <a href= "#" onclick = "location.href='dashboard.php'">
+                    <a  href= "#" onclick = "location.href='dashboard.php'">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href= "#" onclick = "location.href='delivery.php'">
+                    <a  href= "#" onclick = "location.href='delivery.php'">
                         <i class="material-icons">event_note</i>
                         <span>Delivery</span>
                     </a>
                 </li>
 
 
-                <li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>PPMP</span>
@@ -125,24 +127,24 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='ppmp.php'" ><strong>Offices</strong></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href= "#" onclick = "location.href='issuance.php'">
+                    <a  href= "#" onclick = "location.href='issuance.php'">
                         <i class="material-icons">store_mall_directory</i>
                         <span>Issuance</span>
                     </a>
                 </li>
                 <li>
-                    <a href= "#" onclick = "location.href='returns.php'">
+                    <a  href= "#" onclick = "location.href='returns.php'">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>
                 </li>
-                <li>
+                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -165,7 +167,7 @@ if ($_SESSION['type'] == "user") {
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
                         <span>Reports</span>
@@ -174,7 +176,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
@@ -248,6 +250,7 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
 
+
         </div>
         <!-- #Menu -->
 
@@ -257,25 +260,33 @@ if ($_SESSION['type'] == "user") {
 </section>
 <!-- #END# Left Sidebar -->
 
-<!-- Modal for Add Office -->
-<div class="modal col-lg-12" id="addOffice" data-backdrop="static">
-    <div class="modal-dialog" style="width:90%;">
+<!-- Modal for Add Issuance -->
+<div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+    <div class="modal-dialog" style="width:70%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Edit Office -->
-<div class="modal col-lg-12" id="editOffice" data-backdrop="static">
-    <div class="modal-dialog" style="width:100%;">
+<!-- Modal for Edit Issuance -->
+<div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
+    <div class="modal-dialog" style="width:80%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Delete Office -->
-<div class="modal col-lg-12" id="deleteOffice" data-backdrop="static">
+<!-- Modal for Delete PPMP -->
+<div class="modal col-lg-12" id="del_ppmp" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!-- Modal for View PPMP -->
+<div class="modal col-lg-12" id="viewPPMP" data-backdrop="static">
+    <div class="modal-dialog" style="width:70%;">
         <div class="modal-content">
         </div>
     </div>
@@ -289,35 +300,32 @@ if ($_SESSION['type'] == "user") {
             <div class="col-lg-12 ">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">Summary of Supplies and Material Issued (SSMI)</h2>
+                        <h2 class="text-center">CONTINGENCIES</h2>
                     </div>
                     <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example ">
+                        <div class="body table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Office</th>
-                                    <th>Abbr</th>
-                                    <th>Fpp</th>
-                                    <th>RC</th>
-                                    <th></th>
+                                    <th width="8%">Office</th>
+                                    <th width="8%">Date</th>
+                                    <th width="5%"></th>
                                 </tr>
                                 </thead>
+
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-
-                                $sql = "SELECT * FROM offices";
+                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID WHERE ppmp.type = 'contingency' ";
                                 $res = $conn->query($sql);
 
-                                if($res){
-                                    while ($row = $res->fetch_assoc()){
-                                        echo  "<tr>";
-                                        echo "<td width='40%'>" . $row['officeName'] . "</td>";
-                                        echo "<td>" . $row['abbrv'] . "</td>";
-                                        echo "<td>" . $row['fppCode'] . "</td>";
-                                        echo "<td>" . $row['rcCode'] . "</td>";
-                                        echo "<td>" . "<a href=" .'../php/admin/modal/printSSMI.php?num=' .$row['officeID'] . "   " . " class='material-icons' data-toggle='modal' data-target='#editOffice'>visibility</a>" . "</td>";
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['a'] . "</td>";
+                                        echo "<td>" . $row['ppmpDate'] . "</td>";
+
+                                        echo "<td>" . "<a href=" . '../php/admin/modal/viewPPMP.php?num=' . $row['idd'] . "  " . " class='material-icons'  data-toggle='modal' data-toggle='tooltip' title='View' data-target='#viewPPMP'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/deletePPMP.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#del_ppmp'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -326,6 +334,10 @@ if ($_SESSION['type'] == "user") {
                                 </tbody>
                             </table>
 
+                            <a href="../php/admin/modal/addContingency.php" class="btn btn-primary pull-right"
+                               data-toggle="modal" data-target="#editIssuance">Add
+                                <PPMP></PPMP>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -333,6 +345,11 @@ if ($_SESSION['type'] == "user") {
         </div>
         <!-- #END# Basic Examples -->
     </div>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </section>
 
 <!-- Jquery Core Js -->
@@ -361,7 +378,6 @@ if ($_SESSION['type'] == "user") {
 <script src="../js/pages/tables/jquery-datatable.js"></script>
 
 <script src="../js/custom.js"></script>
-
 
 
 </body>

@@ -119,10 +119,18 @@ if ($_SESSION['type'] == "user") {
 
 
                 <li class="active">
-                    <a  href= "#" onclick = "location.href='ppmp.php'">
-                        <i class="material-icons">event_note</i>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                         <span>PPMP</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a href= "#" onclick = "location.href='ppmp.php'" ><strong>Offices</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a  href= "#" onclick = "location.href='issuance.php'">
@@ -308,7 +316,7 @@ if ($_SESSION['type'] == "user") {
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID ";
+                                $sql = "SELECT offices.officeName AS a,ppmpDate,ppmp.ppmpID AS idd FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID WHERE ppmp.type = 'office'";
                                 $res = $conn->query($sql);
 
                                 if ($res) {

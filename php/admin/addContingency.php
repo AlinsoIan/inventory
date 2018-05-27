@@ -30,7 +30,7 @@ $ress = $conn->query($sq);
 $rr = $ress->fetch_row();
 
 
-$sql = "INSERT INTO ppmp(officeID,ppmpDate,type) VALUES('$rr[0]','$d','office')";
+$sql = "INSERT INTO ppmp(officeID,ppmpDate,type) VALUES('$rr[0]','$d','contingency')";
 $conn->query($sql);
 $v = mysqli_insert_id($conn);
 for ($m = 0; count($item) > $m; $m++) {
@@ -41,4 +41,4 @@ for ($m = 0; count($item) > $m; $m++) {
                       VALUES('$r[0]','$quanz[$m]','$unitz[$m]','$v')";
     $conn->query($sql);
 }
-header('Location:../../admin/ppmp.php');
+header('Location:../../admin/contingency.php');
