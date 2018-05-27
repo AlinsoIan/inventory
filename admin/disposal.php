@@ -24,7 +24,7 @@ if ($_SESSION['type'] == "user") {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>History</title>
+    <title>Issuance</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -130,9 +130,10 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
                         </li>
+
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Issuance</span>
@@ -141,7 +142,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
                         </li>
                         <li>
@@ -150,48 +151,31 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
                 <li>
-                    <a  href= "#" onclick = "location.href='returns.ph'">
+                    <a  href= "#" onclick = "location.href='returns.php'">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>
                 </li>
-               <li>
+                  <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='items2.php'" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                            <a href="items2.php" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='two2.php'" data-toggle="tooltip" title="ink & photocopier consumable"><strong>Category 2</strong></a>
+                            <a href="two2.php" data-toggle="tooltip" title="ink & photocopier consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='three2.php'" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                            <a href="three2.php" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='four2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                            <a href="four2.php" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='five2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">view_list</i>
-                        <span>Reports</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href= "#" onclick = "location.href='raos.php'" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
-                        </li>
-                        <li>
-                            <a href= "#" onclick = "location.href='ssmi.php'" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
-                        </li>
-                        <li>
-                            <a href= "#" onclick = "location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
+                            <a href="five2.php" data-toggle="tooltip" title="Office Supplies w/ ICS ( per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -202,49 +186,49 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='raos.php'"><strong>RAOS</strong></a>
+                            <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='ssmi.php'"><strong>SSMI</strong></a>
+                            <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='stockcard.php'"><strong>STOCK CARD</strong></a>
+                            <a href="stockcard.php"><strong>STOCK CARD</strong></a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">settings</i>
                         <span>Monitor</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='reorder.php'">
+                            <a href="reorder.php">
                                 <i class="material-icons">error</i>
                                 <span>Re-order</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='toexpire.php'">
+                            <a href="toexpire.php">
                                 <i class="material-icons">assignment</i>
                                 <span>To-Expire</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='logs.php'">
+                            <a href="logs.php">
                                 <i class="material-icons">view_list</i>
                                 <span>Account Logs</span>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href= "#" onclick = "location.href='history.php'">
+                        <li>
+                            <a href="history.php">
                                 <i class="material-icons">view_list</i>
                                 <span>History</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='updatehistory.php'">
+                            <a href="updatehistory.php">
                                 <i class="material-icons">view_list</i>
                                 <span>Update History</span>
                             </a>
@@ -258,19 +242,19 @@ if ($_SESSION['type'] == "user") {
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href= "#" onclick = "location.href='accounts.php'">
+                            <a href="accounts.php">
                                 <i class="material-icons">people</i>
                                 <span>Accounts</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='supplier.php'">
+                            <a href="supplier.php">
                                 <i class="material-icons">local_shipping</i>
                                 <span>Suppliers</span>
                             </a>
                         </li>
                         <li>
-                            <a href= "#" onclick = "location.href='offices.php'">
+                            <a href="offices.php">
                                 <i class="material-icons">location_city</i>
                                 <span>Offices</span>
                             </a>
@@ -290,7 +274,7 @@ if ($_SESSION['type'] == "user") {
 
 <!-- Modal for Add Issuance -->
 <div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
-    <div class="modal-dialog" style="width:70%;">
+    <div class="modal-dialog" style="width:90%;">
         <div class="modal-content">
         </div>
     </div>
@@ -298,23 +282,15 @@ if ($_SESSION['type'] == "user") {
 
 <!-- Modal for Edit Issuance -->
 <div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
-    <div class="modal-dialog" style="width:80%;">
+    <div class="modal-dialog" style="width:100%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Delete PPMP -->
-<div class="modal col-lg-12" id="del_ppmp" data-backdrop="static">
+<!-- Modal for Delete Issuance -->
+<div class="modal col-lg-12" id="deleteIssuance" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
-        <div class="modal-content">
-        </div>
-    </div>
-</div>
-
-<!-- Modal for View PPMP -->
-<div class="modal col-lg-12" id="viewPPMP" data-backdrop="static">
-    <div class="modal-dialog" style="width:70%;">
         <div class="modal-content">
         </div>
     </div>
@@ -328,38 +304,46 @@ if ($_SESSION['type'] == "user") {
             <div class="col-lg-12 ">
                 <div class="card">
                     <div class="header">
-                        <h2 class="text-center">HISTORY</h2>
+                        <h2 class="text-center">DISPOSAL</h2>
                     </div>
                     <div class="body">
                         <div class="body table-responsive">
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Activity</th>
-                                    <th>Date</th>
-                                    <th>Type</th>
                                     <th>Item</th>
+                                    <th>Category No</th>
+                                    <th>Unit</th>
+                                    <th>Date</th>
+                                    <th>Quantity</th>
+                                    <th>Remarks</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
-                                $sql = "SELECT * FROM history JOIN accounts ON history.accountID = accounts.accountID JOIN items
-                                ON history.itemID = items.itemID";
+
+                                $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
+
+                                $sql = "SELECT * FROM disposal JOIN items ON disposal.itemID = items.itemID JOIN units ON items.unitID = units.unitID";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
                                     while ($row = $res->fetch_assoc()) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row['userName'] . "</td>";
-                                        echo "<td>" . $row['activity'] . "</td>";
-                                        echo "<td>" . $row['actDate'] . "</td>";
-                                        echo "<td>" . $row['type'] . "</td>";
-                                        echo "<td>" . $row['description'] . "</td>";
+                                        echo "<tr>"
+                                            . "<td>" . $row['description'] . "</td>"
+                                            . "<td>" . $row['categoryNo'] . "</td>"
+                                            . "<td>" . $row['unitName'] . "</td>"
+                                            . "<td>" . $row['date'] . "</td>"
+                                            . "<td>" . $row['quantity'] . "</td>"
+                                            . "<td>" . $row['remarks'] . "</td>"
+
+                                            . "<td>" . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['disposalID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
+
                                 }
 
                                 ?>
@@ -367,6 +351,8 @@ if ($_SESSION['type'] == "user") {
                             </table>
 
 
+                            <a href="../php/admin/modal/addDisposal.php" class="btn btn-primary pull-right"
+                               data-toggle="modal" data-target="#editIssuance">Add Disposal</a>
                         </div>
                     </div>
                 </div>

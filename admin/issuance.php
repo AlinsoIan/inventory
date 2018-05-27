@@ -133,10 +133,21 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
                 <li class="active">
-                    <a  href= "#" onclick = "location.href='issuance.php'">
-                        <i class="material-icons">store_mall_directory</i>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                         <span>Issuance</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='pendingIssuance.php'" ><strong>Pending Issuance</strong></a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a  href= "#" onclick = "location.href='returns.php'">
@@ -303,7 +314,6 @@ if ($_SESSION['type'] == "user") {
                                     <th>Division</th>
                                     <th>Office</th>
                                     <th>Date/Time</th>
-                                    <th>Issuance Type</th>
                                     <th>Issuer</th>
                                     <th></th>
                                 </tr>
@@ -315,7 +325,7 @@ if ($_SESSION['type'] == "user") {
 
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
 
-                                $sql = "SELECT issuanceID,division,offices.officeName,issuanceDate,issuanceTime,type,accounts.username AS a, 
+                                $sql = "SELECT issuanceID,division,offices.officeName,issuanceDate,issuanceTime,accounts.username AS a, 
                                                 issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
                                                 JOIN accounts ON issuance.accountID = accounts.accountID";
                                 $res = $conn->query($sql);
@@ -327,7 +337,6 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['division'] . "</td>"
                                             . "<td>" . $row['officeName'] . "</td>"
                                             . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] . "</td>"
-                                            . "<td>" . $row['type'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
 
                                             . "<td>" . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";

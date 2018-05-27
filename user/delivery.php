@@ -112,10 +112,18 @@ if ($_SESSION['type'] != "user") {
                 </li>
 
                 <li>
-                    <a href="#" onclick="location.href='issuance.php'">
-                        <i class="material-icons">store_mall_directory</i>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                         <span>Issuance</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" onclick="location.href='returns.php'">
@@ -152,7 +160,6 @@ if ($_SESSION['type'] != "user") {
                         </li>
                     </ul>
                 </li>
-
 
 
         </div>
@@ -235,7 +242,7 @@ if ($_SESSION['type'] != "user") {
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
+                                    <th data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
                                     <th>User</th>
                                     <th>Delivery Date</th>
                                     <th>PO Date</th>
@@ -277,7 +284,7 @@ if ($_SESSION['type'] != "user") {
                             </table>
 
 
-                            <a href= "../php/user/modal/addDelivery.php" class="btn btn-primary pull-right"
+                            <a href="../php/user/modal/addDelivery.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
                         </div>
                     </div>

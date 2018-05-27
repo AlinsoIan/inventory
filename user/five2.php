@@ -103,10 +103,18 @@ if (!isset($_SESSION['username'])) {
                 </li>
 
                 <li>
-                    <a href="#" onclick="location.href='issuance.php'">
-                        <i class="material-icons">store_mall_directory</i>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                         <span>Issuance</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" onclick="location.href='returns.php'">
