@@ -69,8 +69,19 @@ if($res->num_rows > 0 && $r[4] == 'active'){
          ";
     }
 
-}else{
-    $m = "Wrong Credentials! or account is Disabled";
+}elseif ($res->num_rows > 0 && $r[4] == 'inactive'){
+    $m = "Account is Disabled";
+
+    echo "
+            <script type = 'text/javascript'>
+                alert('$m');
+                window.location.replace('../index.php');
+            </script>
+         ";
+}
+
+else{
+    $m = "Wrong Credentials!";
 
     echo "
             <script type = 'text/javascript'>
