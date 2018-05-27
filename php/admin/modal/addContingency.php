@@ -4,7 +4,7 @@
         <div class="modal-body">
             <div class="header">
                 <h2 align="center">
-                    PPMP
+                    CONTINGENCY
                 </h2>
             </div>
             <form action="../php/admin/addContingency.php" method="post">
