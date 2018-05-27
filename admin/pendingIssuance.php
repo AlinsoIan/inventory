@@ -314,7 +314,6 @@ if ($_SESSION['type'] == "user") {
                                     <th>Division</th>
                                     <th>Office</th>
                                     <th>Date/Time</th>
-                                    <th>Issuance Type</th>
                                     <th>Issuer</th>
                                     <th></th>
                                 </tr>
@@ -327,9 +326,9 @@ if ($_SESSION['type'] == "user") {
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
                                 $user = $_SESSION['user'];
 
-                                $sql = "SELECT issuanceID,division,offices.officeName,issuanceDate,issuanceTime,type,accounts.username AS a, 
+                                $sql = "SELECT issuanceID,division,offices.officeName,issuanceDate,issuanceTime,accounts.username AS a, 
                                                 issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
-                                                JOIN accounts ON issuance.accountID = accounts.accountID WHERE issuance.accountID != '$user'";
+                                                JOIN accounts ON issuance.accountID = accounts.accountID WHERE issuance.accountID != '$user' AND issuance.status = 'pending'";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -339,10 +338,9 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['division'] . "</td>"
                                             . "<td>" . $row['officeName'] . "</td>"
                                             . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] . "</td>"
-                                            . "<td>" . $row['type'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
 
-                                            . "<td>" . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>". "<a href=" . '../php/admin/modal/approveIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#deleteIssuance'>add</a>" . " " . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 

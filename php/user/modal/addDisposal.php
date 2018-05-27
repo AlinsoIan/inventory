@@ -1,8 +1,5 @@
 <!-- Multi Column -->
-<?php
 
-    session_start();
-?>
 <div class="row clearfix">
 
     <div class="col-lg-12">
@@ -14,7 +11,7 @@
                         DISPOSAL
                     </h2>
                 </div>
-                <form action="../php/admin/addDisposal.php" method="post">
+                <form action="../php/user/addDisposal.php" method="post">
 
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
 
@@ -32,7 +29,6 @@
 
                             </div>
                         </div>
-
                     </div>
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
 
@@ -80,7 +76,7 @@
 
                     <div class="modal-footer text-center">
                         <button type="submit"  class="btn btn-success text-center" value="submit">ADD</button>
-                        <a href="../admin/disposal.php" class="btn btn-danger pull-right">CANCEL</a>
+                        <a href="../user/disposal.php" class="btn btn-danger pull-right">CANCEL</a>
                     </div>
 
             </div>

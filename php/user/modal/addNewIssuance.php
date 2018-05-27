@@ -14,14 +14,7 @@
                 <form action="../php/user/addNewIssue.php" method="post">
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-3 ">
-                                <p class="text-center">Type of Issuance</p>
-                                <select name="type" class="form-control pull-left">
-                                    <option>Office Supplies</option>
-                                    <option>Disposal</option>
-                                    <option>Expired</option>
-                                </select>
-                            </div>
+
                             <div class="col-md-3 pull-right">
                                 <p class="text-center">Name of Issuer</p>
                                 <?php

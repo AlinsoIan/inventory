@@ -21,8 +21,8 @@ $sql = "SELECT itemID FROM items WHERE description LIKE '%$i%'";
 $tt = $conn->query($sql);
 $ttt = $tt->fetch_row();
 
-$sql = "INSERT INTO disposal(itemID,date,quantity,remarks,accountID) 
-        VALUES ('$ttt[0]','$d','$q','$r','$userID')";
+$sql = "INSERT INTO disposal(itemID,date,quantity,remarks,status) 
+        VALUES ('$ttt[0]','$d','$q','$r','pending')";
 
 
 if($conn->query($sql)){
@@ -50,11 +50,11 @@ if($conn->query($sql)){
         $conn->query($sql);
 
         $sql = "INSERT INTO history(accountID,iss uanceID,activity,actDate,type,itemID)
-              VALUES ('$userID','$id','issued','$d','issuance','$ttt[0]')";
+              VALUES ('$userID','$id','disposed','$d','disposal','$ttt[0]')";
         $conn->query($sql);
 
 
-    header('Location:../../admin/disposal.php');
+    header('Location:../../user/disposal.php');
 
 
 }else{

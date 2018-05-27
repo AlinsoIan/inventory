@@ -100,13 +100,13 @@ if(!isset($_SESSION['username'])){
                             <span>Delivery</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Issuance</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="active">
                                 <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
                             </li>
                             <li>
@@ -203,7 +203,7 @@ if(!isset($_SESSION['username'])){
                                             <th>Division</th>
                                             <th>Office</th>
                                             <th>Date and Time</th>
-                                            <th>Issuance Type</th>
+                                            <th>Status</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -214,7 +214,7 @@ if(!isset($_SESSION['username'])){
                                         $a =$_SESSION['user'];
                                         $_SESSION['temp'] =  basename($_SERVER['PHP_SELF']);
 
-                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,type,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID 
+                                        $sql = "SELECT division,offices.officeName,issuanceDate,issuanceTime,status,issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID 
                                         WHERE issuance.accountID = '$a'";
                                         $res = $conn->query($sql);
 
@@ -224,7 +224,7 @@ if(!isset($_SESSION['username'])){
                                                     . "<td>" . $row['division'] ."</td>"
                                                     . "<td>" . $row['officeName'] ."</td>"
                                                     . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] ."</td>"
-                                                    . "<td>" . $row['type'] ."</td>"
+                                                    . "<td>" . $row['status'] ."</td>"
 
                                                     . "<td>" . "<a href=" .'../php/user/modal/viewIssuance.php?num=' .$row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" .'../php/user/modal/issueDelete.php?num=' .$row['idd'] . " " . " class='material-icons' data-toggle='modal' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                                 echo "</tr>";
