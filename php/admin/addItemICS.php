@@ -9,14 +9,12 @@ require '../db.php';
 session_start();
 $temp = $_SESSION['temp'];
 
-$supplier = $_POST['supplier'];
 $acct = $_POST['acct'];
 $cat = $_SESSION['cat'];
 $pgso = $_POST['pgso'];
 $des = $_POST['description'];
 $unit = $_POST['unit'];
 $cost = $_POST['unitCost'];
-$brand = $_POST['brand'];
 $icsNo = $_POST['icsNo'];
 $quan = $_POST['sQuantity'];
 
@@ -31,8 +29,8 @@ if($res->num_rows > 0){
     $zz = $conn->query($z);
     $zzz = $zz->fetch_row();
 
-    $sql = "INSERT INTO items(categoryNo,acctSn,pgsoSn,description,unitID,unitCost,brand,supplierID,icsNo) 
-    VALUES('$cat','$acct','$pgso','$des','$zzz[0]','$cost','$brand','$r[0]','$icsNo')";
+    $sql = "INSERT INTO items(categoryNo,acctSn,pgsoSn,description,unitID,unitCost,icsNo) 
+    VALUES('$cat','$acct','$pgso','$des','$zzz[0]','$cost','$icsNo')";
 
     if($conn->query($sql)){
         $f = mysqli_insert_id($conn);

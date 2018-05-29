@@ -314,6 +314,7 @@ if ($_SESSION['type'] == "user") {
                                     <th>Delivery Date</th>
                                     <th>PO Date</th>
                                     <th>PO Number</th>
+                                    <th>RCPT Number</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -322,12 +323,9 @@ if ($_SESSION['type'] == "user") {
                                 <?php
                                 require '../php/db.php';
 
-                                $sql = "SELECT deliveryID,iarNo,username,deliveryDate,poDate,poNumber FROM delivery JOIN accounts ON delivery.accountID = accounts.accountID";
+                                $sql = "SELECT deliveryID,iarNo,username,deliveryDate,poDate,poNumber,rcptNo FROM delivery JOIN accounts ON delivery.accountID = accounts.accountID";
 
-                                /*$sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,accounts.username AS g,
-                                                delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
-                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN accounts ON delivery.accountID = accounts.accountID";
-                                */
+
 
                                 $res = $conn->query($sql);
 
@@ -339,6 +337,7 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['deliveryDate'] . "</td>"
                                             . "<td>" . $row['poDate'] . "</td>"
                                             . "<td>" . $row['poNumber'] . "</td>"
+                                            . "<td>" . $row['rcptNo'] . "</td>"
                                             . "<td>" . "<a href=" . '../php/admin/modal/viewDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#editIssuance'>visibility</a>" . "<a href=" . '../php/admin/modal/deleteDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }

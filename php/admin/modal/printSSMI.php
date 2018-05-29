@@ -62,7 +62,7 @@
                                 <th>RIS</th>
                                 <th>Category</th>
                                 <th>Item</th>
-                                <th>Quantity</th>
+                                <th>Quantity Issued</th>
 
                             </tr>
                             </thead>

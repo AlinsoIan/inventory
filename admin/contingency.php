@@ -133,6 +133,7 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
                 <li>
+                    f
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Issuance</span>

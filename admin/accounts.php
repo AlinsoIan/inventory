@@ -244,7 +244,7 @@ if ($_SESSION['type'] == "user") {
                             </a>
                         </li>
                         <li>
-                            <a href="#" onclick="locaiton.href='supplier.php'">
+                            <a href="#" onclick="location.href='supplier.php'">
                                 <i class="material-icons">local_shipping</i>
                                 <span>Suppliers</span>
                             </a>

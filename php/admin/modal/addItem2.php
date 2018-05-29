@@ -13,11 +13,9 @@
                     <th>PGSO-SN</th>
                     <th>DESCRIPTION</th>
                     <th>UNIT</th>
-                    <th>BRAND</th>
                     <th style="width: 10px">STARTING QUANTITY</th>
 
                     <th>UNIT COST</th>
-                    <th>SUPPLIER</th>
                     <th>EXPIRATION DATE</th>
                     </thead>
                     <tbody>
@@ -48,31 +46,12 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" required  name = "brand" style="width:120px;" class="form-control">
-                            </td>
-                            <td>
                                 <input type="number" required min="0"  style="width:100px;"   name = "sQuantity" class="form-control">
                             </td>
                             <td>
                                 <input type="number" required min="0" style="width:120px;"   name = "unitCost" class="form-control">
                             </td>
-                            <td>
-                                <select class="form-control" name="supplier" style="width: 150px">
-                                    <?php
-                                    require '../../db.php';
-                                    $sql = "SELECT supplierName FROM suppliers";
-                                    $res = $conn->query($sql);
 
-                                    if($res){
-                                        echo "<option>" . "---" . "</option>";
-                                        while ($row = $res->fetch_assoc()){
-                                            echo "<option>" . $row['supplierName'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>
-
-                            </td>
                             <td>
                                 <input type='date' placeholder="D/M/Y" required name = "expiration" class="form-control">
                             </td>

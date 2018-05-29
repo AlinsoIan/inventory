@@ -26,7 +26,12 @@
                     </div>
                     <div class="col-md-2 pull-right">
                         <label>PO NUMBER</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" name="pon" min="0" class="form-control"
+                        <input type="number" onkeypress="return isNumberKey(event)" name="pon" min="0" class="form-control"
+                               required>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <label>RCPT NUMBER</label>
+                        <input type="text"  name="rcpt" min="0" class="form-control"
                                required>
                     </div>
 
@@ -45,6 +50,7 @@
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
                         <th style="width: 15%;">Item</th>
+                        <th style="width: 15%;">UOM</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 8%">Quantity</th>
                         <th style="width: 8%">Unit Cost</th>
@@ -56,6 +62,21 @@
                         <tr>
                             <td>
                                 <input list="items" class="form-control" name="des[]">
+                            </td>
+                            <td>
+                                <select name = 'unit[]' class="form-control">
+                                <?php
+                                    require '../../db.php';
+
+                                    $sql = "SELECT unitID,unitName FROM units";
+                                    $res = $conn->query($sql);
+
+                                    while ($row = $res->fetch_assoc()){
+                                        echo "<option value='" . $row['unitID'] . "'>" . $row['unitName'] . "</option>";
+                                    }
+
+                                ?>
+                                </select>
                             </td>
                             <td>
                                 <select class="form-control" name="supplier[]">

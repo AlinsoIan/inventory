@@ -289,7 +289,6 @@ if ($_SESSION['type'] == "user") {
                                 <tr>
                                     <th>CATEGORY</th>
                                     <th>ITEM DESCRIPTION</th>
-                                    <th>BRAND</th>
                                     <th>QUANTITY</th>
                                     <th>EXPIRY DATE</th>
                                 </tr>
@@ -307,7 +306,6 @@ if ($_SESSION['type'] == "user") {
 
                                         echo "<td>" . $row['categoryNo'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
-                                        echo "<td>" . $row['brand'] . "</td>";
                                         echo "<td>" . $row['currentQuantity'] . "</td>";
                                         echo "<td>" . $row['expirationDate'] . "</td>";
                                         echo "</tr>";

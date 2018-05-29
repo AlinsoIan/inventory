@@ -12,6 +12,7 @@ $userID = $_SESSION['user'];
 $ti = date('h:i:a');
 
 $iar = $_POST['iarno'];
+$rcpt = $_POST['rcpt'];
 $item = $_POST['des'];
 $supp = $_POST['supplier'];
 $quan = $_POST['quantity'];
@@ -21,11 +22,18 @@ $poNum = $_POST['pon'];
 $rem = $_POST['remarks'];
 $cost = $_POST['unitCost'];
 $tCost = $_POST['totalCost'];
+$u = $_POST['unit'];
 
 
 $remz = [];
 foreach ($rem as $a) {
     array_push($remz, $a);
+
+}
+
+$uu = [];
+foreach ($u as $a) {
+    array_push($uu, $a);
 
 }
 
@@ -69,7 +77,7 @@ foreach ($supp as $a) {
 
 if (COUNT($item)) {
 
-    $sql = "INSERT INTO delivery(iarNo,deliveryDate,accountID,poDate,poNumber) VALUES ('$iar','$da','$userID','$da1','$poNum')";
+    $sql = "INSERT INTO delivery(iarNo,deliveryDate,accountID,poDate,poNumber,rcptNo) VALUES ('$iar','$da','$userID','$da1','$poNum','$rcpt')";
     if($conn->query($sql)){
         $id = mysqli_insert_id($conn);
 
@@ -87,8 +95,8 @@ if (COUNT($item)) {
                     $rr = $ress->fetch_row();
 
 
-                    $sql = "INSERT INTO deliveryItems(deliveryID,itemID,totalQuantity,unitCost,remarks,supplierID,totalCost)
-                      VALUES('$id','$r[0]','$quanz[$m]','$costz[$m]', '$remz[$m]','$rr[0]','$tCostz[$m]')";
+                    $sql = "INSERT INTO deliveryItems(deliveryID,itemID,totalQuantity,unitCost,remarks,supplierID,totalCost,unitID)
+                      VALUES('$id','$r[0]','$quanz[$m]','$costz[$m]', '$remz[$m]','$rr[0]','$tCostz[$m]','$uu[$m]')";
 
                     if($conn->query($sql)){
                         $v = mysqli_insert_id($conn);
@@ -154,6 +162,9 @@ if (COUNT($item)) {
 
 
         }
+    }else{
+        var_dump($conn->error);
+        die;
     }
 
 

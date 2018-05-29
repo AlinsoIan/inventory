@@ -9,29 +9,27 @@
             <form action="../php/admin/addItem.php" method="post">
                 <table class="table">
                     <thead class="text-primary">
-                    <th  data-toggle="tooltip" title="Accoutn Serial No.">ACCT-SN</th>
-                    <th  data-toggle="tooltip" title="PGSO Serial No.">PGSO-SN</th>
+                    <th  data-toggle="tooltip" title="Accoutn Serial No." style="width: 8%">ACCT-SN</th>
+                    <th  data-toggle="tooltip" title="PGSO Serial No." style="width: 8%">PGSO-SN</th>
                     <th>ITEM DESCRIPTION</th>
                     <th  data-toggle="tooltip" title="Unit of Measurement">UOM</th>
-                    <th>BRAND</th>
-                    <th style="width: 10px">STARTING QUANTITY</th>
+                    <th>STARTING QUANTITY</th>
                     <th>UNIT COST</th>
-                    <th>SUPPLIER</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <input name="acct"  class="form-control" type="text" required style="width:120px;">
+                                <input name="acct"  class="form-control" type="text" required >
 
                             </td>
                             <td>
-                                <input type="text " name = "pgso" class="form-control" required style="width:120px;">
+                                <input type="text " name = "pgso" class="form-control" required >
                             </td>
                             <td>
-                                <input type="text" required  name = "description" class="form-control" style="width:350px;">
+                                <input type="text" required  name = "description" class="form-control" >
                             </td>
                             <td>
-                                <select class="form-control" name="unit" style="width: 100px">
+                                <select class="form-control" name="unit" >
                                     <?php
                                     require '../../db.php';
                                     $sql = "SELECT unitName FROM units";
@@ -46,31 +44,12 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" name = "brand" style="width:150px;" class="form-control">
+                                <input type="number" min="0" required onkeypress="return isNumberKey(event)" min ="1"   id = "quantity"  name = "sQuantity" class="form-control">
                             </td>
                             <td>
-                                <input type="number" min="0" required onkeypress="return isNumberKey(event)" min ="1"  style="width:100px;" id = "quantity"  name = "sQuantity" class="form-control">
+                                <input type="number" min="0" onkeypress="return isNumberKey(event)"   id = "quantity2"  name = "unitCost" class="form-control" required>
                             </td>
-                            <td>
-                                <input type="number" min="0" onkeypress="return isNumberKey(event)"  style="width:120px;" id = "quantity2"  name = "unitCost" class="form-control" required>
-                            </td>
-                            <td>
-                                <select class="form-control" name="supplier" style="width:150px">
-                                <?php
-                                    require '../../db.php';
-                                    $sql = "SELECT supplierName FROM suppliers";
-                                    $res = $conn->query($sql);
 
-                                    if($res){
-                                        echo "<option>" . "---" . "</option>";
-                                        while ($row = $res->fetch_assoc()){
-                                            echo "<option>" . $row['supplierName'] . "</option>";
-                                        }
-                                    }
-                                ?>
-                                </select>
-
-                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -72,11 +72,24 @@ require '../../db.php';
                                value='$r[0]' class='form-control' disabled>";
                         ?>
                     </div>
+                    <div class="col-md-2 pull-right">
+                        <label>RCPT NUMBER</label>
+                        <?php
+                        $n = $_GET['num'];
+                        $sql = "SELECT rcptNo FROM delivery WHERE deliveryID = '$n'";
+                        $res = $conn->query($sql);
+                        $r = $res->fetch_row();
+
+                        echo "<input type='text' onkeypress='return isNumberKey(event)' name='iarno' min='0'
+                               value='$r[0]' class='form-control' disabled>";
+                        ?>
+                    </div>
 
 
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
                         <th style="width: 15%;">Item</th>
+                        <th style="width: 15%;">UOM</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 8%">Quantity</th>
                         <th style="width: 8%">Unit Cost</th>
@@ -90,12 +103,13 @@ require '../../db.php';
                                 $n = $_GET['num'];
 
                                 $sql = "SELECT * FROM deliveryItems JOIN items ON deliveryItems.itemID = items.itemID
-                                  JOIN suppliers ON deliveryItems.supplierID = suppliers.supplierID WHERE deliveryID = '$n'";
+                                  JOIN suppliers ON deliveryItems.supplierID = suppliers.supplierID JOIN units ON deliveryItems.unitID = units.unitID WHERE deliveryID = '$n'";
                                 $res = $conn->query($sql);
                                 if($res){
                                     while ($row = $res->fetch_assoc()){
                                         echo "<tr>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['description'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['unitName'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['supplierName'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['totalQuantity'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['unitCost'] . "'></td>"

@@ -18,10 +18,8 @@ session_start();
                         <th data-toggle="tooltip" title="PGSO Serial No.">PGSO-SN</th>
                         <th>ITEM DESCRIPTION</th>
                         <th data-toggle="tooltip" title="Unit of Measurement">UOM</th>
-                        <th>BRAND</th>
                         <th style="width: 10px">STARTING QUANTITY</th>
                         <th>UNIT COST</th>
-                        <th>SUPPLIER</th>
                         <th>ICS NO</th>
                         </thead>
                         <tbody>
@@ -53,9 +51,6 @@ session_start();
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="text" name="brand" style="width:150px;" class="form-control">
-                                </td>
-                                <td>
                                     <input type="number" min="0" required onkeypress="return isNumberKey(event)" min="1"
                                            style="width:100px;" id="quantity" name="sQuantity" class="form-control">
                                 </td>
@@ -63,23 +58,7 @@ session_start();
                                     <input type="number" min="0" onkeypress="return isNumberKey(event)" style="width:120px;"
                                            id="quantity2" name="unitCost" class="form-control" required>
                                 </td>
-                                <td>
-                                    <select class="form-control" name="supplier" style="width:150px">
-                                        <?php
-                                        require '../../db.php';
-                                        $sql = "SELECT supplierName FROM suppliers";
-                                        $res = $conn->query($sql);
 
-                                        if ($res) {
-                                            echo "<option>" . "---" . "</option>";
-                                            while ($row = $res->fetch_assoc()) {
-                                                echo "<option>" . $row['supplierName'] . "</option>";
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-
-                                </td>
                                 <td>
                                     <input type="number" required name="icsNo" class="form-control" style="width:100px;">
                                 </td>

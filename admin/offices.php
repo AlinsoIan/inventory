@@ -129,9 +129,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
                         </li>
-                        <li>
-                            <a href= "#" onclick = "location.href='pendingIssuance.php'" ><strong>Pending Issuance</strong></a>
-                        </li>
+
                     </ul>
                 </li>
                 <li>
@@ -145,6 +143,9 @@ if ($_SESSION['type'] == "user") {
                         </li>
                         <li>
                             <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
+                        </li>
+                        <li>
+                            <a href= "#" onclick = "location.href='pendingIssuance.php'" ><strong>Pending Issuance</strong></a>
                         </li>
                     </ul>
                 </li>

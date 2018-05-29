@@ -73,7 +73,7 @@
                             $a = $_GET['num'];
 
                             $sql = "SELECT recordDate,risNo,iarNo,startingQuantity,deliveryQuantity,returnsQuantity,issuanceQuantity,
-                            currentQuantity,status,supplierName,officeName FROM itemrecords JOIN suppliers ON itemrecords.supplierID = suppliers.supplierID
+                            currentQuantity,supplierName,officeName FROM itemrecords JOIN suppliers ON itemrecords.supplierID = suppliers.supplierID
                              JOIN offices ON itemrecords.officeID = offices.officeID WHERE itemID = '$a'";
                             $res = $conn->query($sql);
                             if ($res) {

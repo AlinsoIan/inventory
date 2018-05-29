@@ -340,7 +340,7 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['issuanceDate'] . $row['issuanceTime'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
 
-                                            . "<td>". "<a href=" . '../php/admin/modal/approveIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#deleteIssuance'>add</a>" . " " . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>". "<a href=" . '../php/admin/modal/approveIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#deleteIssuance'>check</a>" . " " . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 
@@ -351,8 +351,6 @@ if ($_SESSION['type'] == "user") {
                             </table>
 
 
-                            <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right"
-                               data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                         </div>
                     </div>
                 </div>

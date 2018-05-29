@@ -21,7 +21,17 @@ session_start();
                     <div class="col-md-12">
                         <div class="body">
                             <div class="row">
-
+                                <div class="col-md-3">
+                                    <p class="text-center">Issuance Type</p>
+                                    <?php
+                                    require '../../db.php';;
+                                    $id = $_GET['num'];
+                                    $sql = "SELECT type FROM issuance WHERE issuanceID = '$id'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+                                    echo "<input disabled type='text'  placeholder='" . $r[0] . "' value = '" . $r[0] . "' name = 'type' class='form-control pull-left'>";
+                                    ?>
+                                </div>
                                 <div class="col-md-3 pull-right">
                                     <p class="text-center">Name of Issuer</p>
                                     <?php

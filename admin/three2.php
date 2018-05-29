@@ -318,9 +318,7 @@ if ($_SESSION['type'] == "user") {
                                     <th style="width: 20%">Description</th>
                                     <th>Unit</th>
                                     <th>Quantity</th>
-                                    <th>Brand</th>
                                     <th>Re-order Point</th>
-                                    <th>Supplier</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -332,9 +330,9 @@ if ($_SESSION['type'] == "user") {
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
                                 $_SESSION['cat'] = "03";
 
-                                $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,brand,inventory.reorderPoint AS c 
-                                                  ,suppliers.supplierName AS d
-                                         FROM items JOIN suppliers ON items.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '3'";
+                                $sql = "SELECT items.itemID AS idd,description,units.unitName AS a,currentQuantity,inventory.reorderPoint AS c 
+                                                  
+                                         FROM items  JOIN units ON items.unitID = units.unitID JOIN inventory ON items.itemID = inventory.itemID  WHERE categoryNo = '3'";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -343,9 +341,7 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['description'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
                                             . "<td>" . $row['currentQuantity'] . "</td>"
-                                            . "<td>" . $row['brand'] . "</td>"
                                             . "<td>" . $row['c'] . "</td>"
-                                            . "<td>" . $row['d'] . "</td>"
 
                                             ."<td>" . "<a href=" . '../php/admin/modal/editItems.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Edit'  data-target='#editItems'>mode_edit</a>" . "    " . "<a href=" . '../php/admin/modal/itemDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteItem'>delete</a>" . "    " . "<a href=" . '../php/admin/modal/viewItemInfo.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='More Info' data-target='#itemInfo'>info_outline</a>" . "</td>";
                                         echo "</tr>";

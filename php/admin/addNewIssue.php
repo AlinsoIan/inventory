@@ -22,10 +22,11 @@ $rzx = $res->fetch_row();
 $sai = $_POST['sai'];
 $d = $_POST['d'];
 $s = $_SESSION['user'];
+$ty = $_POST['type'];
 
 
-$sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,status,accountID) 
-        VALUES ('$division','$rzx[0]','$ris','$sai','$d','$ti','approved','$s')";
+$sql = "INSERT INTO issuance(division,officeID,risNo,saiNo,issuanceDate,issuanceTime,status,accountID,type) 
+        VALUES ('$division','$rzx[0]','$ris','$sai','$d','$ti','approved','$s','$ty')";
 
 
 
