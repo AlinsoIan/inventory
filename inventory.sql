@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 27, 2018 at 11:21 PM
+-- Generation Time: May 29, 2018 at 12:58 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -38,55 +38,7 @@ CREATE TABLE IF NOT EXISTS `accountlogs` (
   `logoutTime` varchar(10) DEFAULT NULL,
   `loginDate` date NOT NULL,
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB AUTO_INCREMENT=230 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `accountlogs`
---
-
-INSERT INTO `accountlogs` (`logID`, `accountID`, `loginTime`, `logoutTime`, `loginDate`) VALUES
-(184, 7, '01:43:pm', '01:53:pm', '2018-04-06'),
-(185, 3, '01:43:pm', '01:50:pm', '2018-04-06'),
-(186, 4, '01:43:pm', '01:54:pm', '2018-04-06'),
-(187, 3, '01:50:pm', '01:53:pm', '2018-04-06'),
-(188, 3, '01:53:pm', '01:53:pm', '2018-04-06'),
-(189, 7, '01:53:pm', '02:02:pm', '2018-04-06'),
-(190, 3, '01:53:pm', '02:02:pm', '2018-04-06'),
-(191, 3, '01:54:pm', '01:54:pm', '2018-04-06'),
-(193, 5, '02:03:pm', '02:05:pm', '2018-04-06'),
-(194, 8, '02:03:pm', '02:05:pm', '2018-04-06'),
-(195, 7, '02:05:pm', '02:05:pm', '2018-04-06'),
-(196, 6, '02:06:pm', '02:09:pm', '2018-04-06'),
-(197, 9, '02:06:pm', '02:09:pm', '2018-04-06'),
-(198, 4, '02:09:pm', '02:18:pm', '2018-04-06'),
-(199, 4, '02:09:pm', '02:16:pm', '2018-04-06'),
-(202, 4, '03:52:pm', '03:58:pm', '2018-04-06'),
-(203, 7, '03:52:pm', '03:57:pm', '2018-04-06'),
-(204, 3, '03:52:pm', '03:57:pm', '2018-04-06'),
-(206, 4, '10:31:pm', '12:24:am', '2018-04-06'),
-(207, 4, '12:26:am', NULL, '2018-04-07'),
-(208, 3, '04:56:am', '04:57:am', '2018-04-07'),
-(209, 4, '04:58:am', NULL, '2018-04-07'),
-(210, 3, '05:19:am', NULL, '2018-04-07'),
-(211, 3, '06:31:am', NULL, '2018-05-19'),
-(212, 4, '06:56:am', '06:57:am', '2018-05-19'),
-(213, 4, '07:05:am', NULL, '2018-05-19'),
-(214, 4, '06:09:am', NULL, '2018-05-20'),
-(215, 3, '07:54:am', NULL, '2018-05-20'),
-(216, 3, '07:57:am', NULL, '2018-05-20'),
-(217, 4, '03:09:pm', NULL, '2018-05-25'),
-(218, 4, '07:45:pm', NULL, '2018-05-25'),
-(219, 4, '09:43:am', NULL, '2018-05-26'),
-(220, 3, '05:43:am', NULL, '2018-05-27'),
-(221, 3, '05:48:am', NULL, '2018-05-27'),
-(222, 3, '05:48:am', NULL, '2018-05-27'),
-(223, 3, '05:50:am', NULL, '2018-05-27'),
-(224, 3, '05:53:am', '09:07:am', '2018-05-27'),
-(225, 3, '10:17:pm', NULL, '2018-05-27'),
-(226, 3, '10:52:pm', NULL, '2018-05-27'),
-(227, 3, '10:57:pm', NULL, '2018-05-27'),
-(228, 3, '11:01:pm', NULL, '2018-05-27'),
-(229, 3, '11:02:pm', NULL, '2018-05-27');
+) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -122,61 +74,6 @@ INSERT INTO `accounts` (`accountID`, `firstName`, `lastName`, `userName`, `passw
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
---
-
-DROP TABLE IF EXISTS `appointment`;
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `appt_id` int(45) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `sched_id` int(11) NOT NULL,
-  `appointment_date` date NOT NULL,
-  `status` varchar(45) NOT NULL DEFAULT 'ongoing',
-  PRIMARY KEY (`appt_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `appointment`
---
-
-INSERT INTO `appointment` (`appt_id`, `user_id`, `sched_id`, `appointment_date`, `status`) VALUES
-(1, 1, 1, '2018-05-16', 'ongoing');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company`
---
-
-DROP TABLE IF EXISTS `company`;
-CREATE TABLE IF NOT EXISTS `company` (
-  `company_id` int(45) NOT NULL AUTO_INCREMENT,
-  `contact_person` varchar(45) NOT NULL,
-  `address` varchar(80) NOT NULL,
-  `company_name` varchar(250) NOT NULL,
-  `suffix` varchar(10) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `tel_num` varchar(45) NOT NULL,
-  `mobile_num` varchar(45) NOT NULL,
-  `alt_number` varchar(250) NOT NULL,
-  `about` text,
-  `status` varchar(250) NOT NULL DEFAULT 'registered',
-  `image_url` varchar(250) NOT NULL,
-  PRIMARY KEY (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `company`
---
-
-INSERT INTO `company` (`company_id`, `contact_person`, `address`, `company_name`, `suffix`, `email`, `tel_num`, `mobile_num`, `alt_number`, `about`, `status`, `image_url`) VALUES
-(1, 'test test test', '#1,ortigas  Manila,Pasig City', 'Trend Micro', 'Mr', 'test@gmail.com', '06545646846', '06453468', '09847689', 'Trend Micro Inc. is a Japanese multinational cyber security & defense company founded in Los Angeles, California with global headquarters in Tokyo, Japan, a R&D center in Taipei, Taiwan, and regional headquarters in Asia, Europe and the Americas.', 'registered', 'Trend-Micro-Logo.png'),
-(2, '  ', '#1200,MSE Building, Ayala Ave. Metro Manila,Makati', 'Accenture', 'Mr', '', '(02) 841 0111', '', '', 'Accenture solves our clients\' toughest challenges by providing unmatched services in strategy, consulting, digital, technology and operations. We partner with more than three-quarters of the Fortune Global 500, driving innovation to improve the way the world works and lives.', 'registered', 'accenture.png'),
-(3, '  ', '#,Nokia-Manila Technology Center? Building I UP Ayala Land Technohub? Commonweal', 'Nokia', 'Mr', 'nokia@gmail.com', '', '+63 28-577-000?', '', 'Nokia is a global leader in innovations such as mobile networks, digital health and phones. See how we create technology to connect.', 'registered', 'nokia.png');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `delivery`
 --
 
@@ -188,16 +85,9 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `accountID` int(45) NOT NULL,
   `poDate` date DEFAULT NULL,
   `poNumber` int(45) DEFAULT NULL,
+  `rcptNo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`deliveryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `delivery`
---
-
-INSERT INTO `delivery` (`deliveryID`, `iarNo`, `deliveryDate`, `accountID`, `poDate`, `poNumber`) VALUES
-(98, 123, '2018-05-31', 4, '2018-05-23', 123),
-(99, 123, '2018-05-31', 3, '2018-05-24', 123123);
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -215,16 +105,10 @@ CREATE TABLE IF NOT EXISTS `deliveryitems` (
   `supplierID` int(45) NOT NULL,
   `deliveryID` int(45) NOT NULL,
   `totalCost` double DEFAULT NULL,
+  `unitID` int(45) DEFAULT NULL,
+  `brand` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`deliveryItemsID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `deliveryitems`
---
-
-INSERT INTO `deliveryitems` (`deliveryItemsID`, `itemID`, `totalQuantity`, `unitCost`, `remarks`, `supplierID`, `deliveryID`, `totalCost`) VALUES
-(15, 67, 123, 123, 'asdd', 10, 98, 123),
-(16, 67, 123, 123, 'asdasd', 10, 99, 123);
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -242,14 +126,7 @@ CREATE TABLE IF NOT EXISTS `disposal` (
   `status` varchar(45) DEFAULT NULL,
   `accountID` int(45) NOT NULL,
   PRIMARY KEY (`disposalID`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `disposal`
---
-
-INSERT INTO `disposal` (`disposalID`, `itemID`, `date`, `quantity`, `remarks`, `status`, `accountID`) VALUES
-(7, 161, '2018-05-27', 12, 'asd', NULL, 4);
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -269,81 +146,7 @@ CREATE TABLE IF NOT EXISTS `history` (
   `type` varchar(45) NOT NULL,
   `itemID` int(45) DEFAULT NULL,
   PRIMARY KEY (`historyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `history`
---
-
-INSERT INTO `history` (`historyID`, `accountID`, `issuanceID`, `deliveryID`, `returnID`, `activity`, `actDate`, `type`, `itemID`) VALUES
-(120, 4, NULL, NULL, 56, 'Returns Deleted', '2018-05-19', 'Returns', NULL),
-(121, 4, NULL, NULL, 57, 'accepted return', '2018-05-19', 'returns', 61),
-(122, 4, 67, NULL, NULL, 'Issuance Deleted', '2018-05-20', 'Issuance', NULL),
-(123, 4, 68, NULL, NULL, 'issued', '2018-05-19', 'issuance', 164),
-(124, 4, 68, NULL, NULL, 'issued', '2018-05-19', 'issuance', 62),
-(125, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 164),
-(126, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 162),
-(127, 3, 69, NULL, NULL, 'issued', '2018-05-19', 'issuance', 148),
-(128, 4, NULL, 74, NULL, 'delivered', '2018-05-10', 'Delivery', 63),
-(129, 4, NULL, 72, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 61),
-(130, 4, NULL, 73, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 62),
-(131, 4, NULL, 74, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 63),
-(132, 4, NULL, 75, NULL, 'delivered', '2018-05-11', 'Delivery', 66),
-(133, 4, NULL, 76, NULL, 'delivered', '2018-05-11', 'Delivery', 163),
-(134, 4, NULL, 75, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(135, 4, NULL, 76, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(136, 4, NULL, 77, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(137, 4, NULL, 78, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(138, 4, NULL, 79, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(139, 4, NULL, 80, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(140, 4, NULL, 82, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(141, 4, NULL, 81, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(142, 4, NULL, 1, NULL, 'delivered', '2018-05-28', 'Delivery', 68),
-(143, 4, NULL, 88, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 68),
-(144, 4, NULL, 87, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(145, 4, NULL, 86, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(146, 4, NULL, 84, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(147, 4, NULL, 83, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(148, 4, NULL, 85, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 0),
-(149, 4, NULL, 2, NULL, 'delivered', '2018-05-27', 'Delivery', 72),
-(150, 4, NULL, 89, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 72),
-(151, 4, NULL, 3, NULL, 'delivered', '2018-05-21', 'Delivery', 65),
-(152, 4, NULL, 4, NULL, 'delivered', '2018-05-21', 'Delivery', 70),
-(153, 4, NULL, 90, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 65),
-(154, 4, NULL, 5, NULL, 'delivered', '2018-05-28', 'Delivery', 70),
-(155, 4, NULL, 91, NULL, 'Delivery Deleted', '2018-05-25', 'Delivery', 70),
-(156, 4, NULL, 6, NULL, 'delivered', '2018-05-27', 'Delivery', 67),
-(157, 4, NULL, 7, NULL, 'delivered', '2018-05-27', 'Delivery', 71),
-(158, 4, NULL, 92, NULL, 'Delivery Deleted', '2018-05-26', 'Delivery', 67),
-(159, 4, NULL, 8, NULL, 'delivered', '2018-05-22', 'Delivery', 64),
-(160, 4, NULL, 9, NULL, 'delivered', '2018-05-22', 'Delivery', 68),
-(161, 3, NULL, 10, NULL, 'delivered', '2018-05-28', 'Delivery', 65),
-(162, 3, NULL, 11, NULL, 'delivered', '2018-05-28', 'Delivery', 68),
-(163, 3, NULL, 94, NULL, 'Delivery Deleted', '2018-05-27', 'Delivery', 65),
-(164, 4, NULL, 12, NULL, 'delivered', '2018-05-30', 'Delivery', 80),
-(165, 4, NULL, 93, NULL, 'Delivery Deleted', '2018-05-27', 'Delivery', 64),
-(166, 4, NULL, 95, NULL, 'Delivery Deleted', '2018-05-27', 'Delivery', 80),
-(167, 4, NULL, 13, NULL, 'delivered', '2018-05-30', 'Delivery', 67),
-(168, 4, NULL, 96, NULL, 'Delivery Deleted', '2018-05-27', 'Delivery', 67),
-(169, 4, NULL, 97, NULL, 'Delivery Deleted', '2018-05-27', 'Delivery', 67),
-(170, 4, NULL, 15, NULL, 'delivered', '2018-05-31', 'Delivery', 67),
-(171, 4, 69, NULL, NULL, 'Issuance Deleted', '2018-05-27', 'Issuance', 148),
-(172, 4, 68, NULL, NULL, 'Issuance Deleted', '2018-05-27', 'Issuance', 160),
-(173, 4, 70, NULL, NULL, 'issued', '2018-05-26', 'issuance', 67),
-(174, 4, NULL, NULL, 57, 'Returns Deleted', '2018-05-27', 'Returns', 61),
-(175, 4, NULL, NULL, 58, 'accepted return', '2018-05-27', 'returns', 67),
-(176, 4, NULL, NULL, 58, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(177, 4, NULL, NULL, 59, 'accepted return', '2018-05-27', 'returns', 67),
-(178, 4, NULL, NULL, 59, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(179, 4, NULL, NULL, 60, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(180, 4, NULL, NULL, 61, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(181, 4, NULL, NULL, 62, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(182, 4, NULL, NULL, 63, 'Returns Deleted', '2018-05-27', 'Returns', 67),
-(183, 3, NULL, 16, NULL, 'delivered', '2018-05-31', 'Delivery', 67),
-(184, 3, 71, NULL, NULL, 'issued', '2018-05-26', 'issuance', 67),
-(185, 3, NULL, NULL, 64, 'accepted return', '2018-05-27', 'returns', 67),
-(186, 4, 72, NULL, NULL, 'issued', '2018-05-27', 'issuance', 161),
-(187, 3, 73, NULL, NULL, 'issued', '2018-05-27', 'issuance', 161);
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -360,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `inventory` (
   `startingQuantity` int(10) NOT NULL,
   `reorderPoint` int(11) NOT NULL,
   PRIMARY KEY (`inventoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inventory`
@@ -370,13 +173,13 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (45, 56, NULL, 1070, 1000, 200),
 (46, 57, NULL, 1000, 1000, 200),
 (47, 58, NULL, 1000, 1000, 200),
-(50, 61, NULL, 420, 400, 80),
-(51, 62, NULL, 18, 20, 4),
-(52, 63, NULL, 100, 100, 20),
+(50, 61, NULL, 332, 400, 80),
+(51, 62, NULL, 20, 20, 4),
+(52, 63, NULL, 115, 100, 20),
 (53, 64, NULL, 398, 400, 80),
 (54, 65, NULL, 500, 500, 100),
-(55, 66, NULL, 652, 100, 20),
-(56, 67, NULL, 243, 50, 10),
+(55, 66, NULL, 663, 100, 20),
+(56, 67, NULL, 15, 50, 10),
 (57, 68, NULL, 26, 2, 0),
 (58, 69, NULL, 437, 450, 90),
 (59, 70, NULL, 79, 20, 4),
@@ -385,7 +188,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (62, 73, NULL, 5, 5, 1),
 (63, 74, NULL, 55, 50, 10),
 (64, 75, NULL, 47, 50, 10),
-(65, 76, NULL, -6, 62, 12),
+(65, 76, NULL, 155, 62, 12),
 (66, 77, NULL, 62, 65, 13),
 (67, 78, NULL, 304, 300, 60),
 (68, 79, NULL, 17, 67, 13),
@@ -433,7 +236,7 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (114, 126, NULL, 304, 300, 60),
 (115, 127, NULL, 2, 2, 0),
 (116, 128, NULL, 10, 10, 2),
-(117, 129, NULL, -3, 2, 0),
+(117, 129, NULL, 122, 2, 0),
 (118, 130, NULL, 130, 100, 20),
 (119, 131, NULL, 117, 120, 24),
 (120, 132, NULL, 257, 250, 50),
@@ -459,20 +262,13 @@ INSERT INTO `inventory` (`inventoryID`, `itemID`, `physicalCount`, `currentQuant
 (143, 155, NULL, -37, 35, 7),
 (144, 156, NULL, 31, 6, 1),
 (145, 157, NULL, 6, 6, 1),
-(146, 158, NULL, 46, 46, 9),
-(147, 159, NULL, -26, 15, 3),
-(148, 160, NULL, -39, 50, 10),
-(149, 161, NULL, -52, 20, 4),
-(150, 162, NULL, -97, 102, 20),
+(146, 158, NULL, 34, 46, 9),
+(147, 159, NULL, 267, 15, 3),
+(148, 160, NULL, 166, 50, 10),
+(149, 161, NULL, 123, 20, 4),
+(150, 162, NULL, 155, 102, 20),
 (151, 163, NULL, 111, 49, 9),
-(152, 164, NULL, 87, 102, 20),
-(153, 165, NULL, 123, 123, 24),
-(155, 167, NULL, 12, 12, 2),
-(156, 168, NULL, 12, 12, 2),
-(157, 169, NULL, 123, 123, 24),
-(158, 169, NULL, 123, 123, 24),
-(159, 170, NULL, 123, 123, 24),
-(160, 171, NULL, 12, 12, 2);
+(152, 164, NULL, 87, 102, 20);
 
 -- --------------------------------------------------------
 
@@ -491,16 +287,9 @@ CREATE TABLE IF NOT EXISTS `issuance` (
   `issuanceTime` varchar(45) NOT NULL,
   `status` varchar(45) NOT NULL,
   `accountID` int(10) NOT NULL,
+  `type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`issuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `issuance`
---
-
-INSERT INTO `issuance` (`issuanceID`, `division`, `officeID`, `risNo`, `saiNo`, `issuanceDate`, `issuanceTime`, `status`, `accountID`) VALUES
-(72, 'asd', 61, '123', '123', '2018-05-27', '10:38:pm', 'approved', 4),
-(73, 'asd', 61, '123', '123', '2018-05-27', '10:53:pm', 'approved', 3);
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -517,17 +306,7 @@ CREATE TABLE IF NOT EXISTS `itemissuance` (
   `quantityIssued` int(5) NOT NULL,
   `remarks` varchar(150) NOT NULL,
   PRIMARY KEY (`itemIssuanceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `itemissuance`
---
-
-INSERT INTO `itemissuance` (`itemIssuanceID`, `issuanceID`, `itemID`, `quantityRequested`, `quantityIssued`, `remarks`) VALUES
-(144, 70, 67, 12, 12, 'asdasd'),
-(145, 71, 67, 12, 12, 'asdasd'),
-(146, 72, 161, 12, 12, 'asd'),
-(147, 73, 161, 12, 12, 'asd');
+) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -552,18 +331,7 @@ CREATE TABLE IF NOT EXISTS `itemrecords` (
   `officeID` int(255) DEFAULT '255',
   `supplierID` int(255) DEFAULT '1',
   PRIMARY KEY (`itemrecordsID`)
-) ENGINE=MyISAM AUTO_INCREMENT=437 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `itemrecords`
---
-
-INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate`, `risNo`, `iarNo`, `startingQuantity`, `deliveryQuantity`, `returnsQuantity`, `issuanceQuantity`, `currentQuantity`, `status`, `officeID`, `supplierID`) VALUES
-(436, 161, 149, '2018-05-27', 123, NULL, -28, NULL, NULL, 12, -40, 'decreased', 61, 1),
-(435, 161, 149, '2018-05-27', 123, NULL, -16, NULL, NULL, 12, -28, 'decreased', 61, 1),
-(434, 67, 56, '2018-05-27', NULL, NULL, 231, NULL, 12, NULL, 243, 'increased', 38, 1),
-(433, 67, 56, '2018-05-26', 123, NULL, 243, NULL, NULL, 12, 231, 'decreased', 61, 1),
-(432, 67, 56, '2018-05-31', NULL, 123, 120, 123, NULL, NULL, 243, 'increased', 255, 10);
+) ENGINE=MyISAM AUTO_INCREMENT=465 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -574,121 +342,119 @@ INSERT INTO `itemrecords` (`itemrecordsID`, `itemID`, `inventoryID`, `recordDate
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE IF NOT EXISTS `items` (
   `itemID` int(10) NOT NULL AUTO_INCREMENT,
-  `supplierID` int(10) DEFAULT NULL,
   `acctSn` varchar(45) NOT NULL,
   `categoryNo` int(10) NOT NULL,
   `pgsoSn` varchar(45) NOT NULL,
   `description` varchar(255) NOT NULL,
   `unitID` int(10) NOT NULL,
   `unitCost` int(11) NOT NULL,
-  `brand` varchar(20) DEFAULT NULL,
   `expirationDate` date DEFAULT NULL,
   `icsNo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`itemID`, `supplierID`, `acctSn`, `categoryNo`, `pgsoSn`, `description`, `unitID`, `unitCost`, `brand`, `expirationDate`, `icsNo`) VALUES
-(61, 4, '0013-BLACK', 1, '1004', 'Ballpen,ordinary,BLACK', 2, 90, '3', NULL, NULL),
-(62, 4, '0015', 1, '1006', 'Band,rubber,big size, #18, 450 grams', 3, 228, 'Elastic', NULL, NULL),
-(63, 4, '0016', 1, '1007', 'Battery,alkaline,9 volts', 2, 110, 'Pamasonic', NULL, NULL),
-(64, 4, '0017', 1, '1008', 'Battery,alkaline,size AA', 2, 27, 'Panasonic', NULL, NULL),
-(65, 4, '0018', 1, '1009', 'Battery,alkaline,size AAA', 2, 26, 'Sony', NULL, NULL),
-(66, 4, '0019', 1, '1010', 'Battery,alkaline,size C', 1, 112, 'Every Day', NULL, NULL),
-(67, 4, '0020', 1, '1011', 'Battery,size D', 2, 35, 'Every Day', NULL, NULL),
-(68, 6, '0021', 1, '1012', 'Battery,CR 123A, lithium,3 volts', 2, 35, 'Every Day', NULL, NULL),
-(69, 9, '0022', 1, '1013', 'Battery, CR 2025, Lithium, Flat, 3 volts', 2, 47, 'Panasonic', NULL, NULL),
-(70, 6, '0024', 1, '1015', 'Card, Calling Card', 3, 350, 'Stationary', NULL, NULL),
-(71, 9, '0028', 1, '1018', 'Binder,comb/Spiral, round, plastic,1.5 x 44', 2, 39, 'Cattleya', NULL, NULL),
-(72, 9, '0029', 1, '1019', 'Binder,plastic,spiral,black,12 mm x 1.2 m (0.5x44)', 2, 9, 'Cattleya', NULL, NULL),
-(73, 6, '0033', 1, '1023', 'Binder,ring,metal,19 mm', 2, 11, 'Gold', NULL, NULL),
-(74, 10, '0038', 1, '1028', 'Pad,refill,for Printer 50,E/50 ', 2, 32, 'Sterling', NULL, NULL),
-(75, 10, '0039', 1, '1029', 'Binder, Comb, plastic, Black, 5/16 length 46', 2, 32, 'Green Apple', NULL, NULL),
-(76, 10, '0055', 1, '1037', 'Book,columnar,4 columns', 6, 28, 'Vello', NULL, NULL),
-(77, 10, '0056', 1, '1028', 'Book,columnar, 24 columns', 6, 45, 'Vello', NULL, NULL),
-(78, 4, '0057', 1, '1039', 'Book,record,wide, official,500 leaves, White/Blue.8.5', 2, 127, 'Blue Note', NULL, NULL),
-(79, 5, '0145', 1, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, 'Canon', '2018-04-08', NULL),
-(80, 5, '0146', 2, '2002', 'Ink cartridge,Canon CL-811', 10, 1133, 'Canon', '2019-10-10', NULL),
-(81, 5, '0147', 2, '2003', 'Ink cartridge,Canon CL-831', 10, 1175, 'Canon', '2019-05-16', NULL),
-(82, 5, '0148', 2, '2004', 'Ink cartridge,Canon CLI-36, color', 10, 1140, 'Canon', '2019-05-11', NULL),
-(83, 5, '0149', 2, '2005', 'Ink cartridge,Canon CLI-8, Cyan', 10, 914, 'Canon', '2021-11-22', NULL),
-(84, 4, '0150', 2, '2006', 'Ink cartridge,Canon CLI-8, Magenta', 10, 867, 'Canon', '2023-09-10', NULL),
-(87, 4, '0151', 2, '2007', 'Ink cartridge,Canon CLI-8, Yellow', 10, 902, 'Canon', '2022-10-28', NULL),
-(88, 6, '0152', 2, '2008', 'Ink cartridge,Canon PG- 830', 10, 979, 'Canon', '2021-10-05', NULL),
-(89, 8, '0005', 3, '3001', 'Apron, Standard Size', 2, 77, 'X', NULL, NULL),
-(90, 6, '0153', 2, '2009', 'Ink cartridge,Canon PG-40', 10, 1115, 'Canon', '2022-12-31', NULL),
-(91, 6, '0005', 3, '3002', 'Bag,garbage,15 x 15 x 37, Black, Red, Green, Yellow', 2, 6, 'x', NULL, NULL),
-(92, 6, '0155', 2, '2010', 'Ink cartridge,Canon PGI-35, black', 10, 747, 'Canon', '2019-11-20', NULL),
-(93, 9, '0156', 2, '2011', 'Ink cartridge,Canon PGI-5BK, Black', 10, 964, 'Canon', '2023-04-04', NULL),
-(94, 9, '0158', 2, '2012', 'Toner, DocuCentre S2011/S2320/S2520, CT202384', 4, 4264, 'DocuCentre', '2023-05-02', NULL),
-(95, 4, '0439', 5, '0001', 'Printer, P 14,999.00 and below', 2, 14999, 'HP', NULL, ''),
-(96, 9, '0159', 2, '2013', 'Ink cartridge,Epson L800, black', 10, 2415, 'Epson', '2022-12-31', NULL),
-(97, 9, '0440', 5, '0002', 'Seal Dry seal', 1, 15000, 'EPSON', NULL, NULL),
-(98, 9, '0160', 2, '2014', 'Ink cartridge,Epson L800, cyan, light cyan, magenta, light magenta, yellow', 10, 3187, 'Epson', '2024-02-05', NULL),
-(99, 5, '0441', 5, '0003', 'UPS P 14,999.00 and below', 2, 15000, 'CANON', NULL, NULL),
-(100, 6, '0442', 5, '0004', 'Network Printers and Storage Server, USB Type ', 2, 10000, 'HP', NULL, NULL),
-(101, 6, '0161', 2, '2015', 'Ink cartridge,Epson, L210 Black', 10, 735, 'Epson', '2024-02-02', NULL),
-(102, 6, '0162', 2, '2016', 'Ink cartridge,for HP Officejet 7110, original, (4 cart/set-complete colors)', 10, 3554, 'HP', '2023-06-28', NULL),
-(103, 1, '008', 3, '3003', 'Bag,Plastic,100\'s/pack,Large', 1, 112, 'X', NULL, NULL),
-(104, 4, '0117', 1, '1070', 'Fastener,screw type,2, 100 pcs/pack', 2, 5, 'hen', NULL, NULL),
-(106, 4, '0448', 5, '0006', 'Cabinet wooden', 2, 800, '', NULL, NULL),
-(107, 4, '0010', 3, '3005', 'Bag,sando,medium size, 100 pcs/pack', 1, 77, 'x', NULL, NULL),
-(108, 6, '0217', 2, '2174', ' Ink,Refill,HP Deckjet GT510,GT51,Cyan ', 11, 2200, 'HP', '2023-04-06', NULL),
-(109, 5, '0449', 5, '0007', 'Recorder, Digital', 1, 60, '', NULL, NULL),
-(110, 4, '0011', 3, '3006', 'Bag,sando,XL, 50 pcs/pack', 1, 88, 'x', NULL, NULL),
-(111, 8, '0450', 5, '0007', 'Table, wooden (Office Table) without glass pad', 2, 500, '', NULL, NULL),
-(112, 4, '0012', 3, '3007', 'Bag,zip,XXL, 20pcs/pack', 1, 53, 'x', NULL, NULL),
-(114, 8, '0041', 3, '3008', 'Bleaching Agent,1 gal', 14, 134, 'xy', NULL, NULL),
-(115, 6, '0059', 3, '3009', 'Broom,ceiling/wall', 2, 121, 'xyz', NULL, NULL),
-(116, 7, '0060', 3, '3010', 'Broom,soft, wooden handle', 2, 109, 'x', NULL, NULL),
-(117, 9, '0061', 3, '3011', 'Broom,stick', 12, 29, 'xy', NULL, NULL),
-(118, 7, '0062', 3, '3012', 'Brush, Tile/Toilet brush, plastic long handle', 2, 116, 'xy', NULL, NULL),
-(119, 7, '0063', 3, '3013', 'Brush, Hand Brush plastic, without handle,2\" x 6\"', 2, 66, 'xy', NULL, NULL),
-(120, 6, '0451', 5, '0008', 'Table (Computer Table) ', 1, 20000, '', NULL, NULL),
-(121, 7, '0064', 3, '3014', 'Brush,toilet bowl,round w/ container', 2, 55, 'xy', NULL, NULL),
-(122, 5, '0452', 5, '0009', 'Cabinet Steel, 4 drawers', 2, 50, '', NULL, NULL),
-(123, 4, '0373', 2, '2120', 'Toner cartridge,HP Q6000A Black', 10, 9900, 'HP', '2024-07-07', NULL),
-(124, 4, '0076', 3, '3015', 'Cleaner,glass,with sprayer,500 ml', 11, 146, 'x', NULL, NULL),
-(125, 4, '0460', 5, '0010', 'Cutter, Paper, Heavy Duty', 2, 50, '', NULL, NULL),
-(126, 4, '077', 3, '3016', 'Cleaner,toilet bowl and urinal,1000 ml, anti-microbial system, lemon fresh, multi-purpose cleaner, kills and viruses, container with handle', 11, 169, 'x', NULL, NULL),
-(127, 4, '0374', 2, '2121', 'Toner cartridge,HP Q6001A Cyan', 10, 13200, 'HP', '2023-03-05', NULL),
-(128, 4, '0078', 3, '3017', 'Cleaner,wipe out dirt , 250g', 13, 83, 'xz', NULL, NULL),
-(129, 4, '0375', 2, '2122', 'Toner cartridge,HP Q6002A Yellow', 10, 13200, 'HP', '2023-10-02', NULL),
-(130, 4, '0079', 3, '3018', 'Cleanser,powder,350 grams', 11, 37, 'xy', NULL, NULL),
-(131, 4, '0083', 3, '3019', 'Conditioner,fabric,1 gallon', 14, 263, 'x', NULL, NULL),
-(132, 4, '0097', 3, '3020', 'Deodorant cake,toilet,refill, 50g', 2, 31, 'xy', NULL, NULL),
-(133, 4, '0098', 3, '3021', 'Detergent powder,1000g with stain away formula, high foam, calamansi fresh', 1, 92, 'x', NULL, NULL),
-(134, 4, '0099', 3, '3022', 'Dishwashing liquid,250 ml, anti-bacterial, powerful grease stripping, triple active power, lemon or calamansi', 11, 64, 'x', NULL, NULL),
-(135, 4, '0100', 3, '3023', 'Disinfectant,1000 ml', 11, 39, 'xy', NULL, NULL),
-(137, 4, '0105', 3, '3025', 'Duster, cloth', 2, 17, 'xy', NULL, NULL),
-(138, 4, '0106', 3, '3026', 'Dustpan,G.I.,23\" handle', 2, 110, 'x', NULL, NULL),
-(139, 4, '0122', 3, '3027', 'Fly catcher, hanging/Table', 2, 31, 'x', NULL, NULL),
-(141, 4, '0129', 3, '3029', 'Freshener,air,320 ml, 5 in 1', 11, 198, 'xy', NULL, NULL),
-(142, 4, '0130', 3, '3030', 'Gloves, rubber, Large, medium, small', 16, 46, 'xy', NULL, NULL),
-(143, 4, '0134', 3, '3031', 'Handle,mop,steel', 2, 413, 'zz', NULL, NULL),
-(145, 4, '0001', 4, '4001', 'Album,DVD/CD case,folder', 2, 1500, 'Kodak', NULL, ''),
-(146, 9, '0027', 4, '4002', 'Bin,trash with cover,foot operated,medium,round,plastic', 2, 198, 'Attach-A-Trash', NULL, NULL),
-(147, 4, '0068', 4, '4008', 'Card reader,usb type', 2, 104, 'Micro SD', NULL, NULL),
-(148, 4, '0069', 4, '4036', 'Card reader, internal', 5, 330, 'Micro SD', NULL, NULL),
-(149, 6, '0094', 4, '4009', 'cutter,heavy duty,L500,retractable', 2, 52, 'D', NULL, NULL),
-(150, 5, '0102', 4, '4011', 'Dispenser,tape,for 1\",transparent tape', 2, 82, 'F', NULL, NULL),
-(151, 4, '0113', 4, '4012', 'Extension,USB', 2, 275, 'AA', NULL, NULL),
-(152, 7, '0119', 4, '4029', 'Stamp,self linking,colop 40,printer 40', 1, 218, 'AD', NULL, NULL),
-(153, 7, '0121', 4, '4013', 'Flash drive,USB,32 GB', 2, 643, 'AP', NULL, NULL),
-(154, 5, '0132', 4, '4014', 'Glue gun,heavy duty', 2, 412, 'BB', NULL, NULL),
-(155, 8, '0245', 4, '4030', 'Stamp,self linking,colop 50,printer 50', 1, 416, 'FD', NULL, NULL),
-(156, 4, '0265', 4, '4018', 'Memory card, 32 gb', 2, 495, 'Sandisk', NULL, NULL),
-(157, 10, '0276', 4, '4020', 'Numbering Machine,Automatic,12 digits', 2, 1200, 'DP', NULL, NULL),
-(158, 7, '0320', 4, '4021', 'puncher,2 holes,70mm,no.468,Heavy Duty', 2, 143, 'AX', NULL, NULL),
-(159, 8, '0325', 4, '4022', 'Self-inking receiving/release', 2, 2063, 'AW', NULL, NULL),
-(160, 10, '0334', 4, '4023', 'Scissors,8\",stainless steel', 16, 52, 'Que', NULL, NULL),
-(161, 10, '0339', 4, '4024', 'Sharpener,Pencil,Heavy Duty', 2, 230, 'PR', NULL, NULL),
-(162, 6, '0346', 4, '4031', 'Stapler,heavy duty,with wire remover', 2, 320, 'X', NULL, NULL),
-(163, 7, '0402', 4, '4033', 'Tray,File,3 layers,plastic,stainless stand,US-10431', 2, 582, 'Y', NULL, NULL),
-(164, 5, '0346', 4, '4031', 'Stapler,heavy duty,without1 wire remover', 2, 320, 'YY', NULL, NULL);
+INSERT INTO `items` (`itemID`, `acctSn`, `categoryNo`, `pgsoSn`, `description`, `unitID`, `unitCost`, `expirationDate`, `icsNo`) VALUES
+(61, '0013-BLACK', 1, '1004', 'Ballpen,ordinary,BLACK', 2, 90, NULL, NULL),
+(62, '0015', 1, '1006', 'Band,rubber,big size, #18, 450 grams', 3, 228, NULL, NULL),
+(63, '0016', 1, '1007', 'Battery,alkaline,9 volts', 2, 110, NULL, NULL),
+(64, '0017', 1, '1008', 'Battery,alkaline,size AA', 2, 27, NULL, NULL),
+(65, '0018', 1, '1009', 'Battery,alkaline,size AAA', 2, 26, NULL, NULL),
+(66, '0019', 1, '1010', 'Battery,alkaline,size C', 1, 112, NULL, NULL),
+(67, '0020', 1, '1011', 'Battery,size D', 2, 35, NULL, NULL),
+(68, '0021', 1, '1012', 'Battery,CR 123A, lithium,3 volts', 2, 35, NULL, NULL),
+(69, '0022', 1, '1013', 'Battery, CR 2025, Lithium, Flat, 3 volts', 2, 47, NULL, NULL),
+(70, '0024', 1, '1015', 'Card, Calling Card', 3, 350, NULL, NULL),
+(71, '0028', 1, '1018', 'Binder,comb/Spiral, round, plastic,1.5 x 44', 2, 39, NULL, NULL),
+(72, '0029', 1, '1019', 'Binder,plastic,spiral,black,12 mm x 1.2 m (0.5x44)', 2, 9, NULL, NULL),
+(73, '0033', 1, '1023', 'Binder,ring,metal,19 mm', 2, 11, NULL, NULL),
+(74, '0038', 1, '1028', 'Pad,refill,for Printer 50,E/50 ', 2, 32, NULL, NULL),
+(75, '0039', 1, '1029', 'Binder, Comb, plastic, Black, 5/16 length 46', 2, 32, NULL, NULL),
+(76, '0055', 1, '1037', 'Book,columnar,4 columns', 6, 28, NULL, NULL),
+(77, '0056', 1, '1028', 'Book,columnar, 24 columns', 6, 45, NULL, NULL),
+(78, '0057', 1, '1039', 'Book,record,wide, official,500 leaves, White/Blue.8.5', 2, 127, NULL, NULL),
+(79, '0145', 1, '2001', 'Ink cartridge,Canon CL-41', 2, 1282, '2018-04-08', NULL),
+(80, '0146', 2, '2002', 'Ink cartridge,Canon CL-811', 10, 1133, '2019-10-10', NULL),
+(81, '0147', 2, '2003', 'Ink cartridge,Canon CL-831', 10, 1175, '2019-05-16', NULL),
+(82, '0148', 2, '2004', 'Ink cartridge,Canon CLI-36, color', 10, 1140, '2019-05-11', NULL),
+(83, '0149', 2, '2005', 'Ink cartridge,Canon CLI-8, Cyan', 10, 914, '2021-11-22', NULL),
+(84, '0150', 2, '2006', 'Ink cartridge,Canon CLI-8, Magenta', 10, 867, '2023-09-10', NULL),
+(87, '0151', 2, '2007', 'Ink cartridge,Canon CLI-8, Yellow', 10, 902, '2022-10-28', NULL),
+(88, '0152', 2, '2008', 'Ink cartridge,Canon PG- 830', 10, 979, '2021-10-05', NULL),
+(89, '0005', 3, '3001', 'Apron, Standard Size', 2, 77, NULL, NULL),
+(90, '0153', 2, '2009', 'Ink cartridge,Canon PG-40', 10, 1115, '2022-12-31', NULL),
+(91, '0005', 3, '3002', 'Bag,garbage,15 x 15 x 37, Black, Red, Green, Yellow', 2, 6, NULL, NULL),
+(92, '0155', 2, '2010', 'Ink cartridge,Canon PGI-35, black', 10, 747, '2019-11-20', NULL),
+(93, '0156', 2, '2011', 'Ink cartridge,Canon PGI-5BK, Black', 10, 964, '2023-04-04', NULL),
+(94, '0158', 2, '2012', 'Toner, DocuCentre S2011/S2320/S2520, CT202384', 4, 4264, '2023-05-02', NULL),
+(95, '0439', 5, '0001', 'Printer, P 14,999.00 and below', 2, 14999, NULL, ''),
+(96, '0159', 2, '2013', 'Ink cartridge,Epson L800, black', 10, 2415, '2022-12-31', NULL),
+(97, '0440', 5, '0002', 'Seal Dry seal', 1, 15000, NULL, NULL),
+(98, '0160', 2, '2014', 'Ink cartridge,Epson L800, cyan, light cyan, magenta, light magenta, yellow', 10, 3187, '2024-02-05', NULL),
+(99, '0441', 5, '0003', 'UPS P 14,999.00 and below', 2, 15000, NULL, NULL),
+(100, '0442', 5, '0004', 'Network Printers and Storage Server, USB Type ', 2, 10000, NULL, NULL),
+(101, '0161', 2, '2015', 'Ink cartridge,Epson, L210 Black', 10, 735, '2024-02-02', NULL),
+(102, '0162', 2, '2016', 'Ink cartridge,for HP Officejet 7110, original, (4 cart/set-complete colors)', 10, 3554, '2023-06-28', NULL),
+(103, '008', 3, '3003', 'Bag,Plastic,100\'s/pack,Large', 1, 112, NULL, NULL),
+(104, '0117', 1, '1070', 'Fastener,screw type,2, 100 pcs/pack', 2, 5, NULL, NULL),
+(106, '0448', 5, '0006', 'Cabinet wooden', 2, 800, NULL, NULL),
+(107, '0010', 3, '3005', 'Bag,sando,medium size, 100 pcs/pack', 1, 77, NULL, NULL),
+(108, '0217', 2, '2174', ' Ink,Refill,HP Deckjet GT510,GT51,Cyan ', 11, 2200, '2023-04-06', NULL),
+(109, '0449', 5, '0007', 'Recorder, Digital', 1, 60, NULL, NULL),
+(110, '0011', 3, '3006', 'Bag,sando,XL, 50 pcs/pack', 1, 88, NULL, NULL),
+(111, '0450', 5, '0007', 'Table, wooden (Office Table) without glass pad', 2, 500, NULL, NULL),
+(112, '0012', 3, '3007', 'Bag,zip,XXL, 20pcs/pack', 1, 53, NULL, NULL),
+(114, '0041', 3, '3008', 'Bleaching Agent,1 gal', 14, 134, NULL, NULL),
+(115, '0059', 3, '3009', 'Broom,ceiling/wall', 2, 121, NULL, NULL),
+(116, '0060', 3, '3010', 'Broom,soft, wooden handle', 2, 109, NULL, NULL),
+(117, '0061', 3, '3011', 'Broom,stick', 12, 29, NULL, NULL),
+(118, '0062', 3, '3012', 'Brush, Tile/Toilet brush, plastic long handle', 2, 116, NULL, NULL),
+(119, '0063', 3, '3013', 'Brush, Hand Brush plastic, without handle,2\" x 6\"', 2, 66, NULL, NULL),
+(120, '0451', 5, '0008', 'Table (Computer Table) ', 1, 20000, NULL, NULL),
+(121, '0064', 3, '3014', 'Brush,toilet bowl,round w/ container', 2, 55, NULL, NULL),
+(122, '0452', 5, '0009', 'Cabinet Steel, 4 drawers', 2, 50, NULL, NULL),
+(123, '0373', 2, '2120', 'Toner cartridge,HP Q6000A Black', 10, 9900, '2024-07-07', NULL),
+(124, '0076', 3, '3015', 'Cleaner,glass,with sprayer,500 ml', 11, 146, NULL, NULL),
+(125, '0460', 5, '0010', 'Cutter, Paper, Heavy Duty', 2, 50, NULL, NULL),
+(126, '077', 3, '3016', 'Cleaner,toilet bowl and urinal,1000 ml, anti-microbial system, lemon fresh, multi-purpose cleaner, kills and viruses, container with handle', 11, 169, NULL, NULL),
+(127, '0374', 2, '2121', 'Toner cartridge,HP Q6001A Cyan', 10, 13200, '2023-03-05', NULL),
+(128, '0078', 3, '3017', 'Cleaner,wipe out dirt , 250g', 13, 83, NULL, NULL),
+(129, '0375', 2, '2122', 'Toner cartridge,HP Q6002A Yellow', 10, 13200, '2023-10-02', NULL),
+(130, '0079', 3, '3018', 'Cleanser,powder,350 grams', 11, 37, NULL, NULL),
+(131, '0083', 3, '3019', 'Conditioner,fabric,1 gallon', 14, 263, NULL, NULL),
+(132, '0097', 3, '3020', 'Deodorant cake,toilet,refill, 50g', 2, 31, NULL, NULL),
+(133, '0098', 3, '3021', 'Detergent powder,1000g with stain away formula, high foam, calamansi fresh', 1, 92, NULL, NULL),
+(134, '0099', 3, '3022', 'Dishwashing liquid,250 ml, anti-bacterial, powerful grease stripping, triple active power, lemon or calamansi', 11, 64, NULL, NULL),
+(135, '0100', 3, '3023', 'Disinfectant,1000 ml', 11, 39, NULL, NULL),
+(137, '0105', 3, '3025', 'Duster, cloth', 2, 17, NULL, NULL),
+(138, '0106', 3, '3026', 'Dustpan,G.I.,23\" handle', 2, 110, NULL, NULL),
+(139, '0122', 3, '3027', 'Fly catcher, hanging/Table', 2, 31, NULL, NULL),
+(141, '0129', 3, '3029', 'Freshener,air,320 ml, 5 in 1', 11, 198, NULL, NULL),
+(142, '0130', 3, '3030', 'Gloves, rubber, Large, medium, small', 16, 46, NULL, NULL),
+(143, '0134', 3, '3031', 'Handle,mop,steel', 2, 413, NULL, NULL),
+(145, '0001', 4, '4001', 'Album,DVD/CD case,folder', 2, 1500, NULL, ''),
+(146, '0027', 4, '4002', 'Bin,trash with cover,foot operated,medium,round,plastic', 2, 198, NULL, NULL),
+(147, '0068', 4, '4008', 'Card reader,usb type', 2, 104, NULL, NULL),
+(148, '0069', 4, '4036', 'Card reader, internal', 5, 330, NULL, NULL),
+(149, '0094', 4, '4009', 'cutter,heavy duty,L500,retractable', 2, 52, NULL, NULL),
+(150, '0102', 4, '4011', 'Dispenser,tape,for 1\",transparent tape', 2, 82, NULL, NULL),
+(151, '0113', 4, '4012', 'Extension,USB', 2, 275, NULL, NULL),
+(152, '0119', 4, '4029', 'Stamp,self linking,colop 40,printer 40', 1, 218, NULL, NULL),
+(153, '0121', 4, '4013', 'Flash drive,USB,32 GB', 2, 643, NULL, NULL),
+(154, '0132', 4, '4014', 'Glue gun,heavy duty', 2, 412, NULL, NULL),
+(155, '0245', 4, '4030', 'Stamp,self linking,colop 50,printer 50', 1, 416, NULL, NULL),
+(156, '0265', 4, '4018', 'Memory card, 32 gb', 2, 495, NULL, NULL),
+(157, '0276', 4, '4020', 'Numbering Machine,Automatic,12 digits', 2, 1200, NULL, NULL),
+(158, '0320', 4, '4021', 'puncher,2 holes,70mm,no.468,Heavy Duty', 2, 143, NULL, NULL),
+(159, '0325', 4, '4022', 'Self-inking receiving/release', 2, 2063, NULL, NULL),
+(160, '0334', 4, '4023', 'Scissors,8\",stainless steel', 16, 52, NULL, NULL),
+(161, '0339', 4, '4024', 'Sharpener,Pencil,Heavy Duty', 2, 230, NULL, NULL),
+(162, '0346', 4, '4031', 'Stapler,heavy duty,with wire remover', 2, 320, NULL, NULL),
+(163, '0402', 4, '4033', 'Tray,File,3 layers,plastic,stainless stand,US-10431', 2, 582, NULL, NULL),
+(164, '0346', 4, '4031', 'Stapler,heavy duty,without1 wire remover', 2, 320, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -789,14 +555,6 @@ CREATE TABLE IF NOT EXISTS `ppmp` (
   PRIMARY KEY (`ppmpID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `ppmp`
---
-
-INSERT INTO `ppmp` (`ppmpID`, `officeID`, `ppmpDate`, `type`) VALUES
-(48, 61, '2018-05-29', 'office'),
-(49, 37, '2018-05-31', 'contingency');
-
 -- --------------------------------------------------------
 
 --
@@ -812,14 +570,6 @@ CREATE TABLE IF NOT EXISTS `ppmpitems` (
   `unitCost` int(45) NOT NULL,
   PRIMARY KEY (`ppmpitemsID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=89 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ppmpitems`
---
-
-INSERT INTO `ppmpitems` (`ppmpitemsID`, `itemID`, `itemQuantity`, `ppmpID`, `unitCost`) VALUES
-(87, 61, 12, 48, 12),
-(88, 67, 12, 49, 23);
 
 -- --------------------------------------------------------
 
@@ -840,45 +590,6 @@ CREATE TABLE IF NOT EXISTS `returns` (
   PRIMARY KEY (`returnID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `returns`
---
-
-INSERT INTO `returns` (`returnID`, `itemID`, `officeID`, `itemQuantity`, `reason`, `status`, `accountID`, `returnDate`) VALUES
-(64, 67, 38, 12, 'asd', 'usable', 3, '2018-05-27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `schedule`
---
-
-DROP TABLE IF EXISTS `schedule`;
-CREATE TABLE IF NOT EXISTS `schedule` (
-  `sched_id` int(45) NOT NULL AUTO_INCREMENT,
-  `company_id` int(11) NOT NULL,
-  `sched_type` varchar(45) NOT NULL,
-  `event_type` varchar(45) NOT NULL,
-  `sched_date` varchar(45) NOT NULL,
-  `start_time` varchar(45) NOT NULL,
-  `end_time` varchar(45) NOT NULL,
-  `location` varchar(45) NOT NULL,
-  `room` varchar(45) NOT NULL,
-  `slots` int(6) NOT NULL,
-  `defaultSlot` int(15) NOT NULL,
-  PRIMARY KEY (`sched_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `schedule`
---
-
-INSERT INTO `schedule` (`sched_id`, `company_id`, `sched_type`, `event_type`, `sched_date`, `start_time`, `end_time`, `location`, `room`, `slots`, `defaultSlot`) VALUES
-(1, 2, 'Exam', 'Internship', '2018-06-02', '09:00', '11:00', 'Saint Louis University Maryheights Campus', 'D524', 49, 50),
-(2, 1, 'Exam', 'Employment', '2018-06-04', '08:00', '09:30', 'Saint Louis University Maryheaights Campus', 'D424', 45, 45),
-(3, 3, 'Exam', 'Seminar', '2018-06-08', '13:00', '16:00', 'Prince Bernhard Gym, Saint Louis University', '', 300, 300),
-(4, 1, 'Exam', 'Seminar', '2018-06-28', '08:00', '13:00', 'SLU Maryheights', 'AVR', 200, 200);
-
 -- --------------------------------------------------------
 
 --
@@ -895,7 +606,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`supplierID`),
   UNIQUE KEY `tinNo` (`tinNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `suppliers`
@@ -965,58 +676,6 @@ CREATE TABLE IF NOT EXISTS `updatehistory` (
   `itemID` int(45) NOT NULL,
   PRIMARY KEY (`updatehistoryID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `updatehistory`
---
-
-INSERT INTO `updatehistory` (`updatehistoryID`, `accountID`, `activity`, `time`, `date`, `type`, `itemID`) VALUES
-(11, 4, 'Updated Expiration date from 2019-10-09 to 2019-10-10', '08:08:pm', '2018-05-17', 'Item Update', 80),
-(10, 4, 'Updated Category from 2 to 1', '08:04:pm', '2018-05-17', 'Item Update', 61),
-(9, 4, 'Updated Category from 1 to 2', '08:04:pm', '2018-05-17', 'Item Update', 61),
-(8, 4, 'Updated Category from  to 1', '08:02:pm', '2018-05-17', 'Item Update', 79),
-(12, 4, 'Updated ICS from  to 100', '08:15:pm', '2018-05-17', 'Item Update', 145),
-(13, 4, 'Updated ICS from  to 12', '08:16:pm', '2018-05-17', 'Item Update', 145),
-(14, 4, 'Updated ICS from  to 123', '08:16:pm', '2018-05-17', 'Item Update', 145),
-(15, 4, 'Updated ICS from  to ', '08:16:pm', '2018-05-17', 'Item Update', 145),
-(16, 4, 'Updated ICS from 123 to ', '08:16:pm', '2018-05-17', 'Item Update', 145),
-(17, 4, 'Updated ICS from 1234 to 12345', '08:17:pm', '2018-05-17', 'Item Update', 145),
-(18, 4, 'Updated ICS from 12345 to 11111', '06:45:am', '2018-05-27', 'Item Update', 145),
-(19, 4, 'Updated ICS from 11111 to ', '06:45:am', '2018-05-27', 'Item Update', 145),
-(20, 4, 'Updated ICS from  to 1211', '06:45:am', '2018-05-27', 'Item Update', 95),
-(21, 4, 'Updated ICS from 1211 to 0', '06:45:am', '2018-05-27', 'Item Update', 95),
-(22, 4, 'Updated ICS from 0 to ', '06:45:am', '2018-05-27', 'Item Update', 95);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(45) NOT NULL AUTO_INCREMENT,
-  `password` varchar(45) NOT NULL,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `id_num` int(45) NOT NULL,
-  `contact_num` varchar(45) NOT NULL,
-  `course` varchar(45) DEFAULT NULL,
-  `year` int(11) DEFAULT NULL,
-  `user_type` varchar(45) NOT NULL,
-  `status` varchar(250) NOT NULL DEFAULT 'registered',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `password`, `first_name`, `last_name`, `email`, `id_num`, `contact_num`, `course`, `year`, `user_type`, `status`) VALUES
-(1, '1234', 'Famae', 'Pascua', 'famaepascua@gmail.com', 2143735, '09099299181', 'BSIT', 4, 'student', 'registered'),
-(2, '1234', 'Admin', 'Admin', 'admin@gmail.com', 123456, '05845488', '', 0, 'admin', 'registered'),
-(3, '1234', 'Denyse', 'Cayadi', 'denyse@gmail.com', 2146790, '', 'BSIT', 4, 'student', 'registered');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
