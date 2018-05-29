@@ -7,10 +7,10 @@
         <?php
         $a = $_GET['num'];
 
-        echo "<a href=" . '../php/admin/deleteDisposal.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
+        echo "<a href=" . '../php/user/deleteDisposal.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Delete</a>";
         ?>
 
-        <a href="../admin/disposal.php" class='btn btn-primary pull-right'>Cancel</a>
+        <a href="../user/disposal.php" class='btn btn-primary pull-right'>Cancel</a>
     </div>
     <div class="modal-footer">
 

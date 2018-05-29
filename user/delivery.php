@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $user = $_SESSION['user'];
@@ -168,38 +169,6 @@ if ($_SESSION['type'] != "user") {
     </aside>
     <!-- #END# Left Sidebar -->
 
-    <!-- Modal for Add Item -->
-    <div class="modal col-lg-12" id="addItem" data-backdrop="static">
-        <div class="modal-dialog" style="width:99%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for Edit Items -->
-    <div class="modal col-lg-12" id="editItems" data-backdrop="static">
-        <div class="modal-dialog" style="width:100%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for Delete Items -->
-    <div class="modal col-lg-12" id="deleteItem" data-backdrop="static">
-        <div class="modal-dialog" style="width:20%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for View Items Info -->
-    <div class="modal col-lg-12" id="itemInfo" data-backdrop="static">
-        <div class="modal-dialog" style="width:80%;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
 </section>
 <!-- #END# Left Sidebar -->
 
@@ -242,11 +211,12 @@ if ($_SESSION['type'] != "user") {
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
+                                    <th  data-toggle="tooltip" title="Inspection and Acceptance Report">IAR No.</th>
                                     <th>User</th>
                                     <th>Delivery Date</th>
                                     <th>PO Date</th>
                                     <th>PO Number</th>
+                                    <th>RCPT Number</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -254,14 +224,11 @@ if ($_SESSION['type'] != "user") {
                                 <tbody>
                                 <?php
                                 require '../php/db.php';
+                                $a = $_SESSION['user'];
+
+                                $sql = "SELECT deliveryID,iarNo,username,deliveryDate,poDate,poNumber,rcptNo FROM delivery JOIN accounts ON delivery.accountID = accounts.accountID WHERE accounts.accountID = '$a'";
 
 
-                                $sql = "SELECT deliveryID,iarNo,username,deliveryDate,poDate,poNumber FROM delivery JOIN accounts ON delivery.accountID = accounts.accountID WHERE accounts.accountID = '$user'";
-
-                                /*$sql = "SELECT iarno,items.categoryNo AS a,items.description AS b,units.unitName AS c,suppliers.supplierName AS d,accounts.username AS g,
-                                                delivery.totalQuantity AS e,delivery.deliveryDate AS f,delivery.deliveryID AS idd FROM delivery JOIN items ON delivery.itemID = items.itemID
-                                                  JOIN suppliers ON delivery.supplierID = suppliers.supplierID JOIN units ON items.unitID = units.unitID JOIN accounts ON delivery.accountID = accounts.accountID";
-                                */
 
                                 $res = $conn->query($sql);
 
@@ -273,6 +240,7 @@ if ($_SESSION['type'] != "user") {
                                             . "<td>" . $row['deliveryDate'] . "</td>"
                                             . "<td>" . $row['poDate'] . "</td>"
                                             . "<td>" . $row['poNumber'] . "</td>"
+                                            . "<td>" . $row['rcptNo'] . "</td>"
                                             . "<td>" . "<a href=" . '../php/user/modal/viewDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#editIssuance'>visibility</a>" . "<a href=" . '../php/user/modal/deleteDelivery.php?num=' . $row['deliveryID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
@@ -284,7 +252,7 @@ if ($_SESSION['type'] != "user") {
                             </table>
 
 
-                            <a href="../php/user/modal/addDelivery.php" class="btn btn-primary pull-right"
+                            <a href= "../php/user/modal/addDelivery.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Delivery</a>
                         </div>
                     </div>

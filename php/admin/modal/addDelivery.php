@@ -50,7 +50,8 @@
                     <table class="table" id="dynamic_field">
                         <thead class="text-primary">
                         <th style="width: 15%;">Item</th>
-                        <th style="width: 15%;">UOM</th>
+                        <th style="width: 10%;">UOM</th>
+                        <th style="width: 15%;">Brand</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 8%">Quantity</th>
                         <th style="width: 8%">Unit Cost</th>
@@ -77,6 +78,9 @@
 
                                 ?>
                                 </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="brand[]">
                             </td>
                             <td>
                                 <select class="form-control" name="supplier[]">
@@ -143,14 +147,28 @@
                 '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
                 '</td>' +
                 '<td>' +
-                '<select name="supplier[]" class="form-control"><?php require '../../db.php'; $r = $conn->query('SELECT supplierName FROM suppliers');if ($r) {
+                '<select name = "unit[]" class="form-control"><?php
+                    require '../../db.php'; $r = $conn->query('SELECT unitID,unitName FROM units');if ($r) {
                     while ($row = $r->fetch_assoc()) {
-                        echo "<option>" . $row['supplierName'] . "</option>";
+                        echo "<option value=" .$row['unitID'] . ">" . $row['unitName'] . "</option>";
                     }
                 }?></select>' +
                 '</td>' +
-                '<td><input type="number" onkeypress="return isNumberKey(event)" name="quantity[]" min="0" class="form-control" required></td>' +
-                '<td><input type="number" onkeypress="return isNumberKey(event)" name="unitCost[]" min="0" class="form-control" required></td>' +
+                '<td><input type="text"  name="brand[]"  class="form-control" required></td>' +
+
+                '<td>' +
+                '<select class="form-control" name="supplier[]"><?php
+                                  require '../../db.php';
+                                    $sql = 'SELECT * FROM suppliers';
+                                    $res = $conn->query($sql);
+                                    if ($res) {
+                                        while ($row = $res->fetch_assoc()) {
+                                            echo "<option>" . $row['supplierName'] . "</option>";
+                                        }
+                                    }?></select>'+
+                            '</td>' +
+                '<td><input type="number" step="any" name="quantity[]" min="0" class="form-control" required></td>' +
+                '<td><input type="number" step="any" name="unitCost[]" min="0" class="form-control" required></td>' +
                 '<td><input type="number" step="any" name="totalCost[]" min="0" class="form-control" required></td>' +
                 '<td><input type="text"  name="remarks[]" min="0" class="form-control" required></td>' +
                 '<td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +

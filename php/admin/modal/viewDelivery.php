@@ -90,6 +90,7 @@ require '../../db.php';
                         <thead class="text-primary">
                         <th style="width: 15%;">Item</th>
                         <th style="width: 15%;">UOM</th>
+                        <th style="width: 15%;">BRAND</th>
                         <th style="width: 14%">Supplier</th>
                         <th style="width: 8%">Quantity</th>
                         <th style="width: 8%">Unit Cost</th>
@@ -102,7 +103,7 @@ require '../../db.php';
 
                                 $n = $_GET['num'];
 
-                                $sql = "SELECT * FROM deliveryItems JOIN items ON deliveryItems.itemID = items.itemID
+                                $sql = "SELECT *,deliveryitems.unitCost AS a FROM deliveryItems JOIN items ON deliveryItems.itemID = items.itemID
                                   JOIN suppliers ON deliveryItems.supplierID = suppliers.supplierID JOIN units ON deliveryItems.unitID = units.unitID WHERE deliveryID = '$n'";
                                 $res = $conn->query($sql);
                                 if($res){
@@ -110,9 +111,10 @@ require '../../db.php';
                                         echo "<tr>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['description'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['unitName'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['brand'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['supplierName'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['totalQuantity'] . "'></td>"
-                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['unitCost'] . "'></td>"
+                                            . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['a'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['totalCost'] . "'></td>"
                                             . "<td>" . "<input disabled type='text' class='form-control' value='" . $row['remarks'] . "'></td>";
                                     }

@@ -23,11 +23,18 @@ $rem = $_POST['remarks'];
 $cost = $_POST['unitCost'];
 $tCost = $_POST['totalCost'];
 $u = $_POST['unit'];
+$b = $_POST['brand'];
 
 
 $remz = [];
 foreach ($rem as $a) {
     array_push($remz, $a);
+
+}
+
+$br = [];
+foreach ($b as $a) {
+    array_push($br, $a);
 
 }
 
@@ -95,8 +102,8 @@ if (COUNT($item)) {
                     $rr = $ress->fetch_row();
 
 
-                    $sql = "INSERT INTO deliveryItems(deliveryID,itemID,totalQuantity,unitCost,remarks,supplierID,totalCost,unitID)
-                      VALUES('$id','$r[0]','$quanz[$m]','$costz[$m]', '$remz[$m]','$rr[0]','$tCostz[$m]','$uu[$m]')";
+                    $sql = "INSERT INTO deliveryItems(deliveryID,itemID,totalQuantity,unitCost,remarks,supplierID,totalCost,unitID,brand)
+                      VALUES('$id','$r[0]','$quanz[$m]','$costz[$m]', '$remz[$m]','$rr[0]','$tCostz[$m]','$uu[$m]','$br[$m]')";
 
                     if($conn->query($sql)){
                         $v = mysqli_insert_id($conn);

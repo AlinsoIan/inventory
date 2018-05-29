@@ -1,5 +1,8 @@
 <!-- Multi Column -->
+<?php
 
+    session_start();
+?>
 <div class="row clearfix">
 
     <div class="col-lg-12">
@@ -29,6 +32,7 @@
 
                             </div>
                         </div>
+
                     </div>
                     <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
 

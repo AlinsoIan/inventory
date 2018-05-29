@@ -18,13 +18,12 @@ if ($_SESSION['type'] == "user") {
 }
 ?>
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>Reports: SSMI</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -38,10 +37,10 @@ if ($_SESSION['type'] == "user") {
     <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet"/>
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet"/>
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -50,7 +49,7 @@ if ($_SESSION['type'] == "user") {
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet"/>
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-blue">
@@ -58,8 +57,7 @@ if ($_SESSION['type'] == "user") {
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
-               data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand"><h4>General Services Office</h4></a>
         </div>
@@ -105,13 +103,13 @@ if ($_SESSION['type'] == "user") {
             <ul class="list">
 
                 <li>
-                    <a  href= "#" onclick = "location.href='dashboard.php'">
+                    <a href= "#" onclick = "location.href='dashboard.php'">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a  href= "#" onclick = "location.href='delivery.php'">
+                    <a href= "#" onclick = "location.href='delivery.php'">
                         <i class="material-icons">event_note</i>
                         <span>Delivery</span>
                     </a>
@@ -130,10 +128,9 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='contingency.php'" ><strong>Contingency</strong></a>
                         </li>
-
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Issuance</span>
@@ -142,7 +139,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href= "#" onclick = "location.href='issuance.php'" ><strong>Offices Supplies</strong></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href= "#" onclick = "location.href='disposal.php'" ><strong>Disposal</strong></a>
                         </li>
                         <li>
@@ -151,12 +148,12 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
                 <li>
-                    <a  href= "#" onclick = "location.href='returns.php'">
+                    <a href= "#" onclick = "location.href='returns.php'">
                         <i class="material-icons">event_note</i>
                         <span>Returns</span>
                     </a>
                 </li>
-                  <li>
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
@@ -179,7 +176,7 @@ if ($_SESSION['type'] == "user") {
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">view_list</i>
                         <span>Reports</span>
@@ -188,7 +185,7 @@ if ($_SESSION['type'] == "user") {
                         <li>
                             <a href="raos.php" data-toggle='tooltip' title='Reports of Avaialable Office Supplies'><strong>RAOS</strong></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="ssmi.php" data-toggle='tooltip' title='Summary of Supplies and Materials Issued'><strong>SSMI</strong></a>
                         </li>
                         <li>
@@ -262,7 +259,6 @@ if ($_SESSION['type'] == "user") {
                     </ul>
                 </li>
 
-
         </div>
         <!-- #Menu -->
 
@@ -272,24 +268,24 @@ if ($_SESSION['type'] == "user") {
 </section>
 <!-- #END# Left Sidebar -->
 
-<!-- Modal for Add Issuance -->
-<div class="modal col-lg-12" id="addIssuance" data-backdrop="static">
+<!-- Modal for Add Office -->
+<div class="modal col-lg-12" id="addOffice" data-backdrop="static">
     <div class="modal-dialog" style="width:90%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Edit Issuance -->
-<div class="modal col-lg-12" id="editIssuance" data-backdrop="static">
+<!-- Modal for Edit Office -->
+<div class="modal col-lg-12" id="editOffice" data-backdrop="static">
     <div class="modal-dialog" style="width:100%;">
         <div class="modal-content">
         </div>
     </div>
 </div>
 
-<!-- Modal for Delete Issuance -->
-<div class="modal col-lg-12" id="deleteIssuance" data-backdrop="static">
+<!-- Modal for Delete Office -->
+<div class="modal col-lg-12" id="deleteOffice" data-backdrop="static">
     <div class="modal-dialog" style="width:20%;">
         <div class="modal-content">
         </div>
@@ -299,68 +295,137 @@ if ($_SESSION['type'] == "user") {
 
 <section class="content">
     <div class="container-fluid">
-        <!-- Basic Examples -->
-        <div class="row clearfix">
-            <div class="col-lg-12 ">
-                <div class="card">
-                    <div class="header">
-                        <h2 class="text-center">DISPOSAL</h2>
-                    </div>
-                    <div class="body">
-                        <div class="body table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Category No</th>
-                                    <th>Unit</th>
-                                    <th>Date</th>
-                                    <th>Quantity</th>
-                                    <th>Remarks</th>
-                                    <th>User</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
+        <div class="container-fluid">
 
-                                <tbody>
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="text-center">
+                                SSMI
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <h3 class="header">Filter By Date</h3>
+                            <div class="col-md-3">
+                                <label>From</label>
                                 <?php
-                                require '../php/db.php';
+                                    $a = $_SESSION['from'];
+                                    echo "<input disabled type='text' value='" . $a ."' class = 'form-control' >";
+                                ?>
+                            </div>
+                            <div class="col-md-3">
+                                <label>To</label>
+                                <?php
+                                $a = $_SESSION['to'];
+                                echo "<input disabled type='text' value='" . $a ."' class = 'form-control' >";
+                                ?>
+                            </div>
 
-                                $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
 
-                                $sql = "SELECT * FROM disposal JOIN items ON disposal.itemID = items.itemID JOIN units ON items.unitID = units.unitID JOIN accounts ON disposal.accountID = accounts.accountID";
-                                $res = $conn->query($sql);
 
-                                if ($res) {
-                                    while ($row = $res->fetch_assoc()) {
-                                        echo "<tr>"
-                                            . "<td>" . $row['description'] . "</td>"
-                                            . "<td>" . $row['categoryNo'] . "</td>"
-                                            . "<td>" . $row['unitName'] . "</td>"
-                                            . "<td>" . $row['date'] . "</td>"
-                                            . "<td>" . $row['quantity'] . "</td>"
-                                            . "<td>" . $row['remarks'] . "</td>"
-                                            . "<td>" . $row['userName'] . "</td>"
+                        </div>
+                        <hr>
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Office</label>
+                                    <?php
+                                    require '../php/db.php';
+                                    $a = $_SESSION['of'];
 
-                                            . "<td>" . "<a href=" . '../php/admin/modal/disposalDelete.php?num=' . $row['disposalID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
-                                        echo "</tr>";
+                                    $sql = "SELECT officeName FROM offices WHERE officeID = '$a'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
+                                    ?>
+                                </div>
+                                <div class="col-md-2 pull-right">
+                                    <label>Responsibility</label>
+                                    <?php
+                                    require '../php/db.php';
+                                    $a = $_SESSION['of'];
+
+                                    $sql = "SELECT rcCode FROM offices WHERE officeID = '$a'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
+                                    ?>
+                                </div>
+                                <div class="col-md-2 pull-right">
+                                    <label>Reorder Point</label>
+                                    <?php
+                                    require '../php/db.php';
+                                    $a = $_SESSION['of'];
+
+                                    $sql = "SELECT fppCode FROM offices WHERE officeID = '$a'";
+                                    $res = $conn->query($sql);
+                                    $r = $res->fetch_row();
+
+                                    echo "<input type='text' disabled='' value='$r[0]' class='form-control'>";
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table id="ehe" class="table table-bordered table-striped table-hover dataTable js-exportable">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>RIS</th>
+                                        <th>Category</th>
+                                        <th>Item</th>
+                                        <th>Quantity Issued</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    require '../php/db.php';
+
+                                    $a = $_SESSION['of'];
+                                    $az = $_SESSION['from'];
+                                    $ax = $_SESSION['to'];
+
+                                    $sql = "SELECT issuance.issuanceDate AS a,risNo,items.categoryNo AS b,items.description AS c,itemissuance.quantityIssued AS d FROM issuance
+                                      JOIN itemissuance ON issuance.issuanceId = itemissuance.issuanceID JOIN items ON itemissuance.itemID = items.itemID WHERE issuance.officeID = '$a'
+                                      AND issuanceDate BETWEEN '$az' AND '$ax'";
+
+                                    $res = $conn->query($sql);
+                                    if ($res) {
+                                        while ($row = $res->fetch_assoc()) {
+                                            echo "<tr>" .
+                                                "<td>" . $row['a'] . "</td>" .
+                                                "<td>" . $row['risNo'] . "</td>" .
+                                                "<td>" . $row['b'] . "</td>" .
+                                                "<td>" . $row['c'] . "</td>" .
+                                                "<td>" . $row['d'] . "</td>" .
+
+                                                "</tr>";
+                                        }
                                     }
 
-                                }
+                                    ?>
+                                    <tbody>
 
-                                ?>
-                                </tbody>
-                            </table>
-
-
-                            <a href="../php/admin/modal/addDisposal.php" class="btn btn-primary pull-right"
-                               data-toggle="modal" data-target="#editIssuance">Add Disposal</a>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Exportable Table -->
         </div>
-        <!-- #END# Basic Examples -->
+        <div class="modal-footer text-center">
+            <a href="../admin/ssmi.php" class="btn btn-danger pull-right">BACK</a>
+        </div>
+
+
     </div>
 </section>
 
@@ -391,6 +456,32 @@ if ($_SESSION['type'] == "user") {
 
 <script src="../js/custom.js"></script>
 
+<script>
+    $(document).ready(function () {
+        $('#filter').click(function () {
+            $from = $('#from').val();
+            $to = $('#to').val();
+            $id = $('#id').val();
+            $.ajax({
+                url: 'filterSSMI.php',
+                data: {from: $from,to: $to,id:$id },
+                dataType: 'JSON',
+                success: function (data) {
+
+                    $('#ehe').empty();
+                    $('#ehe').append(data);
+
+                }
+
+            });
+
+
+        });
+
+    });
+
+
+</script>
 
 </body>
 

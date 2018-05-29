@@ -57,11 +57,8 @@
                         <div class="col-md-2">
                             <div class="">
                                 <label>Date </label>
-                                <?php
-                                $d = date('Y/n/j');
-
-                                echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
-                                ?>
+                                <input type="date"  name="d" min="0" class="form-control"
+                                       required>
                             </div>
                         </div>
                     </div>
@@ -103,11 +100,8 @@
                         <div class="col-md-2">
                             <div class="">
                                 <label>Date </label>
-                                <?php
-                                $d = date('Y/n/j/');
-
-                                echo "<input type='text' class = 'form-control' name = ''  placeholder=' " . $d . "' value = '" . $d . "'size='15' required>";
-                                ?>
+                                <input type="date" onkeypress="return isNumberKey(event)" name="pod" min="0" class="form-control"
+                                       required>
 
                             </div>
                         </div>

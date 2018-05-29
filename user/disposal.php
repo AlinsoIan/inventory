@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $user = $_SESSION['user'];
@@ -25,7 +26,7 @@ if ($_SESSION['type'] != "user") {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Issuance</title>
+    <title>Delivery</title>
 
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -106,11 +107,12 @@ if ($_SESSION['type'] != "user") {
             <ul class="list">
                 <li>
                     <a href="#" onclick="location.href='delivery.php'">
-                        <i class="material-icons">store_mall_directory</i>
+                        <i class="material-icons">event_note</i>
                         <span>Delivery</span>
                     </a>
                 </li>
-                <li class="active">
+
+                <li  class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Issuance</span>
@@ -131,36 +133,35 @@ if ($_SESSION['type'] != "user") {
                     </a>
                 </li>
                 <li>
-
-                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
                         <span>Inventory</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="#" onclick="location.href='items2.php'" data-toggle="tooltip" title="Office Supplies"><strong>Category 1</strong></a>
+                            <a href="#" onclick="location.href='items2.php'" data-toggle="tooltip"
+                               title="Office Supplies"><strong>Category 1</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='two2.php'" data-toggle="tooltip" title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
+                            <a href="#" onclick="location.href='two2.php'" data-toggle="tooltip"
+                               title="Ink & Photocopier Consumable"><strong>Category 2</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='three2.php'" data-toggle="tooltip" title="Janitorial Supplies"><strong>Category 3</strong></a>
+                            <a href="#" onclick="location.href='three2.php'" data-toggle="tooltip"
+                               title="Janitorial Supplies"><strong>Category 3</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='four2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
+                            <a href="#" onclick="location.href='four2.php'" data-toggle="tooltip"
+                               title="Office Supplies w/ ICS"><strong>Category 4</strong></a>
                         </li>
                         <li>
-                            <a href="#" onclick="location.href='five2.php'" data-toggle="tooltip" title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category 5</strong></a>
-                        </li>
+                            <a href="#" onclick="location.href='five2.php'" data-toggle="tooltip"
+                               title="Office Supplies w/ ICS (per PPSAS-FROM PAR TO ICS/ C.O. TO M.O.O.E.)"><strong>Category
+                                    5</strong></a>
                         </li>
                     </ul>
                 </li>
 
-
-
-
-            </ul>
 
         </div>
         <!-- #Menu -->
@@ -216,6 +217,7 @@ if ($_SESSION['type'] != "user") {
                                     <th>Date</th>
                                     <th>Quantity</th>
                                     <th>Remarks</th>
+                                    <th>User</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -224,10 +226,9 @@ if ($_SESSION['type'] != "user") {
                                 <?php
                                 require '../php/db.php';
 
-                                $a =$_SESSION['user'];
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
 
-                                $sql = "SELECT * FROM disposal JOIN items ON disposal.itemID = items.itemID JOIN units ON items.unitID = units.unitID WHERE accountID = '$a'";
+                                $sql = "SELECT * FROM disposal JOIN items ON disposal.itemID = items.itemID JOIN units ON items.unitID = units.unitID JOIN accounts ON disposal.accountID = accounts.accountID";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -239,8 +240,9 @@ if ($_SESSION['type'] != "user") {
                                             . "<td>" . $row['date'] . "</td>"
                                             . "<td>" . $row['quantity'] . "</td>"
                                             . "<td>" . $row['remarks'] . "</td>"
+                                            . "<td>" . $row['userName'] . "</td>"
 
-                                            . "<td>" . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['disposalID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>" . "<a href=" . '../php/user/modal/disposalDelete.php?num=' . $row['disposalID'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 
@@ -251,7 +253,7 @@ if ($_SESSION['type'] != "user") {
                             </table>
 
 
-                            <a href="../php/admin/modal/addDisposal.php" class="btn btn-primary pull-right"
+                            <a href="../php/user/modal/addDisposal.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Disposal</a>
                         </div>
                     </div>

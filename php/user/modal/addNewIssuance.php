@@ -14,7 +14,13 @@
                 <form action="../php/user/addNewIssue.php" method="post">
                     <div class="body">
                         <div class="row">
-
+                            <div class="col-md-3">
+                                <p class="text-center">Type Of Issuance</p>
+                                <select name="type" class="form-control">
+                                    <option>PPMP</option>
+                                    <option>CONTINGENCY</option>
+                                </select>
+                            </div>
                             <div class="col-md-3 pull-right">
                                 <p class="text-center">Name of Issuer</p>
                                 <?php
@@ -44,18 +50,15 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label  data-toggle="tooltip" title="Requisition and Issue Slip Number">RIS No.</label>
+                                <label  data-toggle="tooltip" title="Requisition and Issue Slip">RIS No.</label>
                                 <input type="text" name="ris" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="">
                                 <label>Date </label>
-                                <?php
-                                $d = date('Y/n/j');
-
-                                echo "<input type='text' name = 'd' class='form-control'  placeholder=' " . $d . "'  value = '" . $d . "' required>";
-                                ?>
+                                <input type="date"  name="d" min="0" class="form-control"
+                                       required>
                             </div>
                         </div>
                     </div>
@@ -69,7 +72,9 @@
                                     require '../../db.php';
                                     $sql = "SELECT offices.officeName AS a FROM ppmp JOIN offices ON ppmp.officeID = offices.officeID";
                                     $res = $conn->query($sql);
-                                    if ($res) {
+                                    if ($res->num_rows == 0) {
+                                        echo "<option disabled> No Office with PPMP</option>";
+                                    }else{
                                         while ($row = $res->fetch_assoc()) {
                                             echo "<option value='" . $row['a'] ."'>" . $row['a'] . "</option>";
 
@@ -82,24 +87,21 @@
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label>FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </label>
+                                <label  data-toggle="tooltip" title="FPP">FPP &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </label>
                                 <input type="text" id="fpp" disabled required class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="">
-                                <label data-toggle="tooltip" title="Supplies Availability Inquiry Number">SAI No. </label>
+                                <label  data-toggle="tooltip" title="Supplies Availability Inquiry">SAI No. </label>
                                 <input type="text" name="sai"  required class="form-control">
                             </div>
                         </div>
-                        <div class="col-md-2 pull-right">
+                        <div class="col-md-2">
                             <div class="">
                                 <label>Date </label>
-                                <?php
-                                $d = date('Y/n/j');
-
-                                echo "<input type='text' class = 'form-control' name = ''  placeholder=' " . $d . "' value = '" . $d . "'size='15' required>";
-                                ?>
+                                <input type="date" onkeypress="return isNumberKey(event)" name="pod" min="0" class="form-control"
+                                       required>
 
                             </div>
                         </div>
@@ -134,13 +136,13 @@
                         }
                         ?>
                     </datalist>
-                    <div onload="getInfo();" class="row clearfix">
+                    <div class="row clearfix">
                         <table class="table" id="dynamic_field">
                             <thead class="text-primary">
-                            <th width="40%">Item Description</th>
-                            <th width="12%">QTY Requested</th>
-                            <th width="12%">QTY Issued</th>
-                            <th>Remarks</th>
+                            <th width="30%">Item Description</th>
+                            <th width="10%">QTY Requested</th>
+                            <th width="10%">QTY Issued</th>
+                            <th width="20%">Remarks</th>
                             <th width="5%"></th>
                             </thead>
                             <tbody>
@@ -148,14 +150,19 @@
 
                                 <td>
                                     <input list="items" class="form-control" name="des[]">
-
+                                </td>
+                                <td>
+                                    <input type="number" name="qRequested[]" id="req" min="0"
+                                           onkeypress="return isNumberKey(event)" required class="form-control">
                                 </td>
 
-                                <td><input type="number" name="qRequested[]" id="req" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
-                                           onkeypress="return isNumberKey(event)" required class="form-control"></td>
-                                <td><input type="text" name="remarks[]" size="30px" class="form-control"></td>
+                                <td>
+                                    <input type="number"  class="form-control" name="qIssued[]" id="iss" min="0"
+                                           onkeypress="return isNumberKey(event)" required>
+                                </td>
+                                <td>
+                                    <input type="text" name="remarks[]" size="30px" class="form-control">
+                                </td>
                             </tr>
 
                             </tbody>
@@ -184,17 +191,11 @@
 <!-- #END# Multi Column -->
 
 <script>
-    function getDesc($i) {
-        $id = $('#cat' + $i).val();
-        $.ajax({
-            url: 'category.php',
-            data: {category: $id},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#desc' + $i).html(data);
-            }
-        });
-    }
+
+
+
+
+
 
     $(document).ready(function () {
 
@@ -206,33 +207,23 @@
                 '<td>' +
                 '<input type = "text" list="items" class="form-control" name="des[]"> <datalist id="items">' +
                 '</td>' +
-
                 '<td><input type="number" name="qRequested[]" min="0" onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required class="form-control"></td>' +
-                '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
+                '<td><input type="number"  class="form-control" name="qIssued[]" min="0"  onkeypress="return isNumberKey(event)" required ></td>' +
 
+                '<td><input type="text" name="remarks[]" size="30px" class="form-control"></td>' +
                 '<td class = "text-center"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove ">X</button>' +
                 '</tr>');
         });
 
 
     });
+
     $(document).on('click', '.btn_remove', function () {
         var button_id = $(this).attr("id");
         $('#row' + button_id + '').remove();
     });
-    $('#des').change(function () {
-        $id = $(this).val();
-        $.ajax({
-            url: 'quantity.php',
-            data: {des: $id},
-            dataType: 'JSON',
-            success: function (data) {
-                $('#desc1').html(data);
-            }
-        });
 
-    });
+
 
     $('#office').change(function () {
         $id = $(this).val();
@@ -249,7 +240,9 @@
     });
 
 
-    var x = document.getElementById('office').value;
+
+
+    let x = document.getElementById('office').value;
     $.ajax({
         url: 'officeInfo.php',
         data: {office: x},
@@ -261,13 +254,14 @@
     });
 
 
+
+
     $('#req').blur(function () {
         var r = $(this).val();
         $('#iss').attr('max',r);
     })
 
- $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+
+
 
 </script>

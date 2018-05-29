@@ -9,6 +9,27 @@
                         SSMI
                     </h2>
                 </div>
+                <div class="row">
+                        <div class="col-md-3">
+                            <label>From</label>
+                            <input required id="from" type="date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label>To</label>
+                            <input required id="to" type="date" class="form-control">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label></label>
+                            <input id="filter" type="submit" class="btn btn-success btn-sm form-control" value="Search">
+                            <?php
+                            $a = $_GET['num'];
+                            echo "<input id = 'id' type='hidden' value ='" .$a . "'>";
+                            ?>
+                        </div>
+
+                </div>
+                <hr>
                 <div class="modal-header">
                     <div class="row">
                         <div class="col-md-4">
@@ -54,7 +75,7 @@
                 </div>
                 <div class="body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <table id="ehe" class="table table-bordered table-striped table-hover dataTable js-exportable">
 
                             <thead>
                             <tr>
@@ -73,7 +94,7 @@
                             $a = $_GET['num'];
 
                             $sql = "SELECT issuance.issuanceDate AS a,risNo,items.categoryNo AS b,items.description AS c,itemissuance.quantityIssued AS d FROM issuance
-                                      JOIN itemissuance ON issuance.issuanceId = itemissuance.issuanceID JOIN items ON itemissuance.itemID = items.itemID";
+                                      JOIN itemissuance ON issuance.issuanceId = itemissuance.issuanceID JOIN items ON itemissuance.itemID = items.itemID WHERE issuance.officeID = '$a'";
 
                             $res = $conn->query($sql);
                             if ($res) {
@@ -119,3 +140,28 @@
 <!-- Custom Js -->
 <script src="../js/admin.js"></script>
 <script src="../js/pages/tables/jquery-datatable.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#filter').click(function () {
+            $from = $('#from').val();
+            $to = $('#to').val();
+            $id = $('#id').val();
+            $.ajax({
+                url: 'filterSSMI.php',
+                data: {from: $from,to: $to,id:$id },
+                dataType: 'JSON',
+                success: function () {
+                    window.location.replace('ssmiFilter.php');
+
+                }
+
+            });
+
+
+        });
+
+    });
+
+
+</script>

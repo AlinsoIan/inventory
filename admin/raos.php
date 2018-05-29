@@ -287,7 +287,6 @@ if ($_SESSION['type'] == "user") {
                                     <th>Pgso-Sn</th>
                                     <th>Item</th>
                                     <th>Unit</th>
-                                    <th>Brand</th>
                                     <th>Current Quantity</th>
 
                                 </tr>
@@ -299,7 +298,7 @@ if ($_SESSION['type'] == "user") {
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
                                 $_SESSION['cat'] = "01";
 
-                                $sql = "SELECT categoryNo,items.pgsoSn AS d,units.unitName AS e,items.brand AS f,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
+                                $sql = "SELECT categoryNo,items.pgsoSn AS d,units.unitName AS e,items.description AS a,inventory.currentQuantity AS b,units.unitName AS c FROM items JOIN inventory ON items.itemID = inventory.itemID JOIN units ON 
                                     items.unitID = units.unitID WHERE inventory.currentQuantity > 0";
                                 $res = $conn->query($sql);
 
@@ -310,7 +309,6 @@ if ($_SESSION['type'] == "user") {
                                             . "<td>" . $row['d'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
                                             . "<td>" . $row['c'] . "</td>"
-                                            . "<td>" . $row['f'] . "</td>"
                                             . "<td>" . $row['b'] . "</td>";
 
 
