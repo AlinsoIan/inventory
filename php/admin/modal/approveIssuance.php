@@ -7,10 +7,10 @@
         <?php
         $a = $_GET['num'];
 
-        echo "<a href=" . '../php/admin/approveIssuance.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Approve</a>";
+        echo "<a href=" . '../php/admin/appPIssuance.php?n=' . $a . " " ." class='btn btn-primary pull-left'>Approve</a>";
         ?>
 
-        <a href="../admin/pendingIssuace.php" class='btn btn-primary pull-right'>Cancel</a>
+        <a href="../admin/pendingIssuance.php" class='btn btn-primary pull-right'>Cancel</a>
     </div>
     <div class="modal-footer">
 

@@ -226,10 +226,11 @@ if ($_SESSION['type'] != "user") {
                                 require '../php/db.php';
 
                                 $_SESSION['temp'] = basename($_SERVER['PHP_SELF']);
+                                $a = $_SESSION['user'];
 
                                 $sql = "SELECT issuanceID,type,division,offices.officeName,issuanceDate,issuanceTime,accounts.username AS a, 
                                                 issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
-                                                JOIN accounts ON issuance.accountID = accounts.accountID";
+                                                JOIN accounts ON issuance.accountID = accounts.accountID WHERE accounts.accountID = '$a'";
                                 $res = $conn->query($sql);
 
                                 if ($res) {
@@ -242,7 +243,7 @@ if ($_SESSION['type'] != "user") {
                                             . "<td>" . $row['type'] . "</td>"
                                             . "<td>" . $row['a'] . "</td>"
 
-                                            . "<td>" . "<a href=" . '../php/admin/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/admin/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
+                                            . "<td>" . "<a href=" . '../php/user/modal/viewIssuance.php?num=' . $row['idd'] . "  " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='View' data-target='#editIssuance'>visibility</a>" . "    " . "<a href=" . '../php/user/modal/issueDelete.php?num=' . $row['idd'] . " " . " class='material-icons' data-toggle='modal' data-toggle='tooltip' title='Delete' data-target='#deleteIssuance'>delete</a>" . "</td>";
                                         echo "</tr>";
                                     }
 
@@ -253,7 +254,7 @@ if ($_SESSION['type'] != "user") {
                             </table>
 
 
-                            <a href="../php/admin/modal/addNewIssuance.php" class="btn btn-primary pull-right"
+                            <a href="../php/user/modal/addNewIssuance.php" class="btn btn-primary pull-right"
                                data-toggle="modal" data-target="#editIssuance">Add Issuance</a>
                         </div>
                     </div>

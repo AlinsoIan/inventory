@@ -328,7 +328,7 @@ if ($_SESSION['type'] == "user") {
 
                                 $sql = "SELECT issuanceID,type,division,offices.officeName,issuanceDate,issuanceTime,accounts.username AS a, 
                                                 issuanceID as idd FROM issuance JOIN offices ON issuance.officeID = offices.officeID
-                                                JOIN accounts ON issuance.accountID = accounts.accountID";
+                                                JOIN accounts ON issuance.accountID = accounts.accountID AND issuance.status != 'pending'";
                                 $res = $conn->query($sql);
 
                                 if ($res) {

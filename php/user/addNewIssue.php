@@ -77,32 +77,7 @@ if($conn->query($sql)){
                       VALUES('$aa','$ttt[0]','$req[$m]','$iss[$m]','$rem[$m]')";
         $conn->query($sql);
 
-        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ttt[0]'";
-        $res = $conn->query($sql);
-        $r = $res->fetch_row();
 
-        $n = $r[0] - $iss[$m];
-
-        $sql = "UPDATE inventory SET currentQuantity ='$n' WHERE itemID = '$ttt[0]'";
-        $conn->query($sql);
-
-        $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$ttt[0]'";
-        $qq =$conn->query($sql);
-        $q = $qq->fetch_row();
-
-
-        $sql = "SELECT inventoryID FROM inventory WHERE itemID = '$ttt[0]'";
-        $f = $conn->query($sql);
-        $ff = $f->fetch_row();
-
-        $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,risNo,startingQuantity,issuanceQuantity,currentQuantity,status,officeID) 
-                VALUES('$ttt[0]','$ff[0]','$d','$ris','$r[0]','$iss[$m]','$n','decreased','$rzx[0]')";
-
-        $conn->query($sql);
-
-        $sql = "INSERT INTO history(accountID,issuanceID,activity,actDate,type,itemID)
-              VALUES ('$userID','$id','issued','$d','issuance','$ttt[0]')";
-        $conn->query($sql);
 
     }
 

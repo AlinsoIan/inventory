@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/filterSSMI.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/ssmiFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/admin/deleteDisposal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/admin/appPIssuance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/admin/modal/viewPIssuance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/disposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/disposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/raos.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/raos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/disposalDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/disposalDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/printItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/printSSMI.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/printSSMI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/viewDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addDelivery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pendingIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pendingIssuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/user/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addDelivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addDelivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addDisposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addDisposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/disposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/disposal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,35 +51,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="disposalDelete.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/disposalDelete.php">
+      <file leaf-file-name="pendingIssuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/pendingIssuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="313">
+              <caret line="347" lean-forward="true" selection-start-line="347" selection-end-line="347" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deleteDisposal.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/deleteDisposal.php">
+      <file leaf-file-name="approveIssuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIssuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deleteIssuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/deleteIssuance.php">
+      <file leaf-file-name="addNewIssue.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255" />
+            <state relative-caret-position="324">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addDisposal.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/admin/addDisposal.php">
+      <file leaf-file-name="issuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/issuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51" />
+            <state relative-caret-position="171">
+              <caret line="245" column="293" selection-start-line="245" selection-start-column="293" selection-end-line="245" selection-end-column="293" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addNewIssue.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/addNewIssue.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appPIssuance.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/admin/appPIssuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewPIssuance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewPIssuance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="616">
+              <caret line="269" column="30" lean-forward="true" selection-start-line="269" selection-start-column="30" selection-end-line="269" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addPPMP.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/addPPMP.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-459" />
           </provider>
         </entry>
       </file>
@@ -116,12 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/php/user/addDisposal.php" />
-        <option value="$PROJECT_DIR$/php/admin/modal/addDisposal.php" />
-        <option value="$PROJECT_DIR$/php/admin/addDisposal.php" />
-        <option value="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" />
-        <option value="$PROJECT_DIR$/php/admin/approveIssuance.php" />
-        <option value="$PROJECT_DIR$/admin/contingency.php" />
         <option value="$PROJECT_DIR$/admin/delivery.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/addItem.php" />
         <option value="$PROJECT_DIR$/admin/two2.php" />
@@ -133,13 +152,11 @@
         <option value="$PROJECT_DIR$/php/admin/addItem.php" />
         <option value="$PROJECT_DIR$/php/admin/addItem2.php" />
         <option value="$PROJECT_DIR$/php/admin/addItemICS.php" />
-        <option value="$PROJECT_DIR$/admin/issuance.php" />
         <option value="$PROJECT_DIR$/php/admin/addNewIssue.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/viewIssuance.php" />
         <option value="$PROJECT_DIR$/admin/accounts.php" />
         <option value="$PROJECT_DIR$/admin/reorder.php" />
         <option value="$PROJECT_DIR$/admin/toexpire.php" />
-        <option value="$PROJECT_DIR$/admin/pendingIssuance.php" />
         <option value="$PROJECT_DIR$/admin/offices.php" />
         <option value="$PROJECT_DIR$/admin/stockcard.php" />
         <option value="$PROJECT_DIR$/admin/items2.php" />
@@ -158,15 +175,23 @@
         <option value="$PROJECT_DIR$/admin/raos.php" />
         <option value="$PROJECT_DIR$/php/user/modal/addDelivery.php" />
         <option value="$PROJECT_DIR$/php/user/addDelivery.php" />
-        <option value="$PROJECT_DIR$/user/issuance.php" />
         <option value="$PROJECT_DIR$/php/user/modal/addNewIssuance.php" />
         <option value="$PROJECT_DIR$/php/user/modal/addDisposal.php" />
-        <option value="$PROJECT_DIR$/php/user/addNewIssue.php" />
         <option value="$PROJECT_DIR$/user/delivery.php" />
         <option value="$PROJECT_DIR$/user/disposal.php" />
         <option value="$PROJECT_DIR$/admin/disposal.php" />
         <option value="$PROJECT_DIR$/php/admin/modal/disposalDelete.php" />
         <option value="$PROJECT_DIR$/php/admin/deleteDisposal.php" />
+        <option value="$PROJECT_DIR$/php/user/modal/disposalDelete.php" />
+        <option value="$PROJECT_DIR$/php/user/deleteDisposal.php" />
+        <option value="$PROJECT_DIR$/admin/issuance.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/viewPIssuance.php" />
+        <option value="$PROJECT_DIR$/admin/pendingIssuance.php" />
+        <option value="$PROJECT_DIR$/php/user/addNewIssue.php" />
+        <option value="$PROJECT_DIR$/user/issuance.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/approveIsuance.php" />
+        <option value="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" />
+        <option value="$PROJECT_DIR$/php/admin/appPIssuance.php" />
       </list>
     </option>
   </component>
@@ -266,10 +291,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\inventory\php\admin" />
       <recent name="C:\wamp\www\inventory\php\admin\modal" />
-      <recent name="C:\wamp\www\inventory\php\user\modal" />
+      <recent name="C:\wamp\www\inventory\php\admin" />
       <recent name="C:\wamp\www\inventory\php\user" />
+      <recent name="C:\wamp\www\inventory\php\user\modal" />
       <recent name="C:\wamp\www\inventory\user" />
     </key>
   </component>
@@ -375,7 +400,7 @@
       <workItem from="1527291803384" duration="3000" />
       <workItem from="1527298769755" duration="723000" />
       <workItem from="1527545926888" duration="93000" />
-      <workItem from="1527546222785" duration="28592000" />
+      <workItem from="1527546222785" duration="31134000" />
     </task>
     <task id="LOCAL-00001" summary="New">
       <created>1522926964522</created>
@@ -636,11 +661,25 @@
       <option name="project" value="LOCAL" />
       <updated>1527571024421</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Updated May 29">
+      <created>1527598492765</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1527598492765</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Latest DB may 28">
+      <created>1527598770062</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1527598770062</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177826000" />
+    <option name="totallyTimeSpent" value="180368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -714,7 +753,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Latest May 6" />
     <MESSAGE value="Latest May 7" />
     <MESSAGE value="Add New Issuance" />
     <MESSAGE value="Fixed Monitory of activity for all category" />
@@ -737,107 +775,12 @@
     <MESSAGE value="Yeah" />
     <MESSAGE value="Latest DB" />
     <MESSAGE value="Latest as of MAY 28" />
-    <MESSAGE value="Latest DB may 28" />
     <MESSAGE value="yeahh" />
-    <option name="LAST_COMMIT_MESSAGE" value="yeahh" />
+    <MESSAGE value="Updated May 29" />
+    <MESSAGE value="Latest DB may 28" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest DB may 28" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1887" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/delivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3425">
-          <caret line="325" column="108" selection-start-line="325" selection-start-column="108" selection-end-line="325" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/five2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3429">
-          <caret line="332" column="50" selection-start-line="332" selection-start-column="50" selection-end-line="332" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/four2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3668">
-          <caret line="347" column="74" selection-start-line="347" selection-start-column="74" selection-end-line="347" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/history.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2116" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/issuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3688">
-          <caret line="343" column="85" selection-start-line="343" selection-start-column="85" selection-end-line="343" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/items2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="147" column="29" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/logs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="149" column="29" selection-start-line="149" selection-start-column="29" selection-end-line="149" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/officeInfo.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/offices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="145" column="29" lean-forward="true" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pendingIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3706">
-          <caret line="342" column="251" selection-start-line="342" selection-start-column="251" selection-end-line="342" selection-end-column="251" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/ppmp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2193" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/returns.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="149" column="29" selection-start-line="149" selection-start-column="29" selection-end-line="149" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1989" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/stockcard3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2091" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/stockcard4.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2244" />
@@ -979,20 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/issuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="120" column="42" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/user/addDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3077">
@@ -1007,22 +936,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/delivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="243" column="292" selection-start-line="243" selection-start-column="292" selection-end-line="243" selection-end-column="292" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/issueDelete.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/disposal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="252" column="36" lean-forward="true" selection-start-line="252" selection-start-column="36" selection-end-line="252" selection-end-column="36" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/disposal.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1031,24 +946,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-866">
-          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/user/modal/addDisposal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/addNewIssue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -1074,6 +975,140 @@
     <entry file="file://$PROJECT_DIR$/php/admin/addDisposal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/disposalDelete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/deleteDisposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="61" column="45" lean-forward="true" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/delivery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="243" column="292" selection-start-line="243" selection-start-column="292" selection-end-line="243" selection-end-column="292" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/disposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="252" column="36" lean-forward="true" selection-start-line="252" selection-start-column="36" selection-end-line="252" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/five2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3468" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/items2.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/officeInfo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/returns.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/two2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2703" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/addNewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="183" column="14" lean-forward="true" selection-start-line="183" selection-start-column="14" selection-end-line="183" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/addPPMP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/issuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="330" column="137" selection-start-line="330" selection-start-column="137" selection-end-line="330" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/issuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="245" column="293" selection-start-line="245" selection-start-column="293" selection-end-line="245" selection-end-column="293" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/modal/viewIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3978" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pendingIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="347" lean-forward="true" selection-start-line="347" selection-end-line="347" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIsuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/addNewIssue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewPIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="269" column="30" lean-forward="true" selection-start-line="269" selection-start-column="30" selection-end-line="269" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/appPIssuance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
       </provider>
     </entry>
   </component>
