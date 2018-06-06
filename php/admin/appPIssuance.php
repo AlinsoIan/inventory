@@ -24,8 +24,6 @@ if($conn->query($sql)){
     $sql = "SELECT quantityIssued,itemID FROM itemissuance WHERE issuanceID = '$a'";
     $res = $conn->query($sql);
     if($res) {
-
-
         while ($row = $res->fetch_assoc()) {
             $qi = $row['itemID'];
             $sql = "SELECT currentQuantity FROM inventory WHERE itemID = '$qi'";
@@ -51,7 +49,7 @@ if($conn->query($sql)){
             $rzx = $asd->fetch_row();
 
             $sql = "INSERT into itemrecords(itemID,inventoryID,recordDate,risNo,startingQuantity,issuanceQuantity,currentQuantity,status,officeID) 
-                VALUES('$a','$ff[0]','$pp[0]','$pp[1]','$r[0]','$rrr','$n','decreased','$rzx[0]')";
+                VALUES('$qi','$ff[0]','$pp[0]','$pp[1]','$r[0]','$rrr','$n','decreased','$rzx[0]')";
 
 
             if(!$conn->query($sql)){

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16a09379-d148-4c97-aa8e-c9493bad93e5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/php/admin/appPIssuance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/admin/modal/viewPIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/issuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pendingIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pendingIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/modal/approveIssuance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/user/addNewIssue.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user/addNewIssue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/issuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/issuance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/admin/appPIssuance.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/admin/appPIssuance.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,73 +44,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pendingIssuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/pendingIssuance.php">
+      <file leaf-file-name="addDelivery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/addDelivery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="347" lean-forward="true" selection-start-line="347" selection-end-line="347" />
+            <state relative-caret-position="2055">
+              <caret line="176" column="60" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="approveIssuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIssuance.php">
+      <file leaf-file-name="addDelivery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/addDelivery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="1515">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addNewIssue.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
+      <file leaf-file-name="viewDelivery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewDelivery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="397">
+              <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="issuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/issuance.php">
+      <file leaf-file-name="viewItemInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="245" column="293" selection-start-line="245" selection-start-column="293" selection-end-line="245" selection-end-column="293" />
+            <state relative-caret-position="877">
+              <caret line="105" column="35" lean-forward="true" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addNewIssue.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/addNewIssue.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appPIssuance.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="appPIssuance.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/admin/appPIssuance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+            <state relative-caret-position="60">
+              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewPIssuance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/viewPIssuance.php">
+      <file leaf-file-name="ssmiFilter.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/ssmiFilter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="269" column="30" lean-forward="true" selection-start-line="269" selection-start-column="30" selection-end-line="269" selection-end-column="30" />
+            <state relative-caret-position="495">
+              <caret line="371" column="30" lean-forward="true" selection-start-line="371" selection-start-column="30" selection-end-line="371" selection-end-column="30" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addPPMP.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/admin/modal/addPPMP.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-459" />
           </provider>
         </entry>
       </file>
@@ -213,10 +190,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="x" value="83" />
+    <option name="y" value="79" />
+    <option name="width" value="1221" />
+    <option name="height" value="640" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -253,30 +230,12 @@
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="modal" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="modal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inventory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -297,6 +256,203 @@
       <recent name="C:\wamp\www\inventory\php\user\modal" />
       <recent name="C:\wamp\www\inventory\user" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources/c82cc420-354a-4cde-b6e4-1e934edd5692.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/accounts.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/dashboard.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/delivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/five2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/four2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/history.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/inventory.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/issuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/items2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/logs.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/offices.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/ppmp.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/raos.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/reorder.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/returns.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/ssmi.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard3.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard4.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/stockcard5.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/supplier.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/three2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/toexpire.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/two2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/updatehistory.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/inventory.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addItem.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addItem2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addItemICS.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addNewIssue.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addPPMP.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addReturn.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addSupplier.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addItem.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addItem2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addItemICS.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addNewIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/printItem.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/printSSMI.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/viewDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/viewIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/login.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/addNewIssue.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/addReturn.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/deleteDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/addDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/addNewIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/deleteDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/viewIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/delivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/five2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/four2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/issuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/items2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/returns.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/three2.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/two2.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/contingency.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/disposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/filterSSMI.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/pendingIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/ssmiFilter.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addContingency.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/addDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/appPIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/approveIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/deleteDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addContingency.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/addDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/approveIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/disposalDelete.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/admin/modal/viewPIssuance.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/addDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/deleteDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/addDisposal.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/disposalDelete.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/php/user/modal/viewDelivery.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/disposal.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/admin/quantity.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/raos.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/ssmi.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/user/stockcard.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -679,70 +835,91 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180368000" />
+    <option name="totallyTimeSpent" value="183234000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="0" y="30" width="1366" height="738" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3253012" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2219697" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info id="Favorites" order="6" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32546374" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288364" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -781,11 +958,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Latest DB may 28" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/stockcard4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2244" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/stockcard5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2193" />
@@ -826,11 +998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/viewDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-880">
-          <caret line="116" column="123" selection-start-line="116" selection-start-column="123" selection-end-line="116" selection-end-column="123" />
-          <folding>
-            <element signature="n#style#0;n#th#2;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="397">
+          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -843,12 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/modal/addDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#th#1;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="2055">
+          <caret line="176" column="60" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -875,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/addDelivery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="109" column="47" lean-forward="true" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
+        <state relative-caret-position="1515">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
@@ -891,13 +1056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/ssmiFilter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="424" column="78" selection-start-line="424" selection-start-column="78" selection-end-line="424" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -1069,13 +1227,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIsuance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/approveIsuance.php" />
     <entry file="file://$PROJECT_DIR$/php/user/addNewIssue.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1104,10 +1256,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/admin/modal/viewItemInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="105" column="35" lean-forward="true" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/admin/appPIssuance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        <state relative-caret-position="60">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/ssmiFilter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="371" column="30" lean-forward="true" selection-start-line="371" selection-start-column="30" selection-end-line="371" selection-end-column="30" />
         </state>
       </provider>
     </entry>
